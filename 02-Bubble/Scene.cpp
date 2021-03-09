@@ -45,6 +45,10 @@ void Scene::update(int deltaTime)
 	player->update(deltaTime);
 }
 
+SceneManager* Scene::changeScene() {
+	return this;
+}
+
 void Scene::render()
 {
 	glm::mat4 modelview;
