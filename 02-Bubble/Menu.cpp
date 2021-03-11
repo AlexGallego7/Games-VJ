@@ -16,13 +16,45 @@ Menu::~Menu()
 void Menu::init()
 {
 	glm::vec2 geom[2] = { glm::vec2(0.f, 0.f), glm::vec2(float(SCREEN_WIDTH), float(SCREEN_HEIGHT)) };
+	glm::vec2 geomChars[2] = { glm::vec2(0.f, 0.f), glm::vec2(20.f, 20.f) };
 	glm::vec2 texCoords[2] = { glm::vec2(0.f, 0.f), glm::vec2(1.f, 1.f) };
 
 	initShaders();
-	texQuad = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+	texQuad[0] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.53f, 0.5f); texCoords[1] = glm::vec2(0.565f, 1.f); // P
+	texQuad[1] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.4f, 0.5f); texCoords[1] = glm::vec2(0.435f, 1.f); // L 
+	texQuad[2] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.034f, 0.5f); texCoords[1] = glm::vec2(0.068f, 1.f); // A 
+	texQuad[3] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.83f, 0.5f); texCoords[1] = glm::vec2(0.863f, 1.f); // Y
+	texQuad[4] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.63f, 0.5f); texCoords[1] = glm::vec2(0.66f, 1.f); // S
+	texQuad[5] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.66f, 0.5f); texCoords[1] = glm::vec2(0.69f, 1.f); // T
+	texQuad[6] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.034f, 0.5f); texCoords[1] = glm::vec2(0.068f, 1.f); // A 
+	texQuad[7] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.6f, 0.5f); texCoords[1] = glm::vec2(0.63f, 1.f); // R 
+	texQuad[8] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.66f, 0.5f); texCoords[1] = glm::vec2(0.69f, 1.f); // T
+	texQuad[9] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+
+
 
 	// Load textures
-	tex.loadFromFile("images/menu.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[0].loadFromFile("images/menu.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
@@ -62,7 +94,44 @@ void Menu::render()
 
 	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, 0.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad->render(tex);
+	texQuad[0]->render(tex[0]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(245.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[1]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(265.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[2]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(280.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[3]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(300.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[4]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(340.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[5]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(360.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[6]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(380.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[7]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(400.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[8]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(415.f, 270.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[9]->render(tex[1]);
+
 }
 
 void Menu::initShaders()

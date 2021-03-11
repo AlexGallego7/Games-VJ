@@ -1,18 +1,19 @@
-#ifndef _MENU_INCLUDE
-#define _MENU_INCLUDE
-
+#ifndef _GAMEOVERSCENE_INCLUDE
+#define _GAMEOVERSCENE_INCLUDE
 
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
-#include "Game.h"
+#include "SceneManager.h"
+#include "Texture.h"
 #include "TexturedQuad.h"
+#include "Menu.h"
 
-class Menu : public SceneManager
-{
+class GameOverScene : public SceneManager {
 
 public:
-	Menu();
-	~Menu();
+
+	GameOverScene();
+	~GameOverScene();
 
 	void init();
 	void update(int deltaTime);
@@ -20,18 +21,15 @@ public:
 	SceneManager* changeScene();
 
 private:
+	
 	void initShaders();
 
 private:
-	bool begin;
-	TexturedQuad* texQuad[10];
-	Texture tex[2];
+	TexturedQuad* texQuad;
+	Texture tex;
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
-
 };
 
-
 #endif // _SCENE_INCLUDE
-

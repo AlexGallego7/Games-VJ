@@ -7,6 +7,7 @@
 #include "TileMap.h"
 #include "Player.h"
 #include "SceneManager.h"
+#include "GameOverScene.h"
 
 
 // Scene contains all the entities of our game.
@@ -29,6 +30,7 @@ private:
 	void initShaders();
 
 private:
+	bool gameover;
 	TileMap *map;
 	Player *player;
 	ShaderProgram texProgram;
