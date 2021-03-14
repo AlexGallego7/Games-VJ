@@ -1,21 +1,21 @@
+#include "InstruccionsScene.h"
 #include <iostream>
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp>
-#include "GameOverSCene.h"
 
-GameOverScene::GameOverScene()
+InstruccionsScene::InstruccionsScene()
 {
 }
 
-GameOverScene::~GameOverScene()
+InstruccionsScene::~InstruccionsScene()
 {
 }
 
-int GameOverScene::getEscena() {
-	return 3;
+int InstruccionsScene::getEscena() {
+	return 1;
 }
 
-void GameOverScene::init()
+void InstruccionsScene::init()
 {
 	glm::vec2 geom[2] = { glm::vec2(0.f, 0.f), glm::vec2(68.f, 7.f) };
 	glm::vec2 texCoords[2] = { glm::vec2(0.f, 0.f), glm::vec2(1.f, 1.f) };
@@ -30,13 +30,13 @@ void GameOverScene::init()
 	currentTime = 0.0f;
 }
 
-void GameOverScene::update(int deltaTime)
+void InstruccionsScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
 
 }
 
-SceneManager* GameOverScene::changeScene() {
+SceneManager* InstruccionsScene::changeScene() {
 
 	if (currentTime / 1000 == 0) {
 		SceneManager* scene = new Scene();
@@ -48,7 +48,7 @@ SceneManager* GameOverScene::changeScene() {
 
 }
 
-void GameOverScene::render()
+void InstruccionsScene::render()
 {
 	glm::mat4 modelview;
 
@@ -69,7 +69,7 @@ void GameOverScene::render()
 
 }
 
-void GameOverScene::initShaders()
+void InstruccionsScene::initShaders()
 {
 	Shader vShader, fShader;
 

@@ -25,6 +25,7 @@ public:
 	void update(int deltaTime);
 	void render();
 	SceneManager* changeScene();
+	int getEscena();
 
 private:
 	void initShaders();

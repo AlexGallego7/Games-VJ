@@ -6,6 +6,7 @@
 #include "ShaderProgram.h"
 #include "Game.h"
 #include "TexturedQuad.h"
+#include "InstruccionsScene.h"
 
 class Menu : public SceneManager
 {
@@ -17,6 +18,7 @@ public:
 	void init();
 	void update(int deltaTime);
 	void render();
+	int getEscena();
 	SceneManager* changeScene();
 
 private:

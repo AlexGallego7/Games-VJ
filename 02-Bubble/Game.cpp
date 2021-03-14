@@ -30,6 +30,29 @@ void Game::keyPressed(int key)
 	if(key == 27) // Escape code
 		bPlay = false;
 	keys[key] = true;
+
+	if (scene->getEscena() == 0) {
+		if (key == 'i') {
+			scene = new InstruccionsScene();
+			scene->init();
+		}
+	}
+	if (scene->getEscena() == 1) {
+		if (key == 'm') {
+			scene = new Menu();
+			scene->init();
+		}
+	}
+	if (scene->getEscena() == 3) {
+		if (key == 'm') {
+			scene = new Menu();
+			scene->init();
+		}
+	}
+
+	
+
+
 }
 
 void Game::keyReleased(int key)

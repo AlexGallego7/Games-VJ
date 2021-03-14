@@ -12,6 +12,9 @@ Menu::~Menu()
 {
 }
 
+int Menu::getEscena() {
+	return 0;
+}
 
 void Menu::init()
 {
@@ -133,6 +136,8 @@ void Menu::render()
 	texQuad[9]->render(tex[1]);
 
 }
+
+
 
 void Menu::initShaders()
 {

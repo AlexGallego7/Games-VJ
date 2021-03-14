@@ -1,5 +1,6 @@
-#ifndef _GAMEOVERSCENE_INCLUDE
-#define _GAMEOVERSCENE_INCLUDE
+#ifndef _INSTRUCCIONSSCENE_INCLUDE
+#define _INSTRUCCIONSSCENE_INCLUDE
+
 
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
@@ -8,12 +9,12 @@
 #include "TexturedQuad.h"
 #include "Menu.h"
 
-class GameOverScene : public SceneManager {
+class InstruccionsScene : public SceneManager
+{
 
 public:
-
-	GameOverScene();
-	~GameOverScene();
+	InstruccionsScene();
+	~InstruccionsScene();
 
 	void init();
 	void update(int deltaTime);
@@ -22,7 +23,6 @@ public:
 	int getEscena();
 
 private:
-	
 	void initShaders();
 
 private:
@@ -31,6 +31,8 @@ private:
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
+
 };
+
 
 #endif // _SCENE_INCLUDE
