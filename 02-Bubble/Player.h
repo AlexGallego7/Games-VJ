@@ -4,13 +4,14 @@
 
 #include "Sprite.h"
 #include "TileMap.h"
+#include "EntityManager.h"
 
 
 // Player is basically a Sprite that represents the player. As such it has
 // all properties it needs to track its movement, jumping, and collisions.
 
 
-class Player
+class Player: public EntityManager
 {
 
 public:

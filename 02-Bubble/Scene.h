@@ -5,9 +5,11 @@
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
 #include "TileMap.h"
+#include "EntityManager.h"
 #include "Player.h"
 #include "SceneManager.h"
 #include "GameOverScene.h"
+#include "Skull.h"
 
 
 // Scene contains all the entities of our game.
@@ -33,7 +35,7 @@ private:
 private:
 	bool gameover;
 	TileMap *map;
-	Player *player;
+	EntityManager* ents[2];
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
