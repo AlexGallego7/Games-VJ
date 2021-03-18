@@ -1,11 +1,10 @@
 TILEMAP
-36 20 							-- Size of tile map in tiles
+14 2							-- Size of tile map in tiles
 16 16 							-- Tile size & block size
 images/walls_red.png 	-- Tilesheet
-4 4								-- Number of tiles in tilesheet
-565656565656565656565656565656565656
-656565656565656565656565656565656565
-565656565656565656565656565656565656
+4 4 							-- Number of tiles in tilesheet
+11 12 11 12 11 12 11 12 11 12 11 12 11 12 
+10 11 12 11 12 11 0 11 0 11 12 11 12 11 
 656565656565656565656565656565656565
 1                                  3
 2                                  4
