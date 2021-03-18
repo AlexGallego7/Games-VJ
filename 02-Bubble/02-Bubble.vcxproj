@@ -12,9 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimKeyframes.h" />
+    <ClInclude Include="Door.h" />
+    <ClInclude Include="Drop.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOverScene.h" />
+    <ClInclude Include="Gui.h" />
     <ClInclude Include="InstruccionsScene.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
@@ -29,8 +32,11 @@
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Door.cpp" />
+    <ClCompile Include="Drop.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
+    <ClCompile Include="GUI.cpp" />
     <ClCompile Include="InstruccionsScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />

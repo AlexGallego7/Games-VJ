@@ -10,6 +10,8 @@
 #include "SceneManager.h"
 #include "GameOverScene.h"
 #include "Skull.h"
+#include "Drop.h"
+#include "Door.h"
 
 
 // Scene contains all the entities of our game.
@@ -28,6 +30,7 @@ public:
 	void render();
 	SceneManager* changeScene();
 	int getEscena();
+	void loadEscena();
 
 private:
 	void initShaders();
@@ -35,7 +38,7 @@ private:
 private:
 	bool gameover;
 	TileMap *map;
-	EntityManager* ents[2];
+	EntityManager* ents[4];
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
