@@ -80,29 +80,23 @@ bool TileMap::loadLevel(const string &levelFile)
 	map = new int[mapSize.x * mapSize.y];
 	for(int j=0; j<mapSize.y; j++)
 	{
-		//getline(fin, line);
-		//sstream.str(line);
-		for(int i=0; i<mapSize.x; i++)
+
+		for (int i = 0; i < mapSize.x; i++)
 		{
-			/*sstream >> tile;
-			
-			map[j * mapSize.x + i] = tile;*/
-
 			fin.get(t);
-			if (t != ' ') {
-				tile = (t - int('0'));
+			tile = (t - int('0'));
+			fin.get(t);
+			while (t != ' ') {
+				tile = tile * 10 + (t - int('0'));
 				fin.get(t);
-				while (t != ' ') {
-					tile = tile * 10 + (t - int('0'));
-					fin.get(t);
-				}
-				map[j * mapSize.x + i] = tile;
 			}
-			else
+			if (tile == '0')
 				map[j * mapSize.x + i] = 0;
+			else
+				map[j * mapSize.x + i] = tile;
 		}
-
 		fin.get(t);
+
 #ifndef _WIN32
 		sstream >> tile;
 #endif
@@ -129,7 +123,7 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 				// Non-empty tile
 				nTiles++;
 				posTile = glm::vec2(minCoords.x + i * tileSize, minCoords.y + j * tileSize);
-				texCoordTile[0] = glm::vec2(float((tile-1)%5) / tilesheetSize.x, float((tile-1)/4) / tilesheetSize.y);
+				texCoordTile[0] = glm::vec2(float((tile-1)%4) / tilesheetSize.x, float((tile-1)/4) / tilesheetSize.y);
 				texCoordTile[1] = texCoordTile[0] + tileTexSize;
 				//texCoordTile[0] += halfTexel;
 				texCoordTile[1] -= halfTexel;
