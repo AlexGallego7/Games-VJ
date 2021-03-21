@@ -49,6 +49,12 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 	}
+	if (scene->getEscena() == 4) {
+		if (key == 'm') {
+			scene = new Menu();
+			scene->init();
+		}
+	}
 
 }
 

@@ -1,42 +1,43 @@
-#include "InstruccionsScene.h"
+#include "WinScene.h"
 #include <iostream>
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp>
 
-InstruccionsScene::InstruccionsScene()
+
+WinScene::WinScene()
 {
 }
 
-InstruccionsScene::~InstruccionsScene()
+WinScene::~WinScene()
 {
 }
 
-int InstruccionsScene::getEscena() {
-	return 1;
+int WinScene::getEscena() {
+	return 4;
 }
 
-void InstruccionsScene::init()
+void WinScene::init()
 {
-	glm::vec2 geom[2] = { glm::vec2(0.f, 0.f), glm::vec2(float(SCREEN_WIDTH), float(SCREEN_HEIGHT)) };
+	glm::vec2 geom[2] = { glm::vec2(0.f, 0.f), glm::vec2(68.f, 7.f) };
 	glm::vec2 texCoords[2] = { glm::vec2(0.f, 0.f), glm::vec2(1.f, 1.f) };
 
 	initShaders();
 	texQuad = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
 
 	// Load textures
-	tex.loadFromFile("images/ins.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex.loadFromFile("images/gameover.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 }
 
-void InstruccionsScene::update(int deltaTime)
+void WinScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
 
 }
 
-SceneManager* InstruccionsScene::changeScene() {
+SceneManager* WinScene::changeScene() {
 
 	if (currentTime / 1000 == 0) {
 		SceneManager* scene = new Scene();
@@ -48,7 +49,7 @@ SceneManager* InstruccionsScene::changeScene() {
 
 }
 
-void InstruccionsScene::render()
+void WinScene::render()
 {
 	glm::mat4 modelview;
 
@@ -59,15 +60,17 @@ void InstruccionsScene::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, 0.f, 0.f));
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(380.f, 400.f, 0.f));
+	modelview = glm::translate(modelview, glm::vec3(64.f, 64.f, 0.f));
+	modelview = glm::scale(modelview, glm::vec3(4.f, 4.f, 0.f));
+	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad->render(tex);
 
 
-
 }
 
-void InstruccionsScene::initShaders()
+void WinScene::initShaders()
 {
 	Shader vShader, fShader;
 
@@ -96,6 +99,7 @@ void InstruccionsScene::initShaders()
 	vShader.free();
 	fShader.free();
 }
+
 
 
 

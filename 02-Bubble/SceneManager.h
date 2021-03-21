@@ -14,6 +14,7 @@ public:
 	instrucciones -> 1
 	Scene (jugar) -> 2
 	gameOver -> 3
+	win -> 4
 	*/
 
 };
