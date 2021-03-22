@@ -3,6 +3,10 @@
 
 
 #include <glm/glm.hpp>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
 #include "ShaderProgram.h"
 #include "TileMap.h"
 #include "EntityManager.h"
@@ -30,15 +34,17 @@ public:
 	void render();
 	SceneManager* changeScene();
 	int getEscena();
-	void loadEscena();
+	bool loadEscena(const string& levelFile);
 
 private:
 	void initShaders();
 
 private:
 	bool gameover;
+	string entity;
+	glm::ivec2 pos;
 	TileMap *map;
-	EntityManager* ents[4];
+	vector<EntityManager*> ent;
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
