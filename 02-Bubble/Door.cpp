@@ -40,6 +40,15 @@ void Door::setPosition(const glm::vec2& pos)
 	posPlayer = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
+int Door::getTypeEntity() {
+	return 3;
+}
+
+glm::ivec2 Door::getPos()
+{
+	return posPlayer;
+} 
+
 
 
 

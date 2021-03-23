@@ -18,6 +18,10 @@ public:
 	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram);
 	void update(int deltaTime);
 	void render();
+
+	glm::ivec2 getPos();
+
+	int getTypeEntity();
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
@@ -25,6 +29,7 @@ public:
 private:
 	bool bJumping;
 	glm::ivec2 tileMapDispl, posPlayer;
+	vector<EntityManager*> ent;
 	int jumpAngle, startY;
 	Texture spritesheet;
 	Sprite *sprite;

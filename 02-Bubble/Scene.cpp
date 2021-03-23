@@ -36,6 +36,7 @@ void Scene::init()
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
+	lives = 2;
 }
 
 void Scene::update(int deltaTime)
@@ -47,6 +48,23 @@ void Scene::update(int deltaTime)
 	if (Game::instance().getKey('f')) {
 		gameover = true;
 	}
+
+	for (int i = 0; i < ent.size(); i++) {
+		if (ent[i]->getTypeEntity() == 0) {
+			glm::ivec2 posPlayer = ent[0]->getPos();
+			glm::ivec2 posEnemy = ent[i]->getPos();
+			if (posPlayer.x == posEnemy.x) {
+				if ((posPlayer.y)+16 == posEnemy.y) {
+					lives--;
+				}
+			}
+		}
+	}
+
+	if (lives == 0) {
+		gameover = true;
+	}
+
 }
 
 SceneManager* Scene::changeScene() {
@@ -118,6 +136,8 @@ bool Scene::loadEscena(const string& levelFile) {
 		}
 	}
 }
+
+
 
 void Scene::initShaders()
 {

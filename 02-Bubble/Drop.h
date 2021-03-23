@@ -13,6 +13,8 @@ class Drop : public EntityManager
 public:
 	void init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram);
 	void update(int deltaTime);
+	int getTypeEntity();
+	glm::ivec2 getPos();
 	void render();
 
 	void setTileMap(TileMap* tileMap);
