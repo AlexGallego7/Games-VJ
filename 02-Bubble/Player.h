@@ -27,7 +27,7 @@ public:
 	void setPosition(const glm::vec2 &pos);
 	
 private:
-	bool bJumping;
+	bool bJumping, bClimbing;
 	glm::ivec2 tileMapDispl, posPlayer;
 	vector<EntityManager*> ent;
 	int jumpAngle, startY;

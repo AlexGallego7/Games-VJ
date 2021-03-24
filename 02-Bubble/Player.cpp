@@ -13,16 +13,17 @@
 
 enum PlayerAnims
 {
-	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT, PUNCH_LEFT, PUNCH_RIGHT
+	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT, 
+	PUNCH_LEFT, PUNCH_RIGHT, CLIMBING, STAND_CL
 };
 
 
 void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 {
-	bJumping = false;
+	bJumping = false; bClimbing = false;
 	spritesheet.loadFromFile("images/chdef.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 1/3.f), &spritesheet, &shaderProgram);
-	sprite->setNumberAnimations(6);
+	sprite->setNumberAnimations(8);
 	
 		sprite->setAnimationSpeed(STAND_LEFT, 8);
 		sprite->addKeyframe(STAND_LEFT, glm::vec2(0.f, 1/3.f));
@@ -47,7 +48,13 @@ void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 		sprite->setAnimationSpeed(PUNCH_RIGHT, 8);
 		sprite->addKeyframe(PUNCH_RIGHT, glm::vec2(0.f, 2/3.f));
 
+		sprite->setAnimationSpeed(CLIMBING, 8);
+		sprite->addKeyframe(CLIMBING, glm::vec2(0.5f, 2/3.f));
+		sprite->addKeyframe(CLIMBING, glm::vec2(0.75f, 2/3.f));
 
+
+		sprite->setAnimationSpeed(STAND_CL, 8);
+		sprite->addKeyframe(STAND_CL, glm::vec2(0.5f, 2/3.f));
 		
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
@@ -70,35 +77,61 @@ void Player::update(int deltaTime)
 
 	else if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
 	{
-		if(sprite->animation() != MOVE_LEFT)
-			sprite->changeAnimation(MOVE_LEFT);
-		posPlayer.x -= 2;
-		if(map->collisionMoveLeft(posPlayer, glm::ivec2(32, 32)))
-		{
-			posPlayer.x += 2;
-			sprite->changeAnimation(STAND_LEFT);
+		if (!bClimbing) {
+			if (sprite->animation() != MOVE_LEFT)
+				sprite->changeAnimation(MOVE_LEFT);
+			posPlayer.x -= 2;
+			if (map->collisionMoveLeft(posPlayer, glm::ivec2(32, 32)))
+			{
+				posPlayer.x += 2;
+				sprite->changeAnimation(STAND_LEFT);
+			}
 		}
 	}
 	else if(Game::instance().getSpecialKey(GLUT_KEY_RIGHT))
 	{
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posPlayer.x += 2;
-		if(map->collisionMoveRight(posPlayer, glm::ivec2(32, 32)))
-		{
-			posPlayer.x -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
+		if (!bClimbing) {
+			if (sprite->animation() != MOVE_RIGHT)
+				sprite->changeAnimation(MOVE_RIGHT);
+			posPlayer.x += 2;
+			if (map->collisionMoveRight(posPlayer, glm::ivec2(32, 32)))
+			{
+				posPlayer.x -= 2;
+				sprite->changeAnimation(STAND_RIGHT);
+			}
 		}
 	}
 
 	else
 	{
-		if(sprite->animation() == MOVE_LEFT || sprite->animation() == PUNCH_LEFT)
+		if (sprite->animation() == MOVE_LEFT || sprite->animation() == PUNCH_LEFT)
 			sprite->changeAnimation(STAND_LEFT);
-		else if(sprite->animation() == MOVE_RIGHT || sprite->animation() == PUNCH_RIGHT)
+		else if (sprite->animation() == MOVE_RIGHT || sprite->animation() == PUNCH_RIGHT)
 			sprite->changeAnimation(STAND_RIGHT);
+		/*else if (sprite->animation() == CLIMBING)
+			sprite->changeAnimation(STAND_CL);*/
 	}
-	
+
+	if (bClimbing) {
+
+		if (Game::instance().getSpecialKey(GLUT_KEY_UP)) {
+			posPlayer.y -= 2;
+			if (map->endClimbingPlant(posPlayer, glm::ivec2(32, 32))) {
+				posPlayer.y -= 50;
+				sprite->changeAnimation(STAND_RIGHT);
+				bClimbing = false;
+			}
+		}
+
+		else if (Game::instance().getSpecialKey(GLUT_KEY_DOWN)) {
+			posPlayer.y += 2;
+			if (map->startClimbingPlant(posPlayer, glm::ivec2(32, 32))) {
+				sprite->changeAnimation(STAND_RIGHT);
+				bClimbing = false;
+			}
+		}
+
+	}
 	if(bJumping)
 	{
 		jumpAngle += JUMP_ANGLE_STEP;
@@ -116,14 +149,25 @@ void Player::update(int deltaTime)
 	}
 	else
 	{
-		posPlayer.y += FALL_STEP;
-		if(map->collisionMoveDown(posPlayer, glm::ivec2(32, 32), &posPlayer.y))
-		{
-			if(Game::instance().getSpecialKey(GLUT_KEY_UP))
+		if(!bClimbing) {
+			posPlayer.y += FALL_STEP;
+			if (map->collisionMoveDown(posPlayer, glm::ivec2(32, 32), &posPlayer.y))
 			{
-				bJumping = true;
-				jumpAngle = 0;
-				startY = posPlayer.y;
+				if (Game::instance().getSpecialKey(GLUT_KEY_UP))
+				{
+					if (map->isOnClimbingPlant(posPlayer, glm::ivec2(32, 32))) {
+						posPlayer.y -= 2;
+						bClimbing = true;
+						if (sprite->animation() != CLIMBING) {
+							sprite->changeAnimation(CLIMBING);
+						}
+					}
+					else {
+						bJumping = true;
+						jumpAngle = 0;
+						startY = posPlayer.y;
+					}
+				}
 			}
 		}
 	}

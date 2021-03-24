@@ -157,6 +157,46 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 // Method collisionMoveDown also corrects Y coordinate if the box is
 // already intersecting a tile below.
 
+bool TileMap::isOnClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
+{
+	int x, y;
+
+	x = pos.x / tileSize;
+	y = pos.y / tileSize;
+
+	/*
+	for (int y = y0; y <= y1; y++)
+	{
+		if (map[y * mapSize.x + x] != 0 &&
+			map[y * mapSize.x + x] != 26)
+			return true;
+	}*/
+
+	return map[y * mapSize.x + x] == 26 || map[y * mapSize.x +x] == 23
+				|| map[y * mapSize.x + x] == 25;
+
+}
+
+bool TileMap::endClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
+{
+	int x, y;
+	
+	x = pos.x / tileSize;
+	y = (pos.y + 20) / tileSize;
+
+	return map[y * mapSize.x + x] == 25;
+}
+
+bool TileMap::startClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
+{
+	int x, y;
+
+	x = pos.x / tileSize;
+	y = (pos.y + 50) / tileSize;
+
+	return map[y * mapSize.x + x] == 23;
+}
+
 bool TileMap::collisionMoveLeft(const glm::ivec2 &pos, const glm::ivec2 &size) const
 {
 	int x, y0, y1;
@@ -166,7 +206,8 @@ bool TileMap::collisionMoveLeft(const glm::ivec2 &pos, const glm::ivec2 &size) c
 	y1 = (pos.y + size.y - 1) / tileSize;
 	for(int y=y0; y<=y1; y++)
 	{
-		if(map[y*mapSize.x+x] != 0)
+		if (map[y * mapSize.x + x] != 0 &&
+			map[y * mapSize.x + x] != 26)
 			return true;
 	}
 	
@@ -182,7 +223,8 @@ bool TileMap::collisionMoveRight(const glm::ivec2 &pos, const glm::ivec2 &size) 
 	y1 = (pos.y + size.y - 1) / tileSize;
 	for(int y=y0; y<=y1; y++)
 	{
-		if(map[y*mapSize.x+x] != 0)
+		if(map[y*mapSize.x+x] != 0 && 
+			map[y * mapSize.x + x] != 26)
 			return true;
 	}
 	
@@ -198,7 +240,7 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	y = (pos.y + size.y - 1) / tileSize;
 	for(int x=x0; x<=x1; x++)
 	{
-		if(map[y*mapSize.x+x] != 0)
+		if(map[y*mapSize.x+x] != 0 && map[y*mapSize.x+x] != 26)
 		{
 			if(*posY - tileSize * y + size.y <= 4)
 			{
