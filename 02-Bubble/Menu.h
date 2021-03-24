@@ -25,7 +25,6 @@ private:
 	void initShaders();
 
 private:
-	bool begin;
 	TexturedQuad* texQuad[10];
 	Texture tex[2];
 	ShaderProgram texProgram;

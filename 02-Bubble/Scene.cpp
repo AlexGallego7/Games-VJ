@@ -6,16 +6,19 @@
 
 
 #define SCREEN_X 60
-#define SCREEN_Y 70
-
-#define INIT_PLAYER_X_TILES 4
-#define INIT_PLAYER_Y_TILES 9
-
+#define SCREEN_Y 60
 
 Scene::Scene()
 {
 	map = NULL;
 	gameover = false;
+}
+
+Scene::Scene(string _levelFile)
+{
+	map = NULL;
+	gameover = false;
+	levelFile = _levelFile;
 }
 
 Scene::~Scene()
@@ -31,8 +34,8 @@ int Scene::getEscena() {
 void Scene::init()
 {
 	initShaders();
-	map = TileMap::createTileMap("levels/lv01.txt", glm::vec2(SCREEN_X, SCREEN_Y), texProgram);
-	loadEscena("levels/lv01_items.txt");
+	map = TileMap::createTileMap(levelFile + ".txt", glm::vec2(SCREEN_X, SCREEN_Y), texProgram);
+	loadEscena(levelFile + "_items.txt");
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
@@ -54,7 +57,7 @@ void Scene::update(int deltaTime)
 			glm::ivec2 posPlayer = ent[0]->getPos();
 			glm::ivec2 posEnemy = ent[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {
-				if ((posPlayer.y)+16 == posEnemy.y) {
+				if ((posPlayer.y - posEnemy.y) < 16) {
 					lives--;
 				}
 			}
@@ -118,6 +121,12 @@ bool Scene::loadEscena(const string& levelFile) {
 		}
 		else if (entity == "SKULL") {
 			ent[i] = new Skull();
+			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+			ent[i]->setTileMap(map);
+		}
+		else if (entity == "SKELETON") {
+			ent[i] = new Skeleton();
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);

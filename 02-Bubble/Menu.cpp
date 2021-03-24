@@ -5,7 +5,6 @@
 
 Menu::Menu()
 {
-	begin = false;
 }
 
 Menu::~Menu()
@@ -52,9 +51,6 @@ void Menu::init()
 	texCoords[0] = glm::vec2(0.66f, 0.5f); texCoords[1] = glm::vec2(0.69f, 1.f); // T
 	texQuad[9] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-
-
-
 	// Load textures
 	tex[0].loadFromFile("images/menu.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
@@ -66,21 +62,17 @@ void Menu::init()
 
 void Menu::update(int deltaTime)
 {
-	currentTime += deltaTime;
-
-	if (Game::instance().getKey(' ')) {
-		begin = true;
-	}
-	
+	currentTime += deltaTime;	
 }
 
 SceneManager* Menu::changeScene() {
 
-	if (begin) {
-		SceneManager* scene = new Scene();
+	if (Game::instance().getKey(' ')) {
+		SceneManager* scene = new Scene("levels/lv01");
 		scene->init();
 		return scene;
 	}
+	return this;
 
 }
 
@@ -136,7 +128,6 @@ void Menu::render()
 	texQuad[9]->render(tex[1]);
 
 }
-
 
 
 void Menu::initShaders()

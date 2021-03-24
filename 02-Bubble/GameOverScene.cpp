@@ -38,8 +38,8 @@ void GameOverScene::update(int deltaTime)
 
 SceneManager* GameOverScene::changeScene() {
 
-	if (currentTime / 1000 == 0) {
-		SceneManager* scene = new Scene();
+	if (Game::instance().getKey(' ')) {
+		SceneManager* scene = new Menu();
 		scene->init();
 		return scene;
 	}
@@ -47,6 +47,7 @@ SceneManager* GameOverScene::changeScene() {
 	return this;
 
 }
+
 
 void GameOverScene::render()
 {

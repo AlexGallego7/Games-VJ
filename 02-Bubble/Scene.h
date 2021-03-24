@@ -16,6 +16,7 @@
 #include "Skull.h"
 #include "Drop.h"
 #include "Door.h"
+#include "Skeleton.h"
 
 
 // Scene contains all the entities of our game.
@@ -27,6 +28,7 @@ class Scene : public SceneManager
 
 public:
 	Scene();
+	Scene(string levelFile);
 	~Scene();
 
 	void init();
@@ -41,6 +43,7 @@ private:
 
 private:
 	bool gameover;
+	string levelFile;
 	string entity;
 	glm::ivec2 pos;
 	TileMap *map;
