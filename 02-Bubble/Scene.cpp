@@ -41,6 +41,8 @@ void Scene::init()
 	currentTime = 0.0f;
 	lives = 5;
 	exp = 0;
+
+	Gui::instance().init();
 }
 
 void Scene::update(int deltaTime)
@@ -110,6 +112,7 @@ SceneManager* Scene::changeScene() {
 
 void Scene::render()
 {
+	Gui::instance().render();
 	glm::mat4 modelview;
 
 	texProgram.use();
@@ -123,6 +126,7 @@ void Scene::render()
 		ent[i]->render();
 	for (int i = 0; i < enemy.size(); ++i)
 		enemy[i]->render();
+	
 }
 
 bool Scene::loadEscena(const string& levelFile) {

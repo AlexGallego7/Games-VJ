@@ -41,7 +41,7 @@
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
-    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Gui.cpp" />
     <ClCompile Include="InstruccionsScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
