@@ -10,6 +10,7 @@
 #include "ShaderProgram.h"
 #include "TileMap.h"
 #include "EntityManager.h"
+#include "EnemyManager.h"
 #include "Player.h"
 #include "SceneManager.h"
 #include "GameOverScene.h"
@@ -48,6 +49,7 @@ private:
 	glm::ivec2 pos;
 	TileMap *map;
 	vector<EntityManager*> ent;
+	vector<EnemyManager*> enemy;
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;

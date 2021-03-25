@@ -68,7 +68,7 @@ void Skull::setPosition(const glm::vec2& pos)
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int Skull::getTypeEntity() {
+int Skull::getTypeEnemy() {
 	return 0;
 }
 

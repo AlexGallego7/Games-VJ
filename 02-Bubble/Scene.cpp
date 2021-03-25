@@ -47,15 +47,17 @@ void Scene::update(int deltaTime)
 	currentTime += deltaTime;
 	for (int i = 0; i < ent.size(); ++i)
 		ent[i]->update(deltaTime);
+	for (int i = 0; i < enemy.size(); ++i)
+		enemy[i]->update(deltaTime);
 
 	if (Game::instance().getKey('f')) {
 		gameover = true;
 	}
 
-	for (int i = 0; i < ent.size(); i++) {
-		if (ent[i]->getTypeEntity() == 0 && !Game::instance().getGodMode()) {
+	for (int i = 0; i < enemy.size(); i++) {
+		if (!Game::instance().getGodMode()) {
 			glm::ivec2 posPlayer = ent[0]->getPos();
-			glm::ivec2 posEnemy = ent[i]->getPos();
+			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {
 				if ((posPlayer.y - posEnemy.y) < 16) {
 					lives--;
@@ -64,7 +66,7 @@ void Scene::update(int deltaTime)
 		}
 	}
 
-	if (lives == 0) {
+	if (lives <= 0) {
 		gameover = true;
 	}
 
@@ -91,6 +93,8 @@ void Scene::render()
 	map->render();
 	for (int i = 0; i < ent.size(); ++i)
 		ent[i]->render();
+	for (int i = 0; i < enemy.size(); ++i)
+		enemy[i]->render();
 }
 
 bool Scene::loadEscena(const string& levelFile) {
@@ -119,18 +123,6 @@ bool Scene::loadEscena(const string& levelFile) {
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
-		else if (entity == "SKULL") {
-			ent[i] = new Skull();
-			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
-			ent[i]->setTileMap(map);
-		}
-		else if (entity == "SKELETON") {
-			ent[i] = new Skeleton();
-			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
-			ent[i]->setTileMap(map);
-		}
 		else if (entity == "DOOR") {
 			ent[i] = new Door();
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
@@ -143,7 +135,29 @@ bool Scene::loadEscena(const string& levelFile) {
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
+		
 	}
+	getline(fin, line);
+		sstream.str(line);
+		sstream >> size;
+		enemy.resize(size);
+		for (int i = 0; i < size; ++i) {
+			getline(fin, line);
+			sstream.str(line);
+			sstream >> entity >> pos.x >> pos.y;
+			if (entity == "SKULL") {
+				enemy[i] = new Skull();
+				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				enemy[i]->setTileMap(map);
+			}
+			else if (entity == "SKELETON") {
+				enemy[i] = new Skeleton();
+				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				enemy[i]->setTileMap(map);
+			}
+		}
 }
 
 

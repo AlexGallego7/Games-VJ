@@ -4,16 +4,16 @@
 
 #include "Sprite.h"
 #include "TileMap.h"
-#include "EntityManager.h"
+#include "EnemyManager.h"
 
-class Skeleton : public EntityManager
+class Skeleton : public EnemyManager
 {
 
 public:
 	void init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram);
 	void update(int deltaTime);
 	void render();
-	int getTypeEntity();
+	int getTypeEnemy();
 
 	glm::ivec2 getPos();
 
