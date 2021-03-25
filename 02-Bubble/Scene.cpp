@@ -39,7 +39,8 @@ void Scene::init()
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
-	lives = 2;
+	lives = 5;
+	exp = 0;
 }
 
 void Scene::update(int deltaTime)
@@ -54,13 +55,40 @@ void Scene::update(int deltaTime)
 		gameover = true;
 	}
 
+	//ser golpeado por enemigo
 	for (int i = 0; i < enemy.size(); i++) {
 		if (!Game::instance().getGodMode()) {
 			glm::ivec2 posPlayer = ent[0]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {
-				if ((posPlayer.y - posEnemy.y) < 16) {
+				if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
 					lives--;
+				}
+			}
+		}
+		
+	}
+	//golpear a enemigos
+	if (Game::instance().getPunch()) {
+		for (int i = 0; i < enemy.size(); i++) {
+			glm::ivec2 posPlayer = ent[0]->getPos();
+			glm::ivec2 posEnemy = enemy[i]->getPos();
+			if (enemy[i]->getTypeEnemy() == 0) {
+				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
+					if ((posEnemy.y - posPlayer.y) < 32 && 0 < (posEnemy.y - posPlayer.y)) {
+						int lives_enemy = enemy[i]->hit();
+						if (lives_enemy <= 0) enemy.erase(enemy.begin() + i);
+						exp += 10;
+					}
+				}
+			}
+			else if (enemy[i]->getTypeEnemy() == 1) {
+				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
+					if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
+						int lives_enemy = enemy[i]->hit();
+						if (lives_enemy <= 0) enemy.erase(enemy.begin() + i);
+						exp += 20;
+					}
 				}
 			}
 		}

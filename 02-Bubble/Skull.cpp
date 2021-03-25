@@ -30,11 +30,14 @@ void Skull::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 
+	lives = 1;
+
 }
 
 void Skull::update(int deltaTime)
 {
 	sprite->update(deltaTime);
+	
 
 	if(sprite->animation() == MOVE_LEFT){
 		posPlayer.x -= 2;
@@ -75,6 +78,11 @@ int Skull::getTypeEnemy() {
 glm::ivec2 Skull::getPos()
 {
 	return posPlayer;
+}
+
+int Skull::hit() {
+	lives--;
+	return lives;
 }
 
 

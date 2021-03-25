@@ -73,6 +73,7 @@ void Player::update(int deltaTime)
 			sprite->changeAnimation(PUNCH_RIGHT);
 		else if (sprite->animation() == MOVE_LEFT ||sprite->animation() == STAND_LEFT)
 			sprite->changeAnimation(PUNCH_LEFT);
+
 	}
 
 	else if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))

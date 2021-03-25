@@ -10,12 +10,15 @@ void Game::init()
 	scene = new Menu();
 	scene->init();
 	godmode = false;
+	punch = false;
 }
 
 bool Game::update(int deltaTime)
 {
 	scene->update(deltaTime);
 	scene = scene->changeScene();
+	punch = false;
+
 	
 	
 	return bPlay;
@@ -34,6 +37,7 @@ void Game::keyPressed(int key)
 	keys[key] = true;
 
 	if (key == 'g') godmode = !godmode;
+	if (key == ' ') punch = true;
 
 	if (scene->getEscena() == 0) {
 		if (key == 'i') {
@@ -102,6 +106,10 @@ bool Game::getSpecialKey(int key) const
 bool Game::getGodMode() 
 {
 	return godmode;
+}
+
+bool Game::getPunch() {
+	return punch;
 }
 
 

@@ -30,6 +30,8 @@ void Skeleton::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 
+	lives = 1;
+
 }
 
 void Skeleton::update(int deltaTime)
@@ -69,13 +71,16 @@ void Skeleton::setPosition(const glm::vec2& pos)
 }
 
 int Skeleton::getTypeEnemy() {
-	return 0;
+	return 1;
 }
 
 glm::ivec2 Skeleton::getPos()
 {
 	return posPlayer;
 }
-
+int Skeleton::hit() {
+	lives--;
+	return lives;
+}
 
 
