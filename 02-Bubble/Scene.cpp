@@ -53,7 +53,7 @@ void Scene::update(int deltaTime)
 	}
 
 	for (int i = 0; i < ent.size(); i++) {
-		if (ent[i]->getTypeEntity() == 0) {
+		if (ent[i]->getTypeEntity() == 0 && !Game::instance().getGodMode()) {
 			glm::ivec2 posPlayer = ent[0]->getPos();
 			glm::ivec2 posEnemy = ent[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {

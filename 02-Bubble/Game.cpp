@@ -9,12 +9,14 @@ void Game::init()
 	glClearColor(0.f, 0.f, 0.f, 1.0f);
 	scene = new Menu();
 	scene->init();
+	godmode = false;
 }
 
 bool Game::update(int deltaTime)
 {
 	scene->update(deltaTime);
 	scene = scene->changeScene();
+	
 	
 	return bPlay;
 }
@@ -30,6 +32,8 @@ void Game::keyPressed(int key)
 	if(key == 27) // Escape code
 		bPlay = false;
 	keys[key] = true;
+
+	if (key == 'g') godmode = !godmode;
 
 	if (scene->getEscena() == 0) {
 		if (key == 'i') {
@@ -93,6 +97,11 @@ bool Game::getKey(int key) const
 bool Game::getSpecialKey(int key) const
 {
 	return specialKeys[key];
+}
+
+bool Game::getGodMode() 
+{
+	return godmode;
 }
 
 
