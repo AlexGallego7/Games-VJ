@@ -43,9 +43,9 @@ private:
 	void initShaders();
 
 private:
-	bool gameover;
-	string levelFile;
-	string entity;
+	bool gameover, nextlevel, prevlevel;
+	string levelFile, entity, next, prev;
+	int lives, exp;
 	glm::ivec2 pos;
 	TileMap *map;
 	vector<EntityManager*> ent;
@@ -53,7 +53,6 @@ private:
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
-	int lives, exp;
 
 };
 

@@ -12,12 +12,16 @@ Scene::Scene()
 {
 	map = NULL;
 	gameover = false;
+	nextlevel = false;
+	prevlevel = false;
 }
 
 Scene::Scene(string _levelFile)
 {
 	map = NULL;
 	gameover = false;
+	nextlevel = false;
+	prevlevel = false;
 	levelFile = _levelFile;
 }
 
@@ -51,9 +55,10 @@ void Scene::update(int deltaTime)
 	for (int i = 0; i < enemy.size(); ++i)
 		enemy[i]->update(deltaTime);
 
-	if (Game::instance().getKey('f')) {
-		gameover = true;
-	}
+	if (map->nextLevel(ent[0]->getPos(), glm::ivec2(16, 16)))
+		nextlevel = true;
+	else if (map->prevLevel(ent[0]->getPos(), glm::ivec2(16, 16)))
+		prevlevel = true;
 
 	//ser golpeado por enemigo
 	for (int i = 0; i < enemy.size(); i++) {
@@ -77,7 +82,7 @@ void Scene::update(int deltaTime)
 				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
 					if ((posEnemy.y - posPlayer.y) < 32 && 0 < (posEnemy.y - posPlayer.y)) {
 						int lives_enemy = enemy[i]->hit();
-						if (lives_enemy <= 0) enemy.erase(enemy.begin() + i);
+						if (lives_enemy <= 0) enemy[i]->dies();
 						exp += 10;
 					}
 				}
@@ -106,6 +111,17 @@ SceneManager* Scene::changeScene() {
 		scene->init();
 		return scene;
 	}
+	else if (nextlevel) {
+		SceneManager* scene = new Scene("levels/lv0" + next);
+		scene->init();
+		return scene;
+	}
+	else if (prevlevel) {
+		SceneManager* scene = new Scene("levels/lv0" + prev);
+		scene->init();
+		return scene;
+	}
+	return this;
 }
 
 void Scene::render()
@@ -139,7 +155,7 @@ bool Scene::loadEscena(const string& levelFile) {
 		return false;
 	getline(fin, line);
 	sstream.str(line);
-	sstream >> size;
+	sstream >> size >> prev >> next;
 	ent.resize(size);
 	for (int i = 0; i < size; ++i) {
 		getline(fin, line);

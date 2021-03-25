@@ -83,4 +83,8 @@ int Skeleton::hit() {
 	return lives;
 }
 
+void Skeleton::dies() {
+
+}
+
 

@@ -11,6 +11,7 @@ public:
 	virtual void update(int deltaTime) = 0;
 	virtual void render() = 0;
 	virtual int getTypeEnemy() = 0;
+	virtual void dies() = 0;
 	/*
 	* 0-> skull
 	* 1-> skeleton

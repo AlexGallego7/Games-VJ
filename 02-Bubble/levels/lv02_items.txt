@@ -1,6 +1,6 @@
 ITEMS
-3 0 2			-- Entities / Previous / Next  
-PLAYER 9 12 
+1 1 2			--Entities / Previous / Next  
+PLAYER 1 7 
 DOOR 26 16 
 DROP 26 5 
 2 

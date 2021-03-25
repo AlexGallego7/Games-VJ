@@ -18,11 +18,13 @@ public:
 	glm::ivec2 getPos();
 
 	int hit();
+	void dies();
 
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 
 private:
+	float currentTime, spawnTime;
 	glm::ivec2 tileMapDispl, posPlayer;
 	int jumpAngle, startY, lives;
 	Texture spritesheet;
