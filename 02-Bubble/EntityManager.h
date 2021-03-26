@@ -11,6 +11,7 @@ public:
 	virtual void update(int deltaTime) = 0;
 	virtual void render() = 0;
 	virtual int getTypeEntity() = 0;
+	virtual void open() = 0;
 	/*
 	tipo 0 -> enemigo
 	tipo 1 -> jugador

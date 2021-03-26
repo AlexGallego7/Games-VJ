@@ -19,6 +19,7 @@ public:
 	void update(int deltaTime);
 	void render();
 	int getTypeEntity();
+	void open();
 
 	glm::ivec2 getPos();
 

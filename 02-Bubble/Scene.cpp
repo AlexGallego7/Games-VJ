@@ -57,15 +57,25 @@ void Scene::update(int deltaTime)
 	for (int i = 0; i < enemy.size(); ++i)
 		enemy[i]->update(deltaTime);
 
-	if (map->nextLevel(ent[0]->getPos(), glm::ivec2(16, 16)))
+	if (map->nextLevel(ent[sizeEnts-1]->getPos(), glm::ivec2(16, 16)))
 		nextlevel = true;
-	else if (map->prevLevel(ent[0]->getPos(), glm::ivec2(16, 16)))
+	else if (map->prevLevel(ent[sizeEnts-1]->getPos(), glm::ivec2(16, 16)))
 		prevlevel = true;
+
+	//abrir puerta
+
+	glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
+	glm::ivec2 posDoor = ent[0]->getPos();
+
+	if (abs(posPlayer.x - posDoor.x) < 32) {
+		if(abs(posPlayer.y - posDoor.y) < 32)
+			ent[0]->open();
+	}
 
 	//ser golpeado por enemigo
 	for (int i = 0; i < enemy.size(); i++) {
 		if (!Game::instance().getGodMode()) {
-			glm::ivec2 posPlayer = ent[0]->getPos();
+			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {
 				if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
@@ -78,7 +88,7 @@ void Scene::update(int deltaTime)
 	//golpear a enemigos
 	if (Game::instance().getPunch()) {
 		for (int i = 0; i < enemy.size(); i++) {
-			glm::ivec2 posPlayer = ent[0]->getPos();
+			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (enemy[i]->getTypeEnemy() == 0) {
 				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
@@ -149,7 +159,6 @@ bool Scene::loadEscena(const string& levelFile) {
 	ifstream fin;
 	string line, tilesheetFile;
 	stringstream sstream;
-	int size;
 
 	fin.open(levelFile.c_str());
 	if (!fin.is_open())
@@ -159,9 +168,9 @@ bool Scene::loadEscena(const string& levelFile) {
 		return false;
 	getline(fin, line);
 	sstream.str(line);
-	sstream >> size >> prev >> next;
-	ent.resize(size);
-	for (int i = 0; i < size; ++i) {
+	sstream >> sizeEnts >> prev >> next;
+	ent.resize(sizeEnts);
+	for (int i = 0; i < sizeEnts; ++i) {
 		getline(fin, line);
 		sstream.str(line);
 		sstream >> entity >> pos.x >> pos.y;
@@ -183,13 +192,25 @@ bool Scene::loadEscena(const string& levelFile) {
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
+		else if (entity == "ROCK") {
+			ent[i] = new FallingRock();
+			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+			ent[i]->setTileMap(map);
+		}
+		else if (entity == "KEY") {
+			ent[i] = new Key();
+			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+			ent[i]->setTileMap(map);
+		}
 		
 	}
 	getline(fin, line);
 		sstream.str(line);
-		sstream >> size;
-		enemy.resize(size);
-		for (int i = 0; i < size; ++i) {
+		sstream >> sizeEnms;
+		enemy.resize(sizeEnms);
+		for (int i = 0; i < sizeEnms; ++i) {
 			getline(fin, line);
 			sstream.str(line);
 			sstream >> entity >> pos.x >> pos.y;

@@ -1,5 +1,5 @@
-#ifndef _DROP_INCLUDE
-#define _DROP_INCLUDE
+#ifndef _FALLINGROCK_INCLUDE
+#define _FALLINGROCK_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class Drop : public EntityManager
+class FallingRock : public EntityManager
 {
 
 public:
@@ -33,6 +33,6 @@ private:
 };
 
 
-#endif // _PLAYER_INCLUDE
+#endif // _FALLINGROCK_INCLUDE
 
 

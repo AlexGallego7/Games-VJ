@@ -2,30 +2,29 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/glut.h>
-#include "Drop.h"
+#include "FallingRock.h"
 #include "Game.h"
 
-enum DropAnims
+enum RockAnims
 {
 	CEILING, AIR, GROUND
 };
 
 
-void Drop::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
+void FallingRock::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
 
 	dropTime = currentTime;
-	spritesheet.loadFromFile("images/drop.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	spritesheet.loadFromFile("images/falling_rock.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(16, 16), glm::vec2(0.5f, 0.5f), &spritesheet, &shaderProgram);
-	sprite->setNumberAnimations(6);
+	sprite->setNumberAnimations(3);
 
-	sprite->setAnimationSpeed(CEILING, 1);
+	sprite->setAnimationSpeed(CEILING, 8);
 	sprite->addKeyframe(CEILING, glm::vec2(0.f, 0.f));
-	sprite->addKeyframe(CEILING, glm::vec2(0.5f, 0.f));
 
 
 	sprite->setAnimationSpeed(AIR, 1);
-	sprite->addKeyframe(AIR, glm::vec2(0.f, 0.5f));
+	sprite->addKeyframe(AIR, glm::vec2(0.f, 0.f));
 
 	sprite->setAnimationSpeed(GROUND, 1);
 	sprite->addKeyframe(GROUND, glm::vec2(0.5f, 0.5f));
@@ -36,16 +35,20 @@ void Drop::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 }
 
-void Drop::update(int deltaTime)
+void FallingRock::update(int deltaTime)
 {
 	currentTime += deltaTime;
 
 	sprite->update(deltaTime);
 
 	if (sprite->animation() == CEILING) {
-		posPlayer.y += 2;
-		sprite->changeAnimation(AIR);
+		if (currentTime - dropTime > 1000) {
+			posPlayer.y += 2;
+			sprite->changeAnimation(AIR);
+		}
+
 	}
+
 	else if (sprite->animation() == AIR) {
 		posPlayer.y += 2;
 		if (map->collisionMoveDown(posPlayer, glm::ivec2(8, 8), &posPlayer.y)) {
@@ -53,43 +56,41 @@ void Drop::update(int deltaTime)
 		}
 	}
 	else if (sprite->animation() == GROUND) {
-		posPlayer.y = 800;
-		if (currentTime - dropTime > 2000) {
-			dropTime = currentTime;
-			posPlayer.x = auxPos.x; posPlayer.y = auxPos.y;
-			sprite->changeAnimation(CEILING);
+		dropTime = currentTime;
+		if (currentTime - dropTime > 1000) {
+			posPlayer.y = 800;
 		}
 	}
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-void Drop::render()
+void FallingRock::render()
 {
 	sprite->render();
 }
 
-void Drop::setTileMap(TileMap* tileMap)
+void FallingRock::setTileMap(TileMap* tileMap)
 {
 	map = tileMap;
 }
 
-void Drop::setPosition(const glm::vec2& pos)
+void FallingRock::setPosition(const glm::vec2& pos)
 {
 	posPlayer = pos;
 	auxPos = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int Drop::getTypeEntity() {
+int FallingRock::getTypeEntity() {
 	return 2;
 }
 
-glm::ivec2 Drop::getPos()
+glm::ivec2 FallingRock::getPos()
 {
 	return posPlayer;
 }
 
-void Drop::open() {}
+void FallingRock::open() {}
 
 

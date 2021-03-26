@@ -103,6 +103,18 @@ void Player::update(int deltaTime)
 		}
 	}
 
+	else if (Game::instance().getSpecialKey(GLUT_KEY_DOWN))
+	{
+		if (!bClimbing) {
+			if (map->climbDown(posPlayer, glm::ivec2(16, 16)))
+			{
+				posPlayer.y += 32;
+				sprite->changeAnimation(CLIMBING);
+				bClimbing = true;
+			}
+		}
+	}
+
 	else
 	{
 		if (sprite->animation() == MOVE_LEFT || sprite->animation() == PUNCH_LEFT)
@@ -118,7 +130,7 @@ void Player::update(int deltaTime)
 		if (Game::instance().getSpecialKey(GLUT_KEY_UP)) {
 			posPlayer.y -= 2;
 			if (map->endClimbingPlant(posPlayer, glm::ivec2(8, 8))) {
-				posPlayer.y -= 50;
+				posPlayer.y -= 40;
 				sprite->changeAnimation(STAND_RIGHT);
 				bClimbing = false;
 			}
@@ -201,5 +213,7 @@ glm::ivec2 Player::getPos()
 {
 	 return posPlayer;
 }
+
+void Player::open() {}
 
 

@@ -1,5 +1,5 @@
-#ifndef _DROP_INCLUDE
-#define _DROP_INCLUDE
+#ifndef _KEY_INCLUDE
+#define _KEY_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class Drop : public EntityManager
+class Key : public EntityManager
 {
 
 public:
@@ -23,8 +23,8 @@ public:
 	void setPosition(const glm::vec2& pos);
 
 private:
-	float currentTime, dropTime;
-	glm::ivec2 tileMapDispl, posPlayer, auxPos;
+	float currentTime, renderTime;
+	glm::ivec2 tileMapDispl, posPlayer;
 	int jumpAngle, startY;
 	Texture spritesheet;
 	Sprite* sprite;
@@ -33,6 +33,6 @@ private:
 };
 
 
-#endif // _PLAYER_INCLUDE
+#endif // _KEY_INCLUDE
 
 

@@ -22,6 +22,7 @@ public:
 	glm::ivec2 getPos();
 
 	int getTypeEntity();
+	void open();
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);

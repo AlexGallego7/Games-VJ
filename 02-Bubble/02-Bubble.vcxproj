@@ -16,10 +16,12 @@
     <ClInclude Include="Drop.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="FallingRock.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="Gui.h" />
     <ClInclude Include="InstruccionsScene.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
@@ -39,10 +41,12 @@
     <ClCompile Include="Drop.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="FallingRock.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="InstruccionsScene.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />

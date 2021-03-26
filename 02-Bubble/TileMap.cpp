@@ -179,24 +179,42 @@ bool TileMap::prevLevel(const glm::ivec2& pos, const glm::ivec2& size) const
 
 bool TileMap::isOnClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
 {
-	int x, y;
+	int x, y0, y1;
 
 	x = pos.x / tileSize;
-	y = pos.y / tileSize;
+	y0 = pos.y / tileSize;
+	y1 = (pos.y + 36) / tileSize;
 
-	/*
+	
 	for (int y = y0; y <= y1; y++)
 	{
-		if (map[y * mapSize.x + x] != 0 &&
-			map[y * mapSize.x + x] != 26)
+		if (map[y * mapSize.x + x] == 26 || map[y * mapSize.x + x] == 23
+			|| map[y * mapSize.x + x] == 25)
 			return true;
-	}*/
+	}
 
-	return map[y * mapSize.x + x] == 26 || map[y * mapSize.x +x] == 23
-				|| map[y * mapSize.x + x] == 25;
+	return false;
 
 }
 
+bool TileMap::climbDown(const glm::ivec2& pos, const glm::ivec2& size) const
+{
+	int x, y0, y1;
+
+	x = pos.x / tileSize;
+	y0 = pos.y / tileSize;
+	y1 = (pos.y + 40) / tileSize;
+
+
+	for (int y = y0; y <= y1; y++)
+	{
+		if (map[y * mapSize.x + x] == 25)
+			return true;
+	}
+
+	return false;
+
+}
 bool TileMap::endClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
 {
 	int x, y;
