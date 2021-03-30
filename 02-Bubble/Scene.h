@@ -16,7 +16,7 @@
 #include "GameOverScene.h"
 #include "Skull.h"
 #include "Drop.h"
-#include "Door.h"
+#include "Portal.h"
 #include "Skeleton.h"
 #include "Gui.h"
 #include "Key.h"
@@ -46,8 +46,8 @@ private:
 	void initShaders();
 
 private:
-	bool gameover, nextlevel, prevlevel;
-	string levelFile, entity, next, prev;
+	bool gameover, nextlevel, prevlevel, enterPortal;
+	string levelFile, entity, next, prev, portalLevel;
 	int lives, exp, sizeEnts, sizeEnms;
 	glm::ivec2 pos;
 	TileMap *map;

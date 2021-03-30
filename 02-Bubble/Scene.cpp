@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp> 
+#include <GL/glew.h>
+#include <GL/glut.h>
 #include "Scene.h"
 #include "Game.h"
 
@@ -19,9 +21,8 @@ Scene::Scene()
 Scene::Scene(string _levelFile)
 {
 	map = NULL;
-	gameover = false;
-	nextlevel = false;
-	prevlevel = false;
+	gameover = false; nextlevel = false;
+	prevlevel = false; enterPortal = false;
 	levelFile = _levelFile;
 }
 
@@ -51,6 +52,10 @@ void Scene::init()
 
 void Scene::update(int deltaTime)
 {
+
+	glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
+
+
 	currentTime += deltaTime;
 	for (int i = 0; i < ent.size(); ++i)
 		ent[i]->update(deltaTime);
@@ -62,15 +67,15 @@ void Scene::update(int deltaTime)
 	else if (map->prevLevel(ent[sizeEnts-1]->getPos(), glm::ivec2(16, 16)))
 		prevlevel = true;
 
+	// entrar en portal
+	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
+		enterPortal = true;
+	}
+	
+
 	//abrir puerta
 
-	glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
 	glm::ivec2 posDoor = ent[0]->getPos();
-
-	if (abs(posPlayer.x - posDoor.x) < 32) {
-		if(abs(posPlayer.y - posDoor.y) < 32)
-			ent[0]->open();
-	}
 
 	//ser golpeado por enemigo
 	for (int i = 0; i < enemy.size(); i++) {
@@ -133,6 +138,11 @@ SceneManager* Scene::changeScene() {
 		scene->init();
 		return scene;
 	}
+	else if (enterPortal) {
+		SceneManager* scene = new Scene("levels/lv0" + portalLevel);
+		scene->init();
+		return scene;
+	}
 	return this;
 }
 
@@ -169,37 +179,35 @@ bool Scene::loadEscena(const string& levelFile) {
 	getline(fin, line);
 	sstream.str(line);
 	sstream >> sizeEnts >> prev >> next;
-	ent.resize(sizeEnts);
+	//ent.resize(sizeEnts);
 	for (int i = 0; i < sizeEnts; ++i) {
 		getline(fin, line);
 		sstream.str(line);
 		sstream >> entity >> pos.x >> pos.y;
 		if (entity == "PLAYER") {
-			ent[i] = new Player();
+			ent.push_back(new Player());
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
-		else if (entity == "DOOR") {
-			ent[i] = new Door();
-			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
-			ent[i]->setTileMap(map);
+		else if (entity == "PORTAL") {
+			sstream >> portalLevel;
+			ent.push_back(new Portal(portalLevel));
 		}
 		else if (entity == "DROP") {
-			ent[i] = new Drop();
+			ent.push_back(new Drop());
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
 		else if (entity == "ROCK") {
-			ent[i] = new FallingRock();
+			ent.push_back(new FallingRock());
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
 		}
 		else if (entity == "KEY") {
-			ent[i] = new Key();
+			ent.push_back(new Key());
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);

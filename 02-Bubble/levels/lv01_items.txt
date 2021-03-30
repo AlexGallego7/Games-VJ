@@ -1,9 +1,7 @@
 ITEMS
-5 0 2			-- Entities / Previous / Next   
-DOOR 21 12 
+3 0 2	  
 DROP 26 5 
-KEY 10 14 
-ROCK 15 5 
+KEY 11 14 
 PLAYER 9 7 
 2 
 SKULL 4 14 

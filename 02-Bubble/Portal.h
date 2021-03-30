@@ -1,5 +1,5 @@
-#ifndef _DOOR_INCLUDE
-#define _DOOR_INCLUDE
+#ifndef _PORTAL_INCLUDE
+#define _PORTAL_INCLUDE
 
 
 #include "Sprite.h"
@@ -11,10 +11,11 @@
 // all properties it needs to track its movement, jumping, and collisions.
 
 
-class Door : public EntityManager
+class Portal : public EntityManager
 {
 
 public:
+	Portal(string level);
 	void init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram);
 	void update(int deltaTime);
 	void render();
@@ -27,9 +28,10 @@ public:
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 	void setLevel(int level);
+	string getLevel();
 
 private:
-	int goTo_level;
+	string goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;
 	int jumpAngle, startY;
 	Texture spritesheet;
@@ -39,6 +41,6 @@ private:
 };
 
 
-#endif // _DOOR_INCLUDE
+#endif // _PORTAL_INCLUDE
 
 

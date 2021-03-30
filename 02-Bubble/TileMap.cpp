@@ -164,7 +164,7 @@ bool TileMap::nextLevel(const glm::ivec2& pos, const glm::ivec2& size) const
 	x = pos.x / tileSize;
 	y = pos.y / tileSize;
 
-	return map[y * mapSize.x + x] == 36;
+	return map[y * mapSize.x + x] == 20;
 }
 
 bool TileMap::prevLevel(const glm::ivec2& pos, const glm::ivec2& size) const
@@ -174,7 +174,7 @@ bool TileMap::prevLevel(const glm::ivec2& pos, const glm::ivec2& size) const
 	x = pos.x / tileSize;
 	y = pos.y / tileSize;
 
-	return map[y * mapSize.x + x] == 42;
+	return map[y * mapSize.x + x] == 19;
 }
 
 bool TileMap::isOnClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
@@ -188,12 +188,23 @@ bool TileMap::isOnClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) c
 	
 	for (int y = y0; y <= y1; y++)
 	{
-		if (map[y * mapSize.x + x] == 26 || map[y * mapSize.x + x] == 23
-			|| map[y * mapSize.x + x] == 25)
+		if (map[y * mapSize.x + x] == 41 || map[y * mapSize.x + x] == 35
+			|| map[y * mapSize.x + x] == 42)
 			return true;
 	}
 
 	return false;
+
+}
+
+bool TileMap::isOnPortal(const glm::ivec2& pos, const glm::ivec2& size) const
+{
+	int x, y;
+
+	x = pos.x / tileSize;
+	y = pos.y / tileSize;
+
+	return map[y * mapSize.x + x] == 74 || map[y * mapSize.x + x] == 75;
 
 }
 
@@ -208,7 +219,7 @@ bool TileMap::climbDown(const glm::ivec2& pos, const glm::ivec2& size) const
 
 	for (int y = y0; y <= y1; y++)
 	{
-		if (map[y * mapSize.x + x] == 25)
+		if (map[y * mapSize.x + x] == 41)
 			return true;
 	}
 
@@ -222,7 +233,7 @@ bool TileMap::endClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) co
 	x = pos.x / tileSize;
 	y = (pos.y + 20) / tileSize;
 
-	return map[y * mapSize.x + x] == 25;
+	return map[y * mapSize.x + x] == 41;
 }
 
 bool TileMap::startClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const
@@ -232,13 +243,14 @@ bool TileMap::startClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) 
 	x = pos.x / tileSize;
 	y = (pos.y + 50) / tileSize;
 
-	return map[y * mapSize.x + x] == 23;
+	return map[y * mapSize.x + x] == 35;
 }
 
 bool TileMap::collisionMoveLeft(const glm::ivec2 &pos, const glm::ivec2 &size) const
 {
 	int x, y0, y1;
-	std::vector<int> v = { 0, 26, 31, 32, 33, 34, 35, 36, 42 };
+	std::vector<int> v = { 0, 19, 20, 42, 51, 52, 53, 54, 55, 61, 62, 63, 64, 65, 66, 71, 72, 73, 74, 75, 76, 77, 
+							78, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
 	
 	x = pos.x / tileSize;
 	y0 = pos.y / tileSize;
@@ -255,8 +267,8 @@ bool TileMap::collisionMoveLeft(const glm::ivec2 &pos, const glm::ivec2 &size) c
 bool TileMap::collisionMoveRight(const glm::ivec2 &pos, const glm::ivec2 &size) const
 {
 	int x, y0, y1;
-	std::vector<int> v = { 0, 26, 31, 32, 33, 34, 35, 36, 42 };
-
+	std::vector<int> v = { 0, 19, 20, 42, 51, 52, 53, 54, 55, 61, 62, 63, 64, 65, 66, 71, 72, 73, 74, 75, 76, 77,
+							78, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
 	
 	x = (pos.x + size.x - 1) / tileSize;
 	y0 = pos.y / tileSize;
@@ -273,8 +285,8 @@ bool TileMap::collisionMoveRight(const glm::ivec2 &pos, const glm::ivec2 &size) 
 bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, int *posY) const
 {
 	int x0, x1, y;
-	std::vector<int> v = { 0, 26, 31, 32, 33, 34, 35, 36, 42 };
-
+	std::vector<int> v = { 0, 19, 20, 42, 51, 52, 53, 54, 55, 61, 62, 63, 64, 65, 66, 71, 72, 73, 74, 75, 76, 77,
+							78, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
 	x0 = pos.x / tileSize;
 	x1 = (pos.x + size.x - 1) / tileSize;
 	y = (pos.y + size.y - 1) / tileSize;
@@ -292,33 +304,4 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	
 	return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

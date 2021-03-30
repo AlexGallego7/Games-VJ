@@ -69,7 +69,7 @@
     <ClInclude Include="Drop.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Door.h">
+    <ClInclude Include="Portal.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="WinScene.h">
@@ -140,7 +140,7 @@
     <ClCompile Include="Drop.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="Door.cpp">
+    <ClCompile Include="Portal.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="WinScene.cpp">
