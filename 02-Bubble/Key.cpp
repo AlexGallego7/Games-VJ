@@ -81,4 +81,9 @@ glm::ivec2 Key::getPos()
 
 void Key::open() {}
 
+bool Key::LeftMove() {
+	return 0;
+}
+
+
 

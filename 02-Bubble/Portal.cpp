@@ -51,6 +51,10 @@ string Portal::getLevel() {
 	return goTo_level;
 }
 
+bool Portal::LeftMove() {
+	return 0;
+}
+
 
 
 

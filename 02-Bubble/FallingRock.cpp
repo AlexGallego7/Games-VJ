@@ -93,4 +93,7 @@ glm::ivec2 FallingRock::getPos()
 
 void FallingRock::open() {}
 
+bool FallingRock::LeftMove() {
+	return 0;
+}
 

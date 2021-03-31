@@ -23,6 +23,7 @@ public:
 
 	virtual void setTileMap(TileMap* tileMap) = 0;
 	virtual void setPosition(const glm::vec2& pos) = 0;
+	virtual bool LeftMove() = 0;
 
 	enum EntityStates
 	{

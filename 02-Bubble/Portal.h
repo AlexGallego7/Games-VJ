@@ -30,6 +30,8 @@ public:
 	void setLevel(int level);
 	string getLevel();
 
+	bool LeftMove();
+
 private:
 	string goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;

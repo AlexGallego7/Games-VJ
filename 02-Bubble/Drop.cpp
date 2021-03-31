@@ -92,4 +92,9 @@ glm::ivec2 Drop::getPos()
 
 void Drop::open() {}
 
+bool Drop::LeftMove() {
+	return 0;
+}
+
+
 

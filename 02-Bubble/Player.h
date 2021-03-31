@@ -23,6 +23,8 @@ public:
 
 	int getTypeEntity();
 	void open();
+
+	bool LeftMove();
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);

@@ -44,7 +44,7 @@ void Scene::init()
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
-	lives = 5;
+	lives = 2;
 	exp = 0;
 
 	Gui::instance().init();
@@ -77,23 +77,38 @@ void Scene::update(int deltaTime)
 
 	glm::ivec2 posDoor = ent[0]->getPos();
 
-	//ser golpeado por enemigo
+	//ser golpeado por enemigo -> falta añadir 1 sec invencible cuando eres golpeado
 	if (!Game::instance().getGodMode()) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
-			if (posPlayer.x == posEnemy.x) {
-				if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
-					lives--;
+			if (ent[sizeEnts - 1]->LeftMove()) {
+				if ((posEnemy.x + 24 == posPlayer.x) || (posEnemy.x == posPlayer.x + 16)) {
+					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+						lives--;
+						if (lives <= 0) {
+							gameover = true;
+						}
+					}
+				}
+			}
+			else {
+				if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 8)) {
+					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+						lives--;
+						if (lives <= 0) {
+							gameover = true;
+						}
+					}
 				}
 			}
 		}
 	}
-	//golpear a enemigos
+	//golpear a enemigos -> hay que arreglarlo
 	if (Game::instance().getPunch()) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
-			glm::ivec2 posEnemy = enemy[i]->getPos();
+ 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (enemy[i]->getTypeEnemy() == 0) {
 				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
 					if ((posEnemy.y - posPlayer.y) < 32 && 0 < (posEnemy.y - posPlayer.y)) {
@@ -115,9 +130,7 @@ void Scene::update(int deltaTime)
 		}
 	}
 
-	if (lives <= 0) {
-		gameover = true;
-	}
+	
 
 }
 

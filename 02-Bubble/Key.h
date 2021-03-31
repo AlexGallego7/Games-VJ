@@ -19,6 +19,8 @@ public:
 	glm::ivec2 getPos();
 	void open();
 
+	bool LeftMove();
+
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 
