@@ -32,6 +32,7 @@ Sprite::Sprite(const glm::vec2 &quadSize, const glm::vec2 &sizeInSpritesheet, Te
 	shaderProgram = program;
 	currentAnimation = -1;
 	position = glm::vec2(0.f);
+	adjustment = 0;
 }
 
 void Sprite::update(int deltaTime)
@@ -50,7 +51,7 @@ void Sprite::update(int deltaTime)
 
 void Sprite::render() const
 {
-	glm::mat4 modelview = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
+	glm::mat4 modelview = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y+adjustment, 0.f));
 	shaderProgram->setUniformMatrix4f("modelview", modelview);
 	shaderProgram->setUniform2f("texCoordDispl", texCoordDispl.x, texCoordDispl.y);
 	glEnable(GL_TEXTURE_2D);
@@ -77,6 +78,11 @@ void Sprite::setAnimationSpeed(int animId, int keyframesPerSec)
 {
 	if(animId < int(animations.size()))
 		animations[animId].millisecsPerKeyframe = 1000.f / keyframesPerSec;
+}
+
+void Sprite::setAdjustment(int adjustment)
+{
+	this->adjustment = adjustment;
 }
 
 void Sprite::addKeyframe(int animId, const glm::vec2 &displacement)

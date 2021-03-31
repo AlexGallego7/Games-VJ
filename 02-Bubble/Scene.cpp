@@ -78,9 +78,9 @@ void Scene::update(int deltaTime)
 	glm::ivec2 posDoor = ent[0]->getPos();
 
 	//ser golpeado por enemigo
-	for (int i = 0; i < enemy.size(); i++) {
-		if (!Game::instance().getGodMode()) {
-			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
+	if (!Game::instance().getGodMode()) {
+		for (int i = 0; i < enemy.size(); i++) {
+			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (posPlayer.x == posEnemy.x) {
 				if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
@@ -88,7 +88,6 @@ void Scene::update(int deltaTime)
 				}
 			}
 		}
-		
 	}
 	//golpear a enemigos
 	if (Game::instance().getPunch()) {
