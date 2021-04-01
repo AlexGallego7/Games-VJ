@@ -54,6 +54,8 @@ public:
 
 	glm::ivec2 getExp();
 
+	void resetExp();
+
 private:
 	bool bPlay, godmode, punch;                       // Continue to play game?
 	SceneManager *scene;                      // Scene to render

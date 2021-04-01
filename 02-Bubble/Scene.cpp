@@ -48,6 +48,7 @@ void Scene::init()
 	secHit = 30;
 
 	Gui::instance().init();
+	Game::instance().resetExp();
 }
 
 void Scene::update(int deltaTime)

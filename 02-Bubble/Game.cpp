@@ -139,6 +139,9 @@ glm::ivec2 Game::getExp() {
 	return exps;
 }
 
+void Game::resetExp() {
+	this->exp = 0;
+}
 
 
 
