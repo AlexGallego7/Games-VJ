@@ -17,7 +17,7 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.53f, 0.0f); texCoords[1] = glm::vec2(0.565f, 0.5f); // 0
 	texQuad[1] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.565f, 0.0f); texCoords[1] = glm::vec2(0.6f, 0.5f); // 1 
+	texCoords[0] = glm::vec2(0.565f, 0.0f); texCoords[1] = glm::vec2(0.595f, 0.5f); // 1 
 	texQuad[2] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	texCoords[0] = glm::vec2(0.6f, 0.0f); texCoords[1] = glm::vec2(0.63f, 0.5f); // 2 
@@ -26,16 +26,16 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.63f, 0.0f); texCoords[1] = glm::vec2(0.665f, 0.5f); // 3
 	texQuad[4] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.66f, 0.0f); texCoords[1] = glm::vec2(0.69f, 0.5f); // 4
+	texCoords[0] = glm::vec2(0.663f, 0.0f); texCoords[1] = glm::vec2(0.69f, 0.5f); // 4
 	texQuad[5] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.69f, 0.0f); texCoords[1] = glm::vec2(0.725f, 0.5f); // 5
+	texCoords[0] = glm::vec2(0.693f, 0.0f); texCoords[1] = glm::vec2(0.725f, 0.5f); // 5
 	texQuad[6] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	texCoords[0] = glm::vec2(0.73f, 0.0f); texCoords[1] = glm::vec2(0.76f, 0.5f); // 6 
 	texQuad[7] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.759f, 0.0f); texCoords[1] = glm::vec2(0.795f, 0.5f); // 7 
+	texCoords[0] = glm::vec2(0.76f, 0.0f); texCoords[1] = glm::vec2(0.795f, 0.5f); // 7 
 	texQuad[8] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	texCoords[0] = glm::vec2(0.795f, 0.0f); texCoords[1] = glm::vec2(0.83f, 0.5f); // 8
@@ -61,6 +61,7 @@ void Gui::render()
 	texProgram.use();
 	texProgram.setUniformMatrix4f("projection", projection);
 	texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
+
 	modelview = glm::mat4(1.0f);
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
@@ -69,45 +70,126 @@ void Gui::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[0]->render(tex[0]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(240.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[1]->render(tex[1]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(260.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[2]->render(tex[1]);
+	glm::vec2 exps = Game::instance().getExp();
+	int num;
+	int totalExp = exps.x;
+	for (int i = 6; i > 0; i--) {
+		num = totalExp % 10;
+		totalExp = totalExp/10;
+		switch (num)
+		{
+		default:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[1]->render(tex[1]);
+			break;
+		case 1:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[2]->render(tex[1]);
+			break;
+		case 2:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[3]->render(tex[1]);
+			break;
+		case 3:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[4]->render(tex[1]);
+			break;
+		case 4:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[5]->render(tex[1]);
+			break;
+		case 5:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[6]->render(tex[1]);
+			break;
+		case 6:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[7]->render(tex[1]);
+			break;
+		case 7:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[8]->render(tex[1]);
+			break;
+		case 8:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[9]->render(tex[1]);
+			break;
+		case 9:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 10.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[10]->render(tex[1]);
+			break;
+		}
+	}
+	int exp = exps.y;
+	for (int i = 6; i > 0; i--) {
+		num = exp % 10;
+		exp = exp / 10;
+		switch (num)
+		{
+		default:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[1]->render(tex[1]);
+			break;
+		case 1:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[2]->render(tex[1]);
+			break;
+		case 2:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[3]->render(tex[1]);
+			break;
+		case 3:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[4]->render(tex[1]);
+			break;
+		case 4:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[5]->render(tex[1]);
+			break;
+		case 5:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[6]->render(tex[1]);
+			break;
+		case 6:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[7]->render(tex[1]);
+			break;
+		case 7:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[8]->render(tex[1]);
+			break;
+		case 8:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[9]->render(tex[1]);
+			break;
+		case 9:
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float((i * 20) + 100), 30.f, 0.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[10]->render(tex[1]);
+			break;
+		}
+	}
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(280.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[3]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(300.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[4]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(340.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[5]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(360.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[6]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(380.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[7]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(400.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[8]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(420.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[9]->render(tex[1]);
-
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(440.f, 10.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[10]->render(tex[1]);
 
 }
 

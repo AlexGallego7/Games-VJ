@@ -11,6 +11,8 @@ void Game::init()
 	scene->init();
 	godmode = false;
 	punch = false;
+	totalExp = 0;
+	exp = 0;
 }
 
 bool Game::update(int deltaTime)
@@ -122,6 +124,20 @@ bool Game::getPunch() {
 	return punch;
 }
 
+void Game::addTotalExp(int exp) {
+	totalExp += exp;
+}
+
+void Game::addExp(int exp) {
+	this->exp += exp;
+}
+
+glm::ivec2 Game::getExp() {
+	glm::vec2 exps;
+	exps.x = totalExp;
+	exps.y = exp;
+	return exps;
+}
 
 
 

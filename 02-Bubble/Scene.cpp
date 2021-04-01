@@ -45,7 +45,6 @@ void Scene::init()
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	lives = 2;
-	exp = 0;
 	secHit = 30;
 
 	Gui::instance().init();
@@ -117,8 +116,9 @@ void Scene::update(int deltaTime)
 				if ((0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
 						int lives_enemy = enemy[i]->hit();
-						if (lives_enemy <= 0) enemy[i]->dies();
-						exp += 10;
+						if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que no pueda ser golpeado mientras esta la animacion de muerte
+						Game::instance().addTotalExp(10);
+						Game::instance().addExp(10);
 					}
 				}
 			}
@@ -127,7 +127,8 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
 						int lives_enemy = enemy[i]->hit();
  						if (lives_enemy <= 0) enemy[i]->dies();
-						exp += 10;
+						Game::instance().addTotalExp(10);
+						Game::instance().addExp(10);
 					}
 				}
 			}
