@@ -51,6 +51,16 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 	}
+	if (scene->getEscena() == 2) {
+		if (key == 'm') {
+			scene = new Menu();
+			scene->init();
+		}
+		if (key == 'r') {
+			scene = new Scene("levels/lv01");
+			scene->init();
+		}
+	}
 	if (scene->getEscena() == 3) {
 		if (key == 'm') {
 			scene = new Menu();
