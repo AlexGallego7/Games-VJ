@@ -26,6 +26,7 @@ void Skeleton::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.5f));
 	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.5f, 0.5f));
 
+
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
@@ -85,7 +86,9 @@ int Skeleton::hit() {
 }
 
 void Skeleton::dies() {
-
+	/*spawnTime = currentTime;
+	sprite->changeAnimation(DYING);
+	*/
 }
 
 

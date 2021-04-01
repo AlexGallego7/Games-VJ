@@ -108,11 +108,30 @@ void Scene::update(int deltaTime)
 		}
 	}
 	if (secHit != 30) secHit++;
-	//golpear a enemigos -> hay que arreglarlo
+	//golpear a enemigos -> hay que añadir la animacion del esqueleto al morir.
 	if (Game::instance().getPunch()) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
  			glm::ivec2 posEnemy = enemy[i]->getPos();
+			if (ent[sizeEnts - 1]->LeftMove()) {
+				if ((0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
+					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+						int lives_enemy = enemy[i]->hit();
+						if (lives_enemy <= 0) enemy[i]->dies();
+						exp += 10;
+					}
+				}
+			}
+			else {
+				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32)) {
+					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+						int lives_enemy = enemy[i]->hit();
+ 						if (lives_enemy <= 0) enemy[i]->dies();
+						exp += 10;
+					}
+				}
+			}
+			/*
 			if (enemy[i]->getTypeEnemy() == 0) {
 				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
 					if ((posEnemy.y - posPlayer.y) < 32 && 0 < (posEnemy.y - posPlayer.y)) {
@@ -131,6 +150,7 @@ void Scene::update(int deltaTime)
 					}
 				}
 			}
+			*/
 		}
 	}
 
