@@ -46,6 +46,7 @@ void Scene::init()
 	currentTime = 0.0f;
 	lives = 2;
 	exp = 0;
+	secHit = 30;
 
 	Gui::instance().init();
 }
@@ -77,15 +78,16 @@ void Scene::update(int deltaTime)
 
 	glm::ivec2 posDoor = ent[0]->getPos();
 
-	//ser golpeado por enemigo -> falta añadir 1 sec invencible cuando eres golpeado
-	if (!Game::instance().getGodMode()) {
+	//ser golpeado por enemigo -> habria que personalizar las hitbox para cada enemigo.
+	if (!Game::instance().getGodMode() && secHit == 30) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (ent[sizeEnts - 1]->LeftMove()) {
-				if ((posEnemy.x + 24 == posPlayer.x) || (posEnemy.x == posPlayer.x + 16)) {
+				if ((posEnemy.x+16 == posPlayer.x ) || (posEnemy.x + 16 == posPlayer.x +2) || (posEnemy.x == posPlayer.x+8 )) {
 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
-						lives--;
+				 	 	secHit = 0;
+    					lives--;
 						if (lives <= 0) {
 							gameover = true;
 						}
@@ -93,10 +95,11 @@ void Scene::update(int deltaTime)
 				}
 			}
 			else {
-				if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 8)) {
-					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
-						lives--;
-						if (lives <= 0) {
+				if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 10) || (posEnemy.x +2 == posPlayer.x + 10)) {
+ 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) { 
+						secHit = 0;
+ 						lives--;
+ 						if (lives <= 0) {
 							gameover = true;
 						}
 					}
@@ -104,6 +107,7 @@ void Scene::update(int deltaTime)
 			}
 		}
 	}
+	if (secHit != 30) secHit++;
 	//golpear a enemigos -> hay que arreglarlo
 	if (Game::instance().getPunch()) {
 		for (int i = 0; i < enemy.size(); i++) {

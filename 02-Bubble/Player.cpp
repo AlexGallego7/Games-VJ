@@ -218,7 +218,7 @@ glm::ivec2 Player::getPos()
 void Player::open() {}
 
 bool Player::LeftMove() {
-	if (sprite->animation() == MOVE_LEFT) return true;
+	if (sprite->animation() == MOVE_LEFT || sprite->animation() == STAND_LEFT ) return true;
 	else return false;
 }
 
