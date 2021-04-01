@@ -60,14 +60,12 @@ void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 	sprite->setAdjustment(4);
-
-	
 }
 
 void Player::update(int deltaTime)
 {
 	sprite->update(deltaTime);
-
+	
 	if (Game::instance().getKey(' '))
 	{
 		if (sprite->animation() == MOVE_RIGHT || sprite->animation() == STAND_RIGHT)
@@ -218,7 +216,7 @@ glm::ivec2 Player::getPos()
 void Player::open() {}
 
 bool Player::LeftMove() {
-	if (sprite->animation() == MOVE_LEFT || sprite->animation() == STAND_LEFT ) return true;
+	if (sprite->animation() == MOVE_LEFT || sprite->animation() == STAND_LEFT || sprite->animation() == PUNCH_LEFT ) return true;
 	else return false;
 }
 
