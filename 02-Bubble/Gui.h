@@ -26,7 +26,7 @@ private:
 	void initShaders();
 
 private:
-	TexturedQuad* texQuad[10];
+	TexturedQuad* texQuad[11];
 	Texture tex[2];
 	ShaderProgram texProgram;
 	float currentTime;

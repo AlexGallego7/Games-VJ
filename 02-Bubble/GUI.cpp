@@ -14,35 +14,38 @@ void Gui::init()
 	initShaders();
 	texQuad[0] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.53f, 0.5f); texCoords[1] = glm::vec2(0.565f, 1.f); // P
+	texCoords[0] = glm::vec2(0.53f, 0.0f); texCoords[1] = glm::vec2(0.565f, 0.5f); // 0
 	texQuad[1] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.4f, 0.5f); texCoords[1] = glm::vec2(0.435f, 1.f); // L 
+	texCoords[0] = glm::vec2(0.565f, 0.0f); texCoords[1] = glm::vec2(0.6f, 0.5f); // 1 
 	texQuad[2] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.034f, 0.5f); texCoords[1] = glm::vec2(0.068f, 1.f); // A 
+	texCoords[0] = glm::vec2(0.6f, 0.0f); texCoords[1] = glm::vec2(0.63f, 0.5f); // 2 
 	texQuad[3] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.83f, 0.5f); texCoords[1] = glm::vec2(0.863f, 1.f); // Y
+	texCoords[0] = glm::vec2(0.63f, 0.0f); texCoords[1] = glm::vec2(0.665f, 0.5f); // 3
 	texQuad[4] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.63f, 0.5f); texCoords[1] = glm::vec2(0.66f, 1.f); // S
+	texCoords[0] = glm::vec2(0.66f, 0.0f); texCoords[1] = glm::vec2(0.69f, 0.5f); // 4
 	texQuad[5] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.66f, 0.5f); texCoords[1] = glm::vec2(0.69f, 1.f); // T
+	texCoords[0] = glm::vec2(0.69f, 0.0f); texCoords[1] = glm::vec2(0.725f, 0.5f); // 5
 	texQuad[6] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.034f, 0.5f); texCoords[1] = glm::vec2(0.068f, 1.f); // A 
+	texCoords[0] = glm::vec2(0.73f, 0.0f); texCoords[1] = glm::vec2(0.76f, 0.5f); // 6 
 	texQuad[7] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.6f, 0.5f); texCoords[1] = glm::vec2(0.63f, 1.f); // R 
+	texCoords[0] = glm::vec2(0.759f, 0.0f); texCoords[1] = glm::vec2(0.795f, 0.5f); // 7 
 	texQuad[8] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.66f, 0.5f); texCoords[1] = glm::vec2(0.69f, 1.f); // T
+	texCoords[0] = glm::vec2(0.795f, 0.0f); texCoords[1] = glm::vec2(0.83f, 0.5f); // 8
 	texQuad[9] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
+	texCoords[0] = glm::vec2(0.83f, 0.0f); texCoords[1] = glm::vec2(0.858f, 0.5f); // 9
+	texQuad[10] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
 	// Load textures
-	tex[0].loadFromFile("images/ins.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[0].loadFromFile("images/negro.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 
@@ -66,11 +69,11 @@ void Gui::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[0]->render(tex[0]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(245.f, 10.f, 0.f));
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(240.f, 10.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[1]->render(tex[1]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(265.f, 10.f, 0.f));
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(260.f, 10.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[2]->render(tex[1]);
 
@@ -98,9 +101,13 @@ void Gui::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[8]->render(tex[1]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(415.f, 10.f, 0.f));
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(420.f, 10.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad[9]->render(tex[1]);
+
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(440.f, 10.f, 0.f));
+	texProgram.setUniformMatrix4f("modelview", modelview);
+	texQuad[10]->render(tex[1]);
 
 }
 
