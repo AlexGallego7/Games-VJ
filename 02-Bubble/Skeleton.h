@@ -22,6 +22,8 @@ public:
 
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
+	EnemyManager::EnemyStates getState();
+
 
 private:
 	glm::ivec2 tileMapDispl, posPlayer;

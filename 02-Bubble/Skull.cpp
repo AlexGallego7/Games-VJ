@@ -10,7 +10,6 @@ enum SkullAnims
 	SPAWNING, MOVE_LEFT, MOVE_RIGHT, DYING
 };
 
-
 void Skull::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
 	spawnTime = currentTime;
@@ -49,8 +48,11 @@ void Skull::update(int deltaTime)
 	sprite->update(deltaTime);
 	
 	if (sprite->animation() == SPAWNING) {
-		if ((currentTime - spawnTime) > 2000)
+		state = SPAWN;
+		if ((currentTime - spawnTime) > 2000) {
+			state = ALIVE;
 			sprite->changeAnimation(MOVE_LEFT);
+		}
 	}
 
 	else if(sprite->animation() == MOVE_LEFT){
@@ -67,6 +69,7 @@ void Skull::update(int deltaTime)
 	}
 
 	else if (sprite->animation() == DYING) {
+		state = DEAD;
 		if(currentTime - spawnTime > 1000)
 			posPlayer += 200;
 	}
@@ -107,6 +110,10 @@ int Skull::hit() {
 void Skull::dies() {
 	spawnTime = currentTime;
 	sprite->changeAnimation(DYING);
+}
+
+EnemyManager::EnemyStates Skull::getState() {
+	return state;
 }
 
 
