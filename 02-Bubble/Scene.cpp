@@ -87,10 +87,12 @@ void Scene::update(int deltaTime)
 			if (ent[sizeEnts - 1]->LeftMove()) {
 				if ((posEnemy.x+16 == posPlayer.x ) || (posEnemy.x + 16 == posPlayer.x +2) || (posEnemy.x == posPlayer.x+8 )) {
 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
-				 	 	secHit = 0;
-    					lives--;
-						if (lives <= 0) {
-							gameover = true;
+						if (enemy[i]->getState() == EnemyManager::ALIVE) {
+							secHit = 0;
+							lives--;
+							if (lives <= 0) {
+								gameover = true;
+							}
 						}
 					}
 				}
