@@ -109,7 +109,6 @@ void Scene::update(int deltaTime)
 		}
 	}
 	if (secHit != 30) secHit++;
-	//golpear a enemigos -> hay que añadir la animacion del esqueleto al morir.
 	if (Game::instance().getPunch() && secPunch == 30) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();

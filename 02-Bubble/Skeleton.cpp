@@ -7,14 +7,16 @@
 
 enum SkeletonAnims
 {
-	MOVE_LEFT, MOVE_RIGHT
+	MOVE_LEFT, MOVE_RIGHT, DYING
 };
 
 
 void Skeleton::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
-	spritesheet.loadFromFile("images/en2.png", TEXTURE_PIXEL_FORMAT_RGBA);
-	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.5f, 0.5f), &spritesheet, &shaderProgram);
+	spawnTime = currentTime;
+
+	spritesheet.loadFromFile("images/skeleton.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.5f, 0.25f), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(6);
 
 	sprite->setAnimationSpeed(MOVE_RIGHT, 8);
@@ -23,8 +25,11 @@ void Skeleton::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 
 	sprite->setAnimationSpeed(MOVE_LEFT, 8);
-	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.5f));
-	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.5f, 0.5f));
+	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.25f));
+	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.5f, 0.25f));
+
+	sprite->setAnimationSpeed(DYING, 8);
+	sprite->addKeyframe(DYING, glm::vec2(0.f, 0.55f));
 
 
 	sprite->changeAnimation(0);
@@ -38,6 +43,7 @@ void Skeleton::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 void Skeleton::update(int deltaTime)
 {
+	currentTime += deltaTime;
 	sprite->update(deltaTime);
 
 	if (sprite->animation() == MOVE_LEFT) {
@@ -51,6 +57,10 @@ void Skeleton::update(int deltaTime)
 		if (map->collisionMoveRight(posPlayer, glm::ivec2(16, 16))) {
 			sprite->changeAnimation(MOVE_LEFT);
 		}
+	}
+	else if (sprite->animation() == DYING) {
+		if (currentTime - spawnTime > 1000)
+			posPlayer += 200;
 	}
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
@@ -86,9 +96,8 @@ int Skeleton::hit() {
 }
 
 void Skeleton::dies() {
-	/*spawnTime = currentTime;
+	spawnTime = currentTime;
 	sprite->changeAnimation(DYING);
-	*/
 }
 
 

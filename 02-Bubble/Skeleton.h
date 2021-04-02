@@ -25,6 +25,7 @@ public:
 
 private:
 	glm::ivec2 tileMapDispl, posPlayer;
+	float currentTime, spawnTime;
 	int jumpAngle, startY, lives;
 	Texture spritesheet;
 	Sprite* sprite;
