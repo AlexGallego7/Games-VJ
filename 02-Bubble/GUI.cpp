@@ -45,7 +45,7 @@ void Gui::init()
 	texQuad[10] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	// Load textures
-	tex[0].loadFromFile("images/negro.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[0].loadFromFile("images/prueba.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 
