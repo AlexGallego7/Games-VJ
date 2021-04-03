@@ -96,5 +96,10 @@ bool Drop::LeftMove() {
 	return 0;
 }
 
+bool Drop::IsClimbing() {
+	return 0;
+}
+
+
 
 

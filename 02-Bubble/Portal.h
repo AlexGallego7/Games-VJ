@@ -32,6 +32,8 @@ public:
 
 	bool LeftMove();
 
+	bool IsClimbing();
+
 private:
 	string goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;

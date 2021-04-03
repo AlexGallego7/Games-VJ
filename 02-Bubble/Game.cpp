@@ -47,13 +47,13 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 	}
-	if (scene->getEscena() == 1) {
+	else if (scene->getEscena() == 1) {
 		if (key == 'm') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
-	if (scene->getEscena() == 2) {
+	else if (scene->getEscena() == 2) {
 		if (key == 'm') {
 			scene = new Menu();
 			scene->init();
@@ -62,14 +62,35 @@ void Game::keyPressed(int key)
 			scene = new Scene("levels/lv01");
 			scene->init();
 		}
+		if (key == '1') {
+			scene = new Scene("levels/lv01");
+			scene->init();
+		}
+		if (key == '2') {
+			scene = new Scene("levels/lv04");
+			scene->init();
+		}
+		if (key == '3') {
+			scene = new Scene("levels/lv07");
+			scene->init();
+		}
+		if (key == '4') {
+			scene = new Scene("levels/lv010");
+			scene->init();
+		}
+		if (key == '5') {
+			scene = new Scene("levels/lv013");
+			scene->init();
+		}
+
 	}
-	if (scene->getEscena() == 3) {
+	else if (scene->getEscena() == 3) {
 		if (key == 'm') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
-	if (scene->getEscena() == 4) {
+	else if (scene->getEscena() == 4) {
 		if (key == 'm') {
 			scene = new Menu();
 			scene->init();

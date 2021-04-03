@@ -24,6 +24,13 @@ Scene::Scene(string _levelFile)
 	gameover = false; nextlevel = false;
 	prevlevel = false; enterPortal = false;
 	levelFile = _levelFile;
+	int size = _levelFile.length();
+	string sc = "";
+	sc = _levelFile[size - 2];
+	int num = stoi(sc) * 10;
+	sc = _levelFile[size - 1];
+	num += stoi(sc);
+	Gui::instance().setScene(num);
 }
 
 Scene::~Scene()
@@ -66,19 +73,16 @@ void Scene::update(int deltaTime)
 
 	if (map->nextLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16))) {
 		nextlevel = true;
-		Gui::instance().setScene(next);
 	}
 		
 	else if (map->prevLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16))) {
 		prevlevel = true;
-		Gui::instance().setScene(prev);
 	}
 		
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
 		enterPortal = true;
-		Gui::instance().setScene(portalLevel);
 	}
 	
 
@@ -118,7 +122,7 @@ void Scene::update(int deltaTime)
 		}
 	}
 	if (secHit != 30) secHit++;
-	if (Game::instance().getPunch() && secPunch == 30) {
+	if (Game::instance().getPunch() && secPunch == 30 && !ent[sizeEnts - 1]->IsClimbing()) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts-1]->getPos();
  			glm::ivec2 posEnemy = enemy[i]->getPos();

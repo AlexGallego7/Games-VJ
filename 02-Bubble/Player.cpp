@@ -220,4 +220,7 @@ bool Player::LeftMove() {
 	else return false;
 }
 
-
+bool Player::IsClimbing() {
+	if (bClimbing) return true;
+	else return false;
+}

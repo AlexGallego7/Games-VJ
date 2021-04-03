@@ -55,6 +55,9 @@ bool Portal::LeftMove() {
 	return 0;
 }
 
+bool Portal::IsClimbing() {
+	return 0;
+}
 
 
 

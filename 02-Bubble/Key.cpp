@@ -85,5 +85,10 @@ bool Key::LeftMove() {
 	return 0;
 }
 
+bool Key::IsClimbing() {
+	return 0;
+}
+
+
 
 

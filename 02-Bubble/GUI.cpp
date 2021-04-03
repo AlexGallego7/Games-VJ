@@ -486,8 +486,8 @@ void Gui::render()
 
 }
 
-void Gui::setScene(string scene) {
-	this->scene = stoi(scene);
+void Gui::setScene(int scene) {
+	this->scene = scene;
 }
 
 

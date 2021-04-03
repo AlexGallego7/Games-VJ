@@ -22,7 +22,7 @@ public:
 	void update(int deltaTime);
 	void render();
 
-	void setScene(string scene);
+	void setScene(int scene);
 
 private:
 	void initShaders();

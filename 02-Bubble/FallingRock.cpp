@@ -97,3 +97,8 @@ bool FallingRock::LeftMove() {
 	return 0;
 }
 
+bool FallingRock::IsClimbing() {
+	return 0;
+}
+
+

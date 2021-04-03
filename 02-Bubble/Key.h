@@ -21,6 +21,8 @@ public:
 
 	bool LeftMove();
 
+	bool IsClimbing();
+
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 
