@@ -56,12 +56,18 @@ public:
 
 	void resetExp();
 
+	void resetLives();
+
+	int getLives();
+
+	void setLives(int lives);
+
 private:
 	bool bPlay, godmode, punch;                       // Continue to play game?
 	SceneManager *scene;                      // Scene to render
 	bool keys[256], specialKeys[256]; // Store key states so that 
 	                                  // we can have access at any time
-	int totalExp, exp;
+	int totalExp, exp, lives;
 };
 
 

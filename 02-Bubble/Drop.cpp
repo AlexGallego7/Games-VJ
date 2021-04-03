@@ -81,7 +81,7 @@ void Drop::setPosition(const glm::vec2& pos)
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int Drop::getTypeEntity() {
+int Drop::getTypeEnemy() {
 	return 2;
 }
 
@@ -90,16 +90,14 @@ glm::ivec2 Drop::getPos()
 	return posPlayer;
 }
 
-void Drop::open() {}
-
-bool Drop::LeftMove() {
+int Drop::hit() {
 	return 0;
 }
 
-bool Drop::IsClimbing() {
-	return 0;
+void Drop::dies() {
+	//
 }
 
-
-
-
+EnemyManager::EnemyStates Drop::getState() {
+	return state;
+}

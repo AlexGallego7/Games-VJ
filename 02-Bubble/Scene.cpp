@@ -51,12 +51,10 @@ void Scene::init()
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
-	lives = 2;
 	secHit = 30;
 	secPunch = 30;
-
-	Gui::instance().init();
-	Game::instance().resetExp();
+	
+	
 }
 
 void Scene::update(int deltaTime)
@@ -95,26 +93,82 @@ void Scene::update(int deltaTime)
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
-			if (ent[sizeEnts - 1]->LeftMove()) {
-				if ((posEnemy.x+16 == posPlayer.x ) || (posEnemy.x + 16 == posPlayer.x +2) || (posEnemy.x == posPlayer.x+8 )) {
-					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
-						if (enemy[i]->getState() == EnemyManager::ALIVE) {
+			if (enemy[i]->getTypeEnemy() == 2) {
+				if (ent[sizeEnts - 1]->LeftMove()) {
+					if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
+						if (posPlayer.y-10 == posEnemy.y) {
 							secHit = 0;
-							lives--;
-							if (lives <= 0) {
+							Game::instance().setLives(-1);
+							if (Game::instance().getLives() <= 0) {
+								gameover = true;
+							}
+						}
+					}
+				}
+				else {
+					if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
+						if ( posPlayer.y-10 == posEnemy.y) {
+							secHit = 0;
+							Game::instance().setLives(-1);
+							if (Game::instance().getLives() <= 0) {
 								gameover = true;
 							}
 						}
 					}
 				}
 			}
-			else {
-				if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 10) || (posEnemy.x +2 == posPlayer.x + 10)) {
- 					if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) { 
-						secHit = 0;
- 						lives--;
- 						if (lives <= 0) {
-							gameover = true;
+			else if (enemy[i]->getTypeEnemy() == 0) {
+				if (ent[sizeEnts - 1]->LeftMove()) {
+					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x + 16 == posPlayer.x + 2) || (posEnemy.x == posPlayer.x + 8)) {
+						if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+							if (enemy[i]->getState() == EnemyManager::ALIVE) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
+								}
+							}
+						}
+					}
+				}
+				else {
+					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 10) || (posEnemy.x + 2 == posPlayer.x + 10)) {
+						if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
+							if (enemy[i]->getState() == EnemyManager::ALIVE) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
+								}
+							}
+						}
+					}
+				}
+			}
+			else if (enemy[i]->getTypeEnemy() == 1) {
+				if (ent[sizeEnts - 1]->LeftMove()) {
+					if ((posEnemy.x + 26 == posPlayer.x) || (posEnemy.x + 26 == posPlayer.x + 2) || (posEnemy.x-6 == posPlayer.x)) {
+						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
+							if (enemy[i]->getState() == EnemyManager::ALIVE) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
+								}
+							}
+						}
+					}
+				}
+				else {
+					if ((posEnemy.x + 24 == posPlayer.x) || (posEnemy.x == posPlayer.x + 8) || (posEnemy.x + 2 == posPlayer.x + 8)) {
+						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
+							if (enemy[i]->getState() == EnemyManager::ALIVE) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
+								}
+							}
 						}
 					}
 				}
@@ -179,6 +233,8 @@ SceneManager* Scene::changeScene() {
 	if (gameover) {
 		SceneManager* scene = new GameOverScene();
 		scene->init();
+		Game::instance().resetExp();
+		Game::instance().resetLives();
 		return scene;
 	}
 	else if (nextlevel) {
@@ -247,18 +303,6 @@ bool Scene::loadEscena(const string& levelFile) {
 			sstream >> portalLevel;
 			ent.push_back(new Portal(portalLevel));
 		}
-		else if (entity == "DROP") {
-			ent.push_back(new Drop());
-			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
-			ent[i]->setTileMap(map);
-		}
-		else if (entity == "ROCK") {
-			ent.push_back(new FallingRock());
-			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
-			ent[i]->setTileMap(map);
-		}
 		else if (entity == "KEY") {
 			ent.push_back(new Key());
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
@@ -283,6 +327,18 @@ bool Scene::loadEscena(const string& levelFile) {
 			}
 			else if (entity == "SKELETON") {
 				enemy[i] = new Skeleton();
+				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				enemy[i]->setTileMap(map);
+			}
+			else if (entity == "DROP") {
+				enemy[i] = new Drop();
+				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				enemy[i]->setTileMap(map);
+			}
+			else if (entity == "ROCK") {
+				enemy.push_back(new FallingRock());
 				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				enemy[i]->setTileMap(map);

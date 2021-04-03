@@ -13,6 +13,8 @@ void Game::init()
 	punch = false;
 	totalExp = 0;
 	exp = 0;
+	lives = 8;
+	Gui::instance().init();
 }
 
 bool Game::update(int deltaTime)
@@ -162,6 +164,18 @@ glm::ivec2 Game::getExp() {
 
 void Game::resetExp() {
 	this->exp = 0;
+}
+
+void Game::resetLives() {
+	this->lives = 8;
+}
+
+int Game::getLives() {
+	return lives;
+}
+
+void Game::setLives(int lives) {
+	this->lives += lives;
 }
 
 

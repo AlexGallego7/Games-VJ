@@ -28,12 +28,12 @@ private:
 	void initShaders();
 
 private:
-	TexturedQuad* texQuad[11];
-	Texture tex[2];
+	TexturedQuad* texQuad[13];
+	Texture tex[3];
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
-	int scene;
+	int scene, int_exp, old_exp;
 
 };
 

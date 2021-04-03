@@ -4,27 +4,26 @@
 
 #include "Sprite.h"
 #include "TileMap.h"
-#include "EntityManager.h"
+#include "EnemyManager.h"
 
 
-class Drop : public EntityManager
+class Drop : public EnemyManager
 {
 
 public:
 	void init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram);
 	void update(int deltaTime);
 	void render();
+	int getTypeEnemy();
 
-	int getTypeEntity();
 	glm::ivec2 getPos();
-	void open();
 
-	bool LeftMove();
-
-	bool IsClimbing();
+	int hit();
+	void dies();
 
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
+	EnemyManager::EnemyStates getState();
 
 private:
 	float currentTime, dropTime;

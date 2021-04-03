@@ -48,7 +48,7 @@ private:
 private:
 	bool gameover, nextlevel, prevlevel, enterPortal;
 	string levelFile, entity, next, prev, portalLevel;
-	int lives, exp, sizeEnts, sizeEnms, secHit, secPunch;
+	int sizeEnts, sizeEnms, secHit, secPunch;
 	glm::ivec2 pos;
 	TileMap *map;
 	vector<EntityManager*> ent;

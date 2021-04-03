@@ -82,7 +82,7 @@ void FallingRock::setPosition(const glm::vec2& pos)
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int FallingRock::getTypeEntity() {
+int FallingRock::getTypeEnemy() {
 	return 2;
 }
 
@@ -91,14 +91,17 @@ glm::ivec2 FallingRock::getPos()
 	return posPlayer;
 }
 
-void FallingRock::open() {}
-
-bool FallingRock::LeftMove() {
+int FallingRock::hit() {
 	return 0;
 }
 
-bool FallingRock::IsClimbing() {
-	return 0;
+void FallingRock::dies() {
+	//
 }
+
+EnemyManager::EnemyStates FallingRock::getState() {
+	return state;
+}
+
 
 
