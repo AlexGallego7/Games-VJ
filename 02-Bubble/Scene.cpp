@@ -60,6 +60,8 @@ void Scene::init()
 void Scene::update(int deltaTime)
 {
 
+	Gui::instance().update(deltaTime);
+
 	glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 
 
@@ -88,31 +90,34 @@ void Scene::update(int deltaTime)
 
 	glm::ivec2 posDoor = ent[0]->getPos();
 
+	//coger objeto
+	for (int i = 0; i < ent.size(); i++) {
+		glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
+		glm::ivec2 posEnt= ent[i]->getPos();
+		//llave
+		if (ent[i]->getTypeEntity() == 2) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setKey(true);
+					ent.erase(ent.begin() + i);
+					sizeEnts--;
+				}
+			}
+		}
+	}
+
 	//ser golpeado por enemigo -> habria que personalizar las hitbox para cada enemigo.
 	if (!Game::instance().getGodMode() && secHit == 30) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (enemy[i]->getTypeEnemy() == 2) {
-				if (ent[sizeEnts - 1]->LeftMove()) {
-					if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
-						if (posPlayer.y-10 == posEnemy.y) {
-							secHit = 0;
-							Game::instance().setLives(-1);
-							if (Game::instance().getLives() <= 0) {
-								gameover = true;
-							}
-						}
-					}
-				}
-				else {
-					if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
-						if ( posPlayer.y-10 == posEnemy.y) {
-							secHit = 0;
-							Game::instance().setLives(-1);
-							if (Game::instance().getLives() <= 0) {
-								gameover = true;
-							}
+				if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
+					if (posPlayer.y-10 == posEnemy.y) {
+						secHit = 0;
+						Game::instance().setLives(-1);
+						if (Game::instance().getLives() <= 0) {
+							gameover = true;
 						}
 					}
 				}

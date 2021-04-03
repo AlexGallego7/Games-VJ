@@ -50,17 +50,37 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.945f, 0.0f); texCoords[1] = glm::vec2(1.f, 1.f); // exp llena
 	texQuad[12] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // llave
+	texQuad[13] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
 
 	// Load textures
 	tex[0].loadFromFile("images/prueba.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[2].loadFromFile("images/expVida.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[3].loadFromFile("images/key.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 
 	int_exp = 8;
+	key = false;
+	show_key = true;
+}
+
+void Gui::update(int deltaTime) {
+	currentTime += deltaTime;
+	if (currentTime < 150) {
+		show_key = false;
+	}
+	else {
+		show_key = true;
+		if (currentTime > 300) {
+			currentTime = 0;
+		}
+	}
+
 }
 
 
@@ -517,12 +537,22 @@ void Gui::render()
 		texProgram.setUniformMatrix4f("modelview", modelview);
 		texQuad[11]->render(tex[2]);
 	}
+	if (key && show_key) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(460.f, 400.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(0.8, 0.8f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[13]->render(tex[3]);
+	}
 	
 
 }
 
 void Gui::setScene(int scene) {
 	this->scene = scene;
+}
+
+void Gui::setKey(bool key) {
+	this->key = key;
 }
 
 
