@@ -64,14 +64,21 @@ void Scene::update(int deltaTime)
 	for (int i = 0; i < enemy.size(); ++i)
 		enemy[i]->update(deltaTime);
 
-	if (map->nextLevel(ent[sizeEnts-1]->getPos(), glm::ivec2(16, 16)))
+	if (map->nextLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16))) {
 		nextlevel = true;
-	else if (map->prevLevel(ent[sizeEnts-1]->getPos(), glm::ivec2(16, 16)))
+		Gui::instance().setScene(next);
+	}
+		
+	else if (map->prevLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16))) {
 		prevlevel = true;
+		Gui::instance().setScene(prev);
+	}
+		
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
 		enterPortal = true;
+		Gui::instance().setScene(portalLevel);
 	}
 	
 
