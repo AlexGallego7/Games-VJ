@@ -1,7 +1,7 @@
 TILEMAP
 32 20							-- Size of tile map in tiles
 16 16 							-- Tile size & block size
-images/walls_green.png 	-- Tilesheet
+images/walls_yellow.png 	-- Tilesheet
 10 10   
 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 
 22 21 22 21 22 21 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 42 0 0 0 0 13 
