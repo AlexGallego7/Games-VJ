@@ -1,5 +1,5 @@
 ITEMS
-1 7 9   
+1 7 9 
 PLAYER 1 10 
 2 
 SKULL 4 14 
