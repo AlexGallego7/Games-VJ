@@ -30,12 +30,14 @@ public:
 	bool LeftMove();
 	bool IsClimbing();
 
-private:
+private:	
+	float currentTime, renderTime;
 	int goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;
 	int jumpAngle, startY;
-	Texture spritesheet;
+	Texture spritesheet, spritesheet2;
 	Sprite* sprite;
+	Sprite* sprite2;
 	TileMap* map;
 
 };
