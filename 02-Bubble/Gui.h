@@ -25,6 +25,7 @@ public:
 	void setScene(int scene);
 
 	void setKey(bool key);
+	bool hasKey();
 
 private:
 	void initShaders();

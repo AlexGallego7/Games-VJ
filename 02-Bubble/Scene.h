@@ -21,6 +21,7 @@
 #include "Gui.h"
 #include "Key.h"
 #include "FallingRock.h"
+#include "Door.h"
 
 
 // Scene contains all the entities of our game.
@@ -49,7 +50,7 @@ private:
 	bool gameover, nextlevel, prevlevel, enterPortal;
 	string levelFile, entity, next, prev, portalLevel;
 	int sizeEnts, sizeEnms, secHit, secPunch;
-	glm::ivec2 pos;
+	glm::ivec2 pos, posDoor;
 	TileMap *map;
 	vector<EntityManager*> ent;
 	vector<EnemyManager*> enemy;

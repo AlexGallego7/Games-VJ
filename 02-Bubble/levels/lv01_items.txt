@@ -1,7 +1,8 @@
 ITEMS
-2 0 2	  
+3 0 2	 
+DOOR 21 12  
 KEY 11 14 
-PLAYER 9 7  
+PLAYER 9 7 
 3 
 SKULL 4 14 
 DROP 26 5 

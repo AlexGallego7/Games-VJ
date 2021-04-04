@@ -87,15 +87,21 @@ void Scene::update(int deltaTime)
 	
 
 	//abrir puerta
-
+	//glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 	glm::ivec2 posDoor = ent[0]->getPos();
+
+	if (abs(posPlayer.x - posDoor.x) < 32 && Gui::instance().hasKey()) {
+		if (abs(posPlayer.y - posDoor.y) < 32) {
+			ent[0]->open();
+			Gui::instance().setKey(false);
+		}
+	}
 
 	//coger objeto
 	for (int i = 0; i < ent.size(); i++) {
-		glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 		glm::ivec2 posEnt= ent[i]->getPos();
-		//llave
-		if (ent[i]->getTypeEntity() == 2) {
+		//es llave y no tiene llave encima
+		if (ent[i]->getTypeEntity() == 2 && !Gui::instance().hasKey()) {
 			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setKey(true);
@@ -109,7 +115,6 @@ void Scene::update(int deltaTime)
 	//ser golpeado por enemigo -> habria que personalizar las hitbox para cada enemigo.
 	if (!Game::instance().getGodMode() && secHit == 30) {
 		for (int i = 0; i < enemy.size(); i++) {
-			glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 			glm::ivec2 posEnemy = enemy[i]->getPos();
 			if (enemy[i]->getTypeEnemy() == 2) {
 				if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
@@ -313,6 +318,13 @@ bool Scene::loadEscena(const string& levelFile) {
 			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 			ent[i]->setTileMap(map);
+		}
+		else if (entity == "DOOR") {
+			ent.push_back(new Door());
+			ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+			ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+			ent[i]->setTileMap(map);
+			posDoor = glm::ivec2(pos.x, pos.y);
 		}
 		
 	}

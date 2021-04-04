@@ -555,6 +555,9 @@ void Gui::setKey(bool key) {
 	this->key = key;
 }
 
+bool Gui::hasKey() {
+	return key;
+}
 
 void Gui::initShaders()
 {

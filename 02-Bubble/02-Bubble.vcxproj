@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimKeyframes.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Drop.h" />
     <ClInclude Include="EnemyManager.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="WinScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Drop.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
