@@ -60,5 +60,10 @@ bool Portal::IsClimbing() {
 }
 
 
+int Portal::getState() {
+	return sprite->animation();
+}
 
-
+void Portal::setState(int num) {
+	sprite->animation() == num;
+}

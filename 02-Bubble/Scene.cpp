@@ -110,6 +110,13 @@ void Scene::update(int deltaTime)
 				}
 			}
 		}
+		//abre la puerta y coge friend
+		else if (ent[i]->getTypeEntity() == 3 && ent[i]->getState() == 1) {
+			if (/*((posEnt.x-8 - posPlayer.x) < 8 && (posEnt.x-8 - posPlayer.x) >= 0) ||*/ (((posPlayer.x - posEnt.x-8) < 12 && (posPlayer.x - posEnt.x-8) >= 0))) {
+				Gui::instance().setFriends(1);
+				ent[0]->setState(2);
+			}
+		}
 	}
 
 	//ser golpeado por enemigo -> habria que personalizar las hitbox para cada enemigo.

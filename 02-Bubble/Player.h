@@ -27,6 +27,10 @@ public:
 	bool LeftMove();
 
 	bool IsClimbing();
+
+	int getState();
+
+	void setState(int num);
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);

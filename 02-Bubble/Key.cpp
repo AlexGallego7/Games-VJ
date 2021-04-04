@@ -90,5 +90,12 @@ bool Key::IsClimbing() {
 }
 
 
+int Key::getState() {
+	return sprite->animation();
+}
+
+void Key::setState(int num) {
+	sprite->animation() == num;
+}
 
 

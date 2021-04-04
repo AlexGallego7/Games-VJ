@@ -6,7 +6,7 @@
 #include "Game.h"
 
 enum DoorState {
-	CLOSED, OPENED
+	CLOSED, OPENED, OPENED_2 
 };
 
 enum ElemState {
@@ -20,7 +20,7 @@ void Door::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	sprite = Sprite::createSprite(glm::ivec2(64, 64), glm::vec2(0.5f, 0.5f), &spritesheet, &shaderProgram);
 	sprite2 = Sprite::createSprite(glm::ivec2(16, 32), glm::vec2(0.5f, 0.5f), &spritesheet2, &shaderProgram);
 
-	sprite->setNumberAnimations(2);
+	sprite->setNumberAnimations(3);
 	sprite2->setNumberAnimations(2);
 
 	sprite->setAnimationSpeed(CLOSED, 1);
@@ -33,6 +33,9 @@ void Door::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 	sprite->setAnimationSpeed(OPENED, 1);
 	sprite->addKeyframe(OPENED, glm::vec2(0.f, 0.f));
+
+	sprite->setAnimationSpeed(OPENED_2, 1);
+	sprite->addKeyframe(OPENED_2, glm::vec2(0.f, 0.f));
 
 	sprite->changeAnimation(CLOSED);
 	sprite->changeAnimation(A1);
@@ -98,4 +101,13 @@ bool Door::LeftMove() {
 
 bool Door::IsClimbing() {
 	return 0;
+}
+
+
+int Door::getState() {
+	return sprite->animation();
+}
+
+void Door::setState(int num) {
+	sprite->changeAnimation(num);
 }

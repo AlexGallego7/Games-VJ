@@ -224,3 +224,12 @@ bool Player::IsClimbing() {
 	if (bClimbing) return true;
 	else return false;
 }
+
+
+int Player::getState() {
+	return sprite->animation();
+}
+
+void Player::setState(int num) {
+	sprite->animation() == num;
+}

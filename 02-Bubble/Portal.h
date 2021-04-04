@@ -34,6 +34,10 @@ public:
 
 	bool IsClimbing();
 
+	int getState();
+
+	void setState(int num);
+
 private:
 	string goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;

@@ -12,6 +12,7 @@ public:
 	virtual void render() = 0;
 	virtual int getTypeEntity() = 0;
 	virtual void open() = 0;
+	virtual void setState(int num) = 0;
 	/*
 	tipo 0 -> enemigo
 	tipo 1 -> jugador
@@ -25,6 +26,7 @@ public:
 	virtual void setPosition(const glm::vec2& pos) = 0;
 	virtual bool LeftMove() = 0; 
 	virtual bool IsClimbing() = 0;
+	virtual int getState() = 0;
 	enum EntityStates
 	{
 		SPAWNING, ALIVE, DEAD

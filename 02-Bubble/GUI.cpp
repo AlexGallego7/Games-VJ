@@ -53,12 +53,31 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // llave
 	texQuad[13] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.25f, 0.25f); // amigo
+	texQuad[14] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // casco amarillo
+	texQuad[15] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro verde
+	texQuad[16] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro gris
+	texQuad[17] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // botas
+	texQuad[18] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // chubasquero gris
+	texQuad[19] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
+
 
 	// Load textures
 	tex[0].loadFromFile("images/prueba.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[2].loadFromFile("images/expVida.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[3].loadFromFile("images/key.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	tex[4].loadFromFile("images/elem_interfaz.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
@@ -67,6 +86,7 @@ void Gui::init()
 	int_exp = 8;
 	key = false;
 	show_key = true;
+	friends = 0;
 }
 
 void Gui::update(int deltaTime) {
@@ -543,6 +563,24 @@ void Gui::render()
 		texProgram.setUniformMatrix4f("modelview", modelview);
 		texQuad[13]->render(tex[3]);
 	}
+	int j=0;
+	for (int i = 0; i < friends; i++) {
+		if (i < 3) {
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(493 + j * 16), 382.f, 0.f));
+			modelview = glm::scale(modelview, glm::vec3(0.8f, 0.8f, 1.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[14]->render(tex[4]);
+			j++;
+			if (j == 3) j = 0;
+		}
+		else {
+			modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(493 + j * 16), 400.f, 0.f));
+			modelview = glm::scale(modelview, glm::vec3(0.8f, 0.8f, 1.f));
+			texProgram.setUniformMatrix4f("modelview", modelview);
+			texQuad[14]->render(tex[4]);
+			j++;
+		}
+	}
 	
 
 }
@@ -554,6 +592,14 @@ void Gui::setScene(int scene) {
 void Gui::setKey(bool key) {
 	this->key = key;
 }
+
+void Gui::setFriends(int num) {
+	this->friends = this->friends + num;
+	if (this->friends == 6) {
+		//end
+	}
+}
+
 
 bool Gui::hasKey() {
 	return key;

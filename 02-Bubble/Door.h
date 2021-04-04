@@ -30,6 +30,11 @@ public:
 	bool LeftMove();
 	bool IsClimbing();
 
+	int getState();
+
+	void setState(int num);
+
+
 private:	
 	float currentTime, renderTime;
 	int goTo_level;

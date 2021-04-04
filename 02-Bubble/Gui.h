@@ -25,18 +25,20 @@ public:
 	void setScene(int scene);
 
 	void setKey(bool key);
+	void setFriends(int num);
 	bool hasKey();
+
 
 private:
 	void initShaders();
 
 private:
-	TexturedQuad* texQuad[14];
-	Texture tex[4];
+	TexturedQuad* texQuad[20];
+	Texture tex[5];
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
-	int scene, int_exp, old_exp;
+	int scene, int_exp, old_exp, friends;
 	bool key, show_key;
 
 };
