@@ -7,7 +7,7 @@
 #include "Game.h"
 #include "EntState.h"
 #include "helmet.h"
-
+#include "greyBook.h"
 
 #define SCREEN_X 60
 #define SCREEN_Y 60
@@ -116,10 +116,19 @@ void Scene::update(int deltaTime)
 			}
 		}
 		//coger helmet 
-		if (ent[i]->getTypeEntity() == 10 && !Gui::instance().hasKey() && !ent[i]->ObjectCatch()) {
+		if (ent[i]->getTypeEntity() == 10 && !Gui::instance().hasHelmet() && !ent[i]->ObjectCatch()) {
 			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setHelmet(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		//coger libro gris 
+		if (ent[i]->getTypeEntity() == 11 && !Gui::instance().hasGreyBook() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setGreyBook(true);
 					ent[i]->setCatch();
 				}
 			}
@@ -194,10 +203,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 26 == posPlayer.x) || (posEnemy.x + 26 == posPlayer.x + 2) || (posEnemy.x-6 == posPlayer.x)) {
 						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreyBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else{
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -207,10 +225,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 24 == posPlayer.x) || (posEnemy.x == posPlayer.x + 8) || (posEnemy.x + 2 == posPlayer.x + 8)) {
 						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreyBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else {
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -373,6 +400,12 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
 			}
+			else if (entity == "GREYBOOK") {
+				ent.push_back(new greyBook());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
 		}
 	}
 	else{
@@ -403,6 +436,15 @@ bool Scene::loadEscena(const string& levelFile) {
 			}
 			else if (entity == "HELMET") {
 				ent.push_back(new helmet());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "GREYBOOK") {
+				ent.push_back(new greyBook());
 				glm::ivec3 s = EntState::instance().getState(num_scene, i);
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(s.x, s.y));

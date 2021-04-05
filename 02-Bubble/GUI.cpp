@@ -59,16 +59,16 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.25f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.25f); // casco amarillo
 	texQuad[15] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro verde
+	texCoords[0] = glm::vec2(0.25f, 0.25f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro verde
 	texQuad[16] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro gris
+	texCoords[0] = glm::vec2(0.f, 0.25f); texCoords[1] = glm::vec2(0.25f, 0.5f); // libro gris
 	texQuad[17] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // botas
+	texCoords[0] = glm::vec2(0.75f, 0.25f); texCoords[1] = glm::vec2(0.5f, 1.f); // botas
 	texQuad[18] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // chubasquero gris
+	texCoords[0] = glm::vec2(0.5f, 0.25f); texCoords[1] = glm::vec2(0.5f, 0.75f); // chubasquero gris
 	texQuad[19] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 
@@ -88,6 +88,7 @@ void Gui::init()
 	show_key = true;
 	friends = 0;
 	helmet = false;
+	numObj=0;
 }
 
 void Gui::update(int deltaTime) {
@@ -564,12 +565,43 @@ void Gui::render()
 		texProgram.setUniformMatrix4f("modelview", modelview);
 		texQuad[13]->render(tex[3]);
 	}
+	int i = 0;
 	if (helmet) {
-		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(60.f, 390.f, 0.f));
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(i*25+60), 390.f, 0.f));
 		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
 		texProgram.setUniformMatrix4f("modelview", modelview);
 		texQuad[15]->render(tex[4]);
+		i++;
 	}
+	if (greyBook) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(i * 25 + 60), 390.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[17]->render(tex[4]);
+		i++;
+	}
+	if (greenBook) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(i * 25 + 60), 390.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[16]->render(tex[4]);
+		i++;
+	}
+	if (chus) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(i * 25 + 60), 390.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[19]->render(tex[4]);
+		i++;
+	}
+	if (shoes) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(float(i * 25 + 60), 390.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[18]->render(tex[4]);
+		i++;
+	}
+	
 	int j=0;
 	for (int i = 0; i < friends; i++) {
 		if (i < 3) {
@@ -600,8 +632,30 @@ void Gui::setKey(bool key) {
 	this->key = key;
 }
 
+
 void Gui::setHelmet(bool h) {
 	this->helmet = h;
+	numObj++;
+}
+
+void Gui::setChus(bool h) {
+	this->chus = h;
+	numObj++;
+}
+
+void Gui::setShoes(bool h) {
+	this->shoes = h;
+	numObj++;
+}
+
+void Gui::setGreenBook(bool h) {
+	this->greenBook = h;
+	numObj++;
+}
+
+void Gui::setGreyBook(bool h) {
+	this->greyBook = h;
+	numObj++;
 }
 
 void Gui::setFriends(int num) {
@@ -620,6 +674,21 @@ bool Gui::hasHelmet() {
 	return helmet;
 }
 
+bool Gui::hasGreyBook() {
+	return greyBook;
+}
+
+bool Gui::hasGreenBook() {
+	return greenBook;
+}
+
+bool Gui::hasChus() {
+	return chus;
+}
+
+bool Gui::hasShoes() {
+	return shoes;
+}
 
 void Gui::initShaders()
 {

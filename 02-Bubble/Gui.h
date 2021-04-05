@@ -26,10 +26,22 @@ public:
 
 	void setKey(bool key);
 	void setHelmet(bool h);
+	void setChus(bool h);
+	void setShoes(bool h);
+	void setGreenBook(bool h);
+	void setGreyBook(bool h);
 	void setFriends(int num);
 	bool hasKey();
 
 	bool hasHelmet();
+
+	bool hasGreyBook();
+
+	bool hasGreenBook();
+
+	bool hasChus();
+
+	bool hasShoes();
 
 
 private:
@@ -41,8 +53,8 @@ private:
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
-	int scene, int_exp, old_exp, friends;
-	bool key, show_key, helmet;
+	int scene, int_exp, old_exp, friends, numObj;
+	bool key, show_key, helmet, greyBook, greenBook, chus, shoes;
 
 };
 
