@@ -72,6 +72,8 @@ bool Portal::ObjectCatch() {
 	return false;
 }
 
+void Portal::setSpeed(int s) {}
+
 void Portal::setCatch() {
 
 }

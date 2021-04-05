@@ -1,5 +1,5 @@
-#ifndef _helmet_INCLUDE
-#define _helmet_INCLUDE
+#ifndef _greenBook_INCLUDE
+#define _greenBook_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class helmet : public EntityManager
+class greenBook : public EntityManager
 {
 
 public:
@@ -29,12 +29,12 @@ public:
 
 	bool ObjectCatch();
 
-	void setSpeed(int s);
-
 	void setCatch();
 
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
+
+	void setSpeed(int s);
 
 private:
 	float currentTime, renderTime;
@@ -47,6 +47,6 @@ private:
 };
 
 
-#endif // _helmet_INCLUDE
+#endif // _greenBook_INCLUDE
 
 

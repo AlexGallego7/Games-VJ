@@ -118,6 +118,8 @@ bool Door::ObjectCatch(){
 	return false;
 }
 
+void Door::setSpeed(int s) {}
+
 void Door::setCatch() {
 
 }

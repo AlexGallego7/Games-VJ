@@ -35,6 +35,8 @@ public:
 	void setCatch();
 
 	bool ObjectCatch();
+
+	void setSpeed(int s);
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
@@ -43,7 +45,7 @@ private:
 	bool bJumping, bClimbing;
 	glm::ivec2 tileMapDispl, posPlayer;
 	vector<EntityManager*> ent;
-	int jumpAngle, startY;
+	int jumpAngle, startY, speed;
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;

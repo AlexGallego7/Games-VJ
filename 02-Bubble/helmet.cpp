@@ -112,6 +112,8 @@ bool helmet::ObjectCatch() {
 	return cat;
 }
 
+void helmet::setSpeed(int s) {}
+
 void helmet::setCatch() {
 
 

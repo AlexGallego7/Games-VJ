@@ -1,5 +1,5 @@
-#ifndef _helmet_INCLUDE
-#define _helmet_INCLUDE
+#ifndef _chus_INCLUDE
+#define _chus_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class helmet : public EntityManager
+class chus : public EntityManager
 {
 
 public:
@@ -29,9 +29,9 @@ public:
 
 	bool ObjectCatch();
 
-	void setSpeed(int s);
-
 	void setCatch();
+
+	void setSpeed(int s);
 
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
@@ -47,6 +47,6 @@ private:
 };
 
 
-#endif // _helmet_INCLUDE
+#endif // _chus_INCLUDE
 
 

@@ -13,6 +13,7 @@ public:
 	virtual int getTypeEntity() = 0;
 	virtual void open() = 0;
 	virtual void setState(int num) = 0;
+	virtual void setSpeed(int s) = 0;
 	/*
 	tipo 0 -> enemigo
 	tipo 1 -> jugador

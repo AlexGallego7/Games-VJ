@@ -1,5 +1,5 @@
-#ifndef _helmet_INCLUDE
-#define _helmet_INCLUDE
+#ifndef _greyBook_INCLUDE
+#define _greyBook_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class helmet : public EntityManager
+class greyBook : public EntityManager
 {
 
 public:
@@ -16,6 +16,7 @@ public:
 	void render();
 
 	int getTypeEntity();
+	void setSpeed(int s);
 	glm::ivec2 getPos();
 	void open();
 
@@ -28,8 +29,6 @@ public:
 	void setState(int num);
 
 	bool ObjectCatch();
-
-	void setSpeed(int s);
 
 	void setCatch();
 
@@ -47,6 +46,6 @@ private:
 };
 
 
-#endif // _helmet_INCLUDE
+#endif // _greyBook_INCLUDE
 
 

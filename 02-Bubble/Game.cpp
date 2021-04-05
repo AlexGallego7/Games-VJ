@@ -65,9 +65,16 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 		if (key == 'r') {
+			charged_scenes.clear();
 			for (int i = 0; i < 15; i++) {
 				charged_scenes.push_back(false);
 			}
+			Gui::instance().setKey(false);
+			Gui::instance().setHelmet(false);
+			Gui::instance().setChus(false);
+			Gui::instance().setShoes(false);
+			Gui::instance().setGreenBook(false);
+			Gui::instance().setGreyBook(false);
 			scene = new Scene("levels/lv01");
 			scene->init();
 		}
@@ -96,6 +103,22 @@ void Game::keyPressed(int key)
 			scene = new Scene("levels/lv013");
 			scene->init();
 		}
+		if (key == 'q') {
+			Gui::instance().setShoes(true);
+		}
+		if (key == 'w') {
+			Gui::instance().setGreenBook(true);
+		}
+		if (key == 'e') {
+			Gui::instance().setGreyBook(true);
+		}
+		if (key == 't') {
+			Gui::instance().setChus(true);
+		}
+		if (key == 'y') {
+			Gui::instance().setHelmet(true);
+		}
+
 
 	}
 	else if (scene->getEscena() == 3) {

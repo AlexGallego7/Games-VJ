@@ -12,8 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimKeyframes.h" />
+    <ClInclude Include="Chus.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="EntState.h" />
+    <ClInclude Include="GreenBook.h" />
+    <ClInclude Include="GreyBook.h" />
     <ClInclude Include="helmet.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Drop.h" />
@@ -31,6 +34,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Shoes.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Skull.h" />
     <ClInclude Include="Sprite.h" />
@@ -41,8 +45,11 @@
     <ClInclude Include="WinScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Chus.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="EntState.cpp" />
+    <ClCompile Include="GreenBook.cpp" />
+    <ClCompile Include="GreyBook.cpp" />
     <ClCompile Include="helmet.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Drop.cpp" />
@@ -61,6 +68,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Shoes.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Skull.cpp" />
     <ClCompile Include="Sprite.cpp" />

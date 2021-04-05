@@ -1,22 +1,23 @@
+#include "greenBook.h"
 #include <cmath>
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/glut.h>
-#include "Key.h"
+#include "greenBook.h"
 #include "Game.h"
 #include "EntState.h"
 
 
-enum KeyAnims
+enum greenBookAnims
 {
 	SHOWN, NOT_SHOWN, CATCH
 };
 
 
-void Key::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
+void greenBook::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
 	renderTime = currentTime;
-	spritesheet.loadFromFile("images/key.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	spritesheet.loadFromFile("images/bag_items.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(16, 16), glm::vec2(0.5f, 0.5f), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(6);
 
@@ -36,7 +37,7 @@ void Key::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 }
 
-void Key::update(int deltaTime)
+void greenBook::update(int deltaTime)
 {
 	currentTime += deltaTime;
 
@@ -57,64 +58,65 @@ void Key::update(int deltaTime)
 			sprite->changeAnimation(SHOWN);
 		}
 	}
-	
+
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 
 }
-void Key::setSpeed(int s) {}
 
-void Key::render()
+void greenBook::render()
 {
-	if(!cat)sprite->render();
+	if (!cat)sprite->render();
 }
 
-void Key::setTileMap(TileMap* tileMap)
+void greenBook::setTileMap(TileMap* tileMap)
 {
 	map = tileMap;
 }
 
-void Key::setPosition(const glm::vec2& pos)
+void greenBook::setPosition(const glm::vec2& pos)
 {
 	posPlayer = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int Key::getTypeEntity() {
-	return 2;
+void greenBook::setSpeed(int s) {}
+
+int greenBook::getTypeEntity() {
+	return 12;
 }
 
-glm::ivec2 Key::getPos()
+glm::ivec2 greenBook::getPos()
 {
 	return posPlayer;
 }
 
-void Key::open() {}
+void greenBook::open() {}
 
-bool Key::LeftMove() {
+bool greenBook::LeftMove() {
 	return 0;
 }
 
-bool Key::IsClimbing() {
+bool greenBook::IsClimbing() {
 	return 0;
 }
 
 
-int Key::getState() {
+int greenBook::getState() {
 	return sprite->animation();
 }
 
-void Key::setState(int num) {
+void greenBook::setState(int num) {
 	sprite->animation() == num;
 }
 
-bool Key::ObjectCatch() {
+bool greenBook::ObjectCatch() {
 	return cat;
 }
 
-void Key::setCatch() {
-	
-	
-cat = true;
+void greenBook::setCatch() {
+
+
+	cat = true;
 }
 

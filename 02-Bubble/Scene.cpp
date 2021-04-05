@@ -7,7 +7,10 @@
 #include "Game.h"
 #include "EntState.h"
 #include "helmet.h"
-
+#include "greyBook.h"
+#include "greenBook.h"
+#include "Chus.h"
+#include "Shoes.h"
 
 #define SCREEN_X 60
 #define SCREEN_Y 60
@@ -85,6 +88,9 @@ void Scene::update(int deltaTime)
 		prevlevel = true;
 	}
 		
+	if (Gui::instance().hasShoes()) {
+		ent[sizeEnts - 1]->setSpeed(3);
+	}
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
@@ -116,10 +122,45 @@ void Scene::update(int deltaTime)
 			}
 		}
 		//coger helmet 
-		if (ent[i]->getTypeEntity() == 10 && !Gui::instance().hasKey() && !ent[i]->ObjectCatch()) {
+		if (ent[i]->getTypeEntity() == 10 && !Gui::instance().hasHelmet() && !ent[i]->ObjectCatch()) {
 			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setHelmet(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		//coger libro gris 
+		if (ent[i]->getTypeEntity() == 11 && !Gui::instance().hasGreyBook() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setGreyBook(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		if (ent[i]->getTypeEntity() == 12 && !Gui::instance().hasGreenBook() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setGreenBook(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		//coge chus
+		if (ent[i]->getTypeEntity() == 13 && !Gui::instance().hasChus() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setChus(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		//coger shoes
+		if (ent[i]->getTypeEntity() == 14 && !Gui::instance().hasShoes() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setShoes(true);
 					ent[i]->setCatch();
 				}
 			}
@@ -139,7 +180,7 @@ void Scene::update(int deltaTime)
 	if (!Game::instance().getGodMode() && secHit == 30) {
 		for (int i = 0; i < enemy.size(); i++) {
 			glm::ivec2 posEnemy = enemy[i]->getPos();
-			if (enemy[i]->getTypeEnemy() == 2) {
+			if (enemy[i]->getTypeEnemy() == 2 && !Gui::instance().hasChus()) {
 				if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
 					if (posPlayer.y-10 == posEnemy.y) {
 						secHit = 0;
@@ -166,10 +207,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x + 16 == posPlayer.x + 2) || (posEnemy.x == posPlayer.x + 8)) {
 						if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreenBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else {
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -179,10 +229,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 10) || (posEnemy.x + 2 == posPlayer.x + 10)) {
 						if ((posEnemy.y - posPlayer.y) < 16 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreenBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else {
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -194,10 +253,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 26 == posPlayer.x) || (posEnemy.x + 26 == posPlayer.x + 2) || (posEnemy.x-6 == posPlayer.x)) {
 						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreyBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else{
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -207,10 +275,19 @@ void Scene::update(int deltaTime)
 					if ((posEnemy.x + 24 == posPlayer.x) || (posEnemy.x == posPlayer.x + 8) || (posEnemy.x + 2 == posPlayer.x + 8)) {
 						if ((posEnemy.y - posPlayer.y) < 32 && 0 <= (posEnemy.y - posPlayer.y)) {
 							if (enemy[i]->getState() == EnemyManager::ALIVE) {
-								secHit = 0;
-								Game::instance().setLives(-1);
-								if (Game::instance().getLives() <= 0) {
-									gameover = true;
+								if (Gui::instance().hasGreyBook()) {
+									int lives_enemy = enemy[i]->hit();
+									secPunch = 0;
+									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
+									Game::instance().addTotalExp(10);
+									Game::instance().addExp(10);
+								}
+								else {
+									secHit = 0;
+									Game::instance().setLives(-1);
+									if (Game::instance().getLives() <= 0) {
+										gameover = true;
+									}
 								}
 							}
 						}
@@ -374,6 +451,30 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
 			}
+			else if (entity == "GREYBOOK") {
+				ent.push_back(new greyBook());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
+			else if (entity == "GREENBOOK") {
+				ent.push_back(new greenBook());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
+			else if (entity == "CHUS") {
+				ent.push_back(new chus());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
+			else if (entity == "SHOES") {
+				ent.push_back(new shoes());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
 		}
 	}
 	else{
@@ -404,6 +505,42 @@ bool Scene::loadEscena(const string& levelFile) {
 			}
 			else if (entity == "HELMET") {
 				ent.push_back(new helmet());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "GREYBOOK") {
+				ent.push_back(new greyBook());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "GREENBOOK") {
+				ent.push_back(new greenBook());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "CHUS") {
+				ent.push_back(new chus());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "SHOES") {
+				ent.push_back(new shoes());
 				glm::ivec3 s = EntState::instance().getState(num_scene, i);
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(s.x, s.y));

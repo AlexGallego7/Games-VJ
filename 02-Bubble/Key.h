@@ -13,6 +13,7 @@ class Key : public EntityManager
 public:
 	void init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram);
 	void update(int deltaTime);
+	void setSpeed(int s);
 	void render();
 
 	int getTypeEntity();
