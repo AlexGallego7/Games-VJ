@@ -103,6 +103,22 @@ void Game::keyPressed(int key)
 			scene = new Scene("levels/lv013");
 			scene->init();
 		}
+		if (key == 'q') {
+			Gui::instance().setShoes(true);
+		}
+		if (key == 'w') {
+			Gui::instance().setGreenBook(true);
+		}
+		if (key == 'e') {
+			Gui::instance().setGreyBook(true);
+		}
+		if (key == 't') {
+			Gui::instance().setChus(true);
+		}
+		if (key == 'y') {
+			Gui::instance().setHelmet(true);
+		}
+
 
 	}
 	else if (scene->getEscena() == 3) {
