@@ -43,13 +43,15 @@ public:
 	int getEscena();
 	bool loadEscena(const string& levelFile);
 
+	void guardarEstado();
+
 private:
 	void initShaders();
 
 private:
-	bool gameover, nextlevel, prevlevel, enterPortal;
+	bool gameover, nextlevel, prevlevel, enterPortal, charge_obj;
 	string levelFile, entity, next, prev, portalLevel;
-	int sizeEnts, sizeEnms, secHit, secPunch;
+	int sizeEnts, sizeEnms, secHit, secPunch, num_scene;
 	glm::ivec2 pos, posDoor;
 	TileMap *map;
 	vector<EntityManager*> ent;

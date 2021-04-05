@@ -62,12 +62,22 @@ public:
 
 	void setLives(int lives);
 
+	bool isCharged(int pos);
+
+	void charged_scene(int pos);
+
+	void setNumEsc(int num);
+
+	int getNumEsc();
+
 private:
 	bool bPlay, godmode, punch;                       // Continue to play game?
 	SceneManager *scene;                      // Scene to render
 	bool keys[256], specialKeys[256]; // Store key states so that 
 	                                  // we can have access at any time
-	int totalExp, exp, lives;
+	int totalExp, exp, lives, num_esc;
+	vector<bool> charged_scenes;
+	
 };
 
 

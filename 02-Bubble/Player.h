@@ -31,6 +31,10 @@ public:
 	int getState();
 
 	void setState(int num);
+
+	void setCatch();
+
+	bool ObjectCatch();
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);

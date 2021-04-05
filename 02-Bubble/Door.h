@@ -34,6 +34,10 @@ public:
 
 	void setState(int num);
 
+	bool ObjectCatch();
+
+	void setCatch();
+
 
 private:	
 	float currentTime, renderTime;

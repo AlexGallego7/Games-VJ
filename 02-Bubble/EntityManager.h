@@ -28,6 +28,8 @@ public:
 	virtual bool LeftMove() = 0; 
 	virtual bool IsClimbing() = 0;
 	virtual int getState() = 0;
+	virtual bool ObjectCatch() = 0;
+	virtual void setCatch() = 0;
 	enum EntityStates
 	{
 		SPAWNING, ALIVE, DEAD

@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include "Game.h"
-
+#include "EntState.h"
 
 void Game::init()
 {
@@ -15,6 +15,10 @@ void Game::init()
 	exp = 0;
 	lives = 8;
 	Gui::instance().init();
+	for (int i = 0; i < 15; i++) {
+		charged_scenes.push_back(false);
+	}
+	EntState::instance().resize(15);
 }
 
 bool Game::update(int deltaTime)
@@ -61,26 +65,34 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 		if (key == 'r') {
+			for (int i = 0; i < 15; i++) {
+				charged_scenes.push_back(false);
+			}
 			scene = new Scene("levels/lv01");
 			scene->init();
 		}
 		if (key == '1') {
+			scene->guardarEstado();
 			scene = new Scene("levels/lv01");
 			scene->init();
 		}
 		if (key == '2') {
+			scene->guardarEstado();
 			scene = new Scene("levels/lv04");
 			scene->init();
 		}
 		if (key == '3') {
+			scene->guardarEstado();
 			scene = new Scene("levels/lv07");
 			scene->init();
 		}
 		if (key == '4') {
+			scene->guardarEstado();
 			scene = new Scene("levels/lv010");
 			scene->init();
 		}
 		if (key == '5') {
+			scene->guardarEstado();
 			scene = new Scene("levels/lv013");
 			scene->init();
 		}
@@ -178,5 +190,20 @@ void Game::setLives(int lives) {
 	this->lives += lives;
 }
 
+bool Game::isCharged(int pos) {
+	return charged_scenes[pos];
+}
+
+void Game::charged_scene(int pos) {
+	charged_scenes[pos] = true;
+}
+
+void Game::setNumEsc(int num) {
+	num_esc = num;
+}
+
+int Game::getNumEsc() {
+	return num_esc;
+}
 
 

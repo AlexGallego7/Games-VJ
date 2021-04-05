@@ -76,6 +76,8 @@ SceneManager* Menu::changeScene() {
 
 }
 
+void Menu::guardarEstado() {}
+
 void Menu::render()
 {
 	glm::mat4 modelview;

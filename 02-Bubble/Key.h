@@ -27,6 +27,10 @@ public:
 
 	void setState(int num);
 
+	bool ObjectCatch();
+
+	void setCatch();
+
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 
@@ -37,7 +41,7 @@ private:
 	Texture spritesheet;
 	Sprite* sprite;
 	TileMap* map;
-
+	bool cat;
 };
 
 

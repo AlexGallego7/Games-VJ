@@ -66,6 +66,7 @@ void InstruccionsScene::render()
 
 
 }
+void InstruccionsScene::guardarEstado() {}
 
 void InstruccionsScene::initShaders()
 {

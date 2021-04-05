@@ -4,16 +4,17 @@
 #include <GL/glut.h>
 #include "Key.h"
 #include "Game.h"
+#include "EntState.h"
+
 
 enum KeyAnims
 {
-	SHOWN, NOT_SHOWN
+	SHOWN, NOT_SHOWN, CATCH
 };
 
 
 void Key::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
-
 	renderTime = currentTime;
 	spritesheet.loadFromFile("images/key.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(16, 16), glm::vec2(0.5f, 0.5f), &spritesheet, &shaderProgram);
@@ -25,6 +26,9 @@ void Key::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 	sprite->setAnimationSpeed(NOT_SHOWN, 8);
 	sprite->addKeyframe(NOT_SHOWN, glm::vec2(0.f, 0.5f));
+
+	sprite->setAnimationSpeed(CATCH, 8);
+	sprite->addKeyframe(CATCH, glm::vec2(0.f, 0.5f));
 
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
@@ -38,7 +42,10 @@ void Key::update(int deltaTime)
 
 	sprite->update(deltaTime);
 
-	if (sprite->animation() == SHOWN) {
+	if (cat) {
+		sprite->changeAnimation(CATCH);
+	}
+	else if (sprite->animation() == SHOWN) {
 		if (currentTime - renderTime > 250) {
 			renderTime = currentTime;
 			sprite->changeAnimation(NOT_SHOWN);
@@ -50,13 +57,15 @@ void Key::update(int deltaTime)
 			sprite->changeAnimation(SHOWN);
 		}
 	}
+	
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+
 }
 
 void Key::render()
 {
-	sprite->render();
+	if(!cat)sprite->render();
 }
 
 void Key::setTileMap(TileMap* tileMap)
@@ -98,4 +107,13 @@ void Key::setState(int num) {
 	sprite->animation() == num;
 }
 
+bool Key::ObjectCatch() {
+	return cat;
+}
+
+void Key::setCatch() {
+	
+	
+cat = true;
+}
 

@@ -11,6 +11,8 @@ GameOverScene::~GameOverScene()
 {
 }
 
+void GameOverScene::guardarEstado() {}
+
 int GameOverScene::getEscena() {
 	return 3;
 }

@@ -19,6 +19,7 @@ public:
 	void init();
 	void update(int deltaTime);
 	void render();
+	void guardarEstado();
 	SceneManager* changeScene();
 	int getEscena();
 

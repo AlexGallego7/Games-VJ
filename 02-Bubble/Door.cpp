@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include "Door.h"
 #include "Game.h"
+#include "EntState.h"
 
 enum DoorState {
 	CLOSED, OPENED, OPENED_2 
@@ -54,6 +55,7 @@ void Door::update(int deltaTime)
 	if (sprite->animation() == OPENED) {
 		sprite2->update(deltaTime);
 	}
+
 }
 
 void Door::render()
@@ -110,4 +112,12 @@ int Door::getState() {
 
 void Door::setState(int num) {
 	sprite->changeAnimation(num);
+}
+
+bool Door::ObjectCatch(){
+	return false;
+}
+
+void Door::setCatch() {
+
 }

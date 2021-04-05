@@ -61,9 +61,17 @@ bool Portal::IsClimbing() {
 
 
 int Portal::getState() {
-	return sprite->animation();
+	return 0;
 }
 
 void Portal::setState(int num) {
 	sprite->animation() == num;
+}
+
+bool Portal::ObjectCatch() {
+	return false;
+}
+
+void Portal::setCatch() {
+
 }

@@ -38,6 +38,10 @@ public:
 
 	void setState(int num);
 
+	bool ObjectCatch();
+
+	void setCatch();
+
 private:
 	string goTo_level;
 	glm::ivec2 tileMapDispl, posPlayer;

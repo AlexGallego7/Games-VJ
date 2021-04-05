@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include "Player.h"
 #include "Game.h"
+#include "EntState.h"
 
 
 #define JUMP_ANGLE_STEP 4
@@ -185,6 +186,7 @@ void Player::update(int deltaTime)
 	}
 	
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+	
 }
 
 void Player::render()
@@ -233,3 +235,12 @@ int Player::getState() {
 void Player::setState(int num) {
 	sprite->animation() == num;
 }
+
+void Player::setCatch() {
+
+}
+
+ bool Player::ObjectCatch() {
+	 return false;
+ }
+

@@ -15,6 +15,8 @@ public:
 	GameOverScene();
 	~GameOverScene();
 
+	void guardarEstado();
+
 	void init();
 	void update(int deltaTime);
 	void render();

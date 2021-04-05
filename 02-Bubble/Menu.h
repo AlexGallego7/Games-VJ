@@ -21,6 +21,8 @@ public:
 	int getEscena();
 	SceneManager* changeScene();
 
+	void guardarEstado();
+
 private:
 	void initShaders();
 
