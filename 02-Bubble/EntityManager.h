@@ -34,6 +34,6 @@ public:
 	{
 		SPAWNING, ALIVE, DEAD
 	};
-
+	//10 -> helmet
 	EntityStates state;
 };

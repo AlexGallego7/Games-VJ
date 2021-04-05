@@ -25,8 +25,11 @@ public:
 	void setScene(int scene);
 
 	void setKey(bool key);
+	void setHelmet(bool h);
 	void setFriends(int num);
 	bool hasKey();
+
+	bool hasHelmet();
 
 
 private:
@@ -39,7 +42,7 @@ private:
 	float currentTime;
 	glm::mat4 projection;
 	int scene, int_exp, old_exp, friends;
-	bool key, show_key;
+	bool key, show_key, helmet;
 
 };
 

@@ -32,7 +32,7 @@ void FallingRock::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgra
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
-
+	fall = false;
 }
 
 void FallingRock::update(int deltaTime)
@@ -42,7 +42,7 @@ void FallingRock::update(int deltaTime)
 	sprite->update(deltaTime);
 
 	if (sprite->animation() == CEILING) {
-		if (currentTime - dropTime > 1000) {
+		if (currentTime - dropTime > 2000) {
 			posPlayer.y += 2;
 			sprite->changeAnimation(AIR);
 		}
@@ -83,7 +83,7 @@ void FallingRock::setPosition(const glm::vec2& pos)
 }
 
 int FallingRock::getTypeEnemy() {
-	return 2;
+	return 3;
 }
 
 glm::ivec2 FallingRock::getPos()

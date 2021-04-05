@@ -56,7 +56,7 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.25f, 0.25f); // amigo
 	texQuad[14] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // casco amarillo
+	texCoords[0] = glm::vec2(0.25f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.25f); // casco amarillo
 	texQuad[15] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	texCoords[0] = glm::vec2(0.f, 0.0f); texCoords[1] = glm::vec2(0.5f, 0.5f); // libro verde
@@ -87,6 +87,7 @@ void Gui::init()
 	key = false;
 	show_key = true;
 	friends = 0;
+	helmet = false;
 }
 
 void Gui::update(int deltaTime) {
@@ -563,6 +564,12 @@ void Gui::render()
 		texProgram.setUniformMatrix4f("modelview", modelview);
 		texQuad[13]->render(tex[3]);
 	}
+	if (helmet) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(60.f, 390.f, 0.f));
+		modelview = glm::scale(modelview, glm::vec3(1.3f, 1.3f, 1.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		texQuad[15]->render(tex[4]);
+	}
 	int j=0;
 	for (int i = 0; i < friends; i++) {
 		if (i < 3) {
@@ -593,6 +600,10 @@ void Gui::setKey(bool key) {
 	this->key = key;
 }
 
+void Gui::setHelmet(bool h) {
+	this->helmet = h;
+}
+
 void Gui::setFriends(int num) {
 	this->friends = this->friends + num;
 	if (this->friends == 6) {
@@ -604,6 +615,11 @@ void Gui::setFriends(int num) {
 bool Gui::hasKey() {
 	return key;
 }
+
+bool Gui::hasHelmet() {
+	return helmet;
+}
+
 
 void Gui::initShaders()
 {

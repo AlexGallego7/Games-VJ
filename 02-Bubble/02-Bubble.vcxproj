@@ -14,6 +14,7 @@
     <ClInclude Include="AnimKeyframes.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="EntState.h" />
+    <ClInclude Include="helmet.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Drop.h" />
     <ClInclude Include="EnemyManager.h" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="EntState.cpp" />
+    <ClCompile Include="helmet.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Drop.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
