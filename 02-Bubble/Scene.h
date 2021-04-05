@@ -22,6 +22,7 @@
 #include "Key.h"
 #include "FallingRock.h"
 #include "Door.h"
+#include "Water.h"
 
 
 // Scene contains all the entities of our game.
