@@ -80,6 +80,8 @@ void greenBook::setPosition(const glm::vec2& pos)
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
+void greenBook::setSpeed(int s) {}
+
 int greenBook::getTypeEntity() {
 	return 12;
 }

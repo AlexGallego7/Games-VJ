@@ -34,6 +34,8 @@ public:
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 
+	void setSpeed(int s);
+
 private:
 	float currentTime, renderTime;
 	glm::ivec2 tileMapDispl, posPlayer;

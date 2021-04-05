@@ -61,6 +61,8 @@ void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 	sprite->setAdjustment(4);
+	
+	speed = 2;
 }
 
 void Player::update(int deltaTime)
@@ -81,10 +83,10 @@ void Player::update(int deltaTime)
 		if (!bClimbing) {
 			if (sprite->animation() != MOVE_LEFT)
 				sprite->changeAnimation(MOVE_LEFT);
-			posPlayer.x -= 2;
+			posPlayer.x -= speed;
 			if (map->collisionMoveLeft(posPlayer, glm::ivec2(16, 16)))
 			{
-				posPlayer.x += 2;
+				posPlayer.x += speed;
 				sprite->changeAnimation(STAND_LEFT);
 			}
 		}
@@ -94,10 +96,10 @@ void Player::update(int deltaTime)
 		if (!bClimbing) {
 			if (sprite->animation() != MOVE_RIGHT)
 				sprite->changeAnimation(MOVE_RIGHT);
-			posPlayer.x += 2;
+			posPlayer.x += speed;
 			if (map->collisionMoveRight(posPlayer, glm::ivec2(16, 16)))
 			{
-				posPlayer.x -= 2;
+				posPlayer.x -= speed;
 				sprite->changeAnimation(STAND_RIGHT);
 			}
 		}
@@ -242,5 +244,9 @@ void Player::setCatch() {
 
  bool Player::ObjectCatch() {
 	 return false;
+ }
+
+ void Player::setSpeed(int s) {
+	 speed = s;
  }
 

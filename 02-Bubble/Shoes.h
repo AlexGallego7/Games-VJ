@@ -1,5 +1,5 @@
-#ifndef _helmet_INCLUDE
-#define _helmet_INCLUDE
+#ifndef _shoes_INCLUDE
+#define _shoes_INCLUDE
 
 
 #include "Sprite.h"
@@ -7,7 +7,7 @@
 #include "EntityManager.h"
 
 
-class helmet : public EntityManager
+class shoes : public EntityManager
 {
 
 public:
@@ -19,6 +19,8 @@ public:
 	glm::ivec2 getPos();
 	void open();
 
+	void setSpeed(int s);
+
 	bool LeftMove();
 
 	bool IsClimbing();
@@ -28,8 +30,6 @@ public:
 	void setState(int num);
 
 	bool ObjectCatch();
-
-	void setSpeed(int s);
 
 	void setCatch();
 
@@ -47,6 +47,6 @@ private:
 };
 
 
-#endif // _helmet_INCLUDE
+#endif // _shoes_INCLUDE
 
 

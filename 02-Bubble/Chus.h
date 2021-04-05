@@ -31,6 +31,8 @@ public:
 
 	void setCatch();
 
+	void setSpeed(int s);
+
 	void setTileMap(TileMap* tileMap);
 	void setPosition(const glm::vec2& pos);
 

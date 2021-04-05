@@ -40,6 +40,8 @@ public:
 
 	bool ObjectCatch();
 
+	void setSpeed(int s);
+
 	void setCatch();
 
 private:

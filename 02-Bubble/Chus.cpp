@@ -118,4 +118,4 @@ void chus::setCatch() {
 	cat = true;
 }
 
-#include "Chus.h"
+void chus::setSpeed(int s) {}

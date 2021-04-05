@@ -16,6 +16,7 @@ public:
 	void render();
 
 	int getTypeEntity();
+	void setSpeed(int s);
 	glm::ivec2 getPos();
 	void open();
 

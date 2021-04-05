@@ -84,6 +84,8 @@ int greyBook::getTypeEntity() {
 	return 11;
 }
 
+void greyBook::setSpeed(int s) {}
+
 glm::ivec2 greyBook::getPos()
 {
 	return posPlayer;

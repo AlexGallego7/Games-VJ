@@ -10,6 +10,7 @@
 #include "greyBook.h"
 #include "greenBook.h"
 #include "Chus.h"
+#include "Shoes.h"
 
 #define SCREEN_X 60
 #define SCREEN_Y 60
@@ -87,6 +88,9 @@ void Scene::update(int deltaTime)
 		prevlevel = true;
 	}
 		
+	if (Gui::instance().hasShoes()) {
+		ent[sizeEnts - 1]->setSpeed(3);
+	}
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
@@ -148,6 +152,15 @@ void Scene::update(int deltaTime)
 			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setChus(true);
+					ent[i]->setCatch();
+				}
+			}
+		}
+		//coger shoes
+		if (ent[i]->getTypeEntity() == 14 && !Gui::instance().hasShoes() && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					Gui::instance().setShoes(true);
 					ent[i]->setCatch();
 				}
 			}
@@ -455,6 +468,12 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
 			}
+			else if (entity == "SHOES") {
+				ent.push_back(new shoes());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
 		}
 	}
 	else{
@@ -512,6 +531,15 @@ bool Scene::loadEscena(const string& levelFile) {
 			}
 			else if (entity == "CHUS") {
 				ent.push_back(new chus());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "SHOES") {
+				ent.push_back(new shoes());
 				glm::ivec3 s = EntState::instance().getState(num_scene, i);
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(s.x, s.y));

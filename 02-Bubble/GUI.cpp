@@ -65,7 +65,7 @@ void Gui::init()
 	texCoords[0] = glm::vec2(0.f, 0.25f); texCoords[1] = glm::vec2(0.25f, 0.5f); // libro gris
 	texQuad[17] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
-	texCoords[0] = glm::vec2(0.75f, 0.25f); texCoords[1] = glm::vec2(0.5f, 1.f); // botas
+	texCoords[0] = glm::vec2(0.75f, 0.25f); texCoords[1] = glm::vec2(1.f, 0.5f); // botas
 	texQuad[18] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 	texCoords[0] = glm::vec2(0.5f, 0.25f); texCoords[1] = glm::vec2(0.5f, 0.75f); // chubasquero gris
