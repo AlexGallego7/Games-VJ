@@ -325,6 +325,8 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent.push_back(new Player());
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				posIni.x = pos.x * map->getTileSize();
+				posIni.y = pos.y * map->getTileSize();
 				ent[i]->setTileMap(map);
 			}
 			else if (entity == "PORTAL") {
@@ -425,6 +427,12 @@ void Scene::guardarEstado() {
 	EntState::instance().clear(num_scene);
 	for (int i = 0; i < ent.size(); i++) {
 		glm::ivec2 pos = ent[i]->getPos();
+		if (ent[i]->getTypeEntity() == 1) {
+			if (ent[i]->IsClimbing()) {
+				pos.x = posIni.x;
+				pos.y = posIni.y;
+			}
+		}
 		EntState::instance().setState(num_scene, pos.x, pos.y, ent[i]->getState());
 	}
 }
