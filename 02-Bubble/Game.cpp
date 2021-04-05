@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include "Game.h"
 #include "EntState.h"
+#include "EndScene.h"
 
 void Game::init()
 {
@@ -118,6 +119,9 @@ void Game::keyPressed(int key)
 		if (key == 'y') {
 			Gui::instance().setHelmet(true);
 		}
+		if (key == 'a') {
+			Gui::instance().setFriends(1);
+		}
 
 
 	}
@@ -128,6 +132,12 @@ void Game::keyPressed(int key)
 		}
 	}
 	else if (scene->getEscena() == 4) {
+		if (key == 'm') {
+			scene = new Menu();
+			scene->init();
+		}
+	}
+	else if (scene->getEscena() == 5) {
 		if (key == 'm') {
 			scene = new Menu();
 			scene->init();
@@ -229,4 +239,17 @@ int Game::getNumEsc() {
 	return num_esc;
 }
 
-
+void Game::setEnd() {
+	charged_scenes.clear();
+	for (int i = 0; i < 15; i++) {
+		charged_scenes.push_back(false);
+	}
+	Gui::instance().setKey(false);
+	Gui::instance().setHelmet(false);
+	Gui::instance().setChus(false);
+	Gui::instance().setShoes(false);
+	Gui::instance().setGreenBook(false);
+	Gui::instance().setGreyBook(false);
+	scene = new EndScene();
+	scene->init();
+}

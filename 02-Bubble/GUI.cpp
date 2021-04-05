@@ -72,6 +72,7 @@ void Gui::init()
 	texQuad[19] = TexturedQuad::createTexturedQuad(geomChars, texCoords, texProgram);
 
 
+
 	// Load textures
 	tex[0].loadFromFile("images/prueba.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	tex[1].loadFromFile("images/font.png", TEXTURE_PIXEL_FORMAT_RGBA);
@@ -88,7 +89,7 @@ void Gui::init()
 	show_key = true;
 	friends = 0;
 	helmet = false;
-	numObj=0;
+	end = false;
 }
 
 void Gui::update(int deltaTime) {
@@ -102,7 +103,7 @@ void Gui::update(int deltaTime) {
 			currentTime = 0;
 		}
 	}
-
+	
 }
 
 
@@ -661,7 +662,8 @@ void Gui::setGreyBook(bool h) {
 void Gui::setFriends(int num) {
 	this->friends = this->friends + num;
 	if (this->friends == 6) {
-		//end
+		currentTime = 0;
+		Game::instance().setEnd();
 	}
 }
 

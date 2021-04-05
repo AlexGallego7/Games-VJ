@@ -48,13 +48,13 @@ private:
 	void initShaders();
 
 private:
-	TexturedQuad* texQuad[20];
-	Texture tex[5];
+	TexturedQuad* texQuad[21];
+	Texture tex[6];
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
 	int scene, int_exp, old_exp, friends, numObj;
-	bool key, show_key, helmet, greyBook, greenBook, chus, shoes;
+	bool key, show_key, helmet, greyBook, greenBook, chus, shoes, end;
 
 };
 

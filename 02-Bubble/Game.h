@@ -69,6 +69,8 @@ public:
 	void setNumEsc(int num);
 
 	int getNumEsc();
+	
+	void setEnd();
 
 private:
 	bool bPlay, godmode, punch;                       // Continue to play game?
