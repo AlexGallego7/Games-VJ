@@ -325,6 +325,7 @@ bool Scene::loadEscena(const string& levelFile) {
 	ifstream fin;
 	string line, tilesheetFile;
 	stringstream sstream;
+	int loc;
 
 	fin.open(levelFile.c_str());
 	if (!fin.is_open())
@@ -453,6 +454,13 @@ bool Scene::loadEscena(const string& levelFile) {
 				enemy[i] = new FallingRock();
 				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				enemy[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				enemy[i]->setTileMap(map);
+			}
+			else if (entity == "WATER") {
+				sstream >> loc;
+				enemy[i] = new Water(loc);
+				enemy[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				enemy[i]->setPosition(glm::vec2(pos.x* map->getTileSize(), pos.y* map->getTileSize()));
 				enemy[i]->setTileMap(map);
 			}
 		}
