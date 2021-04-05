@@ -191,11 +191,11 @@ void Game::setLives(int lives) {
 }
 
 bool Game::isCharged(int pos) {
-	return charged_scenes[pos];
+	return charged_scenes[pos-1];
 }
 
 void Game::charged_scene(int pos) {
-	charged_scenes[pos] = true;
+	charged_scenes[pos-1] = true;
 }
 
 void Game::setNumEsc(int num) {
