@@ -111,10 +111,12 @@ void Scene::update(int deltaTime)
 			}
 		}
 		//abre la puerta y coge friend
-		else if (ent[i]->getTypeEntity() == 3 && ent[i]->getState() == 1) {
-			if (/*((posEnt.x-8 - posPlayer.x) < 8 && (posEnt.x-8 - posPlayer.x) >= 0) ||*/ (((posPlayer.x - posEnt.x-8) < 12 && (posPlayer.x - posEnt.x-8) >= 0))) {
-				Gui::instance().setFriends(1);
-				ent[0]->setState(2);
+		else if (ent[i]->getTypeEntity() == 4 && ent[i]->getState() == 1) {
+			if (((posPlayer.x - posEnt.x) < 48 && (posPlayer.x - posEnt.x) >= 16)) {
+				if (posPlayer.y - posEnt.y <= 32 && posPlayer.y - posEnt.y >= 0) {
+					Gui::instance().setFriends(1);
+					ent[0]->setState(2);
+				}
 			}
 		}
 	}

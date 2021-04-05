@@ -17,7 +17,8 @@ public:
 	tipo 0 -> enemigo
 	tipo 1 -> jugador
 	tipo 2 -> objeto
-	tipo 3 -> puerta
+	tipo 3 -> portal
+	tipo 4 -> puerta
 	*/
 	virtual glm::ivec2 getPos() = 0;
 

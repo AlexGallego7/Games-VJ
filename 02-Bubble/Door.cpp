@@ -82,7 +82,7 @@ void Door::setPosition(const glm::vec2& pos)
 }
 
 int Door::getTypeEntity() {
-	return 3;
+	return 4;
 }
 
 void Door::open() {
