@@ -119,6 +119,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setKey(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(200);
+					Game::instance().addExp(200);
 				}
 			}
 		}
@@ -128,6 +130,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setHelmet(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -137,6 +141,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setGreyBook(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -145,6 +151,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setGreenBook(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -154,6 +162,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setChus(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -163,6 +173,8 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setShoes(true);
 					ent[i]->setCatch();
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -171,7 +183,8 @@ void Scene::update(int deltaTime)
 			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					ent[i]->setCatch();
-					Game::instance().addExp(20);
+					Game::instance().addTotalExp(1000);
+					Game::instance().addExp(1000);
 				}
 			}
 		}
@@ -181,6 +194,8 @@ void Scene::update(int deltaTime)
 				if (posPlayer.y - posEnt.y <= 32 && posPlayer.y - posEnt.y >= 0) {
 					Gui::instance().setFriends(1);
 					ent[0]->setState(2);
+					Game::instance().addTotalExp(2000);
+					Game::instance().addExp(2000);
 				}
 			}
 		}
@@ -221,8 +236,8 @@ void Scene::update(int deltaTime)
 									int lives_enemy = enemy[i]->hit();
 									secPunch = 0;
 									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
-									Game::instance().addTotalExp(10);
-									Game::instance().addExp(10);
+									Game::instance().addTotalExp(50);
+									Game::instance().addExp(50);
 								}
 								else {
 									secHit = 0;
@@ -243,8 +258,8 @@ void Scene::update(int deltaTime)
 									int lives_enemy = enemy[i]->hit();
 									secPunch = 0;
 									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
-									Game::instance().addTotalExp(10);
-									Game::instance().addExp(10);
+									Game::instance().addTotalExp(50);
+									Game::instance().addExp(50);
 								}
 								else {
 									secHit = 0;
@@ -267,8 +282,8 @@ void Scene::update(int deltaTime)
 									int lives_enemy = enemy[i]->hit();
 									secPunch = 0;
 									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
-									Game::instance().addTotalExp(10);
-									Game::instance().addExp(10);
+									Game::instance().addTotalExp(100);
+									Game::instance().addExp(100);
 								}
 								else{
 									secHit = 0;
@@ -289,8 +304,8 @@ void Scene::update(int deltaTime)
 									int lives_enemy = enemy[i]->hit();
 									secPunch = 0;
 									if (lives_enemy <= 0) enemy[i]->dies();//hay que añadir algo para que el golpe solo dure pocos frames.
-									Game::instance().addTotalExp(10);
-									Game::instance().addExp(10);
+									Game::instance().addTotalExp(100);
+									Game::instance().addExp(100);
 								}
 								else {
 									secHit = 0;
