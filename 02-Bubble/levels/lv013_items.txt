@@ -1,5 +1,5 @@
 ITEMS
-2 0 14	
+2 14 15	
 PORTAL 0 0 12  
 PLAYER 1 7 
 2 
