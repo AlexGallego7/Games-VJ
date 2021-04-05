@@ -250,6 +250,7 @@ void Game::setEnd() {
 	Gui::instance().setShoes(false);
 	Gui::instance().setGreenBook(false);
 	Gui::instance().setGreyBook(false);
+	Gui::instance().setFriends(-6);
 	scene = new EndScene();
 	scene->init();
 }
