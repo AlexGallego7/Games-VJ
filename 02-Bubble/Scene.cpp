@@ -11,6 +11,7 @@
 #include "greenBook.h"
 #include "Chus.h"
 #include "Shoes.h"
+#include "MoneyBag.h"
 
 #define SCREEN_X 60
 #define SCREEN_Y 60
@@ -162,6 +163,15 @@ void Scene::update(int deltaTime)
 				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
 					Gui::instance().setShoes(true);
 					ent[i]->setCatch();
+				}
+			}
+		}
+		//coger dinero 
+		if (ent[i]->getTypeEntity() == 15 && !ent[i]->ObjectCatch()) {
+			if (((posEnt.x - posPlayer.x) < 8 && (posEnt.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnt.x) < 12 && (posPlayer.x - posEnt.x) >= 0))) {
+				if (posEnt.y - posPlayer.y < 16 && posEnt.y - posPlayer.y >0) {
+					ent[i]->setCatch();
+					Game::instance().addExp(20);
 				}
 			}
 		}
@@ -323,26 +333,6 @@ void Scene::update(int deltaTime)
 					}
 				}
 			}
-			/*
-			if (enemy[i]->getTypeEnemy() == 0) {
-				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
-					if ((posEnemy.y - posPlayer.y) < 32 && 0 < (posEnemy.y - posPlayer.y)) {
-						int lives_enemy = enemy[i]->hit();
-						if (lives_enemy <= 0) enemy[i]->dies();
-						exp += 10;
-					}
-				}
-			}
-			else if (enemy[i]->getTypeEnemy() == 1) {
-				if ((0 < (posPlayer.x - posEnemy.x) && (posPlayer.x - posEnemy.x) < 32) || (0 < (posEnemy.x - posPlayer.x) && (posEnemy.x - posPlayer.x) < 32)) {
-					if ((posPlayer.y - posEnemy.y) < 32 && 0 < (posPlayer.y - posEnemy.y)) {
-						int lives_enemy = enemy[i]->hit();
-						if (lives_enemy <= 0) enemy.erase(enemy.begin() + i);
-						exp += 20;
-					}
-				}
-			}
-			*/
 		}
 	}
 	if (secPunch != 30) secPunch++;
@@ -475,6 +465,12 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
 			}
+			else if (entity == "MONEY") {
+				ent.push_back(new moneyBag());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+			}
 		}
 	}
 	else{
@@ -541,6 +537,15 @@ bool Scene::loadEscena(const string& levelFile) {
 			}
 			else if (entity == "SHOES") {
 				ent.push_back(new shoes());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+				if (s.z == 2) ent[i]->setCatch();
+			}
+			else if (entity == "MONEY") {
+				ent.push_back(new moneyBag());
 				glm::ivec3 s = EntState::instance().getState(num_scene, i);
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(s.x, s.y));

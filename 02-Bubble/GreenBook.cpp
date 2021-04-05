@@ -107,7 +107,7 @@ int greenBook::getState() {
 }
 
 void greenBook::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool greenBook::ObjectCatch() {

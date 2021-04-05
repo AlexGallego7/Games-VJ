@@ -235,7 +235,7 @@ int Player::getState() {
 }
 
 void Player::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 void Player::setCatch() {

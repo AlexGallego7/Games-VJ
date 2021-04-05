@@ -105,7 +105,7 @@ int chus::getState() {
 }
 
 void chus::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool chus::ObjectCatch() {

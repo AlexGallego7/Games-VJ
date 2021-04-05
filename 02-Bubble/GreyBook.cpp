@@ -107,7 +107,7 @@ int greyBook::getState() {
 }
 
 void greyBook::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool greyBook::ObjectCatch() {

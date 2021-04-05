@@ -1,7 +1,10 @@
 ITEMS
-2 2 0			--Entities / Previous / Next 
-PORTAL 0 0 4     
+4 2 0			--Entities / Previous / Next 
+PORTAL 0 0 4 
+SHOES 20 2 
+KEY 6 4 
 PLAYER 1 7 
-2 
+3 
 SKULL 4 14 
-SKELETON 7 13
+SKELETON 26 2 
+SKELETON 17 14

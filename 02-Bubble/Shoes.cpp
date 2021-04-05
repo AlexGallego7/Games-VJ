@@ -106,7 +106,7 @@ int shoes::getState() {
 }
 
 void shoes::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool shoes::ObjectCatch() {

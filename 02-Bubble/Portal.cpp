@@ -65,7 +65,7 @@ int Portal::getState() {
 }
 
 void Portal::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool Portal::ObjectCatch() {

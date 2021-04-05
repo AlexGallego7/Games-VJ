@@ -19,6 +19,7 @@
     <ClInclude Include="GreenBook.h" />
     <ClInclude Include="GreyBook.h" />
     <ClInclude Include="helmet.h" />
+    <ClInclude Include="MoneyBag.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Drop.h" />
     <ClInclude Include="EnemyManager.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="GreenBook.cpp" />
     <ClCompile Include="GreyBook.cpp" />
     <ClCompile Include="helmet.cpp" />
+    <ClCompile Include="MoneyBag.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="Drop.cpp" />
     <ClCompile Include="EnemyManager.cpp" />

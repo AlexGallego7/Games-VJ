@@ -105,7 +105,7 @@ int Key::getState() {
 }
 
 void Key::setState(int num) {
-	sprite->animation() == num;
+	sprite->changeAnimation(num);
 }
 
 bool Key::ObjectCatch() {

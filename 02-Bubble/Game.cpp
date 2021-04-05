@@ -76,6 +76,8 @@ void Game::keyPressed(int key)
 			Gui::instance().setShoes(false);
 			Gui::instance().setGreenBook(false);
 			Gui::instance().setGreyBook(false);
+			resetLives();
+			resetExp();
 			scene = new Scene("levels/lv01");
 			scene->init();
 		}
@@ -251,6 +253,8 @@ void Game::setEnd() {
 	Gui::instance().setGreenBook(false);
 	Gui::instance().setGreyBook(false);
 	Gui::instance().setFriends(-6);
+	resetLives();
+	resetExp();
 	scene = new EndScene();
 	scene->init();
 }

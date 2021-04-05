@@ -1,20 +1,13 @@
-#include "helmet.h"
-#include <cmath>
-#include <iostream>
-#include <GL/glew.h>
-#include <GL/glut.h>
-#include "helmet.h"
-#include "Game.h"
-#include "EntState.h"
+#include "moneyBag.h"
 
 
-enum helmetAnims
+enum moneyBagAnims
 {
 	SHOWN, NOT_SHOWN, CATCH
 };
 
 
-void helmet::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
+void moneyBag::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
 	renderTime = currentTime;
 	spritesheet.loadFromFile("images/bag_items.png", TEXTURE_PIXEL_FORMAT_RGBA);
@@ -37,7 +30,7 @@ void helmet::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 
 }
 
-void helmet::update(int deltaTime)
+void moneyBag::update(int deltaTime)
 {
 	currentTime += deltaTime;
 
@@ -64,57 +57,57 @@ void helmet::update(int deltaTime)
 
 }
 
-void helmet::render()
+void moneyBag::render()
 {
 	if (!cat)sprite->render();
 }
 
-void helmet::setTileMap(TileMap* tileMap)
+void moneyBag::setTileMap(TileMap* tileMap)
 {
 	map = tileMap;
 }
 
-void helmet::setPosition(const glm::vec2& pos)
+void moneyBag::setPosition(const glm::vec2& pos)
 {
 	posPlayer = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
 
-int helmet::getTypeEntity() {
-	return 10;
+void moneyBag::setSpeed(int s) {}
+
+int moneyBag::getTypeEntity() {
+	return 15;
 }
 
-glm::ivec2 helmet::getPos()
+glm::ivec2 moneyBag::getPos()
 {
 	return posPlayer;
 }
 
-void helmet::open() {}
+void moneyBag::open() {}
 
-bool helmet::LeftMove() {
+bool moneyBag::LeftMove() {
 	return 0;
 }
 
-bool helmet::IsClimbing() {
+bool moneyBag::IsClimbing() {
 	return 0;
 }
 
 
-int helmet::getState() {
+int moneyBag::getState() {
 	return sprite->animation();
 }
 
-void helmet::setState(int num) {
-	sprite->changeAnimation(num);
+void moneyBag::setState(int num) {
+	sprite->animation() == num;
 }
 
-bool helmet::ObjectCatch() {
+bool moneyBag::ObjectCatch() {
 	return cat;
 }
 
-void helmet::setSpeed(int s) {}
-
-void helmet::setCatch() {
+void moneyBag::setCatch() {
 
 
 	cat = true;
