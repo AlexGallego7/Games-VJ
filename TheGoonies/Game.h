@@ -72,17 +72,18 @@ public:
 
 	void setGameOverMusic();
 
-	int getNumEsc
-		void setHit(bool h);
+	int getNumEsc();
+	
+	void setHit(bool h);
+
 	bool isHit();
-	();
 	
 	void setEnd();
 
 	void reset();
 
 private:
-	bool bPlay, godmode, punch;                       // Continue to play game?
+	bool bPlay, godmode, punch, hit;                       // Continue to play game?
 	SceneManager *scene;                      // Scene to render
 	bool keys[256], specialKeys[256]; // Store key states so that 
 	                                  // we can have access at any time
