@@ -2,13 +2,15 @@ Nuria Anton Calle Grup 11
 Alex Gallego Grup 11
 
 Funcionalitats implementades:
-- 5 escenes amb 3 pantalles cadascuna amb 4 paletes diferetns.
+
+- 5 escenes amb 3 pantalles cadascuna amb 4 paletes diferents.
 - Escena de Inici/Win/Lose/Credits i instruccions.
 - Lianes.
 - Portals.
 - Portes que sobren amb clau amb amics dins.
 - 6 amics en total.
 - 2 enemics (skull i skeleton).
+- 3 obstacles (Drops, FallingRocks, Steam).
 - Vitalitat i experiencia segons el que agafes.
 - Power ups:
 	- Hyper shoes.
