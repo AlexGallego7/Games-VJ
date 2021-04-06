@@ -5,6 +5,10 @@
 #include "Skeleton.h"
 #include "Game.h"
 
+
+#define FALL_STEP 4
+
+
 enum SkeletonAnims
 {
 	SPAWNING, MOVE_LEFT, MOVE_RIGHT, DYING
@@ -49,6 +53,30 @@ void Skeleton::update(int deltaTime)
 {
 	currentTime += deltaTime;
 	sprite->update(deltaTime);
+
+	posPlayer.y += FALL_STEP;
+
+	posPlayer.x -= 32;
+	if (!map->collisionMoveDownEnemies(posPlayer, glm::ivec2(32, 32), &posPlayer.y)) {
+		if (sprite->animation() == MOVE_LEFT) {
+			sprite->changeAnimation(MOVE_RIGHT);
+		}
+		else {
+			sprite->changeAnimation(MOVE_LEFT);
+		}
+	}
+	posPlayer.x += 32;
+	posPlayer.y += FALL_STEP;
+	posPlayer.x += 32;
+	if (!map->collisionMoveDownEnemies(posPlayer, glm::ivec2(32, 32), &posPlayer.y)) {
+		if (sprite->animation() == MOVE_LEFT) {
+			sprite->changeAnimation(MOVE_RIGHT);
+		}
+		else {
+			sprite->changeAnimation(MOVE_LEFT);
+		}
+	}
+	posPlayer.x -= 32;
 
 	if (sprite->animation() == SPAWNING) {
 		state = SPAWN;

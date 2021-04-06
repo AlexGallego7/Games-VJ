@@ -5,6 +5,8 @@
 #include "Skull.h"
 #include "Game.h"
 
+#define FALL_STEP 4
+
 enum SkullAnims
 {
 	SPAWNING, MOVE_LEFT, MOVE_RIGHT, DYING
@@ -46,15 +48,39 @@ void Skull::update(int deltaTime)
 {
 	currentTime += deltaTime;
 	sprite->update(deltaTime);
-	
+	posPlayer.y += FALL_STEP;
+
+	posPlayer.x -= 32;
+	if (!map->collisionMoveDownEnemies(posPlayer, glm::ivec2(16, 16), &posPlayer.y)) {
+		if (sprite->animation() == MOVE_LEFT) {
+			sprite->changeAnimation(MOVE_RIGHT);
+		}
+		else {
+			sprite->changeAnimation(MOVE_LEFT);
+		}
+	}
+	posPlayer.x += 32;
+	posPlayer.y += FALL_STEP;
+	posPlayer.x += 32;
+	if (!map->collisionMoveDownEnemies(posPlayer, glm::ivec2(16, 16), &posPlayer.y)) {
+		if (sprite->animation() == MOVE_LEFT) {
+			sprite->changeAnimation(MOVE_RIGHT);
+		}
+		else {
+			sprite->changeAnimation(MOVE_LEFT);
+		}
+	}
+	posPlayer.x -= 32;
+
+
+
 	if (sprite->animation() == SPAWNING) {
 		state = SPAWN;
 		if ((currentTime - spawnTime) > 2000) {
 			state = ALIVE;
 			sprite->changeAnimation(MOVE_LEFT);
 		}
-	}
-
+	}	
 	else if(sprite->animation() == MOVE_LEFT){
 		posPlayer.x -= 2;
 		if (map->collisionMoveLeft(posPlayer, glm::ivec2(16, 16))) {
@@ -63,7 +89,7 @@ void Skull::update(int deltaTime)
 	}
 	else if (sprite->animation() == MOVE_RIGHT) {
 		posPlayer.x += 2;
-		if (map->collisionMoveRight(posPlayer, glm::ivec2(16, 16))) {
+		if (map->collisionMoveRight(posPlayer, glm::ivec2(16, 16)) ) {
 			sprite->changeAnimation(MOVE_LEFT);
 		}
 	}

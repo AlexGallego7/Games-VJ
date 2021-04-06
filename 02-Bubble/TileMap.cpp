@@ -308,3 +308,27 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	return false;
 }
 
+bool TileMap::collisionMoveDownEnemies(const glm::ivec2& pos, const glm::ivec2& size, int* posY) const
+{
+	int x0, x1, y;
+	std::vector<int> v = { 0, 19, 20, 30, 40, 42, 50, 51, 52, 53, 54, 55, 56,
+							61, 62, 63, 64, 65, 66, 71, 72, 73, 74, 75, 76, 77,
+							78, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89 };
+	x0 = pos.x / tileSize;
+	x1 = (pos.x + size.x - 1) / tileSize;
+	y = (pos.y + size.y - 1) / tileSize;
+	for (int x = x0; x <= x1; x++)
+	{
+		if (!std::binary_search(v.begin(), v.end(), map[y * mapSize.x + x]))
+		{
+			if (*posY - tileSize * y + size.y <= 4)
+			{
+				*posY = tileSize * y - size.y;
+				return true;
+			}
+		}
+	}
+	*posY -= 4;
+	return false;
+}
+

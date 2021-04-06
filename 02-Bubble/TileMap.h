@@ -33,6 +33,7 @@ public:
 	bool collisionMoveLeft(const glm::ivec2 &pos, const glm::ivec2 &size) const;
 	bool collisionMoveRight(const glm::ivec2 &pos, const glm::ivec2 &size) const;
 	bool collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, int *posY) const;
+	bool collisionMoveDownEnemies(const glm::ivec2& pos, const glm::ivec2& size, int* posY) const;
 	bool isOnClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const;
 	bool isOnPortal(const glm::ivec2& pos, const glm::ivec2& size) const;
 	bool climbDown(const glm::ivec2& pos, const glm::ivec2& size) const;
