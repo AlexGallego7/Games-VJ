@@ -39,7 +39,7 @@ public:
 	bool climbDown(const glm::ivec2& pos, const glm::ivec2& size) const;
 	bool endClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const;
 	bool startClimbingPlant(const glm::ivec2& pos, const glm::ivec2& size) const;
-	bool nextLevel(const glm::ivec2& pos, const glm::ivec2& size) const;
+	bool nextLevel(const glm::ivec2& pos, const glm::ivec2& size, bool shoes) const;
 	bool prevLevel(const glm::ivec2& pos, const glm::ivec2& size) const;
 
 	
