@@ -112,12 +112,15 @@ void Scene::update(int deltaTime)
 
 	// acabar partida
 	if (Gui::instance().has6Friends()) {
+		glm::ivec2 posEnd;
 		for (int i = 0; i < ent.size(); i++) {
-			if (ent[i]->getTypeEntity() == 10)
+			if (ent[i]->getTypeEntity() == 10) {
 				ent[i]->open();
+				posEnd = ent[i]->getPos();
+			}
 		}
-		if (abs(posPlayer.x - (posEnd.x * 16)) < 32) {
-			if (abs(posPlayer.y - (posEnd.y * 16)) < 32) {
+		if (abs(posPlayer.x - posEnd.x) < 32) {
+			if (abs(posPlayer.y - posEnd.y) < 32) {
 				if (Game::instance().getSpecialKey(GLUT_KEY_UP))
 					win = true;
 			}
@@ -542,7 +545,6 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
-				posEnd = glm::ivec2(pos.x, pos.y);
 			}
 			else if (entity == "HELMET") {
 				ent.push_back(new helmet());
