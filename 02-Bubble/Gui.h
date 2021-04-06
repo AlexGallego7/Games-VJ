@@ -32,6 +32,7 @@ public:
 	void setGreyBook(bool h);
 	void setFriends(int num);
 	bool hasKey();
+	bool has6Friends();
 
 	bool hasHelmet();
 

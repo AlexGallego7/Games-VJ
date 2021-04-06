@@ -33,8 +33,8 @@
     <ClCompile Include="TexturedQuad.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="Water.cpp" />
-    <ClCompile Include="WinScene.cpp" />
     <ClCompile Include="MoneyBag.cpp" />
+    <ClCompile Include="EndDoor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimKeyframes.h" />
@@ -69,7 +69,7 @@
     <ClInclude Include="TexturedQuad.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Water.h" />
-    <ClInclude Include="WinScene.h" />
     <ClInclude Include="MoneyBag.h" />
+    <ClInclude Include="EndDoor.h" />
   </ItemGroup>
 </Project>

@@ -23,6 +23,8 @@
 #include "FallingRock.h"
 #include "Door.h"
 #include "Water.h"
+#include "EndDoor.h"
+#include "EndScene.h"
 
 
 // Scene contains all the entities of our game.
@@ -50,10 +52,10 @@ private:
 	void initShaders();
 
 private:
-	bool gameover, nextlevel, prevlevel, enterPortal, charge_obj;
+	bool gameover, nextlevel, prevlevel, enterPortal, charge_obj, win;
 	string levelFile, entity, next, prev, portalLevel;
 	int sizeEnts, sizeEnms, secHit, secPunch, num_scene;
-	glm::ivec2 pos, posDoor, posIni;
+	glm::ivec2 pos, posDoor, posIni, posEnd;
 	TileMap *map;
 	vector<EntityManager*> ent;
 	vector<EnemyManager*> enemy;

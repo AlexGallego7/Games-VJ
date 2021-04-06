@@ -39,7 +39,7 @@ void Door::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	sprite->addKeyframe(OPENED_2, glm::vec2(0.f, 0.f));
 
 	sprite->changeAnimation(CLOSED);
-	sprite->changeAnimation(A1);
+	sprite2->changeAnimation(A1);
 
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));

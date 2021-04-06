@@ -66,9 +66,17 @@ void WinScene::render()
 	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texQuad->render(tex);
+}
 
+bool WinScene::loadEscena(const string& levelFile) {
+	return false;
+}
+
+void WinScene::guardarEstado() {
 
 }
+
+
 
 void WinScene::initShaders()
 {

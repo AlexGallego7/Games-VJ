@@ -660,11 +660,8 @@ void Gui::setGreyBook(bool h) {
 }
 
 void Gui::setFriends(int num) {
-	this->friends = this->friends + num;
-	if (this->friends == 6) {
-		currentTime = 0;
-		Game::instance().setEnd();
-	}
+	if(this->friends < 6)
+		this->friends = this->friends + num;
 }
 
 
@@ -690,6 +687,10 @@ bool Gui::hasChus() {
 
 bool Gui::hasShoes() {
 	return shoes;
+}
+
+bool Gui::has6Friends() {
+	return friends == 6;
 }
 
 void Gui::initShaders()

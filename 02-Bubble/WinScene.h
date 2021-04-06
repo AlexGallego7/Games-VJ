@@ -21,6 +21,9 @@ public:
 	SceneManager* changeScene();
 	int getEscena();
 
+	bool loadEscena(const string& levelFile);
+
+	void guardarEstado();
 private:
 
 	void initShaders();

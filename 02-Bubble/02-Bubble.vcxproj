@@ -14,6 +14,7 @@
     <ClInclude Include="AnimKeyframes.h" />
     <ClInclude Include="Chus.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="EndDoor.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="EntState.h" />
     <ClInclude Include="GreenBook.h" />
@@ -44,11 +45,11 @@
     <ClInclude Include="TexturedQuad.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Water.h" />
-    <ClInclude Include="WinScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chus.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="EndDoor.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="EntState.cpp" />
     <ClCompile Include="GreenBook.cpp" />
@@ -80,7 +81,6 @@
     <ClCompile Include="TexturedQuad.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="Water.cpp" />
-    <ClCompile Include="WinScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5BE6CA2A-E5A8-40CC-9015-047CE0C78036}</ProjectGuid>

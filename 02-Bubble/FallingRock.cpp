@@ -52,12 +52,13 @@ void FallingRock::update(int deltaTime)
 	else if (sprite->animation() == AIR) {
 		posPlayer.y += 2;
 		if (map->collisionMoveDown(posPlayer, glm::ivec2(8, 8), &posPlayer.y)) {
+			dropTime = currentTime;
+			posPlayer.y += 10;
 			sprite->changeAnimation(GROUND);
 		}
 	}
 	else if (sprite->animation() == GROUND) {
-		dropTime = currentTime;
-		if (currentTime - dropTime > 1000) {
+		if (currentTime - dropTime > 2000) {
 			posPlayer.y = 800;
 		}
 	}

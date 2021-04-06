@@ -22,6 +22,7 @@ Scene::Scene()
 	gameover = false;
 	nextlevel = false;
 	prevlevel = false;
+	win = false;
 }
 
 Scene::Scene(string _levelFile)
@@ -29,6 +30,7 @@ Scene::Scene(string _levelFile)
 	map = NULL;
 	gameover = false; nextlevel = false;
 	prevlevel = false; enterPortal = false;
+	win = false;
 	levelFile = _levelFile;
 	int size = _levelFile.length();
 	string sc = "";
@@ -96,6 +98,20 @@ void Scene::update(int deltaTime)
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
 		enterPortal = true;
+	}
+
+	// acabar partida
+	if (Gui::instance().has6Friends()) {
+		for (int i = 0; i < ent.size(); i++) {
+			if (ent[i]->getTypeEntity() == 10)
+				ent[i]->open();
+		}
+		if (abs(posPlayer.x - (posEnd.x * 16)) < 32) {
+			if (abs(posPlayer.y - (posEnd.y * 16)) < 32) {
+				if (Game::instance().getSpecialKey(GLUT_KEY_UP))
+					win = true;
+			}
+		}
 	}
 	
 
@@ -192,6 +208,8 @@ void Scene::update(int deltaTime)
 		else if (ent[i]->getTypeEntity() == 4 && ent[i]->getState() == 1) {
 			if (((posPlayer.x - posEnt.x) < 48 && (posPlayer.x - posEnt.x) >= 16)) {
 				if (posPlayer.y - posEnt.y <= 32 && posPlayer.y - posEnt.y >= 0) {
+			/*if (abs(posPlayer.x - posEnt.x) < 8) {
+				if(abs(posPlayer.y - posEnt.y) < 8) {*/
 					Gui::instance().setFriends(1);
 					ent[0]->setState(2);
 					Game::instance().addTotalExp(2000);
@@ -381,6 +399,11 @@ SceneManager* Scene::changeScene() {
 		scene->init();
 		return scene;
 	}
+	else if (win) {
+		SceneManager* scene = new EndScene();
+		scene->init();
+		return scene;
+	}
 	return this;
 }
 
@@ -449,6 +472,13 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
 				ent[i]->setTileMap(map);
 				posDoor = glm::ivec2(pos.x, pos.y);
+			}
+			else if (entity == "ENDDOOR") {
+				ent.push_back(new EndDoor());
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(pos.x * map->getTileSize(), pos.y * map->getTileSize()));
+				ent[i]->setTileMap(map);
+				posEnd = glm::ivec2(pos.x, pos.y);
 			}
 			else if (entity == "HELMET") {
 				ent.push_back(new helmet());

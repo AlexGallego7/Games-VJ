@@ -123,7 +123,7 @@ void Water::setPosition(const glm::vec2& pos)
 }
 
 int Water::getTypeEnemy() {
-	return 4;
+	return 2;
 }
 
 glm::ivec2 Water::getPos()
