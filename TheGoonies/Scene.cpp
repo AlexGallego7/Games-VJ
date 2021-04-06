@@ -429,6 +429,7 @@ SceneManager* Scene::changeScene() {
 		Game::instance().reset();
 		SceneManager* scene = new GameOverScene();
 		scene->init();
+		Game::instance().setGameOverMusic();
 		return scene;
 	}
 	else if (nextlevel) {
@@ -452,6 +453,7 @@ SceneManager* Scene::changeScene() {
 	else if (win) {
 		SceneManager* scene = new EndScene();
 		scene->init();
+		Game::instance().setMenuMusic();
 		return scene;
 	}
 	return this;

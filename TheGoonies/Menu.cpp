@@ -70,6 +70,7 @@ SceneManager* Menu::changeScene() {
 	if (Game::instance().getKey(' ')) {
 		SceneManager* scene = new Scene("levels/lv01");
 		scene->init();
+		Game::instance().setSceneMusic();
 		return scene;
 	}
 	return this;

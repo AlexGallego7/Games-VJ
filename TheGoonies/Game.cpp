@@ -8,9 +8,10 @@ using namespace irrklang;
 
 ISoundEngine* SoundEngine = createIrrKlangDevice();
 
+
 void Game::init()
 {
-	SoundEngine->play2D("music/music.mp3", true);
+	SoundEngine->play2D("music/menu-final.mp3", true);
 	bPlay = true;
 	glClearColor(0.f, 0.f, 0.f, 1.0f);
 	scene = new Menu();
@@ -31,10 +32,9 @@ bool Game::update(int deltaTime)
 {
 	scene->update(deltaTime);
 	scene = scene->changeScene();
+
 	punch = false;
 
-	
-	
 	return bPlay;
 }
 
@@ -261,6 +261,21 @@ void Game::setNumEsc(int num) {
 
 int Game::getNumEsc() {
 	return num_esc;
+}
+
+void Game::setSceneMusic() {
+	SoundEngine->stopAllSounds();
+	SoundEngine->play2D("music/music.mp3", true);
+}
+
+void Game::setMenuMusic() {
+	SoundEngine->stopAllSounds();
+	SoundEngine->play2D("music/menu-final.mp3");
+}
+
+void Game::setGameOverMusic() {
+	SoundEngine->stopAllSounds();
+	SoundEngine->play2D("music/gameover.mp3");
 }
 
 void Game::setEnd() {

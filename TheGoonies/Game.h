@@ -6,10 +6,8 @@
 #include "Scene.h"
 #include "Menu.h"
 
-
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
-
 
 // Game is a singleton (a class with a single instance) that represents our whole application
 
@@ -67,6 +65,12 @@ public:
 	void charged_scene(int pos);
 
 	void setNumEsc(int num);
+
+	void setSceneMusic();
+
+	void setMenuMusic();
+
+	void setGameOverMusic();
 
 	int getNumEsc();
 	
