@@ -76,6 +76,15 @@ void Scene::update(int deltaTime)
 
 	glm::ivec2 posPlayer = ent[sizeEnts - 1]->getPos();
 
+	if (secHit < 30) {
+		if (secHit < 5 || (secHit > 10 && secHit < 15) || (secHit > 20 && secHit < 25)) {
+			Game::instance().setHit(true);
+		}
+		else {
+			Game::instance().setHit(false);
+		}
+	}
+	else Game::instance().setHit(false);
 
 	currentTime += deltaTime;
 	for (int i = 0; i < ent.size(); ++i)

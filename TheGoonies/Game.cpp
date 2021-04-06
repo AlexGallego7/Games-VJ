@@ -311,3 +311,11 @@ void Game::reset() {
 	resetLives();
 	resetExp();
 }
+
+void Game::setHit(bool h) {
+	hit = h;
+}
+
+bool Game::isHit() {
+	return hit;
+}

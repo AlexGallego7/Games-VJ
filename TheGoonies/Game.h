@@ -72,7 +72,10 @@ public:
 
 	void setGameOverMusic();
 
-	int getNumEsc();
+	int getNumEsc
+		void setHit(bool h);
+	bool isHit();
+	();
 	
 	void setEnd();
 

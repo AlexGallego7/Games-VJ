@@ -193,7 +193,7 @@ void Player::update(int deltaTime)
 
 void Player::render()
 {
-	sprite->render();
+	if (!Game::instance().isHit())sprite->render();
 }
 
 void Player::setTileMap(TileMap *tileMap)
