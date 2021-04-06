@@ -26,6 +26,8 @@ public:
 	void setPosition(const glm::vec2& pos);
 	EnemyManager::EnemyStates getState();
 
+	int getAnimation();
+
 private:
 	int loc;
 	float currentTime, dropTime, highTime;

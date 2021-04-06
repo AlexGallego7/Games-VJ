@@ -2,6 +2,7 @@ ITEMS
 2 0 5			--Entities / Previous / Next  
 PORTAL 0 0 3  
 PLAYER 5 7  
-2 
+3 
 SKULL 15 2 
+DROP 15 5 
 SKELETON 7 8

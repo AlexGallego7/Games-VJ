@@ -94,6 +94,7 @@ void Scene::update(int deltaTime)
 	if (Gui::instance().hasShoes()) {
 		ent[sizeEnts - 1]->setSpeed(3);
 	}
+	else ent[sizeEnts - 1]->setSpeed(2);
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
@@ -285,6 +286,34 @@ void Scene::update(int deltaTime)
 									if (Game::instance().getLives() <= 0) {
 										gameover = true;
 									}
+								}
+							}
+						}
+					}
+				}
+			}
+			else if (enemy[i]->getTypeEnemy() == 4) {
+				if (ent[sizeEnts - 1]->LeftMove()) {
+					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x + 16 == posPlayer.x + 2) || (posEnemy.x == posPlayer.x + 8)) {
+						if ((posPlayer.y - posEnemy.y) < 16 && 0 <= (posPlayer.y - posEnemy.y)) {
+							if ( enemy[i]->getAnimation() == 3 || enemy[i]->getAnimation() == 4) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
+								}
+							}
+						}
+					}
+				}
+				else {
+					if ((posEnemy.x + 16 == posPlayer.x) || (posEnemy.x == posPlayer.x + 10) || (posEnemy.x + 2 == posPlayer.x + 10)) {
+						if ((posPlayer.y - posEnemy.y) < 16 && 0 <= (posPlayer.y - posEnemy.y)) {
+							if (enemy[i]->getAnimation() == 3 || enemy[i]->getAnimation() == 4) {
+								secHit = 0;
+								Game::instance().setLives(-1);
+								if (Game::instance().getLives() <= 0) {
+									gameover = true;
 								}
 							}
 						}

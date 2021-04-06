@@ -43,29 +43,29 @@ void Game::keyPressed(int key)
 {
 	if(key == 27) // Escape code
 		bPlay = false;
-	keys[key] = true;
+	 keys[key] = true;
 
-	if (key == 'g') godmode = !godmode;
+	if (key == 'g' || key == 'G') godmode = !godmode;
 	if (key == ' ') punch = true;
 
 	if (scene->getEscena() == 0) {
-		if (key == 'i') {
+		if (key == 'i' || key == 'I') {
 			scene = new InstruccionsScene();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 1) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 2) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
-		if (key == 'r') {
+		if (key == 'r' || key == 'R') {
 			charged_scenes.clear();
 			for (int i = 0; i < 15; i++) {
 				charged_scenes.push_back(false);
@@ -106,41 +106,46 @@ void Game::keyPressed(int key)
 			scene = new Scene("levels/lv013");
 			scene->init();
 		}
-		if (key == 'q') {
-			Gui::instance().setShoes(true);
+		if (key == 'q' || key == 'Q') {
+			if (Gui::instance().hasShoes()) Gui::instance().setShoes(false);
+			else Gui::instance().setShoes(true);
 		}
-		if (key == 'w') {
-			Gui::instance().setGreenBook(true);
+		if (key == 'w' || key == 'W') {
+			if(Gui::instance().hasGreenBook()) Gui::instance().setGreenBook(false);
+			else Gui::instance().setGreenBook(true);
 		}
-		if (key == 'e') {
-			Gui::instance().setGreyBook(true);
+		if (key == 'e' || key == 'E') {
+			if (Gui::instance().hasGreyBook()) Gui::instance().setGreyBook(false);
+			else Gui::instance().setGreyBook(true);
 		}
-		if (key == 't') {
-			Gui::instance().setChus(true);
+		if (key == 't' || key == 'T') {
+			if (Gui::instance().hasChus()) Gui::instance().setChus(false);
+			else Gui::instance().setChus(true);
 		}
-		if (key == 'y') {
-			Gui::instance().setHelmet(true);
+		if (key == 'y' || key == 'Y') {
+			if(Gui::instance().hasHelmet()) Gui::instance().setHelmet(false);
+			else Gui::instance().setHelmet(true);
 		}
-		if (key == 'a') {
+		if (key == 'a' || key == 'A') {
 			Gui::instance().setFriends(1);
 		}
 
 
 	}
 	else if (scene->getEscena() == 3) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 4) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 5) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}

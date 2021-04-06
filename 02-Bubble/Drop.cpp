@@ -101,3 +101,7 @@ void Drop::dies() {
 EnemyManager::EnemyStates Drop::getState() {
 	return state;
 }
+
+int Drop::getAnimation() {
+	return sprite->animation();
+}

@@ -142,3 +142,6 @@ void Water::dies() {
 EnemyManager::EnemyStates Water::getState() {
 	return state;
 }
+int Water::getAnimation() {
+	return sprite->animation();
+}

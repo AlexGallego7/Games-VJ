@@ -101,7 +101,8 @@ void Skeleton::update(int deltaTime)
 	else if (sprite->animation() == DYING) {
 		state = DEAD;
 		if (currentTime - spawnTime > 1000)
-			posPlayer += 200;;
+			posPlayer.x = 10000;
+			posPlayer.y = 10000;
 	}
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
@@ -125,6 +126,10 @@ void Skeleton::setPosition(const glm::vec2& pos)
 
 int Skeleton::getTypeEnemy() {
 	return 1;
+}
+
+int Skeleton::getAnimation() {
+	return sprite->animation();
 }
 
 glm::ivec2 Skeleton::getPos()

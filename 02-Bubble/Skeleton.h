@@ -15,6 +15,8 @@ public:
 	void render();
 	int getTypeEnemy();
 
+	int getAnimation();
+
 	glm::ivec2 getPos();
 
 	int hit();

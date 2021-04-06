@@ -27,7 +27,8 @@ public:
 	virtual void setTileMap(TileMap* tileMap) = 0;
 	virtual void setPosition(const glm::vec2& pos) = 0;
 	virtual int hit() = 0;
-	virtual EnemyStates getState() = 0;
+	virtual EnemyStates getState() = 0; 
+	virtual int getAnimation() = 0;
 
 	EnemyStates state;
 };

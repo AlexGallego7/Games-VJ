@@ -51,11 +51,13 @@ void FallingRock::update(int deltaTime)
 
 	else if (sprite->animation() == AIR) {
 		posPlayer.y += 2;
+		posPlayer.y -= 14;
 		if (map->collisionMoveDown(posPlayer, glm::ivec2(8, 8), &posPlayer.y)) {
 			dropTime = currentTime;
 			posPlayer.y += 10;
 			sprite->changeAnimation(GROUND);
 		}
+		posPlayer.y += 14;
 	}
 	else if (sprite->animation() == GROUND) {
 		if (currentTime - dropTime > 2000) {
@@ -81,6 +83,9 @@ void FallingRock::setPosition(const glm::vec2& pos)
 	posPlayer = pos;
 	auxPos = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+}
+int FallingRock::getAnimation() {
+	return sprite->animation();
 }
 
 int FallingRock::getTypeEnemy() {

@@ -536,7 +536,7 @@ void Gui::render()
 			break;
 	}
 
-	if (old_exp != exps.s) {
+	if (old_exp != exps.y) {
 		old_exp = exps.y;
 		int_exp++;
 		if (int_exp == 9) {
