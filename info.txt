@@ -25,13 +25,14 @@ Funcionalitats implementades:
 	- Game-mode.
 	- Restart (reset de tot). 
 - Animacions dels enemics de moviment y de mort.
-- Animacions del player de moviment i de lianes.
+- Animacions del player de moviment, de lianes i de hit.
 - Interfaç del joc amb:
 	- el numero de escena-pantalla actual.
 	- La vida del player.
 	- La experiencia total de totes les partides i de la partida actual.
 	- Els amics que ha rescatat.
 	- Els power-ups que ha agafat.
+- Musica en el menu, a l'escena i al win o al gameover.
 - Final quan rescates als 6 amics y creues la porta del final.
 
 Instruccions:
