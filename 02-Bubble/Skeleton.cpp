@@ -127,6 +127,10 @@ int Skeleton::getTypeEnemy() {
 	return 1;
 }
 
+int Skeleton::getAnimation() {
+	return sprite->animation();
+}
+
 glm::ivec2 Skeleton::getPos()
 {
 	return posPlayer;

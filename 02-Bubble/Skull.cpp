@@ -108,6 +108,10 @@ void Skull::render()
 	sprite->render();
 }
 
+int Skull::getAnimation() {
+	return sprite->animation();
+}
+
 void Skull::setTileMap(TileMap* tileMap)
 {
 	map = tileMap;

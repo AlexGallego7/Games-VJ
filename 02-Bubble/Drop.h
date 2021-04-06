@@ -25,6 +25,8 @@ public:
 	void setPosition(const glm::vec2& pos);
 	EnemyManager::EnemyStates getState();
 
+	int getAnimation();
+
 private:
 	float currentTime, dropTime;
 	glm::ivec2 tileMapDispl, posPlayer, auxPos;

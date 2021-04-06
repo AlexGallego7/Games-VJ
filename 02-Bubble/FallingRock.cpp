@@ -81,6 +81,9 @@ void FallingRock::setPosition(const glm::vec2& pos)
 	auxPos = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
+int FallingRock::getAnimation() {
+	return sprite->animation();
+}
 
 int FallingRock::getTypeEnemy() {
 	return 3;
