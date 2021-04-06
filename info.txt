@@ -1,5 +1,5 @@
 Nuria Anton Calle Grup 11
-Alex Gallego Grup 11
+Alex Gallego Rodriguez Grup 11
 
 Funcionalitats implementades:
 
