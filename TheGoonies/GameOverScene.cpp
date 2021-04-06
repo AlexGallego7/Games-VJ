@@ -40,9 +40,16 @@ void GameOverScene::update(int deltaTime)
 
 SceneManager* GameOverScene::changeScene() {
 
-	if (Game::instance().getKey(' ')) {
+	if (currentTime > 6000) {
 		SceneManager* scene = new Menu();
 		scene->init();
+		return scene;
+	}
+
+	else if (Game::instance().getKey(' ')) {
+		SceneManager* scene = new Menu();
+		scene->init();
+		Game::instance().setMenuMusic();
 		return scene;
 	}
 

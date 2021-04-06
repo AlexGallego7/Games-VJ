@@ -451,6 +451,7 @@ SceneManager* Scene::changeScene() {
 		return scene;
 	}
 	else if (win) {
+		Game::instance().reset();
 		SceneManager* scene = new EndScene();
 		scene->init();
 		Game::instance().setMenuMusic();

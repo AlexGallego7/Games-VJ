@@ -67,6 +67,7 @@ void Game::keyPressed(int key)
 	}
 	else if (scene->getEscena() == 2) {
 		if (key == 'm' || key == 'M') {
+			setMenuMusic();
 			charged_scenes.clear();
 			for (int i = 0; i < 15; i++) {
 				charged_scenes.push_back(false);
