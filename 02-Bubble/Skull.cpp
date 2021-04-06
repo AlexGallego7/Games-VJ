@@ -96,8 +96,10 @@ void Skull::update(int deltaTime)
 
 	else if (sprite->animation() == DYING) {
 		state = DEAD;
-		if(currentTime - spawnTime > 1000)
-			posPlayer += 200;
+		if (currentTime - spawnTime > 1000) {
+			posPlayer.x = 10000;
+			posPlayer.y = 10000;
+		}
 	}
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
