@@ -582,6 +582,14 @@ bool Scene::loadEscena(const string& levelFile) {
 				ent[i]->setTileMap(map);
 				ent[i]->setState(s.z);
 			}
+			else if (entity == "ENDDOOR") {
+				ent.push_back(new EndDoor());
+				glm::ivec3 s = EntState::instance().getState(num_scene, i);
+				ent[i]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+				ent[i]->setPosition(glm::vec2(s.x, s.y));
+				ent[i]->setTileMap(map);
+				ent[i]->setState(s.z);
+			}
 			else if (entity == "PORTAL") {
 				sstream >> portalLevel;
 				ent.push_back(new Portal(portalLevel));
