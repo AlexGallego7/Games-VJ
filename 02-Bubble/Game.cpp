@@ -107,19 +107,24 @@ void Game::keyPressed(int key)
 			scene->init();
 		}
 		if (key == 'q' || key == 'Q') {
-			Gui::instance().setShoes(true);
+			if (Gui::instance().hasShoes()) Gui::instance().setShoes(false);
+			else Gui::instance().setShoes(true);
 		}
 		if (key == 'w' || key == 'W') {
-			Gui::instance().setGreenBook(true);
+			if(Gui::instance().hasGreenBook()) Gui::instance().setGreenBook(false);
+			else Gui::instance().setGreenBook(true);
 		}
 		if (key == 'e' || key == 'E') {
-			Gui::instance().setGreyBook(true);
+			if (Gui::instance().hasGreyBook()) Gui::instance().setGreyBook(false);
+			else Gui::instance().setGreyBook(true);
 		}
 		if (key == 't' || key == 'T') {
-			Gui::instance().setChus(true);
+			if (Gui::instance().hasChus()) Gui::instance().setChus(false);
+			else Gui::instance().setChus(true);
 		}
 		if (key == 'y' || key == 'Y') {
-			Gui::instance().setHelmet(true);
+			if(Gui::instance().hasHelmet()) Gui::instance().setHelmet(false);
+			else Gui::instance().setHelmet(true);
 		}
 		if (key == 'a' || key == 'A') {
 			Gui::instance().setFriends(1);

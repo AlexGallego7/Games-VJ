@@ -92,6 +92,7 @@ void Scene::update(int deltaTime)
 	if (Gui::instance().hasShoes()) {
 		ent[sizeEnts - 1]->setSpeed(3);
 	}
+	else ent[sizeEnts - 1]->setSpeed(2);
 
 	// entrar en portal
 	if (Game::instance().getSpecialKey(GLUT_KEY_UP) && map->isOnPortal(posPlayer, glm::ivec2(32, 32))) {
