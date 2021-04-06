@@ -81,7 +81,7 @@ void Scene::update(int deltaTime)
 	for (int i = 0; i < enemy.size(); ++i)
 		enemy[i]->update(deltaTime);
 
-	if (map->nextLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16))) {
+	if (map->nextLevel(ent[sizeEnts - 1]->getPos(), glm::ivec2(16, 16), Gui::instance().hasShoes())) {
 		nextlevel = true;
 	}
 		
@@ -656,14 +656,17 @@ void Scene::guardarEstado() {
 	EntState::instance().clear(num_scene);
 	for (int i = 0; i < ent.size(); i++) {
 		glm::ivec2 pos = ent[i]->getPos();
+		bool p = false;;
 		if (ent[i]->getTypeEntity() == 1) {
 			if (ent[i]->IsClimbing()) {
 				pos.x = posIni.x;
 				pos.y = posIni.y;
 			}
+			p = true;
 		}
-		EntState::instance().setState(num_scene, pos.x, pos.y, ent[i]->getState());
+		EntState::instance().setState(num_scene, pos.x, pos.y, ent[i]->getState(), nextlevel, prevlevel, p);
 	}
+
 }
 
 

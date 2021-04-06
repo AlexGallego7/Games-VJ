@@ -15,7 +15,9 @@ public:
 		return g;
 	}
 
-	void setState(int esc, int posx, int posy, int numAnim);
+
+
+	void setState(int esc, int posx, int posy, int numAnim, bool nextLevel, bool prevLevel, bool player);
 
 	glm::ivec3 getState(int num_scene, int num);
 
