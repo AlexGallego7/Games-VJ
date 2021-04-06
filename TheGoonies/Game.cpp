@@ -3,9 +3,14 @@
 #include "Game.h"
 #include "EntState.h"
 #include "EndScene.h"
+#include <irrKlang.h>
+using namespace irrklang;
+
+ISoundEngine* SoundEngine = createIrrKlangDevice();
 
 void Game::init()
 {
+	SoundEngine->play2D("music/music.mp3", true);
 	bPlay = true;
 	glClearColor(0.f, 0.f, 0.f, 1.0f);
 	scene = new Menu();
