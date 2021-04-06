@@ -1,0 +1,57 @@
+Nuria Anton Calle Grup 11
+Alex Gallego Rodriguez Grup 11
+
+Funcionalitats implementades:
+
+- 5 escenes amb 3 pantalles cadascuna amb 4 paletes diferents.
+- Escena de Inici/Win/Lose/Credits i instruccions.
+- Lianes.
+- Portals.
+- Portes que sobren amb clau amb amics dins.
+- 6 amics en total.
+- 2 enemics (skull i skeleton).
+- 3 obstacles (Drops, FallingRocks, Steam).
+- Vitalitat i experiencia segons el que agafes.
+- Power ups:
+	- Hyper shoes.
+	- Grey raincoat
+	- Green spellbook.
+	- Grey spellbook.
+	- Yellow helmet.
+- Tecles per saltar de contingut.
+	- Afegir amics.
+	- 1 per cada power up.
+	- 1 per cada escena.
+	- Game-mode.
+	- Restart (reset de tot). 
+- Animacions dels enemics de moviment y de mort.
+- Animacions del player de moviment i de lianes.
+- Interfaç del joc amb:
+	- el numero de escena-pantalla actual.
+	- La vida del player.
+	- La experiencia total de totes les partides i de la partida actual.
+	- Els amics que ha rescatat.
+	- Els power-ups que ha agafat.
+- Final quan rescates als 6 amics y creues la porta del final.
+
+Instruccions:
+
+fletxa superior - saltar/liana
+fletxa izq. - anar a l'esquerra
+fletxa dreta - anar a la dreta
+fletxa inferior - baixar la liana
+m-M - Menu
+1 - Anar a l'escena 1
+2 - Anar a l'escena 2
+3 - Anar a l'escena 3
+4 - Anar a l'escena 4
+5 - Anar a l'escena 5
+g-G - Godmode
+Espai - Golpejar
+q-Q - Hyper Shoes automaticament
+e-E - Grey speelbook automaticament
+w-W - Green speelbook automaticament
+t-T - Grey raincoat automaticament
+y-Y - Yellow Helmet automaticament
+a-A - afegir amic automaticament
+r-R - Restart

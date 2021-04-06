@@ -72,6 +72,8 @@ public:
 	
 	void setEnd();
 
+	void reset();
+
 private:
 	bool bPlay, godmode, punch;                       // Continue to play game?
 	SceneManager *scene;                      // Scene to render
