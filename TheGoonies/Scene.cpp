@@ -426,10 +426,9 @@ void Scene::update(int deltaTime)
 
 SceneManager* Scene::changeScene() {
 	if (gameover) {
+		Game::instance().reset();
 		SceneManager* scene = new GameOverScene();
 		scene->init();
-		Game::instance().resetExp();
-		Game::instance().resetLives();
 		return scene;
 	}
 	else if (nextlevel) {

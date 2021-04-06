@@ -275,3 +275,18 @@ void Game::setEnd() {
 	scene = new EndScene();
 	scene->init();
 }
+
+void Game::reset() {
+	charged_scenes.clear();
+	for (int i = 0; i < 15; i++) {
+		charged_scenes.push_back(false);
+	}
+	Gui::instance().setKey(false);
+	Gui::instance().setHelmet(false);
+	Gui::instance().setChus(false);
+	Gui::instance().setShoes(false);
+	Gui::instance().setGreenBook(false);
+	Gui::instance().setGreyBook(false);
+	resetLives();
+	resetExp();
+}
