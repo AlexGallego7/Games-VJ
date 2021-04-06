@@ -31,6 +31,7 @@ public:
 	void setGreenBook(bool h);
 	void setGreyBook(bool h);
 	void setFriends(int num);
+	void reset();
 	bool hasKey();
 	bool has6Friends();
 

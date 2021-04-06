@@ -92,6 +92,10 @@ void Gui::init()
 	end = false;
 }
 
+void Gui::reset() {
+	friends = 0;
+}
+
 void Gui::update(int deltaTime) {
 	currentTime += deltaTime;
 	if (currentTime < 150) {

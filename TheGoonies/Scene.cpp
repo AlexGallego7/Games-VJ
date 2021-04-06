@@ -426,6 +426,7 @@ void Scene::update(int deltaTime)
 
 SceneManager* Scene::changeScene() {
 	if (gameover) {
+		Gui::instance().reset();
 		Game::instance().reset();
 		SceneManager* scene = new GameOverScene();
 		scene->init();
@@ -451,6 +452,7 @@ SceneManager* Scene::changeScene() {
 		return scene;
 	}
 	else if (win) {
+		Gui::instance().reset();
 		Game::instance().reset();
 		SceneManager* scene = new EndScene();
 		scene->init();
