@@ -222,7 +222,7 @@ void Scene::update(int deltaTime)
 
 	// cae falling rock
 	for (int i = 0; i < enemy.size(); ++i) {
-		if (enemy[i]->getTypeEnemy() == 5) {
+		if (enemy[i]->getTypeEnemy() == 3) {
 			glm::ivec2 posRock = enemy[i]->getPos();
 			if (posPlayer.x == posRock.x) {
 				if(posPlayer.y > posRock.y && posPlayer.y - posRock.y < 64)
@@ -249,6 +249,17 @@ void Scene::update(int deltaTime)
 			if (enemy[i]->getTypeEnemy() == 3 && !Gui::instance().hasHelmet()) {
 				if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
 					if (posPlayer.y - 10 == posEnemy.y) {
+						secHit = 0;
+						Game::instance().setLives(-1);
+						if (Game::instance().getLives() <= 0) {
+							gameover = true;
+						}
+					}
+				}
+			}
+			else if (enemy[i]->getTypeEnemy() == 10 && enemy[i]->getAnimation() == 3) {
+				if (((posEnemy.x - posPlayer.x) < 8 && (posEnemy.x - posPlayer.x) >= 0) || (((posPlayer.x - posEnemy.x) < 12 && (posPlayer.x - posEnemy.x) >= 0))) {
+					if (abs(posPlayer.y - posEnemy.y) < 16) {
 						secHit = 0;
 						Game::instance().setLives(-1);
 						if (Game::instance().getLives() <= 0) {

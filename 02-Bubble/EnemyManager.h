@@ -20,6 +20,9 @@ public:
 	/*
 	* 0-> skull
 	* 1-> skeleton
+	* 2-> drop
+	* 3-> falling rock
+	* 4-> water
 	*/
 	virtual glm::ivec2 getPos() = 0;
 
