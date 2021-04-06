@@ -43,29 +43,29 @@ void Game::keyPressed(int key)
 {
 	if(key == 27) // Escape code
 		bPlay = false;
-	keys[key] = true;
+	 keys[key] = true;
 
-	if (key == 'g') godmode = !godmode;
+	if (key == 'g' || key == 'G') godmode = !godmode;
 	if (key == ' ') punch = true;
 
 	if (scene->getEscena() == 0) {
-		if (key == 'i') {
+		if (key == 'i' || key == 'I') {
 			scene = new InstruccionsScene();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 1) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 2) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
-		if (key == 'r') {
+		if (key == 'r' || key == 'R') {
 			charged_scenes.clear();
 			for (int i = 0; i < 15; i++) {
 				charged_scenes.push_back(false);
@@ -106,41 +106,41 @@ void Game::keyPressed(int key)
 			scene = new Scene("levels/lv013");
 			scene->init();
 		}
-		if (key == 'q') {
+		if (key == 'q' || key == 'Q') {
 			Gui::instance().setShoes(true);
 		}
-		if (key == 'w') {
+		if (key == 'w' || key == 'W') {
 			Gui::instance().setGreenBook(true);
 		}
-		if (key == 'e') {
+		if (key == 'e' || key == 'E') {
 			Gui::instance().setGreyBook(true);
 		}
-		if (key == 't') {
+		if (key == 't' || key == 'T') {
 			Gui::instance().setChus(true);
 		}
-		if (key == 'y') {
+		if (key == 'y' || key == 'Y') {
 			Gui::instance().setHelmet(true);
 		}
-		if (key == 'a') {
+		if (key == 'a' || key == 'A') {
 			Gui::instance().setFriends(1);
 		}
 
 
 	}
 	else if (scene->getEscena() == 3) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 4) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
 	}
 	else if (scene->getEscena() == 5) {
-		if (key == 'm') {
+		if (key == 'm' || key == 'M') {
 			scene = new Menu();
 			scene->init();
 		}
