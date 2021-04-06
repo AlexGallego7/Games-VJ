@@ -220,6 +220,17 @@ void Scene::update(int deltaTime)
 		}
 	}
 
+	// cae falling rock
+	for (int i = 0; i < enemy.size(); ++i) {
+		if (enemy[i]->getTypeEnemy() == 5) {
+			glm::ivec2 posRock = enemy[i]->getPos();
+			if (posPlayer.x == posRock.x) {
+				if(posPlayer.y > posRock.y && posPlayer.y - posRock.y < 64)
+					enemy[i]->trigger();
+			}
+		}
+	}
+
 	//ser golpeado por enemigo -> habria que personalizar las hitbox para cada enemigo.
 	if (!Game::instance().getGodMode() && secHit == 30) {
 		for (int i = 0; i < enemy.size(); i++) {

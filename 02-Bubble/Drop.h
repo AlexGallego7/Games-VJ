@@ -26,6 +26,7 @@ public:
 	EnemyManager::EnemyStates getState();
 
 	int getAnimation();
+	void trigger();
 
 private:
 	float currentTime, dropTime;

@@ -27,6 +27,7 @@ public:
 	EnemyManager::EnemyStates getState();
 
 	int getAnimation();
+	void trigger();
 
 private:
 	int loc;

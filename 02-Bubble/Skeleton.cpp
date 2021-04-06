@@ -141,6 +141,9 @@ int Skeleton::hit() {
 	return lives;
 }
 
+void Skeleton::trigger() {}
+
+
 void Skeleton::dies() {
 	spawnTime = currentTime;
 	sprite->changeAnimation(DYING);

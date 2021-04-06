@@ -135,6 +135,9 @@ int Water::hit() {
 	return 0;
 }
 
+void Water::trigger() {}
+
+
 void Water::dies() {
 	//
 }

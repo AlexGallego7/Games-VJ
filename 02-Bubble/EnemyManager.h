@@ -29,6 +29,7 @@ public:
 	virtual int hit() = 0;
 	virtual EnemyStates getState() = 0; 
 	virtual int getAnimation() = 0;
+	virtual void trigger() = 0;
 
 	EnemyStates state;
 };

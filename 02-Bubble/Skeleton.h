@@ -16,6 +16,7 @@ public:
 	int getTypeEnemy();
 
 	int getAnimation();
+	void trigger();
 
 	glm::ivec2 getPos();
 

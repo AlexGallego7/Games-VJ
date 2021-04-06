@@ -42,7 +42,7 @@ void FallingRock::update(int deltaTime)
 	sprite->update(deltaTime);
 
 	if (sprite->animation() == CEILING) {
-		if (currentTime - dropTime > 2000) {
+		if (fall) {
 			posPlayer.y += 2;
 			sprite->changeAnimation(AIR);
 		}
@@ -60,7 +60,7 @@ void FallingRock::update(int deltaTime)
 		posPlayer.y += 14;
 	}
 	else if (sprite->animation() == GROUND) {
-		if (currentTime - dropTime > 2000) {
+		if (currentTime - dropTime > 5000) {
 			posPlayer.y = 800;
 		}
 	}
@@ -89,7 +89,7 @@ int FallingRock::getAnimation() {
 }
 
 int FallingRock::getTypeEnemy() {
-	return 3;
+	return 5;
 }
 
 glm::ivec2 FallingRock::getPos()
@@ -103,6 +103,10 @@ int FallingRock::hit() {
 
 void FallingRock::dies() {
 	//
+}
+
+void FallingRock::trigger() {
+	fall = true;
 }
 
 EnemyManager::EnemyStates FallingRock::getState() {

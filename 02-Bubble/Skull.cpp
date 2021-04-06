@@ -139,6 +139,8 @@ int Skull::hit() {
 	return lives;
 }
 
+void Skull::trigger() {}
+
 void Skull::dies() {
 	spawnTime = currentTime;
 	sprite->changeAnimation(DYING);

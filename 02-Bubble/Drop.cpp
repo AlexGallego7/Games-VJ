@@ -94,6 +94,9 @@ int Drop::hit() {
 	return 0;
 }
 
+void Drop::trigger() {}
+
+
 void Drop::dies() {
 	//
 }
