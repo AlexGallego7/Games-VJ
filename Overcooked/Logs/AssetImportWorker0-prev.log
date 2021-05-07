@@ -1,0 +1,322 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19041.928; Version 2004; 64bit' Language: 'es' Physical Memory: 8066 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Nuria/Desktop/VJ/Overcooked
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+65086
+Successfully changed project path to: C:/Users/Nuria/Desktop/VJ/Overcooked
+C:/Users/Nuria/Desktop/VJ/Overcooked
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 27.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Nuria/Desktop/VJ/Overcooked/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
+    Vendor:   
+    VRAM:     2020 MB
+    Driver:   22.21.13.8569
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56772
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002856 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 26.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.640 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001056 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.051 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1116 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.3 MB.
+System memory in use after: 57.3 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1560.
+Total: 3.882100 ms (FindLiveObjects: 0.830500 ms CreateObjectMapping: 0.142900 ms MarkObjects: 2.746800 ms  DeleteObjects: 0.159300 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/chef 1.prefab
+  artifactKey: Guid(76d3557df0188904baf1fed1c59412f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chef 1.prefab using Guid(76d3557df0188904baf1fed1c59412f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5097eabde3a4599c7989dd559eae309') in 0.194062 seconds
+  Import took 0.197618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.648677 seconds.
+  path: Assets/Prefabs/chef 1.prefab
+  artifactKey: Guid(76d3557df0188904baf1fed1c59412f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chef 1.prefab using Guid(76d3557df0188904baf1fed1c59412f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a01ced8cc43c48705258dc2a70328e2') in 0.056649 seconds
+  Import took 0.061721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.348297 seconds.
+  path: Assets/Scenes/Escena1/mesa.obj
+  artifactKey: Guid(1b627641c7145ee4abe7e6620899fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/mesa.obj using Guid(1b627641c7145ee4abe7e6620899fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f35a9f50124fd047b3f4498c3a5d258a') in 0.127680 seconds
+  Import took 0.130772 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Scenes/Escena1/suelo_cocina.obj
+  artifactKey: Guid(a961af7361d083c468b8e8177a755df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/suelo_cocina.obj using Guid(a961af7361d083c468b8e8177a755df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '916f19571af03182d7d9dfd0b9927a6b') in 0.049875 seconds
+  Import took 0.052319 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Scenes/Escena1/suelo_cocina.png
+  artifactKey: Guid(2e440f978534f6040aab011fb234348d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/suelo_cocina.png using Guid(2e440f978534f6040aab011fb234348d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e72b3dc2c04fffcb8dcba37cf258a3a') in 0.064409 seconds
+  Import took 0.067328 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Scenes/Escena1/mesa.png
+  artifactKey: Guid(bf8c84bbf243fc74a97e78e4e4a119a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/mesa.png using Guid(bf8c84bbf243fc74a97e78e4e4a119a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5c479b5df2e0db2cde938d569e2c3ce') in 0.010193 seconds
+  Import took 0.012808 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001056 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.115 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.7 MB.
+System memory in use after: 60.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1608.
+Total: 2.240800 ms (FindLiveObjects: 0.165500 ms CreateObjectMapping: 0.032100 ms MarkObjects: 1.992200 ms  DeleteObjects: 0.049400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.039015 seconds.
+  path: Assets/Scenes/Escena1/plato.png
+  artifactKey: Guid(8fe8e08e0e6883e4894124140ab61e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/plato.png using Guid(8fe8e08e0e6883e4894124140ab61e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c9a36f0f576c806b1b74dfe0765f246') in 0.036402 seconds
+  Import took 0.038931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Scenes/Escena1/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3c0a11f329f1ed3770749975b060f6a') in 0.160865 seconds
+  Import took 0.162856 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.694861 seconds.
+  path: Assets/Scenes/Escena1/suelo_cocina.obj
+  artifactKey: Guid(a961af7361d083c468b8e8177a755df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/suelo_cocina.obj using Guid(a961af7361d083c468b8e8177a755df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c718698aa3bdfaf5a5d6005c394d0f0') in 0.084930 seconds
+  Import took 0.100940 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.069840 seconds.
+  path: Assets/Scenes/Escena1/mesa.obj
+  artifactKey: Guid(1b627641c7145ee4abe7e6620899fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Escena1/mesa.obj using Guid(1b627641c7145ee4abe7e6620899fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5963892000d9732b079ae6dacc481968') in 0.126176 seconds
+  Import took 0.135031 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.030546 seconds.
+  path: Assets/Models/mesa.obj
+  artifactKey: Guid(c7f7f34df497ca3439e3158119b0e59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/mesa.obj using Guid(c7f7f34df497ca3439e3158119b0e59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e9e7902745736b9881aa82b510a469c') in 0.037252 seconds
+  Import took 0.039781 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000417 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03d307c14b74c2557dea3fb20b77a02d') in 0.084994 seconds
+  Import took 0.087228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Models/suelo_cocina.obj
+  artifactKey: Guid(27b64bcdff3fe0449a598e041fbf0c3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/suelo_cocina.obj using Guid(27b64bcdff3fe0449a598e041fbf0c3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04b28ec92b2ef2d44c1780cb31cedd47') in 0.056140 seconds
+  Import took 0.058623 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 93.827388 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a353d5b0f29f35d54b0aeb40d6ee5942') in 0.028309 seconds
+  Import took 0.038009 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Models/plato.png
+  artifactKey: Guid(a0df028844d046f428867c194ceeeacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.png using Guid(a0df028844d046f428867c194ceeeacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '255c0f9be59db85818e421c66f049046') in 0.007529 seconds
+  Import took 0.010086 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.470196 seconds.
+  path: Assets/Models/plato.mat
+  artifactKey: Guid(287778a1fcc66a04781b9e2114c94bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mat using Guid(287778a1fcc66a04781b9e2114c94bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b49e5c4c11cde26c1d74dafd387c761') in 0.038566 seconds
+  Import took 0.041218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012523 seconds.
+  path: Assets/Models/plato.mat
+  artifactKey: Guid(287778a1fcc66a04781b9e2114c94bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mat using Guid(287778a1fcc66a04781b9e2114c94bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b49e5c4c11cde26c1d74dafd387c761') in 0.035945 seconds
+  Import took 0.048045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.313901 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13b18b9734d887b57c25f62e3fd5f2eb') in 0.070633 seconds
+  Import took 0.079660 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.160842 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6615ca819b800e91764c462aac04cdc0') in 0.071958 seconds
+  Import took 0.074649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.723974 seconds.
+  path: Assets/Models/plato.mtl
+  artifactKey: Guid(3fe81050bc6c109429718a18b24956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mtl using Guid(3fe81050bc6c109429718a18b24956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c15057501a5f942f5b9bf1edb463433') in 0.010963 seconds
+  Import took 0.013454 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000484 seconds.
+  path: Assets/Models/plato.mtl
+  artifactKey: Guid(3fe81050bc6c109429718a18b24956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mtl using Guid(3fe81050bc6c109429718a18b24956e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c15057501a5f942f5b9bf1edb463433') in 0.008569 seconds
+  Import took 0.012178 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.675428 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(09a7e3cf7eefd7642bc469772b39b5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(09a7e3cf7eefd7642bc469772b39b5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4fc4ce7d763fbc23041e5016b5100df') in 0.009177 seconds
+  Import took 0.012287 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001008 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(09a7e3cf7eefd7642bc469772b39b5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(09a7e3cf7eefd7642bc469772b39b5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4fc4ce7d763fbc23041e5016b5100df') in 0.005435 seconds
+  Import took 0.008489 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.659121 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d55b7091a308c80280e15b1b623d6a8') in 0.077268 seconds
+  Import took 0.080455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.876335 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c5cc9b1d609c0fd5cfd184821c5a11d') in 0.076645 seconds
+  Import took 0.079048 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.308074 seconds.
+  path: Assets/Models/plato.obj
+  artifactKey: Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.obj using Guid(06aa066706f0a3540a820e5c57882b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75373e52886b0e0b5fd80a1cdcca985c') in 0.081200 seconds
+  Import took 0.089039 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.819357 seconds.
+  path: Assets/Models/plato.mat
+  artifactKey: Guid(14eb691bc79b6f546b0135a8a7288f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mat using Guid(14eb691bc79b6f546b0135a8a7288f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f625a7c2d98d0db8221a23d02f053a3') in 0.095163 seconds
+  Import took 0.100915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003475 seconds.
+  path: Assets/Models/plato.mat
+  artifactKey: Guid(14eb691bc79b6f546b0135a8a7288f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/plato.mat using Guid(14eb691bc79b6f546b0135a8a7288f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f625a7c2d98d0db8221a23d02f053a3') in 0.090522 seconds
+  Import took 0.098789 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
