@@ -17,11 +17,11 @@ public class ObjetoActual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (objetoParaCoger != null && objetoParaCoger.GetComponent<CogerObjeto>().se_puede_coger == true && objetoActual ==null)
+        if (objetoParaCoger != null && objetoParaCoger.GetComponent<CogerObjeto>().cogido == false && objetoActual == null)
         {
             if (Input.GetKeyDown(KeyCode.E)){
                 objetoActual = objetoParaCoger;
-                objetoActual.GetComponent<CogerObjeto>().se_puede_coger = false;
+                objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.transform.SetParent(handZone);
                 objetoActual.transform.position = handZone.position;
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
@@ -32,7 +32,7 @@ public class ObjetoActual : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                objetoActual.GetComponent<CogerObjeto>().se_puede_coger = true;
+                objetoActual.GetComponent<CogerObjeto>().cogido = false;
                 objetoActual.transform.SetParent(null);
                 objetoActual.GetComponent<Rigidbody>().useGravity = true;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = false;

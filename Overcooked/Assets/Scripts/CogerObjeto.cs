@@ -5,7 +5,7 @@ using UnityEngine;
 public class CogerObjeto : MonoBehaviour
 {
 
-    public bool se_puede_coger = true;
+    public bool cogido = false;
 
     
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class CogerObjeto : MonoBehaviour
     {
         if (other.tag == "handZone")
         {
-            other.GetComponentInParent<ObjetoActual>().objetoActual = null;
+            other.GetComponentInParent<ObjetoActual>().objetoParaCoger = null;
         }
     }
 
