@@ -215,3 +215,152 @@ System memory in use after: 60.6 MB.
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1613.
 Total: 4.120600 ms (FindLiveObjects: 0.326900 ms CreateObjectMapping: 0.122800 ms MarkObjects: 3.637700 ms  DeleteObjects: 0.030800 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 229.141344 seconds.
+  path: Assets/Scripts/CogerObjeto.cs
+  artifactKey: Guid(c93d2c3848166594c93cff1b96829e34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/CogerObjeto.cs using Guid(c93d2c3848166594c93cff1b96829e34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93abef761dea143b5d84cb740f3f5abb') in 0.021195 seconds
+  Import took 0.024016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015013 seconds.
+  path: Assets/Scripts/CogerObjeto.cs
+  artifactKey: Guid(c93d2c3848166594c93cff1b96829e34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/CogerObjeto.cs using Guid(c93d2c3848166594c93cff1b96829e34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93abef761dea143b5d84cb740f3f5abb') in 0.002183 seconds
+  Import took 0.004930 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.474611 seconds.
+  path: Assets/Scripts/cogerObjetoMesa.cs
+  artifactKey: Guid(7215d3f9ea5828f4283c97dd9960ccf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/cogerObjetoMesa.cs using Guid(7215d3f9ea5828f4283c97dd9960ccf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7a14d626e69b06b5f54d58ba69b4a68') in 0.012575 seconds
+  Import took 0.016038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.864409 seconds.
+  path: Assets/Scripts/MoveChef.cs
+  artifactKey: Guid(82358540dc8297f49b1e539292b9f4b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MoveChef.cs using Guid(82358540dc8297f49b1e539292b9f4b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a0a29e71c217b31c14b0c6185844f4a') in 0.010972 seconds
+  Import took 0.014774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.025675 seconds.
+  path: Assets/Scripts/ObjetoActual.cs
+  artifactKey: Guid(8432cb7a325cfd144baf86718ead1c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ObjetoActual.cs using Guid(8432cb7a325cfd144baf86718ead1c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '879ae4cc1cde6c43b82e7073fded344c') in 0.008104 seconds
+  Import took 0.010711 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000577 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.945 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1113 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.5 MB.
+System memory in use after: 60.6 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1616.
+Total: 1.899700 ms (FindLiveObjects: 0.182000 ms CreateObjectMapping: 0.040400 ms MarkObjects: 1.661600 ms  DeleteObjects: 0.014000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001029 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.131 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1113 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.6 MB.
+System memory in use after: 60.7 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1619.
+Total: 2.375600 ms (FindLiveObjects: 0.339600 ms CreateObjectMapping: 0.056900 ms MarkObjects: 1.956800 ms  DeleteObjects: 0.019000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001086 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.850 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1113 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.6 MB.
+System memory in use after: 60.7 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1622.
+Total: 3.907700 ms (FindLiveObjects: 0.308500 ms CreateObjectMapping: 0.087100 ms MarkObjects: 3.479500 ms  DeleteObjects: 0.030300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 5765.175707 seconds.
+  path: Assets/Materials/pan.mat
+  artifactKey: Guid(fe1b02ac062dd5a4c93168d3452369ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/pan.mat using Guid(fe1b02ac062dd5a4c93168d3452369ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a22086e9b7786cde866f93cc670bfab') in 0.088458 seconds
+  Import took 0.091459 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.426565 seconds.
+  path: Assets/Models/chef_2.obj
+  artifactKey: Guid(158786176c07d9147b4a01d2859bd386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/chef_2.obj using Guid(158786176c07d9147b4a01d2859bd386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0ea028860fb068e7b6c5bd0bb988151') in 0.069197 seconds
+  Import took 0.072087 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.366449 seconds.
+  path: Assets/Textures/chef_2.png
+  artifactKey: Guid(9fd278e138980bf4b8e6906e76c40930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/chef_2.png using Guid(9fd278e138980bf4b8e6906e76c40930) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5b0a581fbcc7e1025a062790729247a') in 0.010595 seconds
+  Import took 0.012991 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 30.843751 seconds.
+  path: Assets/Prefabs/chef_2.prefab
+  artifactKey: Guid(2aef3e8b9f36000459597b766eb77595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chef_2.prefab using Guid(2aef3e8b9f36000459597b766eb77595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '559d57e65dbfaff7249d0fc6ea754dd9') in 0.014188 seconds
+  Import took 0.016415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011801 seconds.
+  path: Assets/Prefabs/chef_2.prefab
+  artifactKey: Guid(2aef3e8b9f36000459597b766eb77595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chef_2.prefab using Guid(2aef3e8b9f36000459597b766eb77595) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '559d57e65dbfaff7249d0fc6ea754dd9') in 0.010748 seconds
+  Import took 0.013232 seconds .
+
