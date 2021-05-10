@@ -6,6 +6,7 @@ public class CogerObjeto : MonoBehaviour
 {
 
     public bool cogido = false;
+    public GameObject mesa;
 
     
     // Start is called before the first frame update
@@ -26,6 +27,10 @@ public class CogerObjeto : MonoBehaviour
         {
             other.GetComponentInParent<ObjetoActual>().objetoParaCoger= this.gameObject;
         }
+        if (other.tag == "table")
+        {
+            mesa = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,6 +38,10 @@ public class CogerObjeto : MonoBehaviour
         if (other.tag == "handZone")
         {
             other.GetComponentInParent<ObjetoActual>().objetoParaCoger = null;
+        }
+        if (other.tag == "table")
+        {
+            mesa = null;
         }
     }
 
