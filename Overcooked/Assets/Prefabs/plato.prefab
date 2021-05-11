@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 71807517532497249}
   - component: {fileID: 71807517532497248}
   - component: {fileID: 71807517532497255}
+  - component: {fileID: 1801761656}
   m_Layer: 0
   m_Name: plato
   m_TagString: Objeto
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71807517532497254}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.2666528, y: 4.24165, z: 2.8977919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -95,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.1, y: 0.5, z: 3}
+  m_Size: {x: 0.5, y: 0.5, z: 3}
   m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
 --- !u!54 &71807517532497248
 Rigidbody:
@@ -126,3 +127,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cogido: 0
+  mesa: {fileID: 0}
+--- !u!65 &1801761656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71807517532497254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 1}
+  m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
