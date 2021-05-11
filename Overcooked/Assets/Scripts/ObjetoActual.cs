@@ -19,37 +19,27 @@ public class ObjetoActual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null && objetoParaCoger.GetComponent<CogerObjeto>().mesa == null)
+        //coger objeto
+        if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null)
         {
-            if (Input.GetKeyDown(KeyCode.E)){
+            if (Input.GetKeyDown(KeyCode.E)) {
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                if(objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                 objetoActual.transform.SetParent(handZone);
                 objetoActual.transform.position = handZone.position;
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
-        else if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null && objetoParaCoger.GetComponent<CogerObjeto>().mesa != null)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                objetoActual = objetoParaCoger;
-                objetoActual.GetComponent<CogerObjeto>().cogido = true;
-                objetoActual.transform.SetParent(handZone);
-                objetoActual.transform.position = handZone.position;
-                objetoActual.GetComponent<Rigidbody>().useGravity = false;
-                objetoActual.GetComponent<Rigidbody>().isKinematic = true;
-                objetoParaCoger.GetComponent<CogerObjeto>().mesa = null;
-            }
-        }
-        else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa != null)
+        //soltar objeto en mesa
+        else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa != null && objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 objetoActual.GetComponent<CogerObjeto>().cogido = false;
+                objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
                 objetoActual.transform.SetParent(ObjCoger);
-                //calcular_posicion_mesa();
                 objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
                 objetoActual.transform.position -= new Vector3(0,0.5f,0);
                 objetoActual.transform.rotation = new Quaternion(0,0,0,0);
@@ -58,7 +48,8 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual = null;
             }
         }
-        else if (objetoActual != null)
+        //soltar objeto en el suelo
+        else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa == null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

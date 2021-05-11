@@ -8,7 +8,7 @@ public class CogerObjeto : MonoBehaviour
     public bool cogido = false;
     public GameObject mesa;
 
-    bool inicializado = false;
+    private bool inicializado = false;
 
     
     // Start is called before the first frame update
@@ -36,6 +36,7 @@ public class CogerObjeto : MonoBehaviour
             if (!inicializado)
             {
                 inicializado = true;
+                mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
                 this.gameObject.transform.position = mesa.transform.position;
                 this.gameObject.transform.position -= new Vector3(0, 0.5f, 0);
                 this.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
