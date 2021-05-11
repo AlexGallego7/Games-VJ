@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 9086345994437718188}
   - component: {fileID: 1852610815}
   - component: {fileID: 1852610813}
-  - component: {fileID: 1852610816}
-  - component: {fileID: 1852610818}
   - component: {fileID: 1852610817}
   m_Layer: 0
   m_Name: queso
@@ -114,32 +112,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
---- !u!65 &1852610816
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827781441314881097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 0.4, z: 0.8}
-  m_Center: {x: 0.5, y: 0.2, z: -0.099999994}
---- !u!65 &1852610818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827781441314881097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
 --- !u!114 &1852610817
 MonoBehaviour:

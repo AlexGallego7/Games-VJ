@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 407568756707496646}
   - component: {fileID: 2056728317}
   - component: {fileID: 2056728315}
-  - component: {fileID: 2056728318}
   - component: {fileID: 2056728319}
   m_Layer: 0
   m_Name: pepino
@@ -113,19 +112,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
---- !u!65 &2056728318
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125613376436575267}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
 --- !u!114 &2056728319
 MonoBehaviour:
