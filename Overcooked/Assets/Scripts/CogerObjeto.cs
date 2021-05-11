@@ -8,10 +8,13 @@ public class CogerObjeto : MonoBehaviour
     public bool cogido = false;
     public GameObject mesa;
 
+    bool inicializado = false;
+
     
     // Start is called before the first frame update
     void Start()
     {
+
         
     }
 
@@ -30,6 +33,15 @@ public class CogerObjeto : MonoBehaviour
         if (other.tag == "table")
         {
             mesa = other.gameObject;
+            if (!inicializado)
+            {
+                inicializado = true;
+                this.gameObject.transform.position = mesa.transform.position;
+                this.gameObject.transform.position -= new Vector3(0, 0.5f, 0);
+                this.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
         }
     }
 
