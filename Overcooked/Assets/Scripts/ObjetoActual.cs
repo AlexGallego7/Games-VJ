@@ -7,6 +7,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject objetoActual;
     public GameObject objetoParaCoger;
     public Transform handZone;
+    public Transform ObjCoger;
 
 
     // Start is called before the first frame update
@@ -42,16 +43,32 @@ public class ObjetoActual : MonoBehaviour
                 objetoParaCoger.GetComponent<CogerObjeto>().mesa = null;
             }
         }
-        else if(objetoActual != null)
+        else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 objetoActual.GetComponent<CogerObjeto>().cogido = false;
-                objetoActual.transform.SetParent(null);
+                objetoActual.transform.SetParent(ObjCoger);
+                //calcular_posicion_mesa();
+                objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
+                objetoActual.transform.position -= new Vector3(0,0.5f,0);
+                objetoActual.transform.rotation = new Quaternion(0,0,0,0);
+                objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                objetoActual = null;
+            }
+        }
+        else if (objetoActual != null)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                objetoActual.GetComponent<CogerObjeto>().cogido = false;
+                objetoActual.transform.SetParent(ObjCoger);
                 objetoActual.GetComponent<Rigidbody>().useGravity = true;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = false;
                 objetoActual = null;
             }
         }
+
     }
 }
