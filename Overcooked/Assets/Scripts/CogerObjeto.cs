@@ -7,28 +7,27 @@ public class CogerObjeto : MonoBehaviour
 
     public bool cogido = false;
     public GameObject mesa;
-    public GameObject seta;
+    public bool en_mesa_de_cortar = false;
+
+    public bool inicializado = false;
 
 
-    bool inicializado = false;
-
-    
     // Start is called before the first frame update
     void Start()
     {
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "handZone")
+        if (other.tag == "handZone")
         {
             other.GetComponentInParent<ObjetoActual>().objetoParaCoger = this.gameObject;
         }
@@ -38,6 +37,7 @@ public class CogerObjeto : MonoBehaviour
             if (!inicializado)
             {
                 inicializado = true;
+                mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
                 this.gameObject.transform.position = mesa.transform.position;
                 this.gameObject.transform.position -= new Vector3(0, 0.5f, 0);
                 this.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -45,10 +45,9 @@ public class CogerObjeto : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
-        if (other.tag == "seta")
+        if (other.tag == "tabla_cortar")
         {
-            GameObject obj = (GameObject)Instantiate(seta, transform.position + new Vector3(0.0f, 1.0f, 0.0f), seta.transform.rotation);
-            other.GetComponentInParent<ObjetoActual>().objetoParaCoger = obj;
+            en_mesa_de_cortar = true;
         }
     }
 
@@ -61,6 +60,10 @@ public class CogerObjeto : MonoBehaviour
         if (other.tag == "table")
         {
             mesa = null;
+        }
+        if (other.tag == "tabla_cortar")
+        {
+            en_mesa_de_cortar = false;
         }
     }
 
@@ -77,7 +80,6 @@ public class CogerObjeto : MonoBehaviour
                 objecto_actual = other.gameObject;
             }
         }
-
     }
     */
 

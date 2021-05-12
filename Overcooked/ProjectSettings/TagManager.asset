@@ -7,7 +7,12 @@ TagManager:
   - Objeto
   - handZone
   - table
+<<<<<<< HEAD
   - seta
+=======
+  - tabla_cortar
+  - pan
+>>>>>>> 3cf93bb23aa7440f4a4d522297be8644749d2b71
   layers:
   - Default
   - TransparentFX

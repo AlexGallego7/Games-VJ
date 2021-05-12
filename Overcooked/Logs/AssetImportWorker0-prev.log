@@ -549,6 +549,7 @@ Received Import Request.
 Start importing Assets/Prefabs/box_seta.prefab using Guid(c3b27c08c9dbda945977561d345598ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25f0da7ba7bc184ba04527142c8bd95f') in 0.033841 seconds
   Import took 0.041600 seconds .
 
+<<<<<<< HEAD
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
@@ -573,3 +574,5 @@ Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1623.
 Total: 3.573700 ms (FindLiveObjects: 0.236100 ms CreateObjectMapping: 0.086200 ms MarkObjects: 3.221200 ms  DeleteObjects: 0.028000 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+=======
+>>>>>>> 3cf93bb23aa7440f4a4d522297be8644749d2b71
