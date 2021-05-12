@@ -7,6 +7,8 @@ TagManager:
   - Objeto
   - handZone
   - table
+  - tabla_cortar
+  - pan
   layers:
   - Default
   - TransparentFX

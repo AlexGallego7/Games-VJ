@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class ObjetoActual : MonoBehaviour
     public Transform handZone;
     public Transform ObjCoger;
 
+    public GameObject pan_cortado;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,20 +19,54 @@ public class ObjetoActual : MonoBehaviour
         
     }
 
+    private GameObject detectar_objeto()
+    {
+        GameObject nuevo_objeto = null;
+        if (objetoActual.tag == "pan")
+        {
+            nuevo_objeto = pan_cortado;
+        }
+
+        return nuevo_objeto;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //de pan a pan cortado
+        if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().en_mesa_de_cortar)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject nuevo_objeto = detectar_objeto();
+                if(nuevo_objeto != null)
+                {
+                    Destroy(objetoActual);
+                    nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+                    objetoActual = nuevo_objeto;
+                    objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                    objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+                    objetoActual.transform.SetParent(handZone);
+                    objetoActual.transform.position = handZone.position;
+                    objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                    objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                }
+            }
+        }
         //coger objeto
-        if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null)
+        else if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null)
         {
             if (Input.GetKeyDown(KeyCode.E)) {
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
-                if(objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+                objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                if (objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                 objetoActual.transform.SetParent(handZone);
                 objetoActual.transform.position = handZone.position;
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                
             }
         }
         //soltar objeto en mesa
@@ -62,4 +99,6 @@ public class ObjetoActual : MonoBehaviour
         }
 
     }
+
+
 }

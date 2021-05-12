@@ -7,8 +7,9 @@ public class CogerObjeto : MonoBehaviour
 
     public bool cogido = false;
     public GameObject mesa;
+    public bool en_mesa_de_cortar=false;
 
-    private bool inicializado = false;
+    public bool inicializado = false;
 
     
     // Start is called before the first frame update
@@ -44,6 +45,10 @@ public class CogerObjeto : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
+        if (other.tag == "tabla_cortar")
+        {
+            en_mesa_de_cortar = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -55,6 +60,10 @@ public class CogerObjeto : MonoBehaviour
         if (other.tag == "table")
         {
             mesa = null;
+        }
+        if (other.tag == "tabla_cortar")
+        {
+            en_mesa_de_cortar = false; 
         }
     }
 
