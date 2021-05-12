@@ -7,6 +7,7 @@ public class CogerObjeto : MonoBehaviour
 
     public bool cogido = false;
     public GameObject mesa;
+    public string objCoger = "";
     public bool en_mesa_de_cortar = false;
 
     public bool inicializado = false;
@@ -49,6 +50,14 @@ public class CogerObjeto : MonoBehaviour
         {
             en_mesa_de_cortar = true;
         }
+        /*if (other.tag == "box_tomate")
+        {
+            objCoger = "tomate";
+        }
+        if (other.tag == "box_seta")
+        {
+            objCoger = "seta";
+        }*/
     }
 
     private void OnTriggerExit(Collider other)

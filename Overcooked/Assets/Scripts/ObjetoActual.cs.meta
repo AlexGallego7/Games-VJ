@@ -3,7 +3,13 @@ guid: 8432cb7a325cfd144baf86718ead1c9a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - objetoActual: {instanceID: 0}
+  - objetoParaCoger: {instanceID: 0}
+  - handZone: {instanceID: 0}
+  - ObjCoger: {instanceID: 0}
+  - pan_cortado: {instanceID: 0}
+  - tomate: {fileID: 4583484011235231896, guid: c2cf48a4859bce143b93c28c4f281a49, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

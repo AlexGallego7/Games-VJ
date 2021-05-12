@@ -11,6 +11,7 @@ public class ObjetoActual : MonoBehaviour
     public Transform ObjCoger;
 
     public GameObject pan_cortado;
+    public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
 
 
     // Start is called before the first frame update
@@ -46,13 +47,109 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual = nuevo_objeto;
                     objetoActual.GetComponent<CogerObjeto>().cogido = true;
                     objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null) 
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+
                     objetoActual.transform.SetParent(handZone);
                     objetoActual.transform.position = handZone.position;
                     objetoActual.GetComponent<Rigidbody>().useGravity = false;
                     objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }
+        }
+        if (objetoActual == null && objetoParaCoger != null)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject nuevo_objeto = null;
+                switch (objetoParaCoger.tag)
+                {
+                    case "box_tomate":
+                        nuevo_objeto = Instantiate(tomate, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_seta":
+                        nuevo_objeto = Instantiate(seta, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_filete":
+                        nuevo_objeto = Instantiate(filete, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_lechuga":
+                        nuevo_objeto = Instantiate(lechuga, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_pan":
+                        nuevo_objeto = Instantiate(pan, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_queso":
+                        nuevo_objeto = Instantiate(queso, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_pasta":
+                        nuevo_objeto = Instantiate(pasta, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "box_pepino":
+                        nuevo_objeto = Instantiate(pepino, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+
         }
         //coger objeto
         else if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null)

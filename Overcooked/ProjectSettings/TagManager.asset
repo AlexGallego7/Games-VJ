@@ -5,14 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Objeto
-  - handZone
   - table
-<<<<<<< HEAD
-  - seta
-=======
-  - tabla_cortar
+  - handZone
   - pan
->>>>>>> 3cf93bb23aa7440f4a4d522297be8644749d2b71
+  - tabla_cortar
+  - box_tomate
+  - box_seta
+  - box_filete
+  - box_lechuga
+  - box_pasta
+  - box_queso
+  - box_pan
+  - box_pepino
   layers:
   - Default
   - TransparentFX
