@@ -7,6 +7,8 @@ public class CogerObjeto : MonoBehaviour
 
     public bool cogido = false;
     public GameObject mesa;
+    public GameObject seta;
+
 
     bool inicializado = false;
 
@@ -28,7 +30,7 @@ public class CogerObjeto : MonoBehaviour
     {
         if(other.tag == "handZone")
         {
-            other.GetComponentInParent<ObjetoActual>().objetoParaCoger= this.gameObject;
+            other.GetComponentInParent<ObjetoActual>().objetoParaCoger = this.gameObject;
         }
         if (other.tag == "table")
         {
@@ -42,6 +44,11 @@ public class CogerObjeto : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
+        }
+        if (other.tag == "seta")
+        {
+            GameObject obj = (GameObject)Instantiate(seta, transform.position + new Vector3(0.0f, 1.0f, 0.0f), seta.transform.rotation);
+            other.GetComponentInParent<ObjetoActual>().objetoParaCoger = obj;
         }
     }
 
