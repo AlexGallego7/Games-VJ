@@ -55,25 +55,32 @@ public class ObjetoActual : MonoBehaviour
     {
 
         //cortar objeto
-        if (objetoActual != null && objetoParaCoger != null && objetoParaCoger.tag == "tabla_cortar")
+        if (objetoActual != null && objetoParaCoger != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameObject nuevo_objeto = detectar_objeto();
-                if (nuevo_objeto != null)
+                if (objetoParaCoger.tag == "tabla_cortar")
+                {
+                    GameObject nuevo_objeto = detectar_objeto();
+                    if (nuevo_objeto != null)
+                    {
+                        Destroy(objetoActual);
+                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
+                            objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                }
+                else if (objetoParaCoger.tag == "basura")
                 {
                     Destroy(objetoActual);
-                    nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
-                    objetoActual = nuevo_objeto;
-                    objetoActual.GetComponent<CogerObjeto>().cogido = true;
-                    objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
-
-                    objetoActual.transform.SetParent(handZone);
-                    objetoActual.transform.position = handZone.position;
-                    objetoActual.GetComponent<Rigidbody>().useGravity = false;
-                    objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }
         }

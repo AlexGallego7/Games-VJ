@@ -18,6 +18,7 @@ TagManager:
   - box_pan
   - box_pepino
   - filete
+  - basura
   layers:
   - Default
   - TransparentFX
