@@ -17,6 +17,7 @@ TagManager:
   - box_queso
   - box_pan
   - box_pepino
+  - filete
   layers:
   - Default
   - TransparentFX

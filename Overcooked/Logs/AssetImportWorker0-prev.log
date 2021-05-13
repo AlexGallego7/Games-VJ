@@ -19,6 +19,7 @@ Logs/AssetImportWorker0.log
 Successfully changed project path to: C:/Users/alex/Desktop/vj/games/Overcooked
 C:/Users/alex/Desktop/vj/games/Overcooked
 Using Asset Import Pipeline V2.
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 107.66 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.3f1 (76626098c1c4)
@@ -1080,3 +1081,5 @@ Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1669.
 Total: 3.994300 ms (FindLiveObjects: 0.300200 ms CreateObjectMapping: 0.081500 ms MarkObjects: 3.578300 ms  DeleteObjects: 0.031400 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+=======
+>>>>>>> 9dbb1fc79f3382371e22af86de0c16b996240cc8
