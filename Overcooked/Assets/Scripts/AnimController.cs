@@ -2,36 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class MoveChef : MonoBehaviour
+public class AnimController : MonoBehaviour
 {
-    public float speed;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = Vector3.zero;
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            movement.z = 1;
-
+            anim.SetTrigger("walk");
+        
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            movement.x = -1;
+            anim.SetTrigger("walk");
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            movement.z = -1;
+            anim.SetTrigger("walk");
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            movement.x = 1;
-
-        GetComponent<CharacterController>().Move(movement*speed*Time.deltaTime);
-        GetComponent<CharacterController>().transform.LookAt(GetComponent<CharacterController>().transform.position + movement);
-
+            anim.SetTrigger("walk");
     }
-
 }
