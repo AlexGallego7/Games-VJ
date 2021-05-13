@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,16 +49,9 @@ public class CogerObjeto : MonoBehaviour
         }
         if (other.tag == "tabla_cortar")
         {
+            Console.Write("estoy en tabla de cortar");
             en_mesa_de_cortar = true;
         }
-        /*if (other.tag == "box_tomate")
-        {
-            objCoger = "tomate";
-        }
-        if (other.tag == "box_seta")
-        {
-            objCoger = "seta";
-        }*/
     }
 
     private void OnTriggerExit(Collider other)

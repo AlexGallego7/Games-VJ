@@ -39,6 +39,7 @@ public class ObjetoActual : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Console.Write("Debug");
                 GameObject nuevo_objeto = detectar_objeto();
                 if(nuevo_objeto != null)
                 {
