@@ -9,6 +9,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject objetoParaCoger;
     public Transform handZone;
     public Transform ObjCoger;
+    
 
     public GameObject pan_cortado, filete_cortado;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
@@ -38,11 +39,23 @@ public class ObjetoActual : MonoBehaviour
         return nuevo_objeto;
     }
 
+    public void cambiar_objeto_para_coger(GameObject obj)
+    {
+        if (objetoParaCoger == null || objetoParaCoger==objetoActual) objetoParaCoger = obj;
+        else
+        {
+            var distA = Vector3.Distance(this.gameObject.transform.position, obj.transform.position);
+            var distB = Vector3.Distance(this.gameObject.transform.position, objetoParaCoger.transform.position);
+            if (distA < distB ) objetoParaCoger = obj;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //de pan a pan cortado
-        if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().en_mesa_de_cortar)
+        
+        //cortar objeto
+        if (objetoActual != null && objetoParaCoger!=null && objetoParaCoger.tag == "tabla_cortar")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

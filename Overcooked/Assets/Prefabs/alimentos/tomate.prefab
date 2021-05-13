@@ -112,7 +112,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
+  m_Center: {x: 0.050000012, y: 0.25, z: 0.42}
 --- !u!114 &1315964838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cogido: 0
   mesa: {fileID: 0}
+  objCoger: 
+  inicializado: 0
