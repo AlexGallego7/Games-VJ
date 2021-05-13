@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ public class ObjetoActual : MonoBehaviour
     public Transform handZone;
     public Transform ObjCoger;
 
+
     public GameObject pan_cortado, filete_cortado;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
 
@@ -17,7 +19,7 @@ public class ObjetoActual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private GameObject detectar_objeto()
@@ -38,24 +40,35 @@ public class ObjetoActual : MonoBehaviour
         return nuevo_objeto;
     }
 
+    public void cambiar_objeto_para_coger(GameObject obj)
+    {
+        if (objetoParaCoger == null || objetoParaCoger == objetoActual) objetoParaCoger = obj;
+        else
+        {
+            var distA = Vector3.Distance(this.gameObject.transform.position, obj.transform.position);
+            var distB = Vector3.Distance(this.gameObject.transform.position, objetoParaCoger.transform.position);
+            if (distA < distB) objetoParaCoger = obj;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //de pan a pan cortado
-        if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().en_mesa_de_cortar)
+
+        //cortar objeto
+        if (objetoActual != null && objetoParaCoger != null && objetoParaCoger.tag == "tabla_cortar")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Console.Write("Debug");
                 GameObject nuevo_objeto = detectar_objeto();
-                if(nuevo_objeto != null)
+                if (nuevo_objeto != null)
                 {
                     Destroy(objetoActual);
                     nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
                     objetoActual = nuevo_objeto;
                     objetoActual.GetComponent<CogerObjeto>().cogido = true;
                     objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null) 
+                    if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
 
                     objetoActual.transform.SetParent(handZone);
@@ -68,7 +81,8 @@ public class ObjetoActual : MonoBehaviour
         //coger objeto
         else if (objetoParaCoger != null && !objetoParaCoger.GetComponent<CogerObjeto>().cogido && objetoActual == null)
         {
-            if (Input.GetKeyDown(KeyCode.E)) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;
@@ -77,7 +91,7 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual.transform.position = handZone.position;
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = true;
-                
+
             }
         }
         //soltar objeto en mesa
@@ -89,8 +103,8 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
                 objetoActual.transform.SetParent(ObjCoger);
                 objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
-                objetoActual.transform.position -= new Vector3(0,0.5f,0);
-                objetoActual.transform.rotation = new Quaternion(0,0,0,0);
+                objetoActual.transform.position -= new Vector3(0, 0.5f, 0);
+                objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
                 objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                 objetoActual = null;
