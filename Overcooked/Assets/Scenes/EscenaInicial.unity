@@ -1903,6 +1903,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824628339}
     m_Modifications:
+    - target: {fileID: 1107771259, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.38
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: ObjCoger
       value: 
