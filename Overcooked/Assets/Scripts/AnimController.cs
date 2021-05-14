@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AnimController : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,16 +16,8 @@ public class AnimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            anim.SetTrigger("walk");
-        
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            anim.SetTrigger("walk");
+        anim.SetFloat("Vertical", Input.GetAxis("Vertical"));
+        anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            anim.SetTrigger("walk");
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            anim.SetTrigger("walk");
     }
 }
