@@ -22,10 +22,8 @@ public class MoveChef : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        /*
         posDef = this.gameObject.transform.position;
-        anim = GetComponent<Animator>();
-        */
+
         anim = this.GetComponent<Animator>();
     }
 
@@ -33,30 +31,12 @@ public class MoveChef : MonoBehaviour
     void Update()
     {
         Move();
-
-        /*
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-
-        transform.Rotate(0,x*Time.deltaTime*velRot,0);
-        transform.Translate(0,0,y*Time.deltaTime*velMov);
-
-        anim.SetFloat("VelX",x);
-        anim.SetFloat("VelY", y);
-        */
-        /*if (this.gameObject.transform.position.y != posDef.y)
+        if (this.gameObject.transform.position.y != posDef.y)
         {
             float dif = this.gameObject.transform.position.y - posDef.y;
             GetComponent<CharacterController>().Move(new Vector3(0, -dif, 0));
         }
-        Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) movement.z = 1;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) movement.x = -1;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) movement.z = -1;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) movement.x = 1;
-        GetComponent<CharacterController>().Move(movement * speed * Time.deltaTime);
-        GetComponent<CharacterController>().transform.LookAt(GetComponent<CharacterController>().transform.position + movement);
-        */
+
     }
 
     private void Move()

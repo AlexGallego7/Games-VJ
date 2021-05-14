@@ -55,7 +55,7 @@ public class ObjetoActual : MonoBehaviour
     {
 
         //cortar objeto
-        if (objetoActual != null && objetoParaCoger != null)
+        if (objetoActual != null && objetoParaCoger != null && objetoParaCoger!=objetoActual)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -119,6 +119,7 @@ public class ObjetoActual : MonoBehaviour
         //soltar objeto en el suelo
         else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa == null)
         {
+            Debug.Log("l");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 objetoActual.GetComponent<CogerObjeto>().cogido = false;

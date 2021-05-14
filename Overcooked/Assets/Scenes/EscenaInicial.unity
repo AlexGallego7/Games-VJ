@@ -1115,37 +1115,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5449840642891584906, guid: b111e8aac6aab4d448c5b7f1f6c56656, type: 3}
   m_PrefabInstance: {fileID: 1448027229631267065}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &919132149054886089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4886143421811724759, guid: 985abffaae61b0949909e77c694a3666, type: 3}
-  m_PrefabInstance: {fileID: 8533485962683070075}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &919132149054886090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149054886089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8432cb7a325cfd144baf86718ead1c9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetoActual: {fileID: 0}
-  objetoParaCoger: {fileID: 0}
-  handZone: {fileID: 311923154}
-  ObjCoger: {fileID: 0}
-  pan_cortado: {fileID: 0}
-  filete_cortado: {fileID: 0}
-  tomate: {fileID: 4583484011235231896, guid: c2cf48a4859bce143b93c28c4f281a49, type: 3}
-  seta: {fileID: 0}
-  pan: {fileID: 0}
-  pasta: {fileID: 0}
-  lechuga: {fileID: 0}
-  filete: {fileID: 0}
-  queso: {fileID: 0}
-  pepino: {fileID: 0}
 --- !u!4 &1365265202291323549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5211594625775157137, guid: 05d874897fe28b64c913bd38d20c13df, type: 3}
@@ -1934,6 +1903,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1824628339}
     m_Modifications:
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: ObjCoger
+      value: 
+      objectReference: {fileID: 2122412314}
     - target: {fileID: 4886143421811724759, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: m_Name
       value: chef_3
@@ -1980,10 +1953,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225513817148181357, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5696622915383630564, guid: 985abffaae61b0949909e77c694a3666, type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
