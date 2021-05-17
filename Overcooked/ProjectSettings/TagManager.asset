@@ -22,6 +22,7 @@ TagManager:
   - lechuga
   - seta
   - tomate
+  - queso
   layers:
   - Default
   - TransparentFX
