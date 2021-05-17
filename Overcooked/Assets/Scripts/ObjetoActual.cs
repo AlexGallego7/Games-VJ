@@ -11,7 +11,7 @@ public class ObjetoActual : MonoBehaviour
     public Transform ObjCoger;
 
 
-    public GameObject pan_cortado, filete_cortado;
+    public GameObject pan_cortado, filete_cortado, lechuga_cortada;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
 
 
@@ -31,6 +31,9 @@ public class ObjetoActual : MonoBehaviour
                 break;
             case "filete":
                 nuevo_objeto = filete_cortado;
+                break;
+            case "lechuga":
+                nuevo_objeto = lechuga_cortada;
                 break;
             default:
                 break;
@@ -54,7 +57,7 @@ public class ObjetoActual : MonoBehaviour
     void Update()
     {
 
-        //cortar objeto
+        //usar muebles
         if (objetoActual != null && objetoParaCoger != null && objetoParaCoger!=objetoActual)
         {
             if (Input.GetKeyDown(KeyCode.E))

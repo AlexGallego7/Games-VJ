@@ -19,6 +19,7 @@ TagManager:
   - box_pepino
   - filete
   - basura
+  - lechuga
   layers:
   - Default
   - TransparentFX
