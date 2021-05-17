@@ -7,6 +7,7 @@ public class ObjetoActual : MonoBehaviour
 {
     public GameObject objetoActual;
     public GameObject objetoParaCoger;
+    public GameObject fire;
     public Transform handZone;
     public Transform ObjCoger;
 
@@ -18,7 +19,7 @@ public class ObjetoActual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        fire.gameObject.SetActive(false);
     }
 
     private GameObject detectar_objeto()
@@ -59,6 +60,10 @@ public class ObjetoActual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            fire.gameObject.SetActive(true);
+        }
 
         //usar muebles
         if (objetoActual != null && objetoParaCoger != null && objetoParaCoger!=objetoActual)
