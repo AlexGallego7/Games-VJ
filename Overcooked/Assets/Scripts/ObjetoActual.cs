@@ -12,7 +12,7 @@ public class ObjetoActual : MonoBehaviour
     public Transform ObjCoger;
 
 
-    public GameObject pan_cortado, filete_cortado, lechuga_cortada, seta_cortada;
+    public GameObject pan_cortado, filete_cortado, lechuga_cortada, seta_cortada, tomate_cortado, queso_cortado;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
 
 
@@ -38,6 +38,12 @@ public class ObjetoActual : MonoBehaviour
                 break;
             case "seta":
                 nuevo_objeto = seta_cortada;
+                break;
+            case "tomate":
+                nuevo_objeto = tomate_cortado;
+                break;
+            case "queso":
+                nuevo_objeto = queso_cortado;
                 break;
             default:
                 break;
