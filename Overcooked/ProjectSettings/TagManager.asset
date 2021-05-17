@@ -21,6 +21,7 @@ TagManager:
   - basura
   - lechuga
   - seta
+  - tomate
   layers:
   - Default
   - TransparentFX
