@@ -23,6 +23,7 @@ TagManager:
   - seta
   - tomate
   - queso
+  - pepino
   layers:
   - Default
   - TransparentFX
