@@ -23,7 +23,7 @@ public class ObjetoActual : MonoBehaviour
         fire.gameObject.SetActive(false);
     }
 
-    private GameObject detectar_objeto()
+    private GameObject detectar_objeto_para_cortar()
     {
         GameObject nuevo_objeto = null;
         switch (objetoActual.tag)
@@ -49,6 +49,32 @@ public class ObjetoActual : MonoBehaviour
             case "pepino":
                 nuevo_objeto = pepino_cortado;
                 break;
+            default:
+                break;
+        }
+
+        return nuevo_objeto;
+    }
+    private GameObject detectar_objeto_para_sarten()
+    {
+        GameObject nuevo_objeto = null;
+        switch (objetoActual.tag)
+        {
+            case "filete_cortado":
+                nuevo_objeto = filete_cortado;
+                break;
+            default:
+                break;
+        }
+
+        return nuevo_objeto;
+    }
+
+    private GameObject detectar_objeto_para_combinar()
+    {
+        GameObject nuevo_objeto = null;
+        switch (objetoActual.tag)
+        {
             case "pan_cortado":
                 nuevo_objeto = ham_sola;
 
@@ -86,7 +112,7 @@ public class ObjetoActual : MonoBehaviour
             {
                 if (objetoParaCoger.tag == "tabla_cortar")
                 {
-                    GameObject nuevo_objeto = detectar_objeto();
+                    GameObject nuevo_objeto = detectar_objeto_para_cortar();
                     if (nuevo_objeto != null)
                     {
                         Destroy(objetoActual);
@@ -103,13 +129,34 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                     }
                 }
+                else if (objetoParaCoger.tag == "sarten")
+                {
+                    GameObject nuevo_objeto = detectar_objeto_para_sarten();
+                    if (nuevo_objeto != null)
+                    {
+                        GameObject mesa = objetoParaCoger.gameObject;
+                        Destroy(objetoActual);
+                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = false;
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
+                        objetoActual.transform.SetParent(ObjCoger);
+                        objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
+                        objetoActual.transform.position += new Vector3(-1.65f, -0.3f, -2.0f);
+                        objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        objetoActual = null;
+                    }
+                }
                 else if (objetoParaCoger.tag == "basura")
                 {
                     Destroy(objetoActual);
                 }
                 else if (objetoParaCoger.tag == "plato")
                 {
-                    GameObject nuevo_objeto = detectar_objeto();
+                    GameObject nuevo_objeto = detectar_objeto_para_combinar();
                     if (nuevo_objeto != null)
                     {
                         GameObject mesa = objetoParaCoger.GetComponent<CogerObjeto>().mesa.gameObject;
@@ -136,7 +183,6 @@ public class ObjetoActual : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("l");
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;

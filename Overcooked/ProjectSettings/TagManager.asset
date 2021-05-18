@@ -26,6 +26,8 @@ TagManager:
   - pepino
   - plato
   - pan_cortado
+  - sarten
+  - filete_cortado
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -397394124289213374}
   m_Layer: 0
   m_Name: filete_cortado
-  m_TagString: Untagged
+  m_TagString: filete_cortado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0.050000012, y: 0.25, z: 0.100000024}
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0.050000012, y: 0.25, z: -0.32}
 --- !u!54 &4086587931842518651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,5 +128,4 @@ MonoBehaviour:
   cogido: 0
   mesa: {fileID: 0}
   objCoger: 
-  en_mesa_de_cortar: 0
   inicializado: 0
