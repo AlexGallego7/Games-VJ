@@ -13,6 +13,7 @@ public class ObjetoActual : MonoBehaviour
 
 
     public GameObject pan_cortado, filete_cortado, lechuga_cortada, seta_cortada, tomate_cortado, queso_cortado, pepino_cortado;
+    public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
 
 
@@ -47,6 +48,10 @@ public class ObjetoActual : MonoBehaviour
                 break;
             case "pepino":
                 nuevo_objeto = pepino_cortado;
+                break;
+            case "pan_cortado":
+                nuevo_objeto = ham_sola;
+
                 break;
             default:
                 break;
@@ -102,6 +107,28 @@ public class ObjetoActual : MonoBehaviour
                 {
                     Destroy(objetoActual);
                 }
+                else if (objetoParaCoger.tag == "plato")
+                {
+                    GameObject nuevo_objeto = detectar_objeto();
+                    if (nuevo_objeto != null)
+                    {
+                        GameObject mesa = objetoParaCoger.GetComponent<CogerObjeto>().mesa.gameObject;
+                        Destroy(objetoActual);
+                        Destroy(objetoParaCoger);
+                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = false;
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
+                        objetoActual.transform.SetParent(ObjCoger);
+                        objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
+                        objetoActual.transform.position -= new Vector3(0, 0.5f, 0);
+                        objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        objetoActual = null;
+                    }
+                }
             }
         }
         //coger objeto
@@ -109,6 +136,7 @@ public class ObjetoActual : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("l");
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;
@@ -139,7 +167,6 @@ public class ObjetoActual : MonoBehaviour
         //soltar objeto en el suelo
         else if (objetoActual != null && objetoActual.GetComponent<CogerObjeto>().mesa == null)
         {
-            Debug.Log("l");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 objetoActual.GetComponent<CogerObjeto>().cogido = false;

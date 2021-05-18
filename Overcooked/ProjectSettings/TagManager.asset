@@ -24,6 +24,8 @@ TagManager:
   - tomate
   - queso
   - pepino
+  - plato
+  - pan_cortado
   layers:
   - Default
   - TransparentFX
