@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343201272}
     m_Modifications:
+    - target: {fileID: 1406427888, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1787359237}
     - target: {fileID: 4232445866415017268, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -458,6 +462,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343201272}
     m_Modifications:
+    - target: {fileID: 1406427888, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1787359237}
     - target: {fileID: 4232445866415017269, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -519,6 +527,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343201272}
     m_Modifications:
+    - target: {fileID: 1406427888, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1787359237}
     - target: {fileID: 4232445866415017270, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1002,6 +1014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343201272}
     m_Modifications:
+    - target: {fileID: 1406427888, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1787359237}
     - target: {fileID: 4232445866415017269, guid: 7194cd7c179d8f1429ec1177ebe9d514, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -6504,9 +6520,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 470547258}
     m_Modifications:
     - target: {fileID: 5422796958588230292, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1787359237}
+    - target: {fileID: 5422796958588230292, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
       propertyPath: ObjCoger
       value: 
       objectReference: {fileID: 2122412314}
+    - target: {fileID: 5422796958588230292, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
+      propertyPath: hamburguesa_cocinada
+      value: 
+      objectReference: {fileID: 7345879798406900258, guid: c6ef7b49a5abea04987dc7bbc1799962, type: 3}
     - target: {fileID: 5576925244750680970, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
       propertyPath: m_Name
       value: mesa_con_sarten

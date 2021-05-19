@@ -6,16 +6,19 @@ using UnityEngine;
 public class ObjetoMesa : MonoBehaviour
 {
     public bool hay_objeto = false;
+    private bool ya_cocinado = false;
+
+    public GameObject fire;
     public GameObject objeto;
     private GameObject nuevo_objeto;
     public GameObject hamburguesa_cocinada;
-    private bool ya_cocinado = false;
+
     public Transform ObjCoger;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        fire.gameObject.SetActive(false);
     }
     
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class ObjetoMesa : MonoBehaviour
 
     IEnumerator esperar2secs()
     {
+        fire.gameObject.SetActive(true);
         yield return new WaitForSeconds (2);
         nuevo_objeto = Instantiate(hamburguesa_cocinada, new Vector3(0, 0, 0), Quaternion.identity);
         nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
@@ -44,6 +48,7 @@ public class ObjetoMesa : MonoBehaviour
         nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
         nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
         nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(objeto);
         objeto = nuevo_objeto;
     }
 

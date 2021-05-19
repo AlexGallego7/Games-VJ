@@ -28,6 +28,7 @@ TagManager:
   - pan_cortado
   - sarten
   - filete_cortado
+  - filete_cocinado
   layers:
   - Default
   - TransparentFX
