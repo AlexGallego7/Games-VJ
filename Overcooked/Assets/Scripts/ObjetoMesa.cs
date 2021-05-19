@@ -33,6 +33,11 @@ public class ObjetoMesa : MonoBehaviour
                 StartCoroutine("esperar2secs");
                 ya_cocinado = true;
             }
+            else if (this.gameObject.tag == "olla" && !ya_cocinado)
+            {
+                StartCoroutine("esperar2secs");
+                ya_cocinado = true;
+            }
         }
     }
 

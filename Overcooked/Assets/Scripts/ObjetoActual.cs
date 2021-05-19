@@ -14,7 +14,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject pan_cortado, filete_cortado, lechuga_cortada, seta_cortada, tomate_cortado, queso_cortado, pepino_cortado;
     public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
-
+    public GameObject olla_agua;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +75,6 @@ public class ObjetoActual : MonoBehaviour
         {
             case "pan_cortado":
                 nuevo_objeto = ham_sola;
-
                 break;
             default:
                 break;
@@ -100,7 +99,7 @@ public class ObjetoActual : MonoBehaviour
     {
 
         //usar muebles
-        if (objetoActual != null && objetoParaCoger != null && objetoParaCoger!=objetoActual)
+        if (objetoActual != null && objetoParaCoger != null && objetoParaCoger != objetoActual)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -125,6 +124,7 @@ public class ObjetoActual : MonoBehaviour
                 }
                 else if (objetoParaCoger.tag == "sarten")
                 {
+                    Debug.Log("debug");
                     GameObject nuevo_objeto = detectar_objeto_para_sarten();
                     if (nuevo_objeto != null)
                     {
