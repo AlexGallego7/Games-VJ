@@ -181,7 +181,15 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                if (objetoActual.GetComponent<CogerObjeto>().mesa != null) objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+                if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
+                {
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
+
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
+
+                }
                 objetoActual.transform.SetParent(handZone);
                 objetoActual.transform.position = handZone.position;
                 objetoActual.GetComponent<Rigidbody>().useGravity = false;
