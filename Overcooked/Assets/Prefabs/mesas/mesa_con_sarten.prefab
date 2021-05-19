@@ -94,6 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hay_objeto: 0
+  objeto: {fileID: 0}
+  hamburguesa_cocinada: {fileID: 3540847810852928748, guid: 74b3cb50cb8cad34cac7329a0102d5ea, type: 3}
+  ObjCoger: {fileID: 0}
 --- !u!1001 &2820758541033519395
 PrefabInstance:
   m_ObjectHideFlags: 0

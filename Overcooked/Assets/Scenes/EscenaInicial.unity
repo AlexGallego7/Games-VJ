@@ -6503,6 +6503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470547258}
     m_Modifications:
+    - target: {fileID: 5422796958588230292, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
+      propertyPath: ObjCoger
+      value: 
+      objectReference: {fileID: 2122412314}
     - target: {fileID: 5576925244750680970, guid: 1c36c5ffbe08db144b750bbc22b09781, type: 3}
       propertyPath: m_Name
       value: mesa_con_sarten
