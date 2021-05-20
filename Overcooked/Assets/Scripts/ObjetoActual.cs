@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjetoActual : MonoBehaviour
 {
     public GameObject objetoActual;
-    public GameObject objetoParaCoger;
+    public GameObject objetoParaCoger, nuevo_objeto;
     public Transform handZone;
     public Transform ObjCoger;
 
@@ -15,6 +15,9 @@ public class ObjetoActual : MonoBehaviour
     public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
     public GameObject olla_agua;
+    public GameObject ham_pan_carne;
+
+    private new string tag;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +78,7 @@ public class ObjetoActual : MonoBehaviour
         {
             case "pan_cortado":
                 nuevo_objeto = ham_sola;
+                tag = "plato_pan_cortado";
                 break;
             default:
                 break;
@@ -149,27 +153,19 @@ public class ObjetoActual : MonoBehaviour
                 {
                     Destroy(objetoActual);
                 }
+                //todas las combinaciones
                 else if (objetoParaCoger.tag == "plato")
                 {
-                    GameObject nuevo_objeto = detectar_objeto_para_combinar();
+                    nuevo_objeto = detectar_objeto_para_combinar();
                     if (nuevo_objeto != null)
                     {
-                        GameObject mesa = objetoParaCoger.GetComponent<CogerObjeto>().mesa.gameObject;
-                        Destroy(objetoActual);
-                        Destroy(objetoParaCoger);
-                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
-                        objetoActual = nuevo_objeto;
-                        objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
-                        objetoActual.GetComponent<CogerObjeto>().cogido = false;
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
-                        objetoActual.transform.SetParent(ObjCoger);
-                        objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
-                        objetoActual.transform.position -= new Vector3(0, 0.5f, 0);
-                        objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
-                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
-                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
-                        objetoActual = null;
+                        crear_combinacion();
                     }
+                }
+                else if (objetoParaCoger.tag == "plato_pan_cortado" && objetoActual.tag =="filete_cocinado")
+                {
+                    nuevo_objeto = ham_pan_carne;
+                    crear_combinacion();
                 }
             }
         }
@@ -323,5 +319,24 @@ public class ObjetoActual : MonoBehaviour
         }
     }
 
-
+    private void crear_combinacion()
+    {
+        GameObject mesa = objetoParaCoger.GetComponent<CogerObjeto>().mesa.gameObject;
+        Destroy(objetoActual);
+        Destroy(objetoParaCoger);
+        objetoParaCoger = null;
+        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+        objetoActual = nuevo_objeto;
+        objetoActual.tag = tag;
+        objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
+        objetoActual.GetComponent<CogerObjeto>().cogido = false;
+        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
+        objetoActual.transform.SetParent(ObjCoger);
+        objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
+        objetoActual.transform.position -= new Vector3(0, 0.5f, 0);
+        objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
+        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+        objetoActual = null;
+    }
 }
