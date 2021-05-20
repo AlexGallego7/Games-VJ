@@ -188,6 +188,7 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
 
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
+                    objetoActual.GetComponent<CogerObjeto>().mesa = null;
 
                 }
                 objetoActual.transform.SetParent(handZone);
