@@ -78,7 +78,11 @@ public class ObjetoActual : MonoBehaviour
         {
             case "pan_cortado":
                 nuevo_objeto = ham_sola;
-                tag = "plato_pan_cortado";
+                tag = "plato_pan_cortado"; 
+                break;
+            case "filete_cocinado":
+                nuevo_objeto = ham_pan_carne;
+                tag = "ham_carne";
                 break;
             default:
                 break;
@@ -164,7 +168,7 @@ public class ObjetoActual : MonoBehaviour
                 }
                 else if (objetoParaCoger.tag == "plato_pan_cortado" && objetoActual.tag =="filete_cocinado")
                 {
-                    nuevo_objeto = ham_pan_carne;
+                    nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
                 }
             }
