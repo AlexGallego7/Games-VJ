@@ -15,7 +15,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
     public GameObject olla_agua;
-    public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_lechuga_queso;
+    public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_lechuga_queso, ham_completa;
 
     private new string tag;
 
@@ -92,6 +92,13 @@ public class ObjetoActual : MonoBehaviour
                 if (objetoParaCoger.tag == "ham_carne_lechuga")
                 {
                     nuevo_objeto = ham_carne_lechuga_queso;
+                }
+
+                break;
+            case "tomate_cortado":
+                if (objetoParaCoger.tag == "ham_carne_lechuga_queso")
+                {
+                    nuevo_objeto = ham_completa;
                 }
 
                 break;
@@ -188,6 +195,11 @@ public class ObjetoActual : MonoBehaviour
                     crear_combinacion();
                 }
                 else if (objetoParaCoger.tag == "ham_carne_lechuga" && objetoActual.tag == "queso_cortado")
+                {
+                    nuevo_objeto = detectar_objeto_para_combinar();
+                    crear_combinacion();
+                }
+                else if (objetoParaCoger.tag == "ham_carne_lechuga_queso" && objetoActual.tag == "tomate_cortado")
                 {
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();

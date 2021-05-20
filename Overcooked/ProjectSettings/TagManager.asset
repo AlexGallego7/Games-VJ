@@ -37,6 +37,7 @@ TagManager:
   - ham_carne_lechuga
   - ham_carne_lechuga_queso
   - queso_cortado
+  - ham_completa
   layers:
   - Default
   - TransparentFX
