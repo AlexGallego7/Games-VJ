@@ -31,6 +31,12 @@ TagManager:
   - filete_cocinado
   - olla
   - plato_pan_cortado
+  - ham_carne
+  - tomate_cortado
+  - lechuga_cortada
+  - ham_carne_lechuga
+  - ham_carne_lechuga_queso
+  - queso_cortado
   layers:
   - Default
   - TransparentFX

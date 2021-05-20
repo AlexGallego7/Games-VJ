@@ -15,7 +15,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
     public GameObject olla_agua;
-    public GameObject ham_pan_carne;
+    public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_lechuga_queso;
 
     private new string tag;
 
@@ -78,14 +78,25 @@ public class ObjetoActual : MonoBehaviour
         {
             case "pan_cortado":
                 nuevo_objeto = ham_sola;
-                tag = "plato_pan_cortado"; 
                 break;
             case "filete_cocinado":
                 nuevo_objeto = ham_pan_carne;
-                tag = "ham_carne";
+                break;
+            case "lechuga_cortada":
+                if(objetoParaCoger.tag == "ham_carne")
+                {
+                    nuevo_objeto = ham_carne_lechuga;
+                }
+                break;
+            case "queso_cortado":
+                if (objetoParaCoger.tag == "ham_carne_lechuga")
+                {
+                    nuevo_objeto = ham_carne_lechuga_queso;
+                }
+
                 break;
             default:
-                break;
+                break; 
         }
 
         return nuevo_objeto;
@@ -167,6 +178,16 @@ public class ObjetoActual : MonoBehaviour
                     }
                 }
                 else if (objetoParaCoger.tag == "plato_pan_cortado" && objetoActual.tag =="filete_cocinado")
+                {
+                    nuevo_objeto = detectar_objeto_para_combinar();
+                    crear_combinacion();
+                }
+                else if (objetoParaCoger.tag == "ham_carne" && objetoActual.tag == "lechuga_cortada")
+                {
+                    nuevo_objeto = detectar_objeto_para_combinar();
+                    crear_combinacion();
+                }
+                else if (objetoParaCoger.tag == "ham_carne_lechuga" && objetoActual.tag == "queso_cortado")
                 {
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
@@ -331,7 +352,6 @@ public class ObjetoActual : MonoBehaviour
         objetoParaCoger = null;
         nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
         objetoActual = nuevo_objeto;
-        objetoActual.tag = tag;
         objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
         objetoActual.GetComponent<CogerObjeto>().cogido = false;
         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;

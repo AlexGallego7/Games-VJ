@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3168209624800922469}
   m_Layer: 0
   m_Name: hamb_lechuga_carne_queso
-  m_TagString: Untagged
+  m_TagString: ham_carne_lechuga_queso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
