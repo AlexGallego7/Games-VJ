@@ -30,6 +30,7 @@ TagManager:
   - filete_cortado
   - filete_cocinado
   - olla
+  - plato_pan_cortado
   layers:
   - Default
   - TransparentFX
