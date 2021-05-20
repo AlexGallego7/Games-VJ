@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -615,6 +615,7 @@ Transform:
   - {fileID: 2406206596610863412}
   - {fileID: 589954219887019860}
   - {fileID: 1365265202291323549}
+  - {fileID: 737914486}
   m_Father: {fileID: 1082032155}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,6 +712,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &737914485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 603630653}
+    m_Modifications:
+    - target: {fileID: -3900321699889062307, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: mesa
+      value: 
+      objectReference: {fileID: 4531367238066601199, guid: 5f1b1e3d8a2f5f546aef155eb8252055, type: 3}
+    - target: {fileID: -3900321699889062307, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: cogido
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4615545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.85658
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7141484830164778622, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_Name
+      value: box_queso
+      objectReference: {fileID: 0}
+    - target: {fileID: 7141484830164778622, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+      propertyPath: m_TagString
+      value: box_queso
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+--- !u!4 &737914486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2138517009394167109, guid: 3f93f9b83a4331e409d2e009e1750060, type: 3}
+  m_PrefabInstance: {fileID: 737914485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,9 +6923,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2836749342468286003, guid: 4cf568ec9f8d13641b8a2633dbd9d121, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_queso
+      value: 
+      objectReference: {fileID: 8192417729830922876, guid: 2d5f5f725b80f4a41ae4606890423a05, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_solos
+      value: 
+      objectReference: {fileID: 2199839341589975725, guid: 63535c147221c5c428ae727b990976c1, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: olla_agua
       value: 
       objectReference: {fileID: 5644556876559286067, guid: 4813cc9bc341d484386d14b79a8225c0, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_tomate
+      value: 
+      objectReference: {fileID: 4125395437572144093, guid: e923a320e5d61484a94530664ff78f5c, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: ham_completa
       value: 
@@ -6860,6 +6947,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 399067071490996812, guid: ee76d28636504fc4ebb6c3f35f3c0961, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: ensalada_sola
+      value: 
+      objectReference: {fileID: 8289400665647791233, guid: 8eed6551c438843439fb6fdfd3783951, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: ham_pan_carne
       value: 
       objectReference: {fileID: 7159938208454798816, guid: 978751b2c4ba75c4dad6db06d2e9cf11, type: 3}
@@ -6867,6 +6958,10 @@ PrefabInstance:
       propertyPath: queso_cortado
       value: 
       objectReference: {fileID: 2958317357176063472, guid: 527684edd3b9b09459765cf3826440b9, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_queso_seta
+      value: 
+      objectReference: {fileID: 5706291176350378752, guid: b2328606ec6c96a4795e8aefa5bce024, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: pepino_cortado
       value: 
@@ -6876,13 +6971,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 572557097906419096, guid: 66ffabd4380f37b4c977c997c8444975, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: ensalada_tomate
+      value: 
+      objectReference: {fileID: 538637049007103898, guid: 2762ec53c48d5d34aa5adfa61c2db29e, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: lechuga_cortada
       value: 
       objectReference: {fileID: 681930477427710838, guid: 386b03b3347c9c244811b0dfea2ca0f5, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_tomate_carne
+      value: 
+      objectReference: {fileID: 8977584304727431862, guid: 4291269416b2ef04f9178a764df54ba0, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: ham_carne_lechuga
       value: 
       objectReference: {fileID: 8334417546817157815, guid: d98ef1591a014374d805f1843a1f2539, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: ensalada_tomate_pepino
+      value: 
+      objectReference: {fileID: 1419490739883090995, guid: d06a3421bd3b46944bf76b2cfdbdaa65, type: 3}
+    - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
+      propertyPath: mac_tomate_carne_queso
+      value: 
+      objectReference: {fileID: 5955960428582275969, guid: 2b8cdc04740da0f4d801841476ddf1ad, type: 3}
     - target: {fileID: 919132149054886090, guid: 985abffaae61b0949909e77c694a3666, type: 3}
       propertyPath: ham_carne_lechuga_queso
       value: 

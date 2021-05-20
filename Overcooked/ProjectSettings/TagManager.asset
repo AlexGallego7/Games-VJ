@@ -38,6 +38,19 @@ TagManager:
   - ham_carne_lechuga_queso
   - queso_cortado
   - ham_completa
+  - pasta
+  - pasta_cocinada
+  - mac_solos
+  - mac_tomate
+  - mac_tomate_carne
+  - mac_tomate_carne_queso
+  - ensalada_sola
+  - ensalada_tomate
+  - ensalada_tomate_pepino
+  - pepino_cortado
+  - mac_queso_setas
+  - mac_queso
+  - seta_cortada
   layers:
   - Default
   - TransparentFX

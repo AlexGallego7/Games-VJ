@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2003454462}
   m_Layer: 0
   m_Name: pasta
-  m_TagString: Untagged
+  m_TagString: pasta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,3 +127,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cogido: 0
   mesa: {fileID: 0}
+  objCoger: 
+  inicializado: 0

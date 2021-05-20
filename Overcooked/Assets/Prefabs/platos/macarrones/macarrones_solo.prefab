@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4826491462726602401}
   m_Layer: 0
   m_Name: macarrones_solo
-  m_TagString: Untagged
+  m_TagString: mac_solos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
