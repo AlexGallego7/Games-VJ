@@ -9,11 +9,12 @@ public class ObjetoMesa : MonoBehaviour
     public bool sin_objeto = true;
     public bool ya_cocinado = false;
 
-    public GameObject fire, steam;
+    public GameObject fire, fire2, steam;
     public GameObject objeto;
     private GameObject nuevo_objeto;
     public GameObject filete_cocinado;
     public GameObject filete_quemado;
+    public GameObject pasta_cocinada;
 
     public Transform ObjCoger;
 
@@ -21,6 +22,7 @@ public class ObjetoMesa : MonoBehaviour
     void Start()
     {
         fire.gameObject.SetActive(false);
+        fire2.gameObject.SetActive(false);
         steam.gameObject.SetActive(false);
     }
     
@@ -36,7 +38,7 @@ public class ObjetoMesa : MonoBehaviour
             }
             else if (this.gameObject.tag == "olla" && !ya_cocinado)
             {
-                StartCoroutine("esperar2secs");
+                StartCoroutine("esperar5secs");
                 ya_cocinado = true;
             }
         }
@@ -64,6 +66,28 @@ public class ObjetoMesa : MonoBehaviour
         StartCoroutine("esperar10secs");
     }
 
+    IEnumerator esperar5secs()
+    {
+        fire2.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+
+        nuevo_objeto = Instantiate(pasta_cocinada, new Vector3(0, 0, 0), Quaternion.identity);
+        nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
+        nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
+        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
+        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = false;
+
+        nuevo_objeto.transform.SetParent(ObjCoger);
+        nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
+        nuevo_objeto.transform.position += new Vector3(-1.8f, 0.7f, -2.20f);
+        nuevo_objeto.transform.rotation = new Quaternion(100, 90, 90, 0);
+        nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
+        nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(objeto);
+        objeto = nuevo_objeto;
+        //StartCoroutine("esperar10secs");
+    }
+
     IEnumerator esperar10secs()
     {
         yield return new WaitForSeconds(10);
@@ -85,6 +109,8 @@ public class ObjetoMesa : MonoBehaviour
             Destroy(objeto);
             objeto = nuevo_objeto;
         }
+        else
+            steam.gameObject.SetActive(false);
 
     }
 

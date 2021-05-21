@@ -73,6 +73,21 @@ public class ObjetoActual : MonoBehaviour
         return nuevo_objeto;
     }
 
+    private GameObject detectar_objeto_para_olla()
+    {
+        GameObject nuevo_objeto = null;
+        switch (objetoActual.tag)
+        {
+            case "pasta":
+                nuevo_objeto = pasta;
+                break;
+            default:
+                break;
+        }
+
+        return nuevo_objeto;
+    }
+
     private GameObject detectar_objeto_para_combinar()
     {
         GameObject nuevo_objeto = null;
@@ -215,6 +230,29 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual = null;
                     }
                 }
+                else if (objetoParaCoger.tag == "olla")
+                {
+                    Debug.Log("debug");
+                    GameObject nuevo_objeto = detectar_objeto_para_olla();
+                    if (nuevo_objeto != null)
+                    {
+                        GameObject mesa = objetoParaCoger.gameObject;
+                        Destroy(objetoActual);
+                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().mesa = mesa;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = false;
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().objeto = objetoActual;
+                        objetoActual.transform.SetParent(ObjCoger);
+                        objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
+                        objetoActual.transform.position += new Vector3(-1.8f, 0.7f, -2.20f);
+                        objetoActual.transform.rotation = new Quaternion(100, 90, 90, 0);
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        objetoActual = null;
+                    }
+                }
                 else if (objetoParaCoger.tag == "basura")
                 {
                     Destroy(objetoActual);
@@ -228,7 +266,7 @@ public class ObjetoActual : MonoBehaviour
                         crear_combinacion();
                     }
                 }
-                else if (objetoParaCoger.tag == "plato_pan_cortado" && objetoActual.tag =="filete_cocinado")
+                else if (objetoParaCoger.tag == "plato_pan_cortado" && objetoActual.tag == "filete_cocinado")
                 {
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
@@ -293,14 +331,22 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                Debug.Log(objetoActual.tag);
                 if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
                 {
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
+                    if(objetoActual.tag == "filete_cocinado")
+                    {
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().steam.gameObject.SetActive(false);
+                    }
+                    else if (objetoActual.tag == "pasta")
+                    {
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire2.gameObject.SetActive(false);
+                    }
 
-                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
-                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().steam.gameObject.SetActive(false);
 
                     objetoActual.GetComponent<CogerObjeto>().mesa = null;
 
