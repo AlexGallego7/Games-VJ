@@ -9,7 +9,7 @@ public class ObjetoMesa : MonoBehaviour
     public bool sin_objeto = true;
     public bool ya_cocinado = false;
 
-    public GameObject fire;
+    public GameObject fire, steam;
     public GameObject objeto;
     private GameObject nuevo_objeto;
     public GameObject filete_cocinado;
@@ -21,6 +21,7 @@ public class ObjetoMesa : MonoBehaviour
     void Start()
     {
         fire.gameObject.SetActive(false);
+        steam.gameObject.SetActive(false);
     }
     
     // Update is called once per frame
@@ -54,7 +55,7 @@ public class ObjetoMesa : MonoBehaviour
 
         nuevo_objeto.transform.SetParent(ObjCoger);
         nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-        nuevo_objeto.transform.position += new Vector3(-1.65f, -0.3f, -2.0f);
+        nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
         nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
         nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
         nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
@@ -66,6 +67,7 @@ public class ObjetoMesa : MonoBehaviour
     IEnumerator esperar10secs()
     {
         yield return new WaitForSeconds(10);
+        steam.gameObject.SetActive(true);
 
         if (hay_objeto)
         {
@@ -76,7 +78,7 @@ public class ObjetoMesa : MonoBehaviour
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = false;
             nuevo_objeto.transform.SetParent(ObjCoger);
             nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-            nuevo_objeto.transform.position += new Vector3(-1.65f, -0.3f, -2.0f);
+            nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
             nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
             nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;

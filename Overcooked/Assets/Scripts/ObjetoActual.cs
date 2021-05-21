@@ -208,7 +208,7 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().objeto = objetoActual;
                         objetoActual.transform.SetParent(ObjCoger);
                         objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
-                        objetoActual.transform.position += new Vector3(-1.65f, -0.3f, -2.0f);
+                        objetoActual.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
                         objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
                         objetoActual.GetComponent<Rigidbody>().useGravity = false;
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
@@ -300,6 +300,8 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
 
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().steam.gameObject.SetActive(false);
+
                     objetoActual.GetComponent<CogerObjeto>().mesa = null;
 
                 }
