@@ -1,0 +1,248 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19041.985; Version 2004; 64bit' Language: 'es' Physical Memory: 8066 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Nuria/Desktop/VJ/Overcooked
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54638
+Successfully changed project path to: C:/Users/Nuria/Desktop/VJ/Overcooked
+C:/Users/Nuria/Desktop/VJ/Overcooked
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 44.13 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Nuria/Desktop/VJ/Overcooked/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
+    Vendor:   
+    VRAM:     2020 MB
+    Driver:   22.21.13.8569
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56140
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003445 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 33.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.483 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001162 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.134 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.6 MB.
+System memory in use after: 57.7 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1565.
+Total: 4.356700 ms (FindLiveObjects: 0.221700 ms CreateObjectMapping: 0.085800 ms MarkObjects: 3.917700 ms  DeleteObjects: 0.129100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Models/objetos/olla_agua.obj
+  artifactKey: Guid(940e9b17730874f49a1f5f20b4c66975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/objetos/olla_agua.obj using Guid(940e9b17730874f49a1f5f20b4c66975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '926533fba0af554a479fb31f470e6f00') in 0.302497 seconds
+  Import took 0.306259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Models/entorno/mesa_comer.obj
+  artifactKey: Guid(251553acc6193214192f9e94b70f7aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno/mesa_comer.obj using Guid(251553acc6193214192f9e94b70f7aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a298a2376db775711ef13c05da19409') in 0.059516 seconds
+  Import took 0.061601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Models/objetos/olla_pasta.obj
+  artifactKey: Guid(350dada7a062abd48b7efa1abbea6a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/objetos/olla_pasta.obj using Guid(350dada7a062abd48b7efa1abbea6a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a67832471a9d514df6824024f74cd1ec') in 0.079640 seconds
+  Import took 0.081933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Models/entorno/mesa_comer.png
+  artifactKey: Guid(1b0e4b70d56b2f445bb9141da6946fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno/mesa_comer.png using Guid(1b0e4b70d56b2f445bb9141da6946fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdde73ead7af040e118f16f6d534e371') in 0.047080 seconds
+  Import took 0.050512 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.364308 seconds.
+  path: Assets/Models/entorno/mesa_comer.mat
+  artifactKey: Guid(7a279d6bfba61ed489a6c1b23e27b44c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno/mesa_comer.mat using Guid(7a279d6bfba61ed489a6c1b23e27b44c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e70f7db632c6967e7e5851d380ade4a9') in 0.024896 seconds
+  Import took 0.028266 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004162 seconds.
+  path: Assets/Models/entorno/mesa_comer.mat
+  artifactKey: Guid(7a279d6bfba61ed489a6c1b23e27b44c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno/mesa_comer.mat using Guid(7a279d6bfba61ed489a6c1b23e27b44c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e70f7db632c6967e7e5851d380ade4a9') in 0.025391 seconds
+  Import took 0.031187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.917638 seconds.
+  path: Assets/Models/entorno/mesa_comer.obj
+  artifactKey: Guid(251553acc6193214192f9e94b70f7aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno/mesa_comer.obj using Guid(251553acc6193214192f9e94b70f7aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fb4cf4e0a4d9f1526dda06dd26180d0') in 0.068707 seconds
+  Import took 0.071516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.327589 seconds.
+  path: Assets/Models/entorno
+  artifactKey: Guid(467d7a2da55d98e40863da174be57952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno using Guid(467d7a2da55d98e40863da174be57952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87a2da4f3a88b2d0b1045644650131cc') in 0.006732 seconds
+  Import took 0.009018 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000509 seconds.
+  path: Assets/Models/entorno
+  artifactKey: Guid(467d7a2da55d98e40863da174be57952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/entorno using Guid(467d7a2da55d98e40863da174be57952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87a2da4f3a88b2d0b1045644650131cc') in 0.006843 seconds
+  Import took 0.009247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.931013 seconds.
+  path: Assets/Prefabs/chef_3.prefab
+  artifactKey: Guid(985abffaae61b0949909e77c694a3666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chef_3.prefab using Guid(985abffaae61b0949909e77c694a3666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5595e050d65648e3dbd39410020c65e') in 0.133210 seconds
+  Import took 0.138032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.108131 seconds.
+  path: Assets/Prefabs/entorno
+  artifactKey: Guid(7b2af1017df41f5418cf076f324abd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno using Guid(7b2af1017df41f5418cf076f324abd10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ef7ca426d8b114c5559065531429f7c') in 0.010750 seconds
+  Import took 0.013113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.303144 seconds.
+  path: Assets/Prefabs/entorno/mesa_comer.prefab
+  artifactKey: Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno/mesa_comer.prefab using Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1980722d93221d46bdcebe0d26f2a776') in 0.044311 seconds
+  Import took 0.049638 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001081 seconds.
+  path: Assets/Prefabs/entorno/mesa_comer.prefab
+  artifactKey: Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno/mesa_comer.prefab using Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1980722d93221d46bdcebe0d26f2a776') in 0.053703 seconds
+  Import took 0.062460 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001015 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.033 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.6 MB.
+System memory in use after: 74.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1614.
+Total: 3.794000 ms (FindLiveObjects: 0.221300 ms CreateObjectMapping: 0.068600 ms MarkObjects: 3.417300 ms  DeleteObjects: 0.084300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.410297 seconds.
+  path: Assets/Prefabs/entorno/mesa_comer.prefab
+  artifactKey: Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno/mesa_comer.prefab using Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '261fdb917c47522bb81fa504c900b4c3') in 0.087489 seconds
+  Import took 0.091372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.702126 seconds.
+  path: Assets/Prefabs/entorno/mesa_comer.prefab
+  artifactKey: Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno/mesa_comer.prefab using Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a39b26eef41a1dec5c7e2fc16e17f9f') in 0.021892 seconds
+  Import took 0.025222 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.620308 seconds.
+  path: Assets/Prefabs/entorno/mesa_comer.prefab
+  artifactKey: Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/entorno/mesa_comer.prefab using Guid(316461ad6a4cf3143afabd0b63114e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbf2be6d67eff92ae1d11f5198c6e96a') in 0.024962 seconds
+  Import took 0.030276 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001076 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.169 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.7 MB.
+System memory in use after: 74.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1618.
+Total: 3.097400 ms (FindLiveObjects: 0.195100 ms CreateObjectMapping: 0.061900 ms MarkObjects: 2.773100 ms  DeleteObjects: 0.065800 ms)
+

@@ -2465,6 +2465,7 @@ Mono: successfully reloaded assembly
 - Completed reload, in  1.937 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+<<<<<<< HEAD
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1114 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 74.9 MB.
@@ -3691,5 +3692,13 @@ System memory in use after: 75.3 MB.
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1776.
 Total: 4.058200 ms (FindLiveObjects: 0.346200 ms CreateObjectMapping: 0.121600 ms MarkObjects: 3.553500 ms  DeleteObjects: 0.033700 ms)
+=======
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1114 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.9 MB.
+System memory in use after: 75.0 MB.
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1751.
+Total: 4.150500 ms (FindLiveObjects: 0.393000 ms CreateObjectMapping: 0.105400 ms MarkObjects: 3.616100 ms  DeleteObjects: 0.033300 ms)
+>>>>>>> 1cddaefef5492cf327921312c7c5b7bc793bceba
+
