@@ -52,6 +52,7 @@ TagManager:
   - mac_queso
   - seta_cortada
   - extintor
+  - seta_cocinada
   layers:
   - Default
   - TransparentFX

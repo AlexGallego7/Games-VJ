@@ -66,6 +66,9 @@ public class ObjetoActual : MonoBehaviour
             case "filete_cortado":
                 nuevo_objeto = filete_cortado;
                 break;
+            case "seta_cortada":
+                nuevo_objeto = seta_cortada;
+                break;
             default:
                 break;
         }
@@ -221,7 +224,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().objeto = objetoActual;
                         objetoActual.transform.SetParent(ObjCoger);
                         objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
-                        objetoActual.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+                        if(objetoActual.tag == "filete_cortado")objetoActual.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+                        else objetoActual.transform.position += new Vector3(-1.55f, -0.5f, -2.5f);
                         objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
                         objetoActual.GetComponent<Rigidbody>().useGravity = false;
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
@@ -243,7 +247,7 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().objeto = objetoActual;
                         objetoActual.transform.SetParent(ObjCoger);
                         objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
-                        objetoActual.transform.position += new Vector3(-1.8f, 0.7f, -2.20f);
+                        objetoActual.transform.position += new Vector3(-1.5f, 0.7f, -2.20f);
                         objetoActual.transform.rotation = new Quaternion(100, 90, 90, 0);
                         objetoActual.GetComponent<Rigidbody>().useGravity = false;
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;

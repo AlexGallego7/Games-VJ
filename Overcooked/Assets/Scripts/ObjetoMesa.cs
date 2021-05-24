@@ -13,7 +13,7 @@ public class ObjetoMesa : MonoBehaviour
     public GameObject fuego_normal, en_llamas, steam;
     public GameObject objeto;
     private GameObject nuevo_objeto;
-    public GameObject filete_cocinado;
+    public GameObject filete_cocinado, seta_cocinada, seta_quemada;
     public GameObject filete_quemado;
     public GameObject pasta_cocinada, pasta_quemada;
 
@@ -64,6 +64,12 @@ public class ObjetoMesa : MonoBehaviour
             case "pasta_cocinada":
                 nuevo_objeto = pasta_quemada;
                 break;
+            case "seta_cortada":
+                nuevo_objeto = seta_cocinada;
+                break;
+            case "seta_cocinada":
+                nuevo_objeto = seta_quemada;
+                break;
             default:
                 break;
         }
@@ -85,7 +91,9 @@ public class ObjetoMesa : MonoBehaviour
 
             nuevo_objeto.transform.SetParent(ObjCoger);
             nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-            nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+            if (nuevo_objeto.tag == "filete_cocinado") nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+            else if (nuevo_objeto.tag == "seta_cocinada") nuevo_objeto.transform.position += new Vector3(-1.55f, -0.5f, -2.5f);
+            else nuevo_objeto.transform.position += new Vector3(-1.55f, 0.0f, -2.3f);
             nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
             nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
@@ -117,7 +125,9 @@ public class ObjetoMesa : MonoBehaviour
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
             nuevo_objeto.transform.SetParent(ObjCoger);
             nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-            nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+            if (nuevo_objeto.tag == "filete_quemado") nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+            else if (nuevo_objeto.tag == "seta_cocinada") nuevo_objeto.transform.position += new Vector3(-1.55f, -0.5f, -2.5f);
+            else nuevo_objeto.transform.position += new Vector3(-1.55f, 0.0f, -2.3f);
             nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
             nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
