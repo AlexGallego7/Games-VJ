@@ -38,6 +38,10 @@ public class ObjetoMesa : MonoBehaviour
                 ya_cocinando = true;
             }
         }
+        else
+        {
+            
+        }
         if(llamas) en_llamas.gameObject.SetActive(true);
         else en_llamas.gameObject.SetActive(false);
     }
@@ -68,21 +72,29 @@ public class ObjetoMesa : MonoBehaviour
         fuego_normal.gameObject.SetActive(true);
         steam.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);//cambiar a 18 en el futuro
+        if (hay_objeto)
+        {
+            nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
+            nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
+            nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
+            nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
 
-        nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
-        nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
-
-        nuevo_objeto.transform.SetParent(ObjCoger);
-        nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-        nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
-        nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
-        nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
-        nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
-        Destroy(objeto);
-        objeto = nuevo_objeto;
-        StartCoroutine("esperar12secs");
+            nuevo_objeto.transform.SetParent(ObjCoger);
+            nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
+            nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
+            nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
+            nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
+            nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
+            Destroy(objeto);
+            objeto = nuevo_objeto;
+            StartCoroutine("esperar12secs");
+        }
+        else
+        {
+            fuego_normal.gameObject.SetActive(false);
+            steam.gameObject.SetActive(false);
+        }
+        
     }
 
 
@@ -90,11 +102,11 @@ public class ObjetoMesa : MonoBehaviour
     IEnumerator esperar12secs()
     {
         yield return new WaitForSeconds(2);//cambiar a 12 en el futuro
-        steam.gameObject.SetActive(false);
-        fuego_normal.gameObject.SetActive(false);
-        llamas  = true;
         if (hay_objeto)
         {
+            steam.gameObject.SetActive(false);
+            fuego_normal.gameObject.SetActive(false);
+            llamas = true;
             nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
             nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
             nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
@@ -109,7 +121,11 @@ public class ObjetoMesa : MonoBehaviour
             objeto = nuevo_objeto;
         }
         else
+        {
             steam.gameObject.SetActive(false);
+            en_llamas.SetActive(false);
+        }
+            
 
     }
 
