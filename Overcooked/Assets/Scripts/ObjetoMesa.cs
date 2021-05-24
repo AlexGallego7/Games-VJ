@@ -6,8 +6,8 @@ using UnityEngine;
 public class ObjetoMesa : MonoBehaviour
 {
     public bool hay_objeto = false;
-    public bool sin_objeto = true;
-    public bool ya_cocinado = false;
+    public bool sin_objeto = false;
+    public bool ya_cocinando = false;
     public bool llamas = false;
 
     public GameObject fuego_normal, en_llamas, steam;
@@ -30,20 +30,37 @@ public class ObjetoMesa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hay_objeto)
+        if (hay_objeto && sin_objeto)
         {
-            if (this.gameObject.tag == "sarten" && !ya_cocinado)
+            if (!ya_cocinando)
             {
                 StartCoroutine("esperar18secs");
-                ya_cocinado = true;
-            }
-            else if (this.gameObject.tag == "olla" && !ya_cocinado)
-            {
-                StartCoroutine("esperar5secs");
-                ya_cocinado = true;
+                ya_cocinando = true;
             }
         }
         if(llamas) en_llamas.gameObject.SetActive(true);
+        else en_llamas.gameObject.SetActive(false);
+    }
+
+    private GameObject detectar_objeto()
+    {
+        GameObject nuevo_objeto = null;
+        switch (objeto.tag)
+        {
+            case "filete_cortado":
+                nuevo_objeto = filete_cocinado;
+                break;
+            case "filete_cocinado":
+                nuevo_objeto = filete_quemado;
+                break;
+            case "pasta":
+                nuevo_objeto = pasta_cocinada;
+                break;
+            default:
+                break;
+        }
+
+        return nuevo_objeto;
     }
 
     IEnumerator esperar18secs()
@@ -52,11 +69,10 @@ public class ObjetoMesa : MonoBehaviour
         steam.gameObject.SetActive(true);
         yield return new WaitForSeconds(2);//cambiar a 18 en el futuro
 
-        nuevo_objeto = Instantiate(filete_cocinado, new Vector3(0, 0, 0), Quaternion.identity);
+        nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
         nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
         nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
         nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = false;
 
         nuevo_objeto.transform.SetParent(ObjCoger);
         nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
@@ -69,27 +85,7 @@ public class ObjetoMesa : MonoBehaviour
         StartCoroutine("esperar12secs");
     }
 
-    IEnumerator esperar5secs()
-    {
-        fuego_normal.gameObject.SetActive(true);
-        yield return new WaitForSeconds(5);
 
-        nuevo_objeto = Instantiate(pasta_cocinada, new Vector3(0, 0, 0), Quaternion.identity);
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
-        nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
-        nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = false;
-
-        nuevo_objeto.transform.SetParent(ObjCoger);
-        nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-        nuevo_objeto.transform.position += new Vector3(-1.8f, 0.7f, -2.20f);
-        nuevo_objeto.transform.rotation = new Quaternion(100, 90, 90, 0);
-        nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
-        nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
-        Destroy(objeto);
-        objeto = nuevo_objeto;
-        //StartCoroutine("esperar10secs");
-    }
 
     IEnumerator esperar12secs()
     {
@@ -99,11 +95,10 @@ public class ObjetoMesa : MonoBehaviour
         llamas  = true;
         if (hay_objeto)
         {
-            nuevo_objeto = Instantiate(filete_quemado, new Vector3(0, 0, 0), Quaternion.identity);
+            nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
             nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
             nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
-            nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = false;
             nuevo_objeto.transform.SetParent(ObjCoger);
             nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
             nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);

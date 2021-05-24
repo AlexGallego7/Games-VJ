@@ -51,6 +51,7 @@ TagManager:
   - mac_queso_setas
   - mac_queso
   - seta_cortada
+  - extintor
   layers:
   - Default
   - TransparentFX

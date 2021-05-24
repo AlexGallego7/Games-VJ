@@ -163,7 +163,6 @@ public class ObjetoActual : MonoBehaviour
             default:
                 break; 
         }
-        Debug.Log(nuevo_objeto.tag);
 
         return nuevo_objeto;
     }
@@ -209,7 +208,6 @@ public class ObjetoActual : MonoBehaviour
                 }
                 else if (objetoParaCoger.tag == "sarten")
                 {
-                    Debug.Log("debug");
                     GameObject nuevo_objeto = detectar_objeto_para_sarten();
                     if (nuevo_objeto != null)
                     {
@@ -232,7 +230,6 @@ public class ObjetoActual : MonoBehaviour
                 }
                 else if (objetoParaCoger.tag == "olla")
                 {
-                    Debug.Log("debug");
                     GameObject nuevo_objeto = detectar_objeto_para_olla();
                     if (nuevo_objeto != null)
                     {
@@ -321,6 +318,16 @@ public class ObjetoActual : MonoBehaviour
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
                 }
+                else
+                {
+                    if (objetoParaCoger.GetComponent<CogerObjeto>().mesa != null && objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas)
+                    {
+                        if (objetoActual.tag == "extintor")
+                        {
+                            objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas = false;
+                        }
+                    }
+                }
             }
         }
         //coger objeto
@@ -331,12 +338,11 @@ public class ObjetoActual : MonoBehaviour
                 objetoActual = objetoParaCoger;
                 objetoActual.GetComponent<CogerObjeto>().cogido = true;
                 objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                Debug.Log(objetoActual.tag);
                 if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
                 {
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;
-                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinando = false;
                     if(objetoActual.tag == "filete_cocinado")
                     {
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fuego_normal.gameObject.SetActive(false);

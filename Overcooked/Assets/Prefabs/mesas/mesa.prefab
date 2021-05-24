@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hay_objeto: 0
-  sin_objeto: 1
-  ya_cocinado: 0
+  sin_objeto: 0
+  ya_cocinando: 0
   llamas: 0
   fuego_normal: {fileID: 7856129246266251725, guid: be0a0c6afe8680e4b99bb6ce79d54b10, type: 3}
   en_llamas: {fileID: 5856004946364606823, guid: 73fae5d19b919b044b0b73842cb3eb09, type: 3}
