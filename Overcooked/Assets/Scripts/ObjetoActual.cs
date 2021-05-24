@@ -339,12 +339,12 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinado = false;
                     if(objetoActual.tag == "filete_cocinado")
                     {
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire.gameObject.SetActive(false);
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fuego_normal.gameObject.SetActive(false);
                         objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().steam.gameObject.SetActive(false);
                     }
                     else if (objetoActual.tag == "pasta")
                     {
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fire2.gameObject.SetActive(false);
+                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fuego_normal.gameObject.SetActive(false);
                     }
 
 

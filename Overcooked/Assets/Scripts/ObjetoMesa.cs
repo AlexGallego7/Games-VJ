@@ -8,8 +8,9 @@ public class ObjetoMesa : MonoBehaviour
     public bool hay_objeto = false;
     public bool sin_objeto = true;
     public bool ya_cocinado = false;
+    public bool llamas = false;
 
-    public GameObject fire, fire2, steam;
+    public GameObject fuego_normal, en_llamas, steam;
     public GameObject objeto;
     private GameObject nuevo_objeto;
     public GameObject filete_cocinado;
@@ -21,8 +22,8 @@ public class ObjetoMesa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fire.gameObject.SetActive(false);
-        fire2.gameObject.SetActive(false);
+        fuego_normal.gameObject.SetActive(false);
+        en_llamas.gameObject.SetActive(false);
         steam.gameObject.SetActive(false);
     }
     
@@ -33,7 +34,7 @@ public class ObjetoMesa : MonoBehaviour
         {
             if (this.gameObject.tag == "sarten" && !ya_cocinado)
             {
-                StartCoroutine("esperar2secs");
+                StartCoroutine("esperar18secs");
                 ya_cocinado = true;
             }
             else if (this.gameObject.tag == "olla" && !ya_cocinado)
@@ -42,12 +43,14 @@ public class ObjetoMesa : MonoBehaviour
                 ya_cocinado = true;
             }
         }
+        if(llamas) en_llamas.gameObject.SetActive(true);
     }
 
-    IEnumerator esperar2secs()
+    IEnumerator esperar18secs()
     {
-        fire.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        fuego_normal.gameObject.SetActive(true);
+        steam.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);//cambiar a 18 en el futuro
 
         nuevo_objeto = Instantiate(filete_cocinado, new Vector3(0, 0, 0), Quaternion.identity);
         nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
@@ -63,12 +66,12 @@ public class ObjetoMesa : MonoBehaviour
         nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
         Destroy(objeto);
         objeto = nuevo_objeto;
-        StartCoroutine("esperar10secs");
+        StartCoroutine("esperar12secs");
     }
 
     IEnumerator esperar5secs()
     {
-        fire2.gameObject.SetActive(true);
+        fuego_normal.gameObject.SetActive(true);
         yield return new WaitForSeconds(5);
 
         nuevo_objeto = Instantiate(pasta_cocinada, new Vector3(0, 0, 0), Quaternion.identity);
@@ -88,11 +91,12 @@ public class ObjetoMesa : MonoBehaviour
         //StartCoroutine("esperar10secs");
     }
 
-    IEnumerator esperar10secs()
+    IEnumerator esperar12secs()
     {
-        yield return new WaitForSeconds(10);
-        steam.gameObject.SetActive(true);
-
+        yield return new WaitForSeconds(2);//cambiar a 12 en el futuro
+        steam.gameObject.SetActive(false);
+        fuego_normal.gameObject.SetActive(false);
+        llamas  = true;
         if (hay_objeto)
         {
             nuevo_objeto = Instantiate(filete_quemado, new Vector3(0, 0, 0), Quaternion.identity);
@@ -113,5 +117,7 @@ public class ObjetoMesa : MonoBehaviour
             steam.gameObject.SetActive(false);
 
     }
+
+
 
 }
