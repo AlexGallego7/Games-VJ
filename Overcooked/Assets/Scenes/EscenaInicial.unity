@@ -554,7 +554,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2115833411}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &65506599
 MeshRenderer:
@@ -3136,7 +3136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_LocalScale.x
@@ -8980,7 +8980,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_LocalScale.x
@@ -11630,12 +11630,12 @@ Transform:
   m_LocalPosition: {x: -0.66, y: 12.5, z: -24.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 65506598}
   - {fileID: 5933391113121907275}
   - {fileID: 116592322}
   - {fileID: 1614227946}
   - {fileID: 657167976}
   - {fileID: 1428509352511788661}
-  - {fileID: 65506598}
   - {fileID: 512317220}
   - {fileID: 1715629861}
   - {fileID: 742599154}
@@ -12232,7 +12232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765251839010099184, guid: bbefe5dd380afb4408bbf50080724a66, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5765251839010099184, guid: bbefe5dd380afb4408bbf50080724a66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12410,6 +12410,14 @@ PrefabInstance:
       propertyPath: steam
       value: 
       objectReference: {fileID: 1129757541}
+    - target: {fileID: 1339947297, guid: f88a4a29ca27da345a7f2b3954ffcbc7, type: 3}
+      propertyPath: pasta_quemada
+      value: 
+      objectReference: {fileID: 5955529123329325254, guid: f8bee200df08bd841bc4be4599ba5551, type: 3}
+    - target: {fileID: 1339947297, guid: f88a4a29ca27da345a7f2b3954ffcbc7, type: 3}
+      propertyPath: pasta_cocinada
+      value: 
+      objectReference: {fileID: 2932591122139372331, guid: c928d22a73c9ed64e8a0ea7e1450181a, type: 3}
     - target: {fileID: 720058922253813046, guid: f88a4a29ca27da345a7f2b3954ffcbc7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12562,7 +12570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2143867789788421513, guid: d1fe930d8d573974eac151e83646b70e, type: 3}
       propertyPath: m_LocalScale.x
@@ -12635,7 +12643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8785560531643291593, guid: 8c04e601aa378954aa5380060c7a0192, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8785560531643291593, guid: 8c04e601aa378954aa5380060c7a0192, type: 3}
       propertyPath: m_LocalPosition.x

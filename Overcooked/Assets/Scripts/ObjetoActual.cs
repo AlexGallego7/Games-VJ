@@ -335,32 +335,34 @@ public class ObjetoActual : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                objetoActual = objetoParaCoger;
-                objetoActual.GetComponent<CogerObjeto>().cogido = true;
-                objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
+
+                if (objetoParaCoger.GetComponent<CogerObjeto>().mesa != null && !objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas)
                 {
+                    objetoActual = objetoParaCoger;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinando = false;
-                    if(objetoActual.tag == "filete_cocinado")
-                    {
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fuego_normal.gameObject.SetActive(false);
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().steam.gameObject.SetActive(false);
-                    }
-                    else if (objetoActual.tag == "pasta")
-                    {
-                        objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().fuego_normal.gameObject.SetActive(false);
-                    }
-
-
                     objetoActual.GetComponent<CogerObjeto>().mesa = null;
 
+                    
+                    objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                    objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                    objetoActual.transform.SetParent(handZone);
+                    objetoActual.transform.position = handZone.position;
+                    objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                    objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                 }
-                objetoActual.transform.SetParent(handZone);
-                objetoActual.transform.position = handZone.position;
-                objetoActual.GetComponent<Rigidbody>().useGravity = false;
-                objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                else if(objetoParaCoger.GetComponent<CogerObjeto>().mesa == null)
+                {
+                    objetoActual = objetoParaCoger;
+                    objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                    objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                    objetoActual.transform.SetParent(handZone);
+                    objetoActual.transform.position = handZone.position;
+                    objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                    objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                }
+                
 
             }
         }

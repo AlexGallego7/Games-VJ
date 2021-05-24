@@ -15,7 +15,7 @@ public class ObjetoMesa : MonoBehaviour
     private GameObject nuevo_objeto;
     public GameObject filete_cocinado;
     public GameObject filete_quemado;
-    public GameObject pasta_cocinada;
+    public GameObject pasta_cocinada, pasta_quemada;
 
     public Transform ObjCoger;
 
@@ -40,7 +40,8 @@ public class ObjetoMesa : MonoBehaviour
         }
         else
         {
-            
+            fuego_normal.gameObject.SetActive(false);
+            steam.gameObject.SetActive(false);
         }
         if(llamas) en_llamas.gameObject.SetActive(true);
         else en_llamas.gameObject.SetActive(false);
@@ -59,6 +60,9 @@ public class ObjetoMesa : MonoBehaviour
                 break;
             case "pasta":
                 nuevo_objeto = pasta_cocinada;
+                break;
+            case "pasta_cocinada":
+                nuevo_objeto = pasta_quemada;
                 break;
             default:
                 break;
