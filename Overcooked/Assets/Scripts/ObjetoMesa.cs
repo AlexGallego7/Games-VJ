@@ -43,8 +43,12 @@ public class ObjetoMesa : MonoBehaviour
             fuego_normal.gameObject.SetActive(false);
             steam.gameObject.SetActive(false);
         }
-        if(llamas) en_llamas.gameObject.SetActive(true);
-        else en_llamas.gameObject.SetActive(false);
+        if (llamas)
+            en_llamas.gameObject.SetActive(true);
+
+        else
+            en_llamas.gameObject.SetActive(false);
+        
     }
 
     private GameObject detectar_objeto()
@@ -116,6 +120,7 @@ public class ObjetoMesa : MonoBehaviour
         yield return new WaitForSeconds(2);//cambiar a 12 en el futuro
         if (hay_objeto)
         {
+            FindObjectOfType<AudioManager>().Play("Burning");
             steam.gameObject.SetActive(false);
             fuego_normal.gameObject.SetActive(false);
             llamas = true;

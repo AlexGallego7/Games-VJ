@@ -331,6 +331,8 @@ public class ObjetoActual : MonoBehaviour
                         if (objetoActual.tag == "extintor")
                         {
                             objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas = false;
+                            FindObjectOfType<AudioManager>().Stop("Burning");
+
                         }
                     }
                 }
