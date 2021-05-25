@@ -216,6 +216,7 @@ public class ObjetoActual : MonoBehaviour
                     GameObject nuevo_objeto = detectar_objeto_para_sarten();
                     if (nuevo_objeto != null)
                     {
+                        FindObjectOfType<AudioManager>().Play("Frying");
                         GameObject mesa = objetoParaCoger.gameObject;
                         Destroy(objetoActual);
                         nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
@@ -239,6 +240,7 @@ public class ObjetoActual : MonoBehaviour
                     GameObject nuevo_objeto = detectar_objeto_para_olla();
                     if (nuevo_objeto != null)
                     {
+                        FindObjectOfType<AudioManager>().Play("Boiling");
                         GameObject mesa = objetoParaCoger.gameObject;
                         Destroy(objetoActual);
                         nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
@@ -330,8 +332,11 @@ public class ObjetoActual : MonoBehaviour
                     {
                         if (objetoActual.tag == "extintor")
                         {
+                            FindObjectOfType<AudioManager>().Play("Extinguisher");
                             objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas = false;
                             FindObjectOfType<AudioManager>().Stop("Burning");
+                            FindObjectOfType<AudioManager>().Stop("Boiling");
+                            FindObjectOfType<AudioManager>().Stop("Frying");
 
                         }
                     }

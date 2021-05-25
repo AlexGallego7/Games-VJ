@@ -13451,6 +13451,122 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: db914a76e1f17634b98b305cbbabe0ff, type: 3}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Cutting
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: be13aadf9255c1c4ca7f715c89a6ef31, type: 3}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Burning
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8898fb2b01413024497fd8b103f0b8db, type: 3}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[4].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: Extinguisher
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f438846576ea7145956bd3b1cab172e, type: 3}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[5].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: Boiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42f913e161cb5ad45835c792e96960e1, type: 3}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[6].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: Frying
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.094
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.204
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.116
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.607
+      objectReference: {fileID: 0}
+    - target: {fileID: 969674874735717718, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 0.381
+      objectReference: {fileID: 0}
     - target: {fileID: 969674874735717719, guid: 34ba0a8c136f5a74db9b05a46b269fa8, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -54,22 +54,26 @@ public class MoveChef : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             movement.z = 1;
-            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                FindObjectOfType<AudioManager>().Play("PlayerWalking");
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             movement.x = -1;
-            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                FindObjectOfType<AudioManager>().Play("PlayerWalking");
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             movement.z = -1;
-            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                FindObjectOfType<AudioManager>().Play("PlayerWalking");
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             movement.x = 1;
-            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                FindObjectOfType<AudioManager>().Play("PlayerWalking");
         }
         if(movement.x > 0)
         {

@@ -107,6 +107,8 @@ public class ObjetoMesa : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<AudioManager>().Stop("Boiling");
+            FindObjectOfType<AudioManager>().Stop("Frying");
             fuego_normal.gameObject.SetActive(false);
             steam.gameObject.SetActive(false);
         }
@@ -141,6 +143,9 @@ public class ObjetoMesa : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<AudioManager>().Stop("Boiling");
+            FindObjectOfType<AudioManager>().Stop("Frying");
+
             steam.gameObject.SetActive(false);
             en_llamas.SetActive(false);
         }
