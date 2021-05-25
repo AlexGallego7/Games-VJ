@@ -1,0 +1,207 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19041.985; Version 2004; 64bit' Language: 'es' Physical Memory: 8066 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/Nuria/Desktop/VJ/Overcooked
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+63387
+Successfully changed project path to: C:/Users/Nuria/Desktop/VJ/Overcooked
+C:/Users/Nuria/Desktop/VJ/Overcooked
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 73.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Nuria/Desktop/VJ/Overcooked/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 940MX (ID=0x134d)
+    Vendor:   
+    VRAM:     2020 MB
+    Driver:   22.21.13.8569
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56736
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005148 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 49.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.776 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003072 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.017 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1123 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.9 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1570.
+Total: 3.735100 ms (FindLiveObjects: 0.152700 ms CreateObjectMapping: 0.044200 ms MarkObjects: 3.408800 ms  DeleteObjects: 0.127700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf0f382f283bfe0a894e286812369590') in 0.076166 seconds
+  Import took 0.079327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 56.162305 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de0eface273fd66404189f3f5f8eead5') in 0.016673 seconds
+  Import took 0.020799 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 144.587975 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91b5233e94933bfc2859c95667f5e39d') in 0.005856 seconds
+  Import took 0.012054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.755408 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cf62c27af0f3b73950a6569a7385543') in 0.006024 seconds
+  Import took 0.011444 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.649755 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e429be3d424bf88a9bbc2585f24ae6') in 0.005408 seconds
+  Import took 0.010265 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.484241 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0c69bd8f61740186a9ef29bce1cf098') in 0.004809 seconds
+  Import took 0.013338 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.329240 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2080fe2f20b425bc5d32c5f669e08380') in 0.005010 seconds
+  Import took 0.009760 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001097 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.203 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1118 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1573.
+Total: 1.890500 ms (FindLiveObjects: 0.153800 ms CreateObjectMapping: 0.050300 ms MarkObjects: 1.624500 ms  DeleteObjects: 0.060000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000949 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.105 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1118 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.8 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1576.
+Total: 2.454000 ms (FindLiveObjects: 0.158200 ms CreateObjectMapping: 0.048500 ms MarkObjects: 2.173500 ms  DeleteObjects: 0.071800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 232.736325 seconds.
+  path: Assets/Scripts/ControlEscena1.cs
+  artifactKey: Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ControlEscena1.cs using Guid(e9667b4a3cf225148a7e821f0e1d62e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c6a515e0a6a4f969e3493d9c070a46b') in 0.009070 seconds
+  Import took 0.019133 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001314 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.203 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1118 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.9 MB.
+System memory in use after: 57.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1579.
+Total: 2.930100 ms (FindLiveObjects: 0.303500 ms CreateObjectMapping: 0.134300 ms MarkObjects: 2.423400 ms  DeleteObjects: 0.066600 ms)
+
