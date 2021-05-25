@@ -33,8 +33,14 @@ public class MoveChef : MonoBehaviour
         Move();
         if (this.gameObject.transform.position.y != posDef.y)
         {
+            //FindObjectOfType<AudioManager>().Play("PlayerWalking");
+
             float dif = this.gameObject.transform.position.y - posDef.y;
             GetComponent<CharacterController>().Move(new Vector3(0, -dif, 0));
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("PlayerWalking");
         }
 
     }
@@ -45,10 +51,26 @@ public class MoveChef : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
         Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) movement.z = 1;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) movement.x = -1;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) movement.z = -1;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) movement.x = 1;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            movement.z = 1;
+            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            movement.x = -1;
+            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            movement.z = -1;
+            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            movement.x = 1;
+            FindObjectOfType<AudioManager>().Play("PlayerWalking");
+        }
         if(movement.x > 0)
         {
             anim.SetFloat("derecha", movement.x);

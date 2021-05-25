@@ -207,6 +207,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.transform.position = handZone.position;
                         objetoActual.GetComponent<Rigidbody>().useGravity = false;
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+
+                        FindObjectOfType<AudioManager>().Play("Cutting");
                     }
                 }
                 else if (objetoParaCoger.tag == "sarten")
