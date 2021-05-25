@@ -16,6 +16,8 @@ public class Game : MonoBehaviour
 
     public GameObject recetas;
 
+    public GameObject rec_ham_sola;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +26,47 @@ public class Game : MonoBehaviour
         for (int i=0; i<numSlots; i++)
         {
             slots[i] = recetas.transform.GetChild(i).gameObject;
+            if(slots[i].GetComponent<slot>().receta == null)
+            {
+                slots[i].GetComponent<slot>().empty = true;
+            }
         }
+        recetas.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+
+        StartCoroutine("esperar10secs");
+    }
+
+    IEnumerator esperar10secs()
+    {
+        yield return new WaitForSeconds(2);//cambiar a 10 en el futuro
+        
+        addReceta(rec_ham_sola, rec_ham_sola.GetComponent<receta>().id, rec_ham_sola.GetComponent<receta>().image);
+    }
+
+    public void addReceta(GameObject rec, int id, Sprite image)
+    {
+        for (int i = 0; i < numSlots; i++)
         {
-            enableRec = !enableRec;
+            if (slots[i].GetComponent<slot>().empty)
+            {
+                rec.GetComponent<receta>().activado = true;
+                slots[i].GetComponent<slot>().receta = rec;
+                slots[i].GetComponent<slot>().id = id;
+                slots[i].GetComponent<slot>().image = image;
+
+                rec.transform.position = slots[i].transform.GetChild(0).transform.position;
+                slots[i].GetComponent<slot>().updateSlot();
+                rec.SetActive(true);
+
+                slots[i].GetComponent<slot>().empty = false;
+
+            }
+            return;
         }
-        if (enableRec) recetas.SetActive(true);
-        else recetas.SetActive(false);
     }
 }
