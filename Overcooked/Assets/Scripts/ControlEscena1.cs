@@ -51,12 +51,13 @@ public class ControlEscena1 : MonoBehaviour
         {
             if (!slots[i].GetComponent<slot>().empty)
             {
-
+                /*
                 if (i == 0) s1.value -= 1*Time.deltaTime;
                 else if (i == 1) s2.value -= 1 * Time.deltaTime;
                 else if (i == 2) s3.value -= 1 * Time.deltaTime;
                 else if (i == 3) s4.value -= 1 * Time.deltaTime;
                 else if (i == 4) s5.value -= 1 * Time.deltaTime;
+                */
             }
             else break;
         }
@@ -94,7 +95,7 @@ public class ControlEscena1 : MonoBehaviour
     IEnumerator esperar10secs()
     {
         spawn_receta = false;
-        yield return new WaitForSeconds(2);//cambiar a 10 en el futuro
+        yield return new WaitForSeconds(0);//cambiar a 10 en el futuro
         addReceta();
     }
 
