@@ -15,7 +15,7 @@ public class ObjetoActual : MonoBehaviour
     public GameObject ham_sola;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
     public GameObject olla_agua;
-    public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_lechuga_queso, ham_completa;
+    public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_queso, ham_completa_sinqueso;
     public GameObject mac_solos, mac_tomate, mac_tomate_carne, mac_tomate_carne_queso, mac_queso_seta, mac_queso;
     public GameObject ensalada_sola, ensalada_tomate, ensalada_tomate_pepino;
 
@@ -100,7 +100,7 @@ public class ObjetoActual : MonoBehaviour
                 nuevo_objeto = ham_sola;
                 break;
 
-            case "pasta":
+            case "pasta_cocinada":
                 nuevo_objeto = mac_solos;
                 break;
 
@@ -125,9 +125,9 @@ public class ObjetoActual : MonoBehaviour
                 break;
 
             case "queso_cortado":
-                if (objetoParaCoger.tag == "ham_carne_lechuga")
+                if (objetoParaCoger.tag == "ham_carne")
                 {
-                    nuevo_objeto = ham_carne_lechuga_queso;
+                    nuevo_objeto = ham_carne_queso;
                 } else if(objetoParaCoger.tag == "mac_tomate_carne")
                 {
                     nuevo_objeto = mac_tomate_carne_queso;
@@ -138,9 +138,9 @@ public class ObjetoActual : MonoBehaviour
                 break;
 
             case "tomate_cortado":
-                if (objetoParaCoger.tag == "ham_carne_lechuga_queso")
+                if (objetoParaCoger.tag == "ham_carne_lechuga")
                 {
-                    nuevo_objeto = ham_completa;
+                    nuevo_objeto = ham_completa_sinqueso;
                 } else if(objetoParaCoger.tag == "mac_solos")
                 {
                     nuevo_objeto = mac_tomate;
@@ -277,12 +277,12 @@ public class ObjetoActual : MonoBehaviour
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
                 }
-                else if (objetoParaCoger.tag == "ham_carne_lechuga" && objetoActual.tag == "queso_cortado")
+                else if (objetoParaCoger.tag == "ham_carne" && objetoActual.tag == "queso_cortado")
                 {
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();
                 }
-                else if (objetoParaCoger.tag == "ham_carne_lechuga_queso" && objetoActual.tag == "tomate_cortado")
+                else if (objetoParaCoger.tag == "ham_carne_lechuga" && objetoActual.tag == "tomate_cortado")
                 {
                     nuevo_objeto = detectar_objeto_para_combinar();
                     crear_combinacion();

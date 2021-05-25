@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
 
     public GameObject recetas;
 
-    public GameObject rec_ham_sola;
+    public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(2);//cambiar a 10 en el futuro
         
-        addReceta(rec_ham_sola, rec_ham_sola.GetComponent<receta>().id, rec_ham_sola.GetComponent<receta>().image);
+        addReceta(rec_ham_lechuga_tomate, rec_ham_lechuga_tomate.GetComponent<receta>().id, rec_ham_lechuga_tomate.GetComponent<receta>().image);
     }
 
     public void addReceta(GameObject rec, int id, Sprite image)
