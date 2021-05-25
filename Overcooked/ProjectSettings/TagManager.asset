@@ -53,6 +53,7 @@ TagManager:
   - seta_cortada
   - extintor
   - seta_cocinada
+  - fregadero
   layers:
   - Default
   - TransparentFX

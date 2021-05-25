@@ -12,7 +12,7 @@ public class ObjetoActual : MonoBehaviour
 
 
     public GameObject pan_cortado, filete_cortado, lechuga_cortada, seta_cortada, tomate_cortado, queso_cortado, pepino_cortado;
-    public GameObject ham_sola;
+    public GameObject ham_sola, plato;
     public GameObject tomate, seta, pan, pasta, lechuga, filete, queso, pepino;
     public GameObject olla_agua;
     public GameObject ham_pan_carne, ham_carne_lechuga, ham_carne_queso, ham_completa_sinqueso;
@@ -478,6 +478,16 @@ public class ObjetoActual : MonoBehaviour
                         break;
                     case "box_pepino":
                         nuevo_objeto = Instantiate(pepino, new Vector3(0, 0, 0), Quaternion.identity);
+                        objetoActual = nuevo_objeto;
+                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+                        objetoActual.transform.SetParent(handZone);
+                        objetoActual.transform.position = handZone.position;
+                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                        break;
+                    case "fregadero":
+                        nuevo_objeto = Instantiate(plato, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
                         objetoActual.GetComponent<CogerObjeto>().inicializado = true;
