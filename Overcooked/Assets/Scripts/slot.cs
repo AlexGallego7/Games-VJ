@@ -13,6 +13,7 @@ public class slot : MonoBehaviour
     public bool empty;
     public Transform imPanel;
 
+
     public void updateSlot()
     {
         this.GetComponent<Image>().sprite = image;
