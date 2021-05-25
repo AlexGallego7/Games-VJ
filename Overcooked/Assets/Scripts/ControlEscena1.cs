@@ -95,7 +95,7 @@ public class ControlEscena1 : MonoBehaviour
     IEnumerator esperar10secs()
     {
         spawn_receta = false;
-        yield return new WaitForSeconds(0);//cambiar a 10 en el futuro
+        yield return new WaitForSeconds(2);//cambiar a 10 en el futuro
         addReceta();
     }
 
