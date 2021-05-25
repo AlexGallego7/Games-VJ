@@ -23,23 +23,27 @@ public class ControlEscena1 : MonoBehaviour
 
     public Slider s1, s2, s3, s4, s5;
 
+    public Text tiempoTexto;
+    private float tiempo;
+
 
     // Start is called before the first frame update
     void Start()
     {
         numSlots = recetas.transform.childCount;
         slots = new GameObject[numSlots];
-        for (int i=0; i<numSlots; i++)
+        for (int i = 0; i < numSlots; i++)
         {
             slots[i] = recetas.transform.GetChild(i).gameObject;
-            if(slots[i].GetComponent<slot>().receta == null)
+            if (slots[i].GetComponent<slot>().receta == null)
             {
                 slots[i].GetComponent<slot>().empty = true;
             }
         }
         recetas.SetActive(true);
-    }
+        tiempo = 200.0f;
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +61,11 @@ public class ControlEscena1 : MonoBehaviour
             else break;
         }
         if (spawn_receta) StartCoroutine("esperar10secs");
+        tiempo = tiempo - 1* Time.deltaTime;
+        string minutes = ((int)tiempo / 60).ToString();
+        string seconds = (tiempo % 60).ToString("f0");
+
+        tiempoTexto.text = minutes + ":" + seconds;
     }
 
     public GameObject consigue_receta(int num)
@@ -119,3 +128,4 @@ public class ControlEscena1 : MonoBehaviour
         }
     }
 }
+
