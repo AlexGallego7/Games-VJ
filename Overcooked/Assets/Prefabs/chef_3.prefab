@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 5696622915383630568}
   - component: {fileID: 5696622915383630569}
   - component: {fileID: 919132149054886090}
+  - component: {fileID: 8177631339326323932}
   m_Layer: 0
   m_Name: chef_3
   m_TagString: Untagged
@@ -672,10 +673,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetoActual: {fileID: 0}
   objetoParaCoger: {fileID: 0}
+  nuevo_objeto: {fileID: 0}
   handZone: {fileID: 311923154}
   ObjCoger: {fileID: 0}
   pan_cortado: {fileID: 3540847810852928748, guid: 74b3cb50cb8cad34cac7329a0102d5ea, type: 3}
   filete_cortado: {fileID: 683384674073199473, guid: d73d4eff1b308dd48beb910b43f48ecd, type: 3}
+  lechuga_cortada: {fileID: 0}
+  seta_cortada: {fileID: 0}
+  tomate_cortado: {fileID: 0}
+  queso_cortado: {fileID: 0}
+  pepino_cortado: {fileID: 0}
+  ham_sola: {fileID: 0}
   tomate: {fileID: 4583484011235231896, guid: c2cf48a4859bce143b93c28c4f281a49, type: 3}
   seta: {fileID: 726775025418446538, guid: b42ed5b400403e842a93cc1161435171, type: 3}
   pan: {fileID: 6580041241902490396, guid: 9668dc7a7d8da174bbe99e09a2c56bc5, type: 3}
@@ -684,6 +692,33 @@ MonoBehaviour:
   filete: {fileID: 8940696521313115764, guid: a6c7ac2bb3e5ddc46bc00c92aca0f6e0, type: 3}
   queso: {fileID: 1827781441314881097, guid: d66a261bcff22494fa9a79a723fff838, type: 3}
   pepino: {fileID: 7125613376436575267, guid: 6d9e630db4b590f4899f83e4f1f75b67, type: 3}
+  olla_agua: {fileID: 0}
+  ham_pan_carne: {fileID: 0}
+  ham_carne_lechuga: {fileID: 0}
+  ham_carne_lechuga_queso: {fileID: 0}
+  ham_completa: {fileID: 0}
+  mac_solos: {fileID: 0}
+  mac_tomate: {fileID: 0}
+  mac_tomate_carne: {fileID: 0}
+  mac_tomate_carne_queso: {fileID: 0}
+  mac_queso_seta: {fileID: 0}
+  mac_queso: {fileID: 0}
+  ensalada_sola: {fileID: 0}
+  ensalada_tomate: {fileID: 0}
+  ensalada_tomate_pepino: {fileID: 0}
+--- !u!114 &8177631339326323932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886143421811724759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9667b4a3cf225148a7e821f0e1d62e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recetas: {fileID: 0}
 --- !u!1 &5553318941862358720
 GameObject:
   m_ObjectHideFlags: 0
