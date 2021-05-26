@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class receta : MonoBehaviour
 {
 
-    public int id;
     public new string tag;
 
     
