@@ -7,8 +7,7 @@ public class receta : MonoBehaviour
 {
 
     public int id;
-    public string tag;
-    public bool activado;
+    public new string tag;
 
     
 

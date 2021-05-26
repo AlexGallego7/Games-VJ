@@ -23,8 +23,9 @@ public class ControlEscena1 : MonoBehaviour
 
     public Slider s1, s2, s3, s4, s5;
 
-    public Text tiempoTexto;
+    public Text tiempoTexto, puntostexto;
     private float tiempo;
+    private int puntos;
 
 
     // Start is called before the first frame update
@@ -42,6 +43,8 @@ public class ControlEscena1 : MonoBehaviour
         }
         recetas.SetActive(true);
         tiempo = 200.0f;
+        puntos = 0;
+        puntostexto.text = puntos.ToString();
 
     }
     // Update is called once per frame
@@ -60,23 +63,79 @@ public class ControlEscena1 : MonoBehaviour
             else break;
         }
         if (spawn_receta) StartCoroutine("esperar10secs");
+        spawn_receta = false;
         tiempo = tiempo - 1* Time.deltaTime;
         string minutes = ((int)tiempo / 60).ToString();
         string seconds = (tiempo % 60).ToString("f0");
 
         tiempoTexto.text = minutes + ":" + seconds;
+        puntostexto.text = puntos.ToString();
+    }
+
+    private void rest_temporizadores(int i)
+    {
+            if (i == 0)
+            {
+                s1.value = s2.value;
+                s2.value = s3.value;
+                s3.value = s4.value;
+                s4.value = s5.value;
+                s5.value = 0;
+            }
+            else if (i == 1)
+            {
+                s2.value = s3.value;
+                s3.value = s4.value;
+                s4.value = s5.value;
+                s5.value = 0;
+            }
+            else if (i  == 2)
+            {
+                s3.value = s4.value;
+                s4.value = s5.value;
+                s5.value = 0;
+            }
+            else if (i == 3)
+            {
+                s4.value = s5.value;
+                s5.value = 0;
+            }
+            else if (i == 4)
+            {
+                s5.value = 0;
+            }
+
     }
 
     public bool plato_correcto(string tag)
     {
         for(int i=0; i<numSlots; i++)
         {
-            Debug.Log(slots[i].GetComponent<slot>().receta.GetComponent<receta>().tag);
-            Debug.Log(tag);
             if (slots[i].GetComponent<slot>().receta.GetComponent<receta>().tag == tag)
             {
+                puntos += 5;
+                rest_temporizadores(i);
+                GameObject rec = slots[i].GetComponent<slot>().receta;
+                Destroy(rec);
+                slots[i].GetComponent<slot>().empty = true;
+                for (int j = i; j < numSlots-1; j++)
+                {
+                    if (!slots[j + 1].GetComponent<slot>().empty)
+                    {
+                        rec = slots[j+1].GetComponent<slot>().receta;
+                        rec.transform.position = slots[j].transform.GetChild(0).transform.position;
+                        rec.transform.rotation = slots[j].transform.GetChild(0).transform.rotation;
+                        slots[j+1].GetComponent<slot>().empty = true;
+                        slots[j].GetComponent<slot>().empty = false;
+                        slots[j].GetComponent<slot>().receta = rec;
+                        slots[j + 1].GetComponent<slot>().receta = null;
+                        
+                    }
+                    else break;
+                }
                 return true;
             }
+            if (slots[i].GetComponent<slot>().empty) break;
         }
         return false;
     }
@@ -106,9 +165,9 @@ public class ControlEscena1 : MonoBehaviour
 
     IEnumerator esperar10secs()
     {
-        spawn_receta = false;
         yield return new WaitForSeconds(2);//cambiar a 10 en el futuro
         addReceta();
+        StartCoroutine("esperar10secs");
     }
 
     public void addReceta()
@@ -119,8 +178,6 @@ public class ControlEscena1 : MonoBehaviour
             if (slots[i].GetComponent<slot>().empty)
             {
                 GameObject rec = Instantiate(consigue_receta(Random.Range(0, 4)), new Vector3(0, 0, 0), Quaternion.identity);
-                spawn_receta = true;
-                rec.GetComponent<receta>().activado = true;
                 slots[i].GetComponent<slot>().receta = rec;
 
                 rec.transform.position = slots[i].transform.GetChild(0).transform.position;
