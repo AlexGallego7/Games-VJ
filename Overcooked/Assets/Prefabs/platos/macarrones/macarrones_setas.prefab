@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2225401154132525857}
   m_Layer: 0
   m_Name: macarrones_setas
-  m_TagString: mac_queso_setas
+  m_TagString: mac_setas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -57,6 +57,7 @@ TagManager:
   - extractora
   - ham_carne_queso
   - ham_lechuga_tomate
+  - mac_setas
   layers:
   - Default
   - TransparentFX

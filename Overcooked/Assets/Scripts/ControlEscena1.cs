@@ -42,7 +42,7 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        tiempo = 200.0f;
+        tiempo = 194.0f;
         puntos = 0;
         puntostexto.text = puntos.ToString();
 
@@ -67,8 +67,8 @@ public class ControlEscena1 : MonoBehaviour
         tiempo = tiempo - 1* Time.deltaTime;
         string minutes = ((int)tiempo / 60).ToString();
         string seconds = (tiempo % 60).ToString("f0");
-
-        tiempoTexto.text = minutes + ":" + seconds;
+        if ((tiempo % 60) < 10 && seconds != "10") tiempoTexto.text = minutes + ":0" + seconds;
+        else tiempoTexto.text = minutes + ":" + seconds;
         puntostexto.text = puntos.ToString();
     }
 
