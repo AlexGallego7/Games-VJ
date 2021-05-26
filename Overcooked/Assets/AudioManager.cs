@@ -44,6 +44,12 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Playing sound: " + s.name);
         if (s == null)
             return;
+
+        if (PauseMenu.GameIsPaused)
+        {
+            s.source.pitch *= .5f;
+        }
+
         s.source.Play();
     }
 
