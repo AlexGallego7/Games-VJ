@@ -426,6 +426,7 @@ public class ObjetoActual : MonoBehaviour
                 switch (objetoParaCoger.tag)
                 {
                     case "box_tomate":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
                         nuevo_objeto = Instantiate(tomate, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -436,6 +437,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_seta":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(seta, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -446,6 +449,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_filete":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(filete, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -456,6 +461,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_lechuga":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(lechuga, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -466,6 +473,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_pan":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(pan, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -476,6 +485,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_queso":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(queso, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -486,6 +497,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_pasta":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(pasta, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -496,6 +509,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "box_pepino":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(pepino, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
@@ -506,6 +521,8 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         break;
                     case "fregadero":
+                        FindObjectOfType<AudioManager>().Play("OpeningBox");
+
                         nuevo_objeto = Instantiate(plato, new Vector3(0, 0, 0), Quaternion.identity);
                         objetoActual = nuevo_objeto;
                         objetoActual.GetComponent<CogerObjeto>().cogido = true;
