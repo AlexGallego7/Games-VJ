@@ -1,0 +1,539 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.928; Version 2009; 64bit' Language: 'es' Physical Memory: 16221 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/alex/Desktop/vj/games/TheGoonies/Overcooked
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50051
+Successfully changed project path to: C:/Users/alex/Desktop/vj/games/TheGoonies/Overcooked
+C:/Users/alex/Desktop/vj/games/TheGoonies/Overcooked
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 45.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/alex/Desktop/vj/games/TheGoonies/Overcooked/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics (ID=0x9b41)
+    Vendor:   
+    VRAM:     8110 MB
+    Driver:   27.20.100.8681
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56552
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001667 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 35.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.346 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000824 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.137 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1138 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 72.8 MB.
+System memory in use after: 72.8 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1603.
+Total: 3.999300 ms (FindLiveObjects: 0.289000 ms CreateObjectMapping: 0.091100 ms MarkObjects: 3.496000 ms  DeleteObjects: 0.120800 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b93a757774ee799b09f9d2db55b2135') in 0.381033 seconds
+  Import took 0.384670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '751ffc93af6ba0fc953a99801b3f9f77') in 0.064884 seconds
+  Import took 0.069706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a9c7f37f83fac0a58090092a4f94bcf') in 0.106585 seconds
+  Import took 0.109484 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000353 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4516a4a0b551868c12f32b4fea893b0c') in 0.062129 seconds
+  Import took 0.065366 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 121.871513 seconds.
+  path: Assets/imagenes/ham_lechuga.PNG
+  artifactKey: Guid(3dede8fdf01927a47967747fe11d46a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ham_lechuga.PNG using Guid(3dede8fdf01927a47967747fe11d46a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e91fa6ac5389e3a1d4dec20a9e45bc4c') in 0.082185 seconds
+  Import took 0.091372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000857 seconds.
+  path: Assets/imagenes/ham_queso.PNG
+  artifactKey: Guid(0400b9d0e8ffcd848b343c62fffd5ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ham_queso.PNG using Guid(0400b9d0e8ffcd848b343c62fffd5ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38e974af82f9a5b32d9968d6f82282e3') in 0.057668 seconds
+  Import took 0.067301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000795 seconds.
+  path: Assets/imagenes/int_ham_lechuga.PNG
+  artifactKey: Guid(7db27e8fe71c7ec4eabca963000d4e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/int_ham_lechuga.PNG using Guid(7db27e8fe71c7ec4eabca963000d4e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a0815e76cd7ee23652f15d3cdd8ebdf') in 0.052105 seconds
+  Import took 0.060653 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000831 seconds.
+  path: Assets/imagenes/ham_sola.PNG
+  artifactKey: Guid(e4a02df1af1266f419bb6e099b6ddc90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ham_sola.PNG using Guid(e4a02df1af1266f419bb6e099b6ddc90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758d21b6040487671a5c48ea3f40821b') in 0.059386 seconds
+  Import took 0.079518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001038 seconds.
+  path: Assets/imagenes/tiempo.PNG
+  artifactKey: Guid(7fd91e3810ae04341ba299e2020243c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/tiempo.PNG using Guid(7fd91e3810ae04341ba299e2020243c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74813160a3522cfc05598b8a679104d6') in 0.034571 seconds
+  Import took 0.040947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000489 seconds.
+  path: Assets/imagenes/ham_lechuga_tomate.PNG
+  artifactKey: Guid(07ef6bfe6f84ea241a783484946cd0ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ham_lechuga_tomate.PNG using Guid(07ef6bfe6f84ea241a783484946cd0ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93ac7e0410cb9ce9cef203eff3d122db') in 0.038658 seconds
+  Import took 0.045024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.083329 seconds.
+  path: Assets/imagenes
+  artifactKey: Guid(3c0d953e12018ea409e78ebee7312195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes using Guid(3c0d953e12018ea409e78ebee7312195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8819234f94ecf623677c81c7fe46e1ed') in 0.025941 seconds
+  Import took 0.033729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.434972 seconds.
+  path: Assets/imagenes/New TMP Color Gradient.asset
+  artifactKey: Guid(53bd8aad3204fbf4abf1cca3f637661a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/New TMP Color Gradient.asset using Guid(53bd8aad3204fbf4abf1cca3f637661a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a247954f69014e6f1ecf4e822c1c4d4c') in 0.010247 seconds
+  Import took 0.012681 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003765 seconds.
+  path: Assets/imagenes/New TMP Color Gradient.asset
+  artifactKey: Guid(53bd8aad3204fbf4abf1cca3f637661a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/New TMP Color Gradient.asset using Guid(53bd8aad3204fbf4abf1cca3f637661a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a247954f69014e6f1ecf4e822c1c4d4c') in 0.003586 seconds
+  Import took 0.006784 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001305 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.085 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.7 MB.
+System memory in use after: 74.8 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1651.
+Total: 3.866400 ms (FindLiveObjects: 0.333900 ms CreateObjectMapping: 0.099600 ms MarkObjects: 3.399500 ms  DeleteObjects: 0.030600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001323 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.893 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1654.
+Total: 4.731000 ms (FindLiveObjects: 0.349000 ms CreateObjectMapping: 0.129500 ms MarkObjects: 4.210600 ms  DeleteObjects: 0.039300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000997 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.181 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1657.
+Total: 2.019800 ms (FindLiveObjects: 0.227000 ms CreateObjectMapping: 0.047000 ms MarkObjects: 1.725100 ms  DeleteObjects: 0.019500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001312 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.377 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1660.
+Total: 5.796100 ms (FindLiveObjects: 0.526200 ms CreateObjectMapping: 0.270300 ms MarkObjects: 4.951300 ms  DeleteObjects: 0.043900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001279 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.158 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1663.
+Total: 3.774400 ms (FindLiveObjects: 0.284300 ms CreateObjectMapping: 0.086100 ms MarkObjects: 3.370900 ms  DeleteObjects: 0.031100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1186.448012 seconds.
+  path: Assets/imagenes/Overcooked.html
+  artifactKey: Guid(4c0b98e2e56531949a64d7e9ce0952c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked.html using Guid(4c0b98e2e56531949a64d7e9ce0952c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8cafd7fef80231e61657a1c2f249e55') in 0.030662 seconds
+  Import took 0.034097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.204719 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59df42b12f0cedae38bb9746d1792d7b') in 0.091158 seconds
+  Import took 0.095945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.118421 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bce9ce9050b0afcca3b14797e8c98a5') in 0.018568 seconds
+  Import took 0.021916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001155 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bce9ce9050b0afcca3b14797e8c98a5') in 0.023321 seconds
+  Import took 0.027261 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.330659 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edb49a84d2c6e28adf1de9e2d7ef568e') in 0.016359 seconds
+  Import took 0.019347 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005262 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edb49a84d2c6e28adf1de9e2d7ef568e') in 0.024010 seconds
+  Import took 0.027965 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.678779 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9169c77330adcae210c12e972c7c8dbb') in 0.017889 seconds
+  Import took 0.020796 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006928 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9169c77330adcae210c12e972c7c8dbb') in 0.019008 seconds
+  Import took 0.022637 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.712364 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bec2da41ef5a83671aed7e4b63e0703') in 0.016497 seconds
+  Import took 0.020354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005439 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bec2da41ef5a83671aed7e4b63e0703') in 0.026473 seconds
+  Import took 0.030428 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.918094 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d94e70fb01b2a3a68a4016de7338552') in 0.018707 seconds
+  Import took 0.021937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.888916 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '159f6d69d3fd4ced66dbad3ce99c18d6') in 0.026884 seconds
+  Import took 0.030802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001649 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '159f6d69d3fd4ced66dbad3ce99c18d6') in 0.024501 seconds
+  Import took 0.027610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.941844 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a30b4f74970344f20a06179e557877aa') in 0.019229 seconds
+  Import took 0.023422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.692572 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd774afc563c56c38ca0037b8767c089') in 0.019101 seconds
+  Import took 0.022430 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002446 seconds.
+  path: Assets/imagenes/Overcooked_cover.png
+  artifactKey: Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover.png using Guid(a300056f4851f4242ac929c2da0547b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd774afc563c56c38ca0037b8767c089') in 0.026704 seconds
+  Import took 0.031189 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.765880 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76b6f99fd8c329ff545b0c54514156bb') in 0.025747 seconds
+  Import took 0.029961 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.082131 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed4e46a1e823fbd3861da39b7b299ef3') in 0.018832 seconds
+  Import took 0.022134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003393 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed4e46a1e823fbd3861da39b7b299ef3') in 0.025782 seconds
+  Import took 0.029649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.444786 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edcfc4214b5d24ef4b5aa9bf828e4786') in 0.041518 seconds
+  Import took 0.045604 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.073205 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b97c8a4e45e89ce83457100e9d27c1d') in 0.023109 seconds
+  Import took 0.026480 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000942 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b97c8a4e45e89ce83457100e9d27c1d') in 0.024795 seconds
+  Import took 0.028219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.765559 seconds.
+  path: Assets/imagenes/Overcooked_cover 1.png
+  artifactKey: Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/Overcooked_cover 1.png using Guid(c134af2cd513a2142bf46ec28decd2df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a36fede83d61096b92f7e1b04bd0a943') in 0.020399 seconds
+  Import took 0.023355 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001683 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.796 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1671.
+Total: 5.537900 ms (FindLiveObjects: 0.410800 ms CreateObjectMapping: 0.130200 ms MarkObjects: 4.942100 ms  DeleteObjects: 0.050500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002011 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.887 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1119 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.8 MB.
+System memory in use after: 74.9 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1674.
+Total: 4.474500 ms (FindLiveObjects: 0.337400 ms CreateObjectMapping: 0.130300 ms MarkObjects: 3.961000 ms  DeleteObjects: 0.043400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 267.658321 seconds.
+  path: Assets/imagenes/ov2.jpg
+  artifactKey: Guid(81a82f008c967a2499a8ea534d4ad958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ov2.jpg using Guid(81a82f008c967a2499a8ea534d4ad958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '768460ae0638a2599a0c1ee49daa4e77') in 0.132510 seconds
+  Import took 0.138745 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.771701 seconds.
+  path: Assets/imagenes/ov2.jpg
+  artifactKey: Guid(81a82f008c967a2499a8ea534d4ad958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/imagenes/ov2.jpg using Guid(81a82f008c967a2499a8ea534d4ad958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20892e2b2134f45d5c99e4448a1016dd') in 0.051236 seconds
+  Import took 0.055600 seconds .
+
