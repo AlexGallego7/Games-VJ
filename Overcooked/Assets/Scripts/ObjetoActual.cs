@@ -21,6 +21,8 @@ public class ObjetoActual : MonoBehaviour
 
     private new string tag;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -261,6 +263,14 @@ public class ObjetoActual : MonoBehaviour
                 else if (objetoParaCoger.tag == "basura")
                 {
                     Destroy(objetoActual);
+                }
+                else if (objetoParaCoger.tag == "extractora")
+                {
+                    if (player.GetComponent<ControlEscena1>().plato_correcto(objetoActual.tag))
+                    {
+                        Destroy(objetoActual);
+                    }
+                    
                 }
                 //todas las combinaciones
                 else if (objetoParaCoger.tag == "plato")

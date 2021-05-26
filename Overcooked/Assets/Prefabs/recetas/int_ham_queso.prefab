@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  image: {fileID: 21300000, guid: fab9f0fd7dd0e7a4697c7c90c6663a32, type: 3}
+  image: {fileID: 21300000, guid: 0400b9d0e8ffcd848b343c62fffd5ef3, type: 3}
+  tag: ham_carne_queso
   activado: 1
