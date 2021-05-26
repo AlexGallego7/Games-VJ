@@ -54,6 +54,9 @@ TagManager:
   - extintor
   - seta_cocinada
   - fregadero
+  - extractora
+  - ham_carne_queso
+  - ham_lechuga_tomate
   layers:
   - Default
   - TransparentFX
