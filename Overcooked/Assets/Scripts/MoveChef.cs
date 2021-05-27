@@ -13,6 +13,7 @@ public class MoveChef : MonoBehaviour
 
     public float speed;
     private Vector3 moveDirection;
+    private Quaternion pos;
 
     private CharacterController controller;
 
@@ -44,60 +45,77 @@ public class MoveChef : MonoBehaviour
         }
 
     }
+    public void cortar_on()
+    {
+        anim.SetBool("cortar", true);
+    }
+
+    public void cortar_off()
+    {
+        anim.SetBool("cortar", false);
+    }
+
 
     private void Move()
     {
-        float x, y;
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-        Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        Debug.Log(anim.GetBool("cortar"));
+        if (!anim.GetBool("cortar"))
         {
-            movement.z = 1;
-            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
-                FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            float x, y;
+            x = Input.GetAxis("Horizontal");
+            y = Input.GetAxis("Vertical");
+            Vector3 movement = Vector3.zero;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                movement.z = 1;
+                if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                    FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                movement.x = -1;
+                if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                    FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                movement.z = -1;
+                if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                    FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                movement.x = 1;
+                if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
+                    FindObjectOfType<AudioManager>().Play("PlayerWalking");
+            }
+            if (movement.x > 0)
+            {
+                anim.SetFloat("derecha", movement.x);
+                anim.SetFloat("izquierda", 0);
+            }
+            else
+            {
+                anim.SetFloat("derecha", 0);
+                anim.SetFloat("izquierda", -movement.x);
+            }
+            if (movement.z > 0)
+            {
+                anim.SetFloat("arriba", movement.z);
+                anim.SetFloat("abajo", 0);
+            }
+            else
+            {
+                anim.SetFloat("arriba", 0);
+                anim.SetFloat("abajo", -movement.z);
+            }
+
+
+            GetComponent<CharacterController>().Move(movement * speed * Time.deltaTime);
+            GetComponent<CharacterController>().transform.LookAt(GetComponent<CharacterController>().transform.position + movement);
+            pos = this.transform.rotation;
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            movement.x = -1;
-            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
-                FindObjectOfType<AudioManager>().Play("PlayerWalking");
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            movement.z = -1;
-            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
-                FindObjectOfType<AudioManager>().Play("PlayerWalking");
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            movement.x = 1;
-            if (!FindObjectOfType<AudioManager>().isPlaying("PlayerWalking"))
-                FindObjectOfType<AudioManager>().Play("PlayerWalking");
-        }
-        if(movement.x > 0)
-        {
-            anim.SetFloat("derecha", movement.x);
-            anim.SetFloat("izquierda", 0);
-        }
-        else{
-            anim.SetFloat("derecha", 0);
-            anim.SetFloat("izquierda", -movement.x);
-        }
-        if (movement.z > 0)
-        {
-            anim.SetFloat("arriba", movement.z);
-            anim.SetFloat("abajo", 0);
-        }
-        else
-        {
-            anim.SetFloat("arriba", 0);
-            anim.SetFloat("abajo", -movement.z);
-        }
-            
-        
-        GetComponent<CharacterController>().Move(movement * speed * Time.deltaTime);
-        GetComponent<CharacterController>().transform.LookAt(GetComponent<CharacterController>().transform.position + movement);
+        else this.transform.rotation = pos;
 
     }
 

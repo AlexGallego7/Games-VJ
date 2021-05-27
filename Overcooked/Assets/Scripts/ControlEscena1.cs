@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ControlEscena1 : MonoBehaviour
 {
-
-    public NextLevelScreen nlScreen;
+    
 
     private int numSlots;
 
@@ -33,7 +32,6 @@ public class ControlEscena1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
         numSlots = recetas.transform.childCount;
         slots = new GameObject[numSlots];
         for (int i = 0; i < numSlots; i++)
@@ -45,7 +43,7 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        tiempo = 2.0f;
+        tiempo = 194.0f;
         puntos = 0;
         puntostexto.text = puntos.ToString();
 
@@ -82,8 +80,6 @@ public class ControlEscena1 : MonoBehaviour
         if ((tiempo % 60) < 10 && seconds != "10") tiempoTexto.text = minutes + ":0" + seconds;
         else tiempoTexto.text = minutes + ":" + seconds;
         puntostexto.text = puntos.ToString();
-        if (tiempo < 0)
-            NextLevel();
     }
 
     private void rest_temporizadores(int i)
@@ -208,11 +204,6 @@ public class ControlEscena1 : MonoBehaviour
                 break;
             }
         }
-    }
-
-    public void NextLevel()
-    {
-        nlScreen.Setup(puntos);
     }
 }
 
