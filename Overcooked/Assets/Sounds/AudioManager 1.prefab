@@ -92,3 +92,9 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: Creds
+    clip: {fileID: 8300000, guid: 9d5a15f1eda7a2f45a58b40f16e5bc30, type: 3}
+    volume: 0.381
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1

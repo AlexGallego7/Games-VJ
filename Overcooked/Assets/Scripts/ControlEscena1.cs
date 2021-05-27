@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControlEscena1 : MonoBehaviour
 {
@@ -50,6 +51,15 @@ public class ControlEscena1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("CredsScene");
+            FindObjectOfType<AudioManager>().Play("Creds");
+            FindObjectOfType<AudioManager>().Stop("Restaurant");
+
+        }
+
+
         for (int i = 0; i < numSlots; i++)
         {
             if (!slots[i].GetComponent<slot>().empty)

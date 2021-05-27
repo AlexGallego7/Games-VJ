@@ -37,8 +37,9 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-            Play("Theme");
+        Play("Theme");
     }
+
 
     public void Play (string name)
     {
@@ -60,7 +61,6 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Stoping sound: " + s.name);
         if (s == null)
             return;
-
         s.source.Stop();
     }
 
