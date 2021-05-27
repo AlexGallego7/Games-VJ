@@ -255,6 +255,7 @@ public class ObjetoActual : MonoBehaviour
                         objetoActual.transform.position = objetoActual.GetComponent<CogerObjeto>().mesa.transform.position;
                         objetoActual.transform.position += new Vector3(-1.5f, 0.7f, -2.20f);
                         objetoActual.transform.rotation = new Quaternion(100, 90, 90, 0);
+                        objetoActual.GetComponent<plato>().cocinando();
                         objetoActual.GetComponent<Rigidbody>().useGravity = false;
                         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                         objetoActual = null;
