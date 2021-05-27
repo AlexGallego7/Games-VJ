@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3321200147746633676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3321200147746633678}
+  - component: {fileID: 3321200147746633677}
+  m_Layer: 0
+  m_Name: AudioManager 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3321200147746633678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3321200147746633676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3321200147746633677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3321200147746633676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08d7a626e7269045b7a66844f6613e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerWalking
+    clip: {fileID: 8300000, guid: f3e564ab55b5ba24d824b7ca71950c73, type: 3}
+    volume: 0.094
+    pitch: 0.45
+    source: {fileID: 0}
+    loop: 0
+  - name: Theme
+    clip: {fileID: 8300000, guid: cec1804bdc11e114dbc4e07e87a620a6, type: 3}
+    volume: 0.333
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Cutting
+    clip: {fileID: 8300000, guid: db914a76e1f17634b98b305cbbabe0ff, type: 3}
+    volume: 0.204
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Burning
+    clip: {fileID: 8300000, guid: be13aadf9255c1c4ca7f715c89a6ef31, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Extinguisher
+    clip: {fileID: 8300000, guid: 8898fb2b01413024497fd8b103f0b8db, type: 3}
+    volume: 0.116
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Boiling
+    clip: {fileID: 8300000, guid: 8f438846576ea7145956bd3b1cab172e, type: 3}
+    volume: 0.607
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Frying
+    clip: {fileID: 8300000, guid: 42f913e161cb5ad45835c792e96960e1, type: 3}
+    volume: 0.381
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Restaurant
+    clip: {fileID: 8300000, guid: 15c68c51590b8e644825f88e337114c7, type: 3}
+    volume: 0.381
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1

@@ -39,6 +39,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Stop("Restaurant");
+        FindObjectOfType<AudioManager>().Play("Theme");
+
     }
 
     public void QuitGame()
