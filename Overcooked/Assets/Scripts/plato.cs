@@ -14,6 +14,7 @@ public class plato : MonoBehaviour
     void Start()
     {
         timer.SetActive(false);
+        timer.GetComponent<Slider>().maxValue = 12;
         timer.GetComponent<Slider>().value = 12;
     }
 
@@ -35,9 +36,7 @@ public class plato : MonoBehaviour
         }
         else if (q)
         {
-            
             if (timer.GetComponent<Slider>().value == 12){
-                Debug.Log(timer.GetComponent<Slider>().value);
                 timer.SetActive(true);
             }
             timer.GetComponent<Slider>().value -= 1 * Time.deltaTime;

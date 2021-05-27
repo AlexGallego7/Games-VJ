@@ -95,11 +95,20 @@ public class ObjetoMesa : MonoBehaviour
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
 
             nuevo_objeto.transform.SetParent(ObjCoger);
-            nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-            if (nuevo_objeto.tag == "filete_cocinado") nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
-            else if (nuevo_objeto.tag == "seta_cocinada") nuevo_objeto.transform.position += new Vector3(-1.55f, -0.5f, -2.5f);
-            else nuevo_objeto.transform.position += new Vector3(-1.55f, 0.0f, -2.3f);
-            nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
+            
+            if (nuevo_objeto.tag == "filete_cocinado")
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(3).transform.position;
+                nuevo_objeto.transform.position += new Vector3(0.0f, 0.0f, 0.4f);
+            }
+            else if(nuevo_objeto.tag == "seta_cocinada")
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(3).transform.position;
+            }
+            else
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(1).transform.position;
+            }
             nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
             Destroy(objeto);
@@ -132,11 +141,19 @@ public class ObjetoMesa : MonoBehaviour
             nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
             nuevo_objeto.transform.SetParent(ObjCoger);
-            nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.position;
-            if (nuevo_objeto.tag == "filete_quemado") nuevo_objeto.transform.position += new Vector3(-1.65f, -0.2f, -2.0f);
-            else if (nuevo_objeto.tag == "seta_cocinada") nuevo_objeto.transform.position += new Vector3(-1.55f, -0.5f, -2.5f);
-            else nuevo_objeto.transform.position += new Vector3(-1.55f, 0.0f, -2.3f);
-            nuevo_objeto.transform.rotation = new Quaternion(0, 0, 0, 0);
+            if (nuevo_objeto.tag == "filete_quemado")
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(3).transform.position;
+                nuevo_objeto.transform.position += new Vector3(0.0f, 0.0f, 0.4f);
+            }
+            else if (nuevo_objeto.tag == "setas_quemada")
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(3).transform.position;
+            }
+            else
+            {
+                nuevo_objeto.transform.position = objeto.GetComponent<CogerObjeto>().mesa.transform.GetChild(1).transform.position;
+            }
             nuevo_objeto.GetComponent<Rigidbody>().useGravity = false;
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
             Destroy(objeto);
