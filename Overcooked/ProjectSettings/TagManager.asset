@@ -58,6 +58,8 @@ TagManager:
   - ham_carne_queso
   - ham_lechuga_tomate
   - mac_setas
+  - filete_quemado
+  - setas_quemadas
   layers:
   - Default
   - TransparentFX
