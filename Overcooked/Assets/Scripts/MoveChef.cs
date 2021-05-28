@@ -58,7 +58,6 @@ public class MoveChef : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log(anim.GetBool("cortar"));
         if (!anim.GetBool("cortar"))
         {
             float x, y;

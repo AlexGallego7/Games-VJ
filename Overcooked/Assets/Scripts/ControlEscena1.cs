@@ -19,6 +19,8 @@ public class ControlEscena1 : MonoBehaviour
     public GameObject recetas;
 
     public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate;
+    public GameObject rec_pasta_setas, rec_pasta_tomate;
+    public GameObject rec_ensalada_tomate, rec_ensalada_pepino;
 
     private bool spawn_receta = true;
 
@@ -29,7 +31,9 @@ public class ControlEscena1 : MonoBehaviour
     private int puntos;
 
     public bool se_puede_quemar = true;
+
     public static ControlEscena1 ins;
+    public int scene;
 
     private void Awake()
     {
@@ -49,7 +53,7 @@ public class ControlEscena1 : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-
+        scene = SceneManager.GetActiveScene().buildIndex;
         numSlots = recetas.transform.childCount;
         slots = new GameObject[numSlots];
         for (int i = 0; i < numSlots; i++)
@@ -61,8 +65,9 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        //tiempo = 194.0f;
         tiempo = 194.0f;
+        
+        //tiempo = 2f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
@@ -225,23 +230,102 @@ public class ControlEscena1 : MonoBehaviour
 
     public GameObject consigue_receta(int num)
     {
-        GameObject nueva_receta=null;
-        switch (num)
+        GameObject nueva_receta = null;
+        if (scene == 1)
         {
-            case 0:
-                nueva_receta = rec_ham_sola;
-                break;
-            case 1:
-                nueva_receta = rec_ham_lechuga;
-            break;
-            case 2:
-                nueva_receta = rec_ham_queso;
-            break;
-            case 3:
-                nueva_receta = rec_ham_lechuga_tomate;
-            break;
-            default:
-                break;
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                default:
+                    break;
+            }
+        } else if (scene == 2)
+        {
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                case 1:
+                    nueva_receta = rec_pasta_tomate;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                default:
+                    break;
+            }
+        } else if (scene == 3)
+        {
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ensalada_tomate;
+                    break;
+                case 1:
+                    nueva_receta = rec_ensalada_pepino;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                default:
+                    break;
+            }
+        } else if (scene == 4)
+        {
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ensalada_pepino;
+                    break;
+                case 1:
+                    nueva_receta = rec_pasta_tomate;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                default:
+                    break;
+            }
+        } else if (scene == 5)
+        {
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ensalada_tomate;
+                    break;
+                case 1:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                case 2:
+                    nueva_receta = rec_pasta_tomate;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                default:
+                    break;
+            }
         }
         return nueva_receta;
     }

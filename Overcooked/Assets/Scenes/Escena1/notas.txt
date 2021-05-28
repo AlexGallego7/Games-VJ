@@ -1,6 +1,0 @@
-el tamaño de las mesas es de 4.04 de ancho
-la altura de los platos es 4.24165
-la altura de las sartenes es 4.241892
-la altura de las tablas de cortar es 1.999945
-la alutura de los cuchillos es 2.239273
-la altura de las ollas es -0.4616098
