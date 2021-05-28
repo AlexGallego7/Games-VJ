@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject afterSceneUI;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +20,8 @@ public class PauseMenu : MonoBehaviour
                 Resume();
             } else
             {
-                Pause();
+                if (!afterSceneUI.GetComponent<NextLevelScreen>().up)
+                    Pause();
             }
         }
     
