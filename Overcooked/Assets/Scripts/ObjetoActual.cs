@@ -373,7 +373,7 @@ public class ObjetoActual : MonoBehaviour
                 if (objetoParaCoger.GetComponent<CogerObjeto>().mesa != null && !objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas)
                 {
                     objetoActual = objetoParaCoger;
-                    objetoActual.GetComponent<plato>().dejar_de_cocinar();
+                    if(objetoActual.GetComponent("plato")!=null)objetoActual.GetComponent<plato>().dejar_de_cocinar();
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().apagar_mesa();
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;

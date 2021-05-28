@@ -139,8 +139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8491131392593087155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 3.7971, y: 1.3797882, z: 3.5769}
+  m_LocalPosition: {x: 0, y: 2, z: -0.11}
+  m_LocalScale: {x: 3.7971, y: 1.3797882, z: 6.941977}
   m_Children: []
   m_Father: {fileID: 4232445866415017270}
   m_RootOrder: 0
@@ -179,6 +179,9 @@ MonoBehaviour:
   steam: {fileID: 7392955165124285531, guid: 99a1f92aa1da5c340ad2cb70895ec815, type: 3}
   objeto: {fileID: 0}
   filete_cocinado: {fileID: 0}
+  seta_cocinada: {fileID: 0}
+  seta_quemada: {fileID: 0}
   filete_quemado: {fileID: 0}
   pasta_cocinada: {fileID: 0}
+  pasta_quemada: {fileID: 0}
   ObjCoger: {fileID: 0}

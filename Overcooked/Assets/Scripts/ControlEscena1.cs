@@ -18,9 +18,7 @@ public class ControlEscena1 : MonoBehaviour
 
     public GameObject recetas;
 
-    public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate;
-    public GameObject rec_pasta_setas, rec_pasta_tomate;
-    public GameObject rec_ensalada_tomate, rec_ensalada_pepino;
+    public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate, rec_pasta_setas, rec_pasta_completa, rec_ensalada_completa, rec_ensalada_tomate;
 
     private bool spawn_receta = true;
 
@@ -31,9 +29,7 @@ public class ControlEscena1 : MonoBehaviour
     private int puntos;
 
     public bool se_puede_quemar = true;
-
     public static ControlEscena1 ins;
-    public int scene;
 
     private void Awake()
     {
@@ -53,7 +49,7 @@ public class ControlEscena1 : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        scene = SceneManager.GetActiveScene().buildIndex;
+
         numSlots = recetas.transform.childCount;
         slots = new GameObject[numSlots];
         for (int i = 0; i < numSlots; i++)
@@ -65,10 +61,8 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        
         //tiempo = 194.0f;
-        
-        tiempo = 2f;
+        tiempo = 194.0f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
@@ -229,11 +223,13 @@ public class ControlEscena1 : MonoBehaviour
         return false;
     }
 
-    public GameObject consigue_receta(int num)
+    public GameObject consigue_receta()
     {
-        GameObject nueva_receta = null;
-        if (scene == 1)
+
+        GameObject nueva_receta=null;
+        if (SceneManager.GetActiveScene().name== "EscenaInicial")
         {
+            int num = Random.Range(0, 4);
             switch (num)
             {
                 case 0:
@@ -251,83 +247,92 @@ public class ControlEscena1 : MonoBehaviour
                 default:
                     break;
             }
-        } else if (scene == 2)
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena1")
         {
+            int num = Random.Range(0, 2);
             switch (num)
             {
                 case 0:
-                    nueva_receta = rec_pasta_setas;
+                    nueva_receta = rec_ensalada_completa;
                     break;
                 case 1:
-                    nueva_receta = rec_pasta_tomate;
-                    break;
-                case 2:
-                    nueva_receta = rec_ham_queso;
-                    break;
-                case 3:
-                    nueva_receta = rec_ham_lechuga_tomate;
-                    break;
-                default:
-                    break;
-            }
-        } else if (scene == 3)
-        {
-            switch (num)
-            {
-                case 0:
                     nueva_receta = rec_ensalada_tomate;
-                    break;
-                case 1:
-                    nueva_receta = rec_ensalada_pepino;
-                    break;
-                case 2:
-                    nueva_receta = rec_ham_queso;
-                    break;
-                case 3:
-                    nueva_receta = rec_ham_lechuga_tomate;
-                    break;
-                default:
-                    break;
-            }
-        } else if (scene == 4)
-        {
-            switch (num)
-            {
-                case 0:
-                    nueva_receta = rec_ensalada_pepino;
-                    break;
-                case 1:
-                    nueva_receta = rec_pasta_tomate;
-                    break;
-                case 2:
-                    nueva_receta = rec_ham_lechuga_tomate;
-                    break;
-                case 3:
-                    nueva_receta = rec_ham_queso;
-                    break;
-                default:
-                    break;
-            }
-        } else if (scene == 5)
-        {
-            switch (num)
-            {
-                case 0:
-                    nueva_receta = rec_ensalada_tomate;
-                    break;
-                case 1:
-                    nueva_receta = rec_pasta_setas;
-                    break;
-                case 2:
-                    nueva_receta = rec_pasta_tomate;
-                    break;
-                case 3:
-                    nueva_receta = rec_ham_lechuga_tomate;
                     break;
                 default:
                     break;
             }
         }
+        else if (SceneManager.GetActiveScene().name == "Escena2")
+        {
+            int num = Random.Range(0, 2);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_pasta_completa;
+                    break;
+                case 1:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena3")
+        {
+            int num = Random.Range(0, 6);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                case 4:
+                    nueva_receta = rec_pasta_completa;
+                    break;
+                case 5:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena4")
+        {
+            int num = Random.Range(0, 6);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                case 4:
+                    nueva_receta = rec_ensalada_completa;
+                    break;
+                case 5:
+                    nueva_receta = rec_ensalada_tomate;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         return nueva_receta;
     }
 
@@ -345,7 +350,7 @@ public class ControlEscena1 : MonoBehaviour
            
             if (slots[i].GetComponent<slot>().empty)
             {
-                GameObject rec = Instantiate(consigue_receta(Random.Range(0, 4)), new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject rec = Instantiate(consigue_receta(), new Vector3(0, 0, 0), Quaternion.identity);
                 slots[i].GetComponent<slot>().receta = rec;
 
                 rec.transform.position = slots[i].transform.GetChild(0).transform.position;
