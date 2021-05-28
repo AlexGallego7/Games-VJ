@@ -1936,7 +1936,6 @@ GameObject:
   - component: {fileID: 306195636}
   - component: {fileID: 306195635}
   - component: {fileID: 306195634}
-  - component: {fileID: 306195638}
   m_Layer: 5
   m_Name: NextLevelCanvas
   m_TagString: Untagged
@@ -2025,20 +2024,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &306195638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306195633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ee44c99e80e014b8aecf29a217ea97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsText: {fileID: 148471727}
-  up: 0
 --- !u!1 &327135170
 GameObject:
   m_ObjectHideFlags: 0
@@ -14829,7 +14814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ee44c99e80e014b8aecf29a217ea97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsText: {fileID: 0}
+  pointsText: {fileID: 148471727}
   up: 0
 --- !u!95 &1972559360
 Animator:
