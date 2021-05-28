@@ -24,12 +24,26 @@ public class NextLevelScreen : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Restart ()
+    {
+        up = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameObject.SetActive(false);
+    }
+
     public void Menu()
     {
         up = false;
         SceneManager.LoadScene(0);
         FindObjectOfType<AudioManager>().Stop("Restaurant");
         FindObjectOfType<AudioManager>().Play("Theme");
+    }
+
+    public void End()
+    {
+        SceneManager.LoadScene("CredsScene");
+        FindObjectOfType<AudioManager>().Stop("Restaurant");
+        FindObjectOfType<AudioManager>().Play("Creds");
     }
 
 

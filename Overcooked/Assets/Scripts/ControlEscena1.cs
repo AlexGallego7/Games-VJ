@@ -65,9 +65,10 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        tiempo = 194.0f;
         
-        //tiempo = 2f;
+        //tiempo = 194.0f;
+        
+        tiempo = 2f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
