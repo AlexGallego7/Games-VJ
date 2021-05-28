@@ -18,7 +18,7 @@ public class ControlEscena1 : MonoBehaviour
 
     public GameObject recetas;
 
-    public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate;
+    public GameObject rec_ham_sola, rec_ham_lechuga, rec_ham_queso, rec_ham_lechuga_tomate, rec_pasta_setas, rec_pasta_completa, rec_ensalada_completa, rec_ensalada_tomate;
 
     private bool spawn_receta = true;
 
@@ -223,26 +223,116 @@ public class ControlEscena1 : MonoBehaviour
         return false;
     }
 
-    public GameObject consigue_receta(int num)
+    public GameObject consigue_receta()
     {
+
         GameObject nueva_receta=null;
-        switch (num)
+        if (SceneManager.GetActiveScene().name== "EscenaInicial")
         {
-            case 0:
-                nueva_receta = rec_ham_sola;
-                break;
-            case 1:
-                nueva_receta = rec_ham_lechuga;
-            break;
-            case 2:
-                nueva_receta = rec_ham_queso;
-            break;
-            case 3:
-                nueva_receta = rec_ham_lechuga_tomate;
-            break;
-            default:
-                break;
+            int num = Random.Range(0, 4);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                default:
+                    break;
+            }
         }
+        else if (SceneManager.GetActiveScene().name == "Escena1")
+        {
+            int num = Random.Range(0, 2);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ensalada_completa;
+                    break;
+                case 1:
+                    nueva_receta = rec_ensalada_tomate;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena2")
+        {
+            int num = Random.Range(0, 2);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_pasta_completa;
+                    break;
+                case 1:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena3")
+        {
+            int num = Random.Range(0, 6);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                case 4:
+                    nueva_receta = rec_pasta_completa;
+                    break;
+                case 5:
+                    nueva_receta = rec_pasta_setas;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Escena4")
+        {
+            int num = Random.Range(0, 6);
+            switch (num)
+            {
+                case 0:
+                    nueva_receta = rec_ham_sola;
+                    break;
+                case 1:
+                    nueva_receta = rec_ham_lechuga;
+                    break;
+                case 2:
+                    nueva_receta = rec_ham_queso;
+                    break;
+                case 3:
+                    nueva_receta = rec_ham_lechuga_tomate;
+                    break;
+                case 4:
+                    nueva_receta = rec_ensalada_completa;
+                    break;
+                case 5:
+                    nueva_receta = rec_ensalada_tomate;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         return nueva_receta;
     }
 
@@ -260,7 +350,7 @@ public class ControlEscena1 : MonoBehaviour
            
             if (slots[i].GetComponent<slot>().empty)
             {
-                GameObject rec = Instantiate(consigue_receta(Random.Range(0, 4)), new Vector3(0, 0, 0), Quaternion.identity);
+                GameObject rec = Instantiate(consigue_receta(), new Vector3(0, 0, 0), Quaternion.identity);
                 slots[i].GetComponent<slot>().receta = rec;
 
                 rec.transform.position = slots[i].transform.GetChild(0).transform.position;
