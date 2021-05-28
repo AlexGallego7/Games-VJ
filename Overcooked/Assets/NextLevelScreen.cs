@@ -24,6 +24,20 @@ public class NextLevelScreen : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Restart ()
+    {
+        up = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void End()
+    {
+        up = false;
+        SceneManager.LoadScene("CredsScene");
+
+    }
+
     public void Menu()
     {
         up = false;
