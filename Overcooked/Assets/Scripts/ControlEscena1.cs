@@ -62,7 +62,7 @@ public class ControlEscena1 : MonoBehaviour
         }
         recetas.SetActive(true);
         //tiempo = 194.0f;
-        tiempo = 2f;
+        tiempo = 240f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
@@ -248,7 +248,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena1")
+        else if (SceneManager.GetActiveScene().name == "Escena2")
         {
             int num = Random.Range(0, 2);
             switch (num)
@@ -263,7 +263,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena2")
+        else if (SceneManager.GetActiveScene().name == "Escena3")
         {
             int num = Random.Range(0, 2);
             switch (num)
@@ -278,7 +278,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena3")
+        else if (SceneManager.GetActiveScene().name == "Escena4")
         {
             int num = Random.Range(0, 6);
             switch (num)
@@ -305,7 +305,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena4")
+        else if (SceneManager.GetActiveScene().name == "Escena5")
         {
             int num = Random.Range(0, 6);
             switch (num)
