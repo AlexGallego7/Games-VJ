@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjetoActual : MonoBehaviour
 {
     public GameObject objetoActual;
-    public GameObject objetoParaCoger, nuevo_objeto;
+    public GameObject objetoParaCoger, nuevo_objeto, obj_cortar;
     public Transform handZone;
     public Transform ObjCoger;
 
@@ -21,7 +21,8 @@ public class ObjetoActual : MonoBehaviour
 
     private new string tag;
 
-    public GameObject player;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -183,10 +184,31 @@ public class ObjetoActual : MonoBehaviour
         }
     }
 
+    IEnumerator  esperar_5segs()
+    {
+        yield return new WaitForSeconds(5);
+        
+        obj_cortar = Instantiate(obj_cortar, new Vector3(0, 0, 0), Quaternion.identity);
+        objetoActual = obj_cortar;
+        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+        if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
+            objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
+
+        objetoActual.transform.SetParent(handZone);
+        objetoActual.transform.position = handZone.position;
+        objetoActual.transform.rotation = new Quaternion(0, 0, 0, 0);
+        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+        this.gameObject.GetComponent<MoveChef>().cortar_off();
+        obj_cortar = null;
+        FindObjectOfType<AudioManager>().Stop("Cutting");
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        
         //usar muebles
         if (objetoActual != null && objetoParaCoger != null && objetoParaCoger != objetoActual)
         {
@@ -194,23 +216,14 @@ public class ObjetoActual : MonoBehaviour
             {
                 if (objetoParaCoger.tag == "tabla_cortar")
                 {
-                    GameObject nuevo_objeto = detectar_objeto_para_cortar();
-                    if (nuevo_objeto != null)
+                    obj_cortar = detectar_objeto_para_cortar();
+                    if (obj_cortar != null)
                     {
+                        this.gameObject.GetComponent<MoveChef>().cortar_on();
+                        StartCoroutine("esperar_5segs");
                         Destroy(objetoActual);
-                        nuevo_objeto = Instantiate(nuevo_objeto, new Vector3(0, 0, 0), Quaternion.identity);
-                        objetoActual = nuevo_objeto;
-                        objetoActual.GetComponent<CogerObjeto>().cogido = true;
-                        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
-                        if (objetoActual.GetComponent<CogerObjeto>().mesa != null)
-                            objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
-
-                        objetoActual.transform.SetParent(handZone);
-                        objetoActual.transform.position = handZone.position;
-                        objetoActual.GetComponent<Rigidbody>().useGravity = false;
-                        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
-
                         FindObjectOfType<AudioManager>().Play("Cutting");
+                        
                     }
                 }
                 else if (objetoParaCoger.tag == "sarten")
@@ -264,7 +277,7 @@ public class ObjetoActual : MonoBehaviour
                 }
                 else if (objetoParaCoger.tag == "extractora")
                 {
-                    if (player.GetComponent<ControlEscena1>().plato_correcto(objetoActual.tag))
+                    if (ControlEscena1.ins.plato_correcto(objetoActual.tag))
                     {
                         Destroy(objetoActual);
                     }
@@ -360,6 +373,8 @@ public class ObjetoActual : MonoBehaviour
                 if (objetoParaCoger.GetComponent<CogerObjeto>().mesa != null && !objetoParaCoger.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().llamas)
                 {
                     objetoActual = objetoParaCoger;
+                    objetoActual.GetComponent<plato>().dejar_de_cocinar();
+                    objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().apagar_mesa();
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = false;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().sin_objeto = true;
                     objetoActual.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().ya_cocinando = false;
@@ -370,8 +385,11 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual.GetComponent<CogerObjeto>().inicializado = true;
                     objetoActual.transform.SetParent(handZone);
                     objetoActual.transform.position = handZone.position;
+                    objetoActual.transform.rotation = new Quaternion(0, 90, 0, 0);
                     objetoActual.GetComponent<Rigidbody>().useGravity = false;
                     objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+                    
+                    
                 }
                 else if(objetoParaCoger.GetComponent<CogerObjeto>().mesa == null)
                 {
@@ -380,6 +398,7 @@ public class ObjetoActual : MonoBehaviour
                     objetoActual.GetComponent<CogerObjeto>().inicializado = true;
                     objetoActual.transform.SetParent(handZone);
                     objetoActual.transform.position = handZone.position;
+                    objetoActual.transform.rotation = new Quaternion(0, 90, 0, 0);
                     objetoActual.GetComponent<Rigidbody>().useGravity = false;
                     objetoActual.GetComponent<Rigidbody>().isKinematic = true;
                 }
