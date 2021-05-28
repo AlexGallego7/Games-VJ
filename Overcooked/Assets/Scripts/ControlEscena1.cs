@@ -61,7 +61,8 @@ public class ControlEscena1 : MonoBehaviour
             }
         }
         recetas.SetActive(true);
-        tiempo = 194.0f;
+        //tiempo = 194.0f;
+        tiempo = 240f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
@@ -132,7 +133,7 @@ public class ControlEscena1 : MonoBehaviour
         {
             if (!slots[i].GetComponent<slot>().empty)
             {
-                if (i == 0) s1.value -= 1*Time.deltaTime;
+                if (i == 0) s1.value -= 1 * Time.deltaTime;
                 else if (i == 1) s2.value -= 1 * Time.deltaTime;
                 else if (i == 2) s3.value -= 1 * Time.deltaTime;
                 else if (i == 3) s4.value -= 1 * Time.deltaTime;
@@ -142,7 +143,7 @@ public class ControlEscena1 : MonoBehaviour
         }
         if (spawn_receta) StartCoroutine("esperar10secs");
         spawn_receta = false;
-        tiempo = tiempo - 1* Time.deltaTime;
+        tiempo = tiempo - 1 * Time.deltaTime;
         string minutes = ((int)tiempo / 60).ToString();
         string seconds = (tiempo % 60).ToString("f0");
         if ((tiempo % 60) < 10 && seconds != "10") tiempoTexto.text = minutes + ":0" + seconds;
@@ -155,63 +156,63 @@ public class ControlEscena1 : MonoBehaviour
 
     private void rest_temporizadores(int i)
     {
-            if (i == 0)
-            {
-                s1.value = s2.value;
-                s2.value = s3.value;
-                s3.value = s4.value;
-                s4.value = s5.value;
-                s5.value = 0;
-            }
-            else if (i == 1)
-            {
-                s2.value = s3.value;
-                s3.value = s4.value;
-                s4.value = s5.value;
-                s5.value = 0;
-            }
-            else if (i  == 2)
-            {
-                s3.value = s4.value;
-                s4.value = s5.value;
-                s5.value = 0;
-            }
-            else if (i == 3)
-            {
-                s4.value = s5.value;
-                s5.value = 0;
-            }
-            else if (i == 4)
-            {
-                s5.value = 0;
-            }
+        if (i == 0)
+        {
+            s1.value = s2.value;
+            s2.value = s3.value;
+            s3.value = s4.value;
+            s4.value = s5.value;
+            s5.value = 0;
+        }
+        else if (i == 1)
+        {
+            s2.value = s3.value;
+            s3.value = s4.value;
+            s4.value = s5.value;
+            s5.value = 0;
+        }
+        else if (i == 2)
+        {
+            s3.value = s4.value;
+            s4.value = s5.value;
+            s5.value = 0;
+        }
+        else if (i == 3)
+        {
+            s4.value = s5.value;
+            s5.value = 0;
+        }
+        else if (i == 4)
+        {
+            s5.value = 0;
+        }
 
     }
 
     public bool plato_correcto(string tag)
     {
-        for(int i=0; i<numSlots; i++)
+        for (int i = 0; i < numSlots; i++)
         {
             if (slots[i].GetComponent<slot>().receta.GetComponent<receta>().tag == tag)
             {
-                
+
                 puntos += 5;
                 rest_temporizadores(i);
                 GameObject rec = slots[i].GetComponent<slot>().receta;
                 Destroy(rec);
                 slots[i].GetComponent<slot>().empty = true;
-                for (int j = i; j < numSlots-1; j++)
+                for (int j = i; j < numSlots - 1; j++)
                 {
                     if (!slots[j + 1].GetComponent<slot>().empty)
                     {
-                        rec = slots[j+1].GetComponent<slot>().receta;
+                        rec = slots[j + 1].GetComponent<slot>().receta;
                         rec.transform.position = slots[j].transform.GetChild(0).transform.position;
                         rec.transform.rotation = slots[j].transform.GetChild(0).transform.rotation;
-                        slots[j+1].GetComponent<slot>().empty = true;
+                        slots[j + 1].GetComponent<slot>().empty = true;
                         slots[j].GetComponent<slot>().empty = false;
                         slots[j].GetComponent<slot>().receta = rec;
                         slots[j + 1].GetComponent<slot>().receta = null;
-                        
+
                     }
                     else break;
                 }
@@ -225,8 +226,8 @@ public class ControlEscena1 : MonoBehaviour
     public GameObject consigue_receta()
     {
 
-        GameObject nueva_receta=null;
-        if (SceneManager.GetActiveScene().name== "EscenaInicial")
+        GameObject nueva_receta = null;
+        if (SceneManager.GetActiveScene().name == "EscenaInicial")
         {
             int num = Random.Range(0, 4);
             switch (num)
@@ -247,7 +248,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena1")
+        else if (SceneManager.GetActiveScene().name == "Escena2")
         {
             int num = Random.Range(0, 2);
             switch (num)
@@ -262,7 +263,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena2")
+        else if (SceneManager.GetActiveScene().name == "Escena3")
         {
             int num = Random.Range(0, 2);
             switch (num)
@@ -277,7 +278,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena3")
+        else if (SceneManager.GetActiveScene().name == "Escena4")
         {
             int num = Random.Range(0, 6);
             switch (num)
@@ -304,7 +305,7 @@ public class ControlEscena1 : MonoBehaviour
                     break;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Escena4")
+        else if (SceneManager.GetActiveScene().name == "Escena5")
         {
             int num = Random.Range(0, 6);
             switch (num)
@@ -346,7 +347,7 @@ public class ControlEscena1 : MonoBehaviour
     {
         for (int i = 0; i < numSlots; i++)
         {
-           
+
             if (slots[i].GetComponent<slot>().empty)
             {
                 GameObject rec = Instantiate(consigue_receta(), new Vector3(0, 0, 0), Quaternion.identity);
@@ -373,4 +374,3 @@ public class ControlEscena1 : MonoBehaviour
         nlScreen.Setup(puntos);
     }
 }
-
