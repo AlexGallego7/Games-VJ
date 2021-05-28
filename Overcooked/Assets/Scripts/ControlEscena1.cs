@@ -48,6 +48,8 @@ public class ControlEscena1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+
         numSlots = recetas.transform.childCount;
         slots = new GameObject[numSlots];
         for (int i = 0; i < numSlots; i++)
