@@ -62,7 +62,7 @@ public class ControlEscena1 : MonoBehaviour
         }
         recetas.SetActive(true);
         //tiempo = 194.0f;
-        tiempo = 2.0f;
+        tiempo = 194.0f;
 
         puntos = 0;
         puntostexto.text = puntos.ToString();
@@ -95,6 +95,26 @@ public class ControlEscena1 : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             plato_correcto(slots[4].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            this.gameObject.GetComponent<ObjetoActual>().crear_plato(slots[0].GetComponent<slot>().receta.GetComponent<receta>().plato);
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            this.gameObject.GetComponent<ObjetoActual>().crear_plato(slots[1].GetComponent<slot>().receta.GetComponent<receta>().plato);
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            this.gameObject.GetComponent<ObjetoActual>().crear_plato(slots[2].GetComponent<slot>().receta.GetComponent<receta>().plato);
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            this.gameObject.GetComponent<ObjetoActual>().crear_plato(slots[3].GetComponent<slot>().receta.GetComponent<receta>().plato);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            this.gameObject.GetComponent<ObjetoActual>().crear_plato(slots[4].GetComponent<slot>().receta.GetComponent<receta>().plato);
         }
 
 

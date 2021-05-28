@@ -96,3 +96,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: ham_carne_lechuga
+  plato: {fileID: 8334417546817157815, guid: d98ef1591a014374d805f1843a1f2539, type: 3}

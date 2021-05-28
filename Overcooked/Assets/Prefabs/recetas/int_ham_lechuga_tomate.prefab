@@ -95,7 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a8a78fddaa08948870bbd878a0bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
-  image: {fileID: 21300000, guid: 07ef6bfe6f84ea241a783484946cd0ee, type: 3}
   tag: ham_lechuga_tomate
-  activado: 1
+  plato: {fileID: 4269874466252924841, guid: 4c9f5c0c06a065d4bbbb0aed5ec7b062, type: 3}

@@ -95,7 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a8a78fddaa08948870bbd878a0bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  image: {fileID: 21300000, guid: 0400b9d0e8ffcd848b343c62fffd5ef3, type: 3}
   tag: ham_carne_queso
-  activado: 1
+  plato: {fileID: 1805202989910596380, guid: f88762e59e3771e46961b5363e55768b, type: 3}

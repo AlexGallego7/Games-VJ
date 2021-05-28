@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a8a78fddaa08948870bbd878a0bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
   tag: macarrones_tomate_queso
+  plato: {fileID: 5955960428582275969, guid: 2b8cdc04740da0f4d801841476ddf1ad, type: 3}

@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a8a78fddaa08948870bbd878a0bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
   tag: ensalada_tomate
+  plato: {fileID: 538637049007103898, guid: 2762ec53c48d5d34aa5adfa61c2db29e, type: 3}

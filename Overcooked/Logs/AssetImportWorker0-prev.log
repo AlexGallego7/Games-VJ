@@ -571,6 +571,7 @@ Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1123 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 71.9 MB.
 System memory in use after: 72.0 MB.
+<<<<<<< HEAD
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1660.
 Total: 1.900200 ms (FindLiveObjects: 0.200900 ms CreateObjectMapping: 0.053600 ms MarkObjects: 1.630000 ms  DeleteObjects: 0.014200 ms)
@@ -1406,3 +1407,48 @@ Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1762.
 Total: 3.126500 ms (FindLiveObjects: 0.348700 ms CreateObjectMapping: 0.075100 ms MarkObjects: 2.679900 ms  DeleteObjects: 0.020700 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+=======
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1660.
+Total: 1.900200 ms (FindLiveObjects: 0.200900 ms CreateObjectMapping: 0.053600 ms MarkObjects: 1.630000 ms  DeleteObjects: 0.014200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 92.900433 seconds.
+  path: Assets/Animations/FadeAnim2.anim
+  artifactKey: Guid(2d0ccf90d4ec48b4d8d9ed35cf87454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FadeAnim2.anim using Guid(2d0ccf90d4ec48b4d8d9ed35cf87454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e944ad35bf2620290093463a7cbd362') in 0.026698 seconds
+  Import took 0.029466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.634670 seconds.
+  path: Assets/Animations/FadeAnim2.anim
+  artifactKey: Guid(2d0ccf90d4ec48b4d8d9ed35cf87454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FadeAnim2.anim using Guid(2d0ccf90d4ec48b4d8d9ed35cf87454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f963d0813d4ed88e0468e7c097ecc51') in 0.004342 seconds
+  Import took 0.007044 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000763 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.821 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1123 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 71.9 MB.
+System memory in use after: 72.0 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1663.
+Total: 1.912000 ms (FindLiveObjects: 0.158300 ms CreateObjectMapping: 0.036800 ms MarkObjects: 1.681400 ms  DeleteObjects: 0.034300 ms)
+
+>>>>>>> defc388601ecea68e5a10184c73000b416faa0b5
