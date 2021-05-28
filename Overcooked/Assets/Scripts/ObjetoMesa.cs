@@ -89,7 +89,7 @@ public class ObjetoMesa : MonoBehaviour
         if (hay_objeto)
         {
             nuevo_objeto = Instantiate(detectar_objeto(), new Vector3(0, 0, 0), Quaternion.identity);
-            nuevo_objeto.GetComponent<plato>().quemando();
+            
             nuevo_objeto.GetComponent<CogerObjeto>().mesa = objeto.GetComponent<CogerObjeto>().mesa;
             nuevo_objeto.GetComponent<CogerObjeto>().cogido = false;
             nuevo_objeto.GetComponent<CogerObjeto>().mesa.GetComponent<ObjetoMesa>().hay_objeto = true;
@@ -113,14 +113,8 @@ public class ObjetoMesa : MonoBehaviour
             nuevo_objeto.GetComponent<Rigidbody>().isKinematic = true;
             Destroy(objeto);
             objeto = nuevo_objeto;
+            if(ControlEscena1.ins.se_puede_quemar) nuevo_objeto.GetComponent<plato>().quemando();
             StartCoroutine("esperar12secs");
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("Boiling");
-            FindObjectOfType<AudioManager>().Stop("Frying");
-            fuego_normal.gameObject.SetActive(false);
-            steam.gameObject.SetActive(false);
         }
         
     }
@@ -159,16 +153,19 @@ public class ObjetoMesa : MonoBehaviour
             Destroy(objeto);
             objeto = nuevo_objeto;
         }
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("Boiling");
-            FindObjectOfType<AudioManager>().Stop("Frying");
 
-            steam.gameObject.SetActive(false);
-            en_llamas.SetActive(false);
-        }
             
 
+    }
+
+    public void apagar_mesa()
+    {
+        FindObjectOfType<AudioManager>().Stop("Boiling");
+        FindObjectOfType<AudioManager>().Stop("Frying");
+        fuego_normal.gameObject.SetActive(false);
+        steam.gameObject.SetActive(false);
+        en_llamas.SetActive(false);
+        StopAllCoroutines();
     }
 
 

@@ -6,10 +6,42 @@ MonoImporter:
   defaultReferences:
   - objetoActual: {instanceID: 0}
   - objetoParaCoger: {instanceID: 0}
+  - nuevo_objeto: {instanceID: 0}
+  - obj_cortar: {instanceID: 0}
   - handZone: {instanceID: 0}
   - ObjCoger: {instanceID: 0}
   - pan_cortado: {instanceID: 0}
+  - filete_cortado: {instanceID: 0}
+  - lechuga_cortada: {instanceID: 0}
+  - seta_cortada: {instanceID: 0}
+  - tomate_cortado: {instanceID: 0}
+  - queso_cortado: {instanceID: 0}
+  - pepino_cortado: {instanceID: 0}
+  - ham_sola: {instanceID: 0}
+  - plato: {instanceID: 0}
   - tomate: {fileID: 4583484011235231896, guid: c2cf48a4859bce143b93c28c4f281a49, type: 3}
+  - seta: {instanceID: 0}
+  - pan: {instanceID: 0}
+  - pasta: {instanceID: 0}
+  - lechuga: {instanceID: 0}
+  - filete: {instanceID: 0}
+  - queso: {instanceID: 0}
+  - pepino: {instanceID: 0}
+  - olla_agua: {instanceID: 0}
+  - ham_pan_carne: {instanceID: 0}
+  - ham_carne_lechuga: {instanceID: 0}
+  - ham_carne_queso: {instanceID: 0}
+  - ham_completa_sinqueso: {instanceID: 0}
+  - mac_solos: {instanceID: 0}
+  - mac_tomate: {instanceID: 0}
+  - mac_tomate_carne: {instanceID: 0}
+  - mac_tomate_carne_queso: {instanceID: 0}
+  - mac_queso_seta: {instanceID: 0}
+  - mac_queso: {instanceID: 0}
+  - ensalada_sola: {instanceID: 0}
+  - ensalada_tomate: {instanceID: 0}
+  - ensalada_tomate_pepino: {instanceID: 0}
+  - player: {fileID: 8414035187181813576, guid: bd7c898ecb3801a439c065946ccb694d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

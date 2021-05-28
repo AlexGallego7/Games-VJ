@@ -28,6 +28,22 @@ public class ControlEscena1 : MonoBehaviour
     private float tiempo;
     private int puntos;
 
+    public bool se_puede_quemar = true;
+    public static ControlEscena1 ins;
+
+    private void Awake()
+    {
+        if (ControlEscena1.ins == null)
+        {
+            ControlEscena1.ins = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +67,35 @@ public class ControlEscena1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //godmode 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            se_puede_quemar = !se_puede_quemar;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            plato_correcto(slots[0].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            plato_correcto(slots[1].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            plato_correcto(slots[2].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            plato_correcto(slots[3].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            plato_correcto(slots[4].GetComponent<slot>().receta.GetComponent<receta>().tag);
+        }
+
+
+
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene("CredsScene");
@@ -123,6 +168,7 @@ public class ControlEscena1 : MonoBehaviour
         {
             if (slots[i].GetComponent<slot>().receta.GetComponent<receta>().tag == tag)
             {
+                
                 puntos += 5;
                 rest_temporizadores(i);
                 GameObject rec = slots[i].GetComponent<slot>().receta;

@@ -46,6 +46,11 @@ public class plato : MonoBehaviour
                 timer.GetComponent<Slider>().value = 12;
             }
         }
+        else
+        {
+            timer.GetComponent<Slider>().value = 12;
+            timer.SetActive(false);
+        }
 
     }
 
@@ -56,5 +61,10 @@ public class plato : MonoBehaviour
     public void quemando()
     {
         q = true;
+    }
+    public void dejar_de_cocinar()
+    {
+        c = false;
+        q = false;
     }
 }

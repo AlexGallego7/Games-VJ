@@ -3,7 +3,19 @@ guid: 0cf2bddb2a8fa3a4b98d89863763ad38
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fuego_normal: {instanceID: 0}
+  - en_llamas: {instanceID: 0}
+  - steam: {instanceID: 0}
+  - objeto: {instanceID: 0}
+  - filete_cocinado: {instanceID: 0}
+  - seta_cocinada: {instanceID: 0}
+  - seta_quemada: {instanceID: 0}
+  - filete_quemado: {instanceID: 0}
+  - pasta_cocinada: {instanceID: 0}
+  - pasta_quemada: {instanceID: 0}
+  - ObjCoger: {instanceID: 0}
+  - player: {fileID: 8414035187181813576, guid: bd7c898ecb3801a439c065946ccb694d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
