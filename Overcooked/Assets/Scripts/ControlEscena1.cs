@@ -133,11 +133,31 @@ public class ControlEscena1 : MonoBehaviour
         {
             if (!slots[i].GetComponent<slot>().empty)
             {
-                if (i == 0) s1.value -= 1 * Time.deltaTime;
-                else if (i == 1) s2.value -= 1 * Time.deltaTime;
-                else if (i == 2) s3.value -= 1 * Time.deltaTime;
-                else if (i == 3) s4.value -= 1 * Time.deltaTime;
-                else if (i == 4) s5.value -= 1 * Time.deltaTime;
+                if (i == 0)
+                {
+                    s1.value -= 1 * Time.deltaTime;
+                    if (s1.value == 0) tiempo_Excedido(slots[0].GetComponent<slot>().receta.GetComponent<receta>().tag);
+                }
+                else if (i == 1)
+                {
+                    s2.value -= 1 * Time.deltaTime;
+                    if (s2.value == 0) tiempo_Excedido(slots[1].GetComponent<slot>().receta.GetComponent<receta>().tag);
+                }
+                else if (i == 2)
+                {
+                    s3.value -= 1 * Time.deltaTime;
+                    if (s3.value == 0) tiempo_Excedido(slots[2].GetComponent<slot>().receta.GetComponent<receta>().tag);
+                }
+                else if (i == 3)
+                {
+                    s4.value -= 1 * Time.deltaTime;
+                    if (s4.value == 0) tiempo_Excedido(slots[3].GetComponent<slot>().receta.GetComponent<receta>().tag);
+                }
+                else if (i == 4)
+                {
+                    s5.value -= 1 * Time.deltaTime;
+                    if (s5.value == 0) tiempo_Excedido(slots[4].GetComponent<slot>().receta.GetComponent<receta>().tag);
+                }
             }
             else break;
         }
@@ -197,6 +217,38 @@ public class ControlEscena1 : MonoBehaviour
             {
 
                 puntos += 5;
+                rest_temporizadores(i);
+                GameObject rec = slots[i].GetComponent<slot>().receta;
+                Destroy(rec);
+                slots[i].GetComponent<slot>().empty = true;
+                for (int j = i; j < numSlots - 1; j++)
+                {
+                    if (!slots[j + 1].GetComponent<slot>().empty)
+                    {
+                        rec = slots[j + 1].GetComponent<slot>().receta;
+                        rec.transform.position = slots[j].transform.GetChild(0).transform.position;
+                        rec.transform.rotation = slots[j].transform.GetChild(0).transform.rotation;
+                        slots[j + 1].GetComponent<slot>().empty = true;
+                        slots[j].GetComponent<slot>().empty = false;
+                        slots[j].GetComponent<slot>().receta = rec;
+                        slots[j + 1].GetComponent<slot>().receta = null;
+
+                    }
+                    else break;
+                }
+                return true;
+            }
+            if (slots[i].GetComponent<slot>().empty) break;
+        }
+        return false;
+    }
+
+    public bool tiempo_Excedido(string tag)
+    {
+        for (int i = 0; i < numSlots; i++)
+        {
+            if (slots[i].GetComponent<slot>().receta.GetComponent<receta>().tag == tag)
+            {
                 rest_temporizadores(i);
                 GameObject rec = slots[i].GetComponent<slot>().receta;
                 Destroy(rec);

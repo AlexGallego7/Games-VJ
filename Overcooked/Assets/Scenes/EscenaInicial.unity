@@ -1955,6 +1955,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1332851197}
     m_Modifications:
+    - target: {fileID: 420125568772195146, guid: 7f0673d9d1d50cd499e89c33dccf102f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a279d6bfba61ed489a6c1b23e27b44c, type: 2}
     - target: {fileID: 2150225246485097832, guid: 7f0673d9d1d50cd499e89c33dccf102f, type: 3}
       propertyPath: m_RootOrder
       value: 2
