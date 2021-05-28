@@ -7,6 +7,7 @@ public class receta : MonoBehaviour
 {
 
     public new string tag;
+    public GameObject plato;
 
     
 

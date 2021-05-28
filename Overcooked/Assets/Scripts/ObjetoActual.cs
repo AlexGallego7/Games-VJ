@@ -577,4 +577,16 @@ public class ObjetoActual : MonoBehaviour
         objetoActual.GetComponent<Rigidbody>().isKinematic = true;
         objetoActual = null;
     }
+    public void crear_plato(GameObject plato)
+    {
+        nuevo_objeto = Instantiate(plato, new Vector3(0, 0, 0), Quaternion.identity);
+        objetoActual = nuevo_objeto;
+        objetoActual.GetComponent<CogerObjeto>().cogido = true;
+        objetoActual.GetComponent<CogerObjeto>().inicializado = true;
+        objetoActual.transform.SetParent(handZone);
+        objetoActual.transform.position = handZone.position;
+        objetoActual.transform.rotation = new Quaternion(0, 90, 0, 0);
+        objetoActual.GetComponent<Rigidbody>().useGravity = false;
+        objetoActual.GetComponent<Rigidbody>().isKinematic = true;
+    }
 }

@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a8a78fddaa08948870bbd878a0bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
   tag: mas_setas
+  plato: {fileID: 5706291176350378752, guid: b2328606ec6c96a4795e8aefa5bce024, type: 3}
